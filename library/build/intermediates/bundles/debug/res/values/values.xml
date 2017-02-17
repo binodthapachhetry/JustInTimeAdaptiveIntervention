@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#FF5722</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="icons">#000000</color>
+    <color name="primary">#03A9F4</color>
+    <color name="primary_dark">#0288D1</color>
+    <color name="primary_light">#B3E5FC</color>
+    <color name="primary_text">#ffffff</color>
+    <color name="secondary_text">#757575</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <string name="app_name">Wockets</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="default_web_client_id" translatable="false">596511588852-prbi7ma7ll59isoud84q6pj62ns81rrv.apps.googleusercontent.com</string>
+    <string name="email">Email</string>
+    <string name="finish">Finish</string>
+    <string name="firebase_database_url" translatable="false">https://project-3196244310896515051.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">596511588852</string>
+    <string name="google_api_key" translatable="false">AIzaSyCKFZ0JOvbc7TUZz7Xr9D4KtL_SdAoqMBQ</string>
+    <string name="google_app_id" translatable="false">1:596511588852:android:c3b151342c132ab4</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCKFZ0JOvbc7TUZz7Xr9D4KtL_SdAoqMBQ</string>
+    <string name="google_storage_bucket" translatable="false">project-3196244310896515051.appspot.com</string>
+    <string name="login">Login</string>
+    <string name="logo">Wockets</string>
+    <string name="next">Next</string>
+    <string name="password">Password</string>
+</resources>

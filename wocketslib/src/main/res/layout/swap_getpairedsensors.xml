@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/getpairedsensors_next"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Next" />
+
+    <Button
+        android:id="@+id/getpairedsensors_cancel"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Cancel" />
+
+    <ListView
+        android:background="#FFF"
+        android:cacheColorHint="#00000000"
+        android:id="@+id/getpairedsensors_listView"
+        android:scrollbars="vertical"
+        android:layout_width="240dp"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/getpairedsensors_next"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" 
+        android:layout_marginTop="10dp">
+    </ListView>
+
+</RelativeLayout>

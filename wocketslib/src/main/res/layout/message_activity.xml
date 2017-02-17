@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:paddingLeft="10dp" android:paddingRight="10dp"
+	android:orientation="vertical" style="?pageBackground">
+	<TextView android:id="@+id/messageActivityTitle" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="What can we help you with?"
+		android:textSize="20dp" style="?textSubheading" />
+	<EditText android:id="@+id/messageActivityMsgEditBox" android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1" android:gravity="top" />
+	<TextView android:id="@+id/messageActivityTextCharactersLeft" android:layout_width="wrap_content"
+		android:layout_gravity="right|top"
+		android:layout_height="wrap_content" android:text="Characters left:"
+		android:textSize="16dp" style="?textSubheading"
+		android:layout_marginBottom="10dp"/>
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+		<Button android:id="@+id/messageActivityBtnNevermind" android:layout_width="0px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Never Mind" style="?buttonBlue" />
+
+		<Button android:id="@+id/messageActivityBtnSend" android:layout_width="0px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Send" style="?buttonGreen" />
+
+	</LinearLayout>
+</LinearLayout>

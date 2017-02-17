@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	style="?pageBackground"
+	>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_weight="1"
+		android:padding="10dp" android:orientation="vertical">
+		<TextView android:id="@+id/message" android:text="Installing CITY App..."
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:gravity="center_horizontal" 
+			style="?textTitle"/>
+	</LinearLayout>
+
+	
+	<RelativeLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="bottom" android:layout_alignParentBottom="true">
+
+		<RelativeLayout android:orientation="horizontal"
+			android:layout_height="wrap_content" android:layout_width="fill_parent">
+
+			<Button android:id="@+id/btnDone" android:layout_margin="4dp"
+				android:layout_height="wrap_content" android:layout_width="100dp"
+				android:text="Do it..." 
+				style="?buttonGreen"
+				android:layout_alignParentRight="true" />
+
+		</RelativeLayout>
+	</RelativeLayout>
+</LinearLayout>	

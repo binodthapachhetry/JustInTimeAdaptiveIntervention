@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#FFF">
+	<TextView android:textSize="30dp" android:layout_height="40dp"
+		android:id="@+id/mywocketsTitle" android:text="My Wockets" android:textColor="#365370"
+		android:layout_width="wrap_content" android:textStyle="bold"
+		android:layout_marginTop="20dp"  android:layout_centerHorizontal="true" />
+	<FrameLayout android:layout_height="fill_parent"
+		android:layout_width="fill_parent" android:id="@+id/model"
+		android:layout_above="@+id/page20nm" android:layout_below="@+id/changeTitle"
+		android:layout_alignParentLeft="true" android:layout_alignParentRight="true">
+		<ImageView android:id="@+id/backgound" android:layout_width="fill_parent"
+			android:layout_height="fill_parent"/>
+		<include android:layout_width="fill_parent" android:layout_height="fill_parent"
+		layout="@layout/mywockets_setbutton"/>
+	</FrameLayout>
+	<Button android:layout_height="60dp" android:text="Done"
+		android:textSize="25dp" android:id="@+id/mywocketsdone" android:layout_width="fill_parent"
+		android:layout_alignParentBottom="true"/>
+</RelativeLayout>

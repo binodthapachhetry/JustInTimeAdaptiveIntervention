@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	style="?pageBackground"
+	>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_weight="1"
+		android:padding="10dp" android:orientation="vertical">
+		<TextView android:id="@+id/message" android:text="This will delete data associated with CITY apps. This app is just for CITY testing purposes or emergencies."
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:gravity="center_horizontal" 
+			style="?textTitle"/>
+	</LinearLayout>
+
+	
+	<RelativeLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="bottom" android:layout_alignParentBottom="true">
+
+		<RelativeLayout android:orientation="horizontal"
+			android:layout_height="wrap_content" android:layout_width="fill_parent">
+
+			<Button android:id="@+id/btnQuit" android:layout_margin="4dp"
+				android:layout_height="wrap_content" android:layout_width="100dp"
+				android:text="Quit" 
+				style="?buttonGreen"
+				android:layout_alignParentLeft="true" />
+
+			<Button android:id="@+id/btnDoIt" android:layout_margin="4dp"
+				android:layout_height="wrap_content" android:layout_width="100dp"
+				android:text="Do it..." 
+				style="?buttonRed"
+				android:layout_alignParentRight="true" />
+
+		</RelativeLayout>
+	</RelativeLayout>
+</LinearLayout>	

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" style="?pageBackground">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:padding="5dp" android:layout_weight="1">
+		<TextView android:id="@+id/surveyQuestions" android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:gravity="center_horizontal" style="?textTitleema" android:textSize="18dp"/>
+		<ListView android:id="@+id/lstChoices" android:layout_width="fill_parent" android:layout_marginTop="15dip"
+				android:layout_height="wrap_content" style="?listema"/>
+		<LinearLayout android:id="@+id/timepicker" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center"
+			android:layout_marginTop="20dp">
+			<edu.neu.android.wocketslib.numberpicker.NumberPicker
+				android:id="@+id/hours" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView android:id="@+id/hourtext" android:text="Hour" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+				android:textSize="18dp" />
+			<edu.neu.android.wocketslib.numberpicker.NumberPicker
+				android:id="@+id/minutes" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView android:id="@+id/minutetext" android:text="Minute" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+				android:textSize="18dp" />
+		</LinearLayout>
+		<Button android:id="@+id/datepicker" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center"
+			android:layout_marginTop="20dp" />
+		<LinearLayout android:id="@+id/freeform" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center"
+			android:layout_marginTop="20dp" android:orientation="vertical">
+		</LinearLayout>
+		
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:gravity="center">
+		<Button android:id="@+id/previousQuestion" android:layout_width="wrap_content"
+			android:layout_height="60dp" android:text="@string/back_button" style="?buttonBlue"
+			android:layout_weight="1" android:textSize="18dp"/>
+		<Button android:id="@+id/nextQuestion" android:layout_width="wrap_content"
+			android:layout_height="60dp" android:text="@string/next_button" style="?buttonYellow"
+			android:layout_weight="1" android:textSize="18dp"/>
+	</LinearLayout>
+</LinearLayout>

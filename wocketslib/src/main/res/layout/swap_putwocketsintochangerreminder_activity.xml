@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#FFF">
+    <TextView android:textSize="30dp" android:layout_height="40dp"
+		android:id="@+id/swapTitle" android:text="@string/swapTitle"
+		android:layout_width="wrap_content" android:textStyle="bold" android:textColor="#365370"
+		  android:layout_centerHorizontal="true" android:layout_marginTop="20dp" />
+		  
+	<TextView android:layout_height="wrap_content" android:layout_width="290dp"
+		android:text="@string/pagefive" android:textSize="25dp" android:layout_centerHorizontal="true"
+		 android:layout_marginTop="100dp" android:textColor="#000" android:id="@+id/textView1"/>
+
+	<Button android:layout_height="40dp" android:textSize="15dp" android:text="Tips for charging" 
+	android:id="@+id/page5tips" android:layout_width="wrap_content" 
+	android:layout_below="@+id/textView1" android:layout_alignParentRight="true" 
+	android:layout_marginTop="20dp"></Button>
+		 
+	<Button android:layout_height="60dp" android:textSize="25dp" android:text="Never Mind" 
+		android:id="@+id/page5nm" android:layout_width="160dp" 
+		android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"/>
+		
+	<Button android:layout_height="60dp" android:text="Did It"
+		android:textSize="25dp" android:id="@+id/page5did" android:layout_width="160dp"
+		android:layout_alignBaseline="@+id/page5nm"
+		android:layout_alignBottom="@+id/page5nm" android:layout_alignParentRight="true" />
+</RelativeLayout>

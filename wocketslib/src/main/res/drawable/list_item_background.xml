@@ -1,0 +1,16 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true">
+		<shape android:shape="rectangle">
+			<gradient android:startColor="@color/highlight_top"
+				android:endColor="@color/highlight_bottom" android:angle="270">
+			</gradient>
+		</shape>
+	</item>
+	<item android:state_focused="true">
+		<shape android:shape="rectangle">
+			<gradient android:startColor="@color/highlight_top"
+				android:endColor="@color/highlight_bottom" android:angle="270">
+			</gradient>
+		</shape>
+	</item>
+</selector>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	style="?pageBackground"
+	>
+	<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="Remind in how long?" android:gravity="center_horizontal"
+			style="?textTitle"			
+			/>
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="(C'mon, you can do it!)"
+		android:gravity="center_horizontal" style="?textSubheading"
+		android:paddingBottom="10dp" />
+		
+	<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:gravity="center_horizontal"
+			>
+			<Button android:id="@+id/btn5Min" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="5 minutes"
+				 style="?buttonGreen" />
+			<Button android:id="@+id/btn10Min" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="10 minutes"
+				 style="?buttonGreen" />
+			<Button android:id="@+id/btn30Min" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="30 minutes"
+				 style="?buttonGreen" />
+			<TextView android:id="@+id/txtOr" android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="or" android:gravity="center_horizontal"
+				style="?textSubheading" />
+			<Button android:id="@+id/btnNow" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Skip it..."
+				 style="?buttonRed" />
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

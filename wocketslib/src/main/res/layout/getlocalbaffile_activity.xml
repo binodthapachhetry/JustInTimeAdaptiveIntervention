@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?pageBackground"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+	<TextView  android:id="@+id/convertorIntro"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textSize="16dp"
+        android:textColor="@android:color/white"
+        android:text="Below are the raw data listed by days. Click the date and select time period to decode." />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        style="?whiteBackground"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/convertorIntro"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true" >
+
+        <LinearLayout
+            android:id="@+id/dataDisplay"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

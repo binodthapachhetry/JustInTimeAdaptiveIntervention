@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+	<Button android:layout_x="210dp" android:layout_y="30dp"
+			android:text="Tips on\norienting\nWockets" android:id="@+id/tips" android:layout_height="wrap_content"
+			android:layout_width="wrap_content" />
+	<ImageButton android:layout_x="48dp" android:layout_y="175dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/swaprighthand" />
+	<ImageButton android:layout_x="95dp" android:layout_y="350dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/swaprightfoot"/>
+	<ImageButton android:layout_x="220dp" android:layout_y="175dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/swaplefthand"/>
+	<ImageButton android:layout_x="175dp" android:layout_y="350dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/swapleftfoot"/>
+	<ImageButton android:layout_x="99dp" android:layout_y="205dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/swaprightpocket"/>
+	<ImageButton android:layout_x="168dp" android:layout_y="205dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/swapleftpocket"/>
+	
+</AbsoluteLayout>

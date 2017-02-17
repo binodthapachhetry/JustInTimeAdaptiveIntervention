@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'android-apt'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support:support-annotations:24.2.1'
+
+    compile 'com.android.support:design:24.2.1'
+
+    compile 'com.google.firebase:firebase-core:9.6.1'
+    compile 'com.google.firebase:firebase-database:9.6.1'
+    compile 'com.google.firebase:firebase-crash:9.6.1'
+    compile 'com.google.firebase:firebase-auth:9.6.1'
+    compile 'com.google.firebase:firebase-messaging:9.6.1'
+    compile 'com.google.firebase:firebase-storage:9.6.1'
+
+    compile 'com.google.code.gson:gson:2.7'
+
+    compile 'com.google.android.gms:play-services:9.6.1'
+
+    // For encryption
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+
+    // https://mvnrepository.com/artifact/net.lingala.zip4j/zip4j
+    compile group: 'net.lingala.zip4j', name: 'zip4j', version: '1.3.2'
+
+    // https://mvnrepository.com/artifact/net.sf.opencsv/opencsv
+    compile group: 'net.sf.opencsv', name: 'opencsv', version: '2.3'
+    // https://github.com/greenrobot/EventBus
+    compile 'org.greenrobot:eventbus:3.0.0'
+    // https://github.com/satyan/sugar
+    compile 'com.github.satyan:sugar:1.5'
+
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile project(':wocketslib-mhealthformat')
+}
+
+apply plugin: 'com.google.gms.google-services'

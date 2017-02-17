@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" style="?pageBackground">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_weight="1"
+		android:padding="10dp" android:orientation="vertical">
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="Today," android:textSize="35dp" android:gravity="center_horizontal"
+			style="?textSubheading" />
+		<TextView android:id="@+id/totalCaloriesBurnt" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="1532" android:textSize="60dp"
+			android:textStyle="bold" android:gravity="center_horizontal"
+			android:layout_marginTop="10dp" style="?textTitle" />
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="kCals burnt so far." android:textSize="35dp" android:gravity="center_horizontal"
+			android:layout_marginTop="10dp" style="?textSubheading" />
+	</LinearLayout>
+	<!-- <Button android:id="@+id/btnYourHistory" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+		android:text="Your History" android:layout_gravity="center"
+		android:layout_marginBottom="10dp" style="?buttonRed" /> -->
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<Button android:id="@+id/btnBack" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Back"
+			android:layout_weight="1" style="?buttonBlue" />
+		<Button android:id="@+id/btnDone" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Done" style="?buttonGreen" />
+	</LinearLayout>
+</LinearLayout>

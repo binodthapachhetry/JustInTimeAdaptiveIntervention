@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="android_wear_capabilities" translatable="false">
+        <!-- declaring the provided capabilities -->
+        <item>phire</item>
+    </string-array>
+</resources>

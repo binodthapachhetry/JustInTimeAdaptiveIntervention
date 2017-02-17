@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" style="?pageBackground">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:padding="5dp" android:layout_weight="1">
+		<TextView android:id="@+id/title" android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:gravity="center_horizontal" style="?textTitle" />
+		<TextView android:id="@+id/subHeading" android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:gravity="left"
+			android:layout_marginTop="10dp" style="?textSubheading" />
+
+		<ListView android:id="@+id/lstPhysicalActivities" android:layout_width="fill_parent"
+				android:layout_height="fill_parent" android:layout_weight="1" style="?list" />
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:gravity="center">
+		<Button android:id="@+id/btnPostpone" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Never mind" style="?buttonRed"
+			android:layout_weight="1" />
+		<Button android:id="@+id/btnBack" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Back" style="?buttonBlue"
+			android:layout_weight="1" />
+		<Button android:id="@+id/btnNext" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Next" style="?buttonYellow"
+			android:layout_weight="1" />
+	</LinearLayout>
+</LinearLayout>

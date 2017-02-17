@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp" android:padding="10dp"
+    android:layout_height="wrap_content" android:background="#FFF"
+    android:id="@+id/infoDialog">
+
+    <TextView
+        android:id="@+id/authrzTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="18dp"
+        android:textColor="#FF6000"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/authrzTitle"
+        android:layout_marginTop="20dp"
+        android:text="Last Name:"
+        android:textColor="#FF6000"
+        android:textSize="16dp"/>
+
+    <EditText
+        android:id="@+id/editLastName"
+        android:layout_width="120dp"
+        android:textSize="16dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/textView2"
+        android:inputType="textPersonName" 
+        android:background="#eee"
+        android:textColor="#111"
+        >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="25dp"
+        android:text="Date of Birth:"
+        android:textSize="16dp" 
+        android:textColor="#FF6000"
+        />
+    <Button
+        android:id="@+id/authrzDOB"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:text="Select date" 
+        android:textSize="16dp"
+        />
+    
+
+    <Button
+        android:id="@+id/authorizeCancel"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="10dp"
+        android:text="Cancel" 
+        style="?buttonBlue"/>
+    <Button
+        android:id="@+id/authorizeSubmit"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/authorizeCancel"
+        android:text="Submit" 
+        style="?buttonBlue"/>
+
+</RelativeLayout>

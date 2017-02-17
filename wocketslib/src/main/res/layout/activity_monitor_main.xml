@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:padding="4dip"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="match_parent">
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:layout_width="wrap_content" android:id="@+id/start_alarm" android:layout_height="wrap_content" android:text="Start" android:focusable="true" android:layout_alignParentLeft="false" android:layout_toRightOf="@+id/start_alarm" android:layout_centerHorizontal="true" android:layout_centerInParent="true" android:layout_centerVertical="true"></Button>
+        <Button android:layout_width="wrap_content" android:id="@+id/stop_alarm" android:layout_height="wrap_content" android:text="Stop" android:layout_toRightOf="@+id/start_alarm" android:layout_centerInParent="true" android:layout_centerHorizontal="true"></Button>
+    </RelativeLayout>
+    <Spinner android:layout_width="match_parent" android:id="@+id/spinner1" android:layout_height="wrap_content"></Spinner>
+    <TextView android:text="Heart Rate:" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/HeartRateLabel"></TextView>
+    <TableLayout android:id="@+id/tableLayout1" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow1">
+            <TextView android:text="Min" android:id="@+id/minLabel" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/min" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tableRow2">
+            <TextView android:text="Current" android:id="@+id/currentLabel" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/current" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow3">
+            <TextView android:text="Max" android:id="@+id/maxLabel" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/max" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow4">
+            <TextView android:id="@+id/averageLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Average"></TextView>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/average" android:paddingLeft="20px"></TextView>
+        </TableRow>
+         <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tableRow5">
+            <TextView android:id="@+id/trailingLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Trailing Average"></TextView>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tAverage" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow6" android:layout_height="wrap_content" android:layout_width="match_parent">
+                <TextView android:text="Battery" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView3"></TextView>
+                <TextView android:layout_marginLeft="20px" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/battery"></TextView>
+            </TableRow>
+            <TableRow android:id="@+id/tableRow7" android:layout_height="wrap_content" android:layout_width="match_parent">
+                <TextView android:text="Connection" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/connectionLabel"></TextView>
+                <TextView android:layout_marginLeft="20px" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/connection"></TextView>
+            </TableRow>
+    </TableLayout>
+    
+   <!-- <com.androidplot.xy.XYPlot
+    android:id="@+id/mySimpleXYPlot" 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10px"
+    android:layout_marginLeft="10px"
+    android:layout_marginRight="10px"
+    title="Heart Rate"/> -->
+    <TextView android:text="" android:id="@+id/spacer" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Today's Activity Score:" android:id="@+id/ActivityScoreLabel"></TextView>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/activityScoreValue"></TextView>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/spacer2"></TextView>
+    <TextView android:id="@+id/textView16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Previous Week:"></TextView>
+    <TableLayout android:id="@+id/tableLayout2" android:layout_height="wrap_content" android:layout_width="match_parent">
+        <TableRow android:id="@+id/tableRow8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal">
+            <TextView android:text="TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/day_7"></TextView>
+            <TextView android:text="TextView" android:id="@+id/day_7_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow9" android:layout_height="wrap_content" android:layout_width="match_parent" android:gravity="center_horizontal">
+            <TextView android:text="TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/day_6"></TextView>
+            <TextView android:text="TextView" android:id="@+id/day_6_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal">
+            <TextView android:text="TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/day_5"></TextView>
+            <TextView android:layout_width="wrap_content" android:text="TextView" android:layout_height="wrap_content" android:id="@+id/day_5_score" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow11" android:layout_height="wrap_content" android:layout_width="wrap_content" android:gravity="center_horizontal">
+            <TextView android:text="TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/day_4"></TextView>
+            <TextView android:text="TextView" android:id="@+id/day_4_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal">
+            <TextView android:text="TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/day_3"></TextView>
+            <TextView android:text="TextView" android:id="@+id/day_3_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal">
+            <TextView android:layout_height="wrap_content" android:text="TextView" android:layout_width="wrap_content" android:id="@+id/day_2"></TextView>
+            <TextView android:layout_width="wrap_content" android:text="TextView" android:layout_height="wrap_content" android:id="@+id/day_2_score" android:paddingLeft="20px"></TextView>
+        </TableRow>
+        <TableRow android:id="@+id/tableRow14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_horizontal">
+            <TextView android:text="TextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/day_1"></TextView>
+            <TextView android:text="TextView" android:id="@+id/day_1_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="20px"></TextView>
+        </TableRow>
+    </TableLayout> 
+
+</LinearLayout>

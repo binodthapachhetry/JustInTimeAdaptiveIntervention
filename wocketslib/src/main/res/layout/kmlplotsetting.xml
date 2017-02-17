@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?pageBackground"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2pt"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:shadowDx="1"
+            android:shadowDy="-1"
+            android:shadowRadius="1.5"
+            android:text="Choose the start date:"
+            android:textSize="25dp" />
+
+        <DatePicker
+            android:id="@+id/start_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2pt"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:shadowDx="1"
+            android:shadowDy="-1"
+            android:shadowRadius="1.5"
+            android:text="Choose the end date:"
+            android:textSize="25dp" />
+
+        <DatePicker
+            android:id="@+id/end_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <CheckBox
+            android:id="@+id/isPlotLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="path with line(slow)" 
+            android:layout_gravity="center_horizontal" />
+        
+        <CheckBox
+            android:id="@+id/isMergePoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Merge Nearest Points(Recommend)" 
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_margin="2pt"
+                android:layout_weight="1"
+                android:onClick="cancel"
+                android:text="cancel"
+                android:textSize="18dp" />
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_margin="2pt"
+                android:layout_weight="1"
+                android:onClick="plot"
+                android:text="show on map"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

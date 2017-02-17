@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="Theme" parent="android:Theme.NoTitleBar">
+		<item name="pageMargin">2sp</item>
+		<item name="android:windowTitleSize">20dip</item>
+	</style>
+
+	<style name="NoTitle_FullScreen" parent="android:Theme.NoTitleBar">
+       <item name="android:windowNoTitle">true</item>     
+        <item name="android:windowFullscreen">true</item>       
+ 	</style>
+
+	<style name="Theme.CITY">
+		<item name="pageBackground">@style/page_background_city</item>
+		<item name="textTitle">@style/text_title_city</item>
+		<item name="textTitleema">@style/text_title_ema</item>
+		<item name="listema">@style/list_ema</item>
+				
+		<item name="textSubheading">@style/text_subheading_city</item>
+		<item name="textControlTitle">@style/text_control_title_city</item>
+		<item name="textControlSubheading">@style/text_control_subheading_city</item>
+		<item name="textBody">@style/text_body_city</item>
+		<item name="textControlBody">@style/text_control_body_city</item>
+		<item name="textCallout">@style/text_callout_city</item>
+		<item name="textCheckBox">@style/text_check_box_city</item>
+		<item name="editText">@style/edittext_city</item>
+		<item name="checkBox">@style/check_box_city</item>
+		<item name="whiteBackground">@style/white_background_city</item>
+		<item name="buttonGreen">@style/button_green_city</item>
+		<item name="buttonRed">@style/button_red_city</item>
+		<item name="buttonYellow">@style/button_yellow_city</item>
+		<item name="buttonBlue">@style/button_blue_city</item>
+		<item name="list">@style/list_city</item>
+		<item name="listItem">@style/list_item_city</item>
+		<item name="listDivider">@style/list_divider_city</item>
+		<item name="listText">@style/list_text_city</item>
+		<item name="listTextSmall">@style/list_text_small_city</item>
+		<item name="pageMargin">@dimen/page_margin_city</item>
+		<item name="toast">@style/toast_city</item>
+		<item name="table">@style/table_city</item>
+		<item name="tableHeader">@style/table_header_city</item>
+		<item name="tableHeaderColumn">@style/table_header_column_city</item>		
+	</style>
+		
+	
+</resources>

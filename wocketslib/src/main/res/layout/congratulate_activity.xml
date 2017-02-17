@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" style="?pageBackground">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:padding="5dp" android:layout_weight="1">
+		<TextView android:id="@+id/title" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center_horizontal"
+			style="?textTitle" />
+		<ScrollView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginTop="10dp"
+			android:layout_weight="1">
+			<TextView android:id="@+id/congratulationMsg" android:layout_width="fill_parent"
+				android:layout_height="fill_parent" style="?textBody" />
+		</ScrollView>
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:gravity="center"
+		android:layout_marginTop="10dp">
+		<Button android:id="@+id/btnYourHistory" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Your History" style="?buttonBlue"
+			android:layout_weight="1" />
+		<Button android:id="@+id/btnDone" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Submit your answers!" style="?buttonRed"
+			android:layout_weight="1" />
+	</LinearLayout>
+
+</LinearLayout>

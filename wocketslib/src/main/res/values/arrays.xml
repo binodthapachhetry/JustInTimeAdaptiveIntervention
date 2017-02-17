@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="calorieEstimates">
+		<item>Estimate Calories...</item>
+		<item>&lt;50</item>
+		<item>50-100</item>
+		<item>100-200</item>
+		<item>200-300</item>
+		<item>300-400</item>
+		<item>400-500</item>
+		<item>500-600</item>
+		<item>600-700</item>
+		<item>700-800</item>
+		<item>800+</item>
+	</string-array>
+</resources>

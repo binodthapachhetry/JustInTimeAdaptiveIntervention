@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	>
+	<TextView android:id="@+id/eatenFoodName" android:layout_width="100dp" android:layout_height="wrap_content"
+		android:text="Food" android:layout_weight="1" android:background="#AAAAAA"
+		android:layout_marginRight="2dp" android:padding="2dp" android:textSize="15dp"
+		style="?textControlBody"
+		/>
+	<TextView android:id="@+id/serving" android:layout_width="60dp" android:layout_height="fill_parent"
+		android:text="Serv" android:background="#AAAAAA" android:layout_marginRight="2dp"
+		android:padding="2dp"  android:textSize="15dp"
+		style="?textControlBody"
+		/>
+	<TextView android:id="@+id/calories" android:layout_width="60dp" android:layout_height="fill_parent"
+		android:text="KCals" android:background="#AAAAAA" android:padding="2dp"  android:textSize="15dp"
+		style="?textControlBody"
+		/>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" style="?pageBackground">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:padding="5dp" android:layout_weight="1">
+		<TextView android:id="@+id/heading" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="left" style="?textTitle" />
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center"
+			android:layout_marginTop="25dp" android:layout_weight="1">
+			<edu.neu.android.wocketslib.numberpicker.NumberPicker
+				android:id="@+id/hours" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView android:text="Hours" android:layout_width="wrap_content"
+				android:id="@+id/hourstext"
+				android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+				android:textSize="18dp" android:paddingRight="6dp" />
+			<edu.neu.android.wocketslib.numberpicker.NumberPicker
+				android:id="@+id/minutes" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView android:text="Minutes" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+				android:textSize="18dp" />
+		</LinearLayout>
+		<TextView android:id="@+id/question" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="left"
+			android:layout_marginTop="10dp" style="?textSubheading" />
+		<Spinner android:id="@+id/answer" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginBottom="20dp" />
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:gravity="center">
+		<Button android:id="@+id/btnBack" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Back" style="?buttonBlue"
+			android:layout_weight="1" />
+		<Button android:id="@+id/btnNext" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Next" style="?buttonYellow"
+			android:layout_weight="1" />
+	</LinearLayout>
+</LinearLayout>

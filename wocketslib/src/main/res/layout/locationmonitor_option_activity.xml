@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" style="?pageBackground">
+	<ScrollView android:id="@+id/scrollview" android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:layout_above="@+id/buttonStartShowLocation" 
+		android:layout_marginBottom="10dp"
+		android:layout_alignParentTop="true" style="?whiteBackground">
+		<RelativeLayout android:id="@+id/dataDisplay" android:orientation="vertical"
+		    android:layout_width="fill_parent" android:layout_height="wrap_content">
+		</RelativeLayout>
+    </ScrollView>
+	<Button android:id="@+id/buttonStartShowLocation" android:layout_width="fill_parent"
+	    	android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content" android:text="Get my current location" style="?buttonGreen"/>
+					
+</RelativeLayout>

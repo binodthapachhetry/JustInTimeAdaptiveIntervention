@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:gravity="center_horizontal">
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<Button android:id="@+id/testTransitBtn" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Test Sync Transit"
+			android:layout_weight="1" />
+		<Button android:id="@+id/testSyncBtn" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Test Sync"
+			android:layout_weight="1" />
+		<Button android:id="@+id/copyBackBtn" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Copy Back To Internal"
+			android:layout_weight="1" />
+	</LinearLayout>
+<TextView android:id="@+id/status1" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+</LinearLayout>

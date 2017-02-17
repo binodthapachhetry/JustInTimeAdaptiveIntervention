@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+     <string name="app_name">WOCKETS Application</string>
+    <string name="version">1.0</string>
+
+<!-- Activity Monitor Strings -->
+
+    <string name="inactivityNotification">Want to take a walk?</string>
+    <string name="inactivityNotificationDetail">You haven\'t moved in a while</string>
+    <string name="emotionNotification">Did something emotional happen?</string>
+    <string name="emotionNotificationDetail">Your heart rate jumped.</string>
+	<string name="readingNotification">Reading sensor data</string>
+   <string name="activity_monitor_app_name">WOCKETS Application</string>
+
+<!-- Other Strings -->
+
+    <string name="swapTitle">Swap Wockets</string>
+     <string name="changeTitle">Change Wockets</string>
+    <string name="doubleCheck">Double Check</string>
+    <string name="label">Select a Wocket for your</string>
+    <string name="lw"><b>Left Wrist</b></string>
+    <string name="la"><b>Left Ankle</b></string>
+    <string name="rw"><b>Right Wrist</b></string>
+    <string name="ra"><b>Right Ankle</b></string>
+    <string name="lp"><b>Left Pocket</b></string>
+    <string name="rp"><b>Right Pocket</b></string>
+    <string name="pagetwo">Are you ready to swap your Wockets with those that have been charging?</string>
+    <string name="pagethree">Take off the Wockets you\'ve been wearing and put them aside for a moment.</string>
+    <string name="pagefour">You are ready to put your Wockets on.\n\nRemember, please try to wear the \'W\' sensor on the dominant wrist and the same-colored \'A\' sensor on the dominant ankle.</string>
+    <string name="pagefive">Put the Wockets you set aside in the charger so they will be ready next time.</string>
+    <string name="pagesix">Take the Wockets from the charger and place them in the bands.</string>
+    <string name="pagefourteen">Remember, try to wear the \'W\' sensor on your dominant wrist and the same-colored \'A\' sensor on your dominant ankle.
+    		It\'s ok to wear them elsewhere sometimes, but please try to use the dominant wrist and dominant ankle if you can.</string>
+   	<string name="pagefifteen">In the Wockets study, you can only wear two Wockets at a time. Remove one to add one to the </string>
+	<string name="pagesixteenpart1">You have chosen to wear</string>
+	<string name="pagesixteenpart2">Wocket. Try to wear two whenever you can for the study.</string>	 
+	<string name="pageseventeen">You are wearing</string>
+	<string name="pagenineteenpart1">Please note that you have</string>
+	<string name="pagenineteenpart2">Wocket selected now. Are you sure this is what you want?</string> 	
+	<string name="pagetwentyone">You are canceling the swap so you will not have any Wockets selected. Are you sure this is what you want?</string>
+
+
+    <string name="msg2_sms">Type your comment here to send us a text.</string>
+
+
+    <!-- DATASTORAGE -->
+
+	<string name="permdesc_content_provider">Permission for Read/Write WOCKETS Content Provider</string>
+
+    <!-- TRACKERS -->
+
+    <string name="app_name_level3pa">WOCKETS Level3 PA Tracker</string>
+
+    <!-- ControllerService -->
+
+    <string name="app_name_controller_service">WOCKETS Controller Service</string>
+
+    <!-- STARTUP -->
+
+    <string name="app_name_file_transfer">WOCKETS File Transfer</string>
+    <string name="app_name_data_uploader">WOCKETS Data Uploader</string>
+    <string name="app_name_example">File Transfer Activity EXAMPLE CALL</string>
+    <string name="app_name_file_cleaner_activity">WOCKETS File Cleaner</string>
+       
+    <string name="wait_message">The Wockets app needs to get some data from the Internet. Hold on! This may take a few moments (or even minutes) if you have a slow connection.</string>
+    
+    <!-- ThisWeek -->
+
+     <string name="app_name_thisweek">Right Now In WOCKETS</string>
+
+	<!-- WeightGraph -->
+
+	<string name="app_name_weightgraph">CITY WeightGraph</string>
+     
+    <!--           -->
+
+     <string name="app_name_tutorial_player">WOCKETS Tutorial Player</string>
+     <string name="app_name_tips_player">CITY Tips Player</string>
+     <string name="app_name_guidelines">WOCKETS Tips Player</string>
+
+    <string name="app_name_application">Wockets</string>
+    
+    <string name="app_title">Welcome to Wockets!</string>
+    <string name="setupactivity_app_title">Setup Your Wockets</string>
+
+    <string name="app_title_staff_setup_activity">Wockets Staff Setup</string>
+
+    <string name="app_title_activity_monitor_simple">Wockets Sensors Status</string>
+    
+    <string name="selection_message">"You are in "</string>
+        
+    <string name="help_website">http://web.mit.edu/WOCKETS/faq.html</string>
+    <string name="news_website">http://web.mit.edu/WOCKETS/news.html</string>
+    <string name="update_website">http://web.mit.edu/WOCKETS/u</string>
+    
+    <string name="update_package">edu.neu.android.wocketslib</string>
+    <string name="update_class">edu.neu.android.wocketslib.filetransfer.WOCKETSInstallerActivity</string>
+    
+    <string name="file_cleaner_package">edu.neu.android.wocketslib</string>
+    <string name="file_cleaner_class">edu.neu.android.wocketslibfiletransfer.FileCleanerActivity</string>
+    
+    <string name="setup_scale_package">edu.neu.android.wocketslib</string>
+    <string name="setup_scale_class">edu.neu.android.wocketslibscaleservice.btscale.ui.SetupScaleActivity</string>
+
+
+    <string name="get_help">Get Help</string>
+    <string name="send_comments">Send Comments</string>
+    <string name="parent_get_help">GetHelpActivity</string>
+    <string name="parent_send_comment">SendCommentActivity</string>
+
+    <string name="title1">What can we help you with?</string>
+    <string name="msg1">Type your question here to send us an email.</string>
+    <string name="title2">We appreciate your thoughts</string>
+    <string name="msg2">Type your comment here to send us an email.</string>
+
+<!-- BARRIERS -->
+
+    <string name="app_name_level3barriers">WOCKETS Level 3 Barriers</string>
+
+<!-- GOALS -->
+
+    <string name="app_name_level1goalsetting">WOCKETS Level1 Goal Setting</string>
+    <string name="sibling">1</string>
+
+<!-- FRIDGE BUTLER -->
+    <string name="title"><b>Fridge Butler</b></string>
+    <string name="welcomeAgain">Welcome!</string>
+    <string name="fridgebutler_app_name">Fridge Butler</string>
+    <string name="spinnerName">Notification Frequency</string>
+    <string name="addNew">Add New</string>
+    <string name="nextButton">Next</string>
+    <string name="setdate">Set Fresh Days</string>
+    <string-array name="setFrequency">
+    <item>1 time/day</item>
+    <item>2 times/day</item>
+    <item>3 times/day</item>
+    </string-array> 
+
+<!-- Sensor Logger -->
+
+    <string name="app_name_sensor_logger">WOCKETS Sensor Logger</string>
+        
+	<!-- These settings are copied from the Android settings program
+		 see:
+		 http://android.git.kernel.org/?p=platform/packages/apps/Settings.git;a=blob;f=res/values/strings.xml;hb=HEAD
+		  -->
+	<string name="battery_info_status_label">Battery status:</string>
+	<string name="battery_info_power_label">Power plug:</string>
+	<string name="battery_info_scale_label">Battery scale:</string>
+	<string name="battery_info_level_label">Battery level:</string>
+	<string name="battery_info_health_label">Battery health:</string>
+	<string name="battery_info_technology_label">Battery technology:</string>
+	<string name="battery_info_voltage_label">Battery voltage:</string>
+	<string name="battery_info_voltage_units">mV</string>
+	<string name="battery_info_temperature_label">Battery temperature:</string>
+	<string name="battery_info_temperature_units">\u00B0 C</string>
+	<string name="battery_info_uptime">Time since boot:</string>
+	<string name="battery_info_awake_battery">Awake time on battery:</string>
+	<string name="battery_info_awake_plugged">Awake time when charging:</string>
+	<string name="battery_info_screen_on">Screen ON time:</string>
+	
+	<string name="battery_info_status_unknown">Unknown</string>
+	<string name="battery_info_status_charging">Charging</string>
+	<string name="battery_info_status_charging_ac">(AC)</string>
+	<string name="battery_info_status_charging_usb">(USB)</string>
+	<string name="battery_info_status_discharging">Discharging</string>
+	<string name="battery_info_status_not_charging">Not charging</string>
+	<string name="battery_info_status_full">Full</string>
+	
+	<string name="battery_info_power_unplugged">Unplugged</string>
+	<string name="battery_info_power_ac">AC</string>
+	<string name="battery_info_power_usb">USB</string>
+	<string name="battery_info_power_ac_usb">AC+USB</string>
+	<string name="battery_info_power_unknown">Unknown</string>
+	
+	<string name="battery_info_health_unknown">Unknown</string>
+	<string name="battery_info_health_good">Good</string>
+	<string name="battery_info_health_overheat">Overheat</string>
+	<string name="battery_info_health_dead">Dead</string>
+	<string name="battery_info_health_over_voltage">Over voltage</string>
+	<string name="battery_info_health_unspecified_failure">Unknown error</string>
+	<string name="nointernetnofilewarning">The first time you run swap after installing, you must have an Internet connection, which you do not right now.</string>
+	<string name="swapexit">Wockets are swapped!\nThank you!</string>
+	<string name="changeexit">The locations of your Wockets have been recorded.\nThank you!</string>    
+	<!-- USC Study -->
+
+	<string name="app_name_uscstudy">Mobile Teens</string>
+	
+	<!-- Hard Code for Spanish Tranlation-->
+	<string name="back_button">Back</string>
+    <string name="next_button">Next</string>
+    <string name="done_button">Done</string>
+    <string name="skip_question">Are you sure to skip this question?</string>
+    <string name="yes">Yes</string>
+	<string name="no">No</string>
+	<string name="skip_title">skip question</string>
+	<string name="cannot_skip">Sorry, you cannot skip this question.</string>
+	<string name="got_it">got it</string>
+</resources>

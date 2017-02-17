@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" style="?pageBackground">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/setupactivity_app_title"
+		style="?textTitle" />
+
+	<View android:layout_width="fill_parent" android:layout_height="2sp"
+		style="?listDivider" />
+
+	<!-- The buttons at the bottom of the screen. -->
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_gravity="center" 
+		>
+
+		<View android:layout_width="fill_parent" android:layout_height="20dp" />
+
+		<Button android:id="@+id/buttonCleanTimes" android:layout_width="400px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Clean prompt timers" style="?buttonBlue" />
+
+		<View android:layout_width="fill_parent" android:layout_height="20dp" />
+
+		<Button android:id="@+id/buttonCleanSomeFiles" android:layout_width="400px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Clean system files" style="?buttonRed" />
+
+		<View android:layout_width="fill_parent" android:layout_height="20dp" />
+
+		<Button android:id="@+id/buttonCleanAllFiles" android:layout_width="400px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Clean ALL files (deletes your data!)" style="?buttonRed" />
+
+		<View android:layout_width="fill_parent" android:layout_height="20dp" />
+
+		<Button android:id="@+id/buttonUploadData" android:layout_width="400px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Upload data now" style="?buttonBlue" />
+
+		<View android:layout_width="fill_parent" android:layout_height="20dp" />
+
+			<Button android:id="@+id/buttonSetupScale" android:layout_width="400px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Setup scale (fix scale problems)" style="?buttonRed" />
+
+		<View android:layout_width="fill_parent" android:layout_height="20dp" />
+
+			<Button android:id="@+id/buttonInstall" android:layout_width="400px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Install from market" style="?buttonGreen" />
+
+		<View android:layout_width="fill_parent" android:layout_height="20dp" />
+
+	</LinearLayout>
+	
+	<LinearLayout 
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content" 
+		android:gravity="left">
+
+		<Button android:id="@+id/buttonBack" android:layout_width="400px"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:text="Back" style="?buttonBlue" />
+
+	</LinearLayout>
+	
+
+</LinearLayout>

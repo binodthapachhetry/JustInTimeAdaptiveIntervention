@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+ 	<!-- =============================================================== -->
+ 	<!-- CITY TEXT SIZES                                                    -->
+	<!-- =============================================================== -->
+
+
+	<!-- =============================================================== -->
+ 	<!-- CITY styles                                                    -->
+	<!-- =============================================================== -->
+
+	<dimen name="page_margin_city">10dp</dimen>
+
+<!-- 	Related to CountDownApp -->
+
+		<style name="ListItemButton">
+        <item name="android:layout_width">44sp</item>
+        <item name="android:layout_height">44sp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@drawable/list_item_background</item>
+    </style>
+       
+		<style name="BuddyFullButton" parent="@style/ListItemButton">
+        <item name="android:background">@drawable/buddy_full_button_background</item>
+    </style>
+    
+
+ 	<!-- =============================================================== -->
+ 	<!-- CITY BACKGROUND styles                                          -->
+	<!-- =============================================================== -->
+
+ 	<style name="page_background_city" >
+ 		<item name="android:background">@drawable/blue_gradient_background</item>
+ 		<item name="android:padding">@dimen/page_margin_city</item>
+ 	</style>
+
+	<style name="white_background_city">
+		<item name="android:background">@drawable/white_container_city</item>
+		<item name="android:padding">@dimen/page_margin_city</item>
+	</style>
+
+	<!-- =============================================================== -->
+	<!-- Generic Styles -->
+	<!-- =============================================================== -->
+
+	<style name="list_divider">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">1dip</item>
+		<item name="android:layout_marginTop">4dip</item>
+		<item name="android:layout_marginBottom">4dip</item>
+	</style>
+
+ 	<!-- =============================================================== -->
+ 	<!-- CITY TEXT styles                                                -->
+	<!-- =============================================================== -->
+	
+	<style name="text_body_city">
+		<item name="android:textColor">@color/text_body_city</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:shadowDy">1.0</item>
+		<item name="android:shadowRadius">1</item>
+		<item name="android:shadowColor">#888</item>
+	</style>
+	<style name="text_subheading_city" parent="text_body_city">
+		<item name="android:textColor">@color/text_subheading_city</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:shadowDy">2.0</item>
+		<item name="android:shadowRadius">2</item>
+		<item name="android:shadowColor">#737373</item>
+	</style>
+	<style name="text_title_city" parent="text_body_city">
+		<item name="android:textColor">@color/text_title_city</item>
+		<item name="android:textSize">24dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:shadowDy">2.0</item>
+		<item name="android:shadowRadius">2</item>
+		<item name="android:shadowColor">#737373</item>
+	</style>
+	<style name="text_callout_city" parent="text_body_city">
+		<item name="android:textColor">@color/text_callout_city</item>
+		<item name="android:textSize">14dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:shadowDy">2.0</item>
+		<item name="android:shadowRadius">2</item>
+		<item name="android:shadowColor">#737373</item>
+	</style>
+	
+	<style name="text_control_body_city">
+		<item name="android:textColor">@color/text_control_body_city</item>
+		<item name="android:textSize">18dp</item>
+	</style>
+	<style name="text_control_subheading_city" parent="text_control_body_city">
+		<item name="android:textColor">@color/text_control_subheading_city</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:shadowDy">2.0</item>
+		<item name="android:shadowRadius">2</item>
+		<item name="android:shadowColor">#AAA</item>
+	</style>
+	<style name="text_control_title_city" parent="text_control_body_city">
+		<item name="android:textColor">@color/text_control_title_city</item>
+		<item name="android:textSize">24dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:shadowDy">2.0</item>
+		<item name="android:shadowRadius">2</item>
+		<item name="android:shadowColor">#AAA</item>
+	</style>
+
+ 	<!-- =============================================================== -->
+ 	<!-- CITY EDIT TEXT styles                                              -->
+	<!-- =============================================================== -->
+
+	<style name="edittext_city" parent="@android:style/Widget.EditText">
+	 	<item name="android:focusable">true</item>
+ 		<item name="android:focusableInTouchMode">true</item>
+ 		<item name="android:clickable">true</item>
+ 		<item name="android:background">@drawable/edittext_city</item>
+ 		<item name="android:textColor">@color/text_edittext_city</item>
+ 		<item name="android:gravity">center_vertical</item>
+<!-- 		<item name="android:textColorHint">@color/default_text_color</item>-->
+<!-- 		<item name="android:textColorHighlight">@color/transparent_red</item>-->
+ 	</style>
+ 	
+ 	<!-- =============================================================== -->
+ 	<!-- CITY TABLE styles                                              -->
+	<!-- =============================================================== -->
+
+	<style name="table_city" parent="list_city">
+		<item name="android:background">#FFF</item>		
+	</style>
+	<style name="table_header_city" parent="list_item_city">
+		<item name="android:background">#AAA</item>		
+		<item name="android:focusable">false</item>
+		<item name="android:clickable">false</item>		
+	</style>
+	<style name="table_header_column_city" parent="list_item_city">
+		<item name="android:background">#AAA</item>		
+		<item name="android:focusable">false</item>
+		<item name="android:clickable">false</item>		
+		<item name="android:textSize">10dp</item>		
+	</style>
+
+ 	<!-- =============================================================== -->
+ 	<!-- CITY TOAST styles                                              -->
+	<!-- =============================================================== -->
+
+	<style name="toast_city">
+	    <item name="android:textColor">@color/text_body_city</item>
+        <item name="android:background">@drawable/toast_city</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.2</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+ 	<!-- =============================================================== -->
+ 	<!-- CITY SPINNER style                                              -->
+	<!-- =============================================================== -->
+
+<!--	<style name="spinner_city" parent="@android:style/Widget.Button">-->
+<!--        <item name="android:textColor">@color/text_title_city</item>-->
+<!--        <item name="android:background">@drawable/button_green_city</item>-->
+<!--        <item name="android:minLines">2</item>-->
+<!--        <item name="android:maxLines">2</item>-->
+<!--        <item name="android:textSize">16dp</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:shadowDx">0</item>-->
+<!--        <item name="android:shadowDy">-1</item>-->
+<!--        <item name="android:shadowRadius">0.2</item>-->
+<!--        <item name="android:shadowColor">#FF000000</item>-->
+<!--        <item name="android:gravity">center_vertical|center_horizontal</item>-->
+<!--        <item name="android:focusable">true</item>-->
+<!--        <item name="android:clickable">true</item>-->
+<!--        <item name="android:drawablePadding">5dp</item>-->
+<!--    </style>-->
+
+
+ 	<!-- =============================================================== -->
+ 	<!-- CITY BUTTON styles                                              -->
+	<!-- =============================================================== -->
+
+	<style name="button_green_city" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/text_title_city</item>
+        <item name="android:background">@drawable/button_green_city</item>
+        <item name="android:minLines">2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.2</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+	
+	<style name="button_red_city" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/text_title_city</item>
+        <item name="android:background">@drawable/button_red_city</item>
+        <item name="android:minLines">2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.2</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+	<style name="button_yellow_city" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/text_title_city</item>
+        <item name="android:background">@drawable/button_yellow_city</item>
+        <item name="android:minLines">2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.2</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+	<style name="button_blue_city" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/text_title_city</item>
+        <item name="android:background">@drawable/button_blue_city</item>
+        <item name="android:minLines">2</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.2</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+	
+ 	<!-- =============================================================== -->
+ 	<!-- CITY CHECK BOX styles                                           -->
+	<!-- =============================================================== -->
+
+	<style name="text_check_box_city" parent="text_body_city">
+		<item name="android:textColor">@color/text_check_box_city</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	<style name="check_box_city">	
+        <item name="android:background">@drawable/checkbox_background_city</item>
+        <item name="android:button">@drawable/checkbox_city</item>
+    </style>
+    
+ 	<!-- =============================================================== -->
+ 	<!-- CITY LIST styles                                                -->
+	<!-- =============================================================== -->
+    
+	<style name="list_city">
+		<item name="android:background">@drawable/white_container_city</item>		
+		<item name="android:textColor">@color/text_control_body_city</item>
+        <item name="android:textSize">18dp</item>		
+		<item name="android:paddingTop">15sp</item>
+		<item name="android:paddingBottom">15sp</item>
+		<item name="android:paddingLeft">5sp</item>
+		<item name="android:paddingRight">5sp</item>
+		<item name="android:listSelector">@drawable/list_item_city</item>
+		<item name="android:cacheColorHint">#00000000</item>
+		<item name="android:divider">@drawable/list_divider_city</item>
+		<item name="android:dividerHeight">1dip</item>
+		<item name="android:footerDividersEnabled">false</item>
+		<item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+		<item name="android:scrollbars">vertical</item>
+	</style>
+	
+	<style name="list_item_city" parent="text_body_city">
+		<item name="android:background">@drawable/list_item_city</item>
+		<item name="android:textColor">@color/text_control_body_city</item>
+        <item name="android:textSize">17dp</item>		
+		<item name="android:paddingTop">0sp</item>
+		<item name="android:paddingBottom">0sp</item>
+		<item name="android:paddingLeft">5sp</item>
+		<item name="android:paddingRight">5sp</item>
+		<item name="android:focusable">true</item>
+		<item name="android:clickable">true</item>		
+	</style>
+
+	<style name="list_divider_city" parent="list_divider">
+		<item name="android:background">@drawable/list_divider_city</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">2sp</item>
+	</style>
+	
+	<style name="list_text_city">
+		<item name="android:textColor">#000</item>		
+		<item name="android:textSize">20dp</item>		
+	</style>
+	
+	<style name="list_text_small_city">
+		<item name="android:textColor">#000</item>		
+		<item name="android:textSize">14dp</item>		
+	</style>
+
+    <!-- A theme that has a translucent background.  Here we explicitly specify
+         that this theme is to inherit from the system's translucent theme,
+         which sets up various attributes correctly. -->
+    <style name="Theme_Translucent" parent="android:style/Theme.Translucent">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorForeground">#fff</item>
+    </style>
+
+    <!-- Variation on our application theme that has a transparent
+         background; this example completely removes the background,
+         allowing the activity to decide how to composite.  Also here we
+         force the translucency ourself rather than making use of the built-in
+         translucent theme. -->
+	<style name="Theme_Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorForeground">#fff</item>
+    </style>
+
+	<!-- From iosched Google program -->
+    <style name="HomeButton">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/foreground1</item>
+        <item name="android:background">@null</item>
+    </style>
+    <!-- Variation on the Light theme that turns off the title -->
+    <style name="Theme.IOSched" parent="android:style/Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="TitleBar">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/title_height</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/title_background</item>
+    </style>
+    <!-- ================================================================ -->
+ 	<!-- USC EMASurvey styles                                             -->
+	<!-- ================================================================ -->
+    
+    <style name="text_title_ema" parent="text_body_city">
+		<item name="android:textColor">@color/text_title_city</item>
+		<item name="android:textSize">20dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:shadowDy">2.0</item>
+		<item name="android:shadowRadius">2</item>
+		<item name="android:shadowColor">#737373</item>
+	</style>
+    <style name="list_ema">
+		<item name="android:background">@drawable/white_container_city</item>		
+		<item name="android:textColor">@color/text_control_body_city</item>
+        <item name="android:textSize">18dp</item>		
+		<item name="android:paddingTop">10sp</item>
+		<item name="android:paddingBottom">10sp</item>
+		<item name="android:paddingLeft">5sp</item>
+		<item name="android:paddingRight">5sp</item>
+		<item name="android:listSelector">@drawable/list_item_city</item>
+		<item name="android:cacheColorHint">#00000000</item>
+		<item name="android:divider">@drawable/list_divider_city</item>
+		<item name="android:dividerHeight">1dip</item>
+		<item name="android:footerDividersEnabled">false</item>
+		<item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+		<item name="android:scrollbars">vertical</item>
+	</style>
+   <!-- ================================================================ -->
+ 	<!-- CITYM styles                                             -->
+	<!-- ================================================================ -->
+    
+    <style name="Navbar">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">44sp</item>
+        <item name="android:background">@drawable/navbar_background</item>
+    </style>
+      <style name="NavbarButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">44sp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@drawable/navbar_button_background</item>
+        <item name="android:tint">@color/toolbar_fg</item>
+    </style>
+    <style name="NavbarButton2" parent="NavbarButton">
+        <item name="android:background">@drawable/navbar_button_background2</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:width">60dp</item>
+    </style>
+</resources>

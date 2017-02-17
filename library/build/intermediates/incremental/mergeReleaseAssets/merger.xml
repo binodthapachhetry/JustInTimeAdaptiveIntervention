@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/assets"><file name="public_key.der" path="/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/assets/public_key.der"/></source><source path="/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/release/assets"/></dataSet></merger>

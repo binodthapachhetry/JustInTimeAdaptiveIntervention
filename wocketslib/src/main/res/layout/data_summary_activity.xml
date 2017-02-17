@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    style = "?pageBackground">
+    <TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Wockets Data"
+		style="?textTitle" />
+
+	<View android:layout_width="fill_parent" android:layout_height="2sp"
+		style="?listDivider" />
+
+	<RelativeLayout android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+		<FrameLayout android:id="@+id/datasummaryviewer"
+		    android:layout_width="match_parent" android:layout_height="match_parent"
+		    android:layout_above="@+id/datasummarybuttonback" android:layout_marginBottom="10dp">
+		    <HorizontalScrollView android:id="@+id/scroller" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:scrollbarSize="10px" style="?whiteBackground"
+				android:fadingEdge="none">
+				
+				<LinearLayout android:id="@+id/list"
+					android:layout_width="wrap_content" android:layout_height="fill_parent"
+					android:padding="0px" />
+		    </HorizontalScrollView>
+		</FrameLayout>
+
+		<Button android:id="@+id/datasummarybuttonback" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			android:text="Close" style="?buttonBlue" />
+		
+	</RelativeLayout>
+
+</LinearLayout>

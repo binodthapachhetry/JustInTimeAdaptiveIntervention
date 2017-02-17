@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="vertical" style="?listItem">
+	<TextView android:id="@+id/guideline" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginTop="15dp" style="?listText" />
+	<TextView android:id="@+id/recommendedTarget" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" style="?listTextSmall" android:layout_marginBottom="15dp" />
+</LinearLayout>

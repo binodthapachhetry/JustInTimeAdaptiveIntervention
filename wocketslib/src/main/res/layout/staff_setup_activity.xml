@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" style="?pageBackground">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/app_title_staff_setup_activity"
+		style="?textTitle" />
+
+	<View android:layout_width="fill_parent" android:layout_height="2sp"
+		style="?listDivider" />
+
+	<ScrollView android:id="@+id/ScrollView01"
+		android:layout_width="fill_parent" android:layout_height="600px" 
+		style="?whiteBackground">
+
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Please do not show participants how to access this screen or even that it exists."
+				style="?textControlBody" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+		<TextView android:id="@+id/txtID" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Phone's ID: (Getting)" />
+
+		<TextView android:id="@+id/txtCondition" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Phone condition: (Getting)" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<TextView android:id="@+id/txtFirstName" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Participant's first name:" />
+
+			<EditText android:id="@+id/txtEditFirstName" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:hint="Enter first name here" 
+				android:singleLine="True" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<TextView android:id="@+id/txtGender" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Participant's gender (m or f):" />
+
+			<EditText android:id="@+id/txtEditGender" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:hint="Enter m or f here"
+				android:singleLine="True" />
+	
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<TextView android:id="@+id/txtHeight" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Participant's height (cm):" />
+
+			<EditText android:id="@+id/txtEditHeight" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:hint="Enter height (cm) here"
+				android:singleLine="True" />
+	
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<TextView android:id="@+id/txtStartWeight" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Participant's starting weight (lbs):" />
+
+			<EditText android:id="@+id/txtEditStartWeight" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:hint="Enter weight (lbs) here"
+				android:singleLine="True" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<TextView android:id="@+id/txtStartDate" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Participant's start date (MM/DD/YYYY):" />
+
+			<EditText android:id="@+id/txtEditStartDate" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="MM/DD/YYYY"
+				android:singleLine="True" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<TextView android:id="@+id/txtEmail" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Participant's email:" />
+
+			<EditText android:id="@+id/txtEditEmail" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:hint="Enter email here"
+				android:singleLine="True" />
+
+			<Button android:id="@+id/buttonSave" android:layout_width="300px"
+				android:layout_height="wrap_content" android:text="Save" style="?buttonBlue"/>
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Other actions:" />
+
+			<Button android:id="@+id/buttonStatusScreen"
+				android:layout_width="300px" android:layout_height="wrap_content"
+				android:layout_weight="1" android:text="Status Screen" style="?buttonGreen" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonSendFiles"
+				android:layout_width="300px" android:layout_height="wrap_content"
+				android:layout_weight="1" android:text="Send files" style="?buttonGreen" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonCleanFiles"
+				android:layout_width="300px" android:layout_height="wrap_content"
+				android:layout_weight="1" android:text="Clean files" style="?buttonRed" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonGenerateError" android:layout_width="300px"
+				android:layout_height="wrap_content" android:layout_weight="1"
+				android:text="Generate error" style="?buttonBlue" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonShutdown" android:layout_width="300px"
+				android:layout_height="wrap_content" android:layout_weight="1"
+				android:text="Shutdown Wockets" style="?buttonRed" />
+						
+		</LinearLayout>
+
+	</ScrollView>
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonBack" android:layout_width="100px"
+				android:layout_height="wrap_content" android:layout_weight="1"
+				android:text="Close" style="?buttonBlue" />
+
+</LinearLayout>

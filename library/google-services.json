@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "596511588852",
+    "firebase_url": "https://project-3196244310896515051.firebaseio.com",
+    "project_id": "project-3196244310896515051",
+    "storage_bucket": "project-3196244310896515051.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596511588852:android:c3b151342c132ab4",
+        "android_client_info": {
+          "package_name": "edu.neu.mhealth.android.wockets.library"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596511588852-prbi7ma7ll59isoud84q6pj62ns81rrv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKFZ0JOvbc7TUZz7Xr9D4KtL_SdAoqMBQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

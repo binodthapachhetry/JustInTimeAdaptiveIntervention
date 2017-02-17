@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<!-- View styles -->
+	<attr name="pageBackground" format="reference" />
+	<attr name="pagePaddingLayout" format="reference" />
+	<attr name="textTitle" format="reference" />
+	<attr name="textTitleema" format="reference" />
+	<attr name="textSubheading" format="reference" />
+	<attr name="textCallout" format="reference" />
+	<attr name="textBody" format="reference" />
+	<attr name="textControlTitle" format="reference" />
+	<attr name="textControlSubheading" format="reference" />
+	<attr name="textControlBody" format="reference" />
+	<attr name="textCheckBox" format="reference" />
+	<attr name="checkBox" format="reference" />
+	<attr name="textCurrentActivityGreen" format="reference" />
+	<attr name="whiteBackground" format="reference" />
+	<attr name="buttonGreen" format="reference" />
+	<attr name="buttonYellow" format="reference" />
+	<attr name="buttonRed" format="reference" />
+	<attr name="buttonBlue" format="reference" />
+	<attr name="list" format="reference" />
+	<attr name="listema" format="reference" />
+	<attr name="listItem" format="reference" />
+	<attr name="listText" format="reference"/>
+	<attr name="listTextSmall" format="reference"/>
+	<attr name="listDivider" format="reference" />
+	<attr name="editText" format="reference"/>
+	<attr name="toast" format="reference"/>
+	<attr name="table" format="reference"/>
+	<attr name="tableHeader" format="reference"/>
+	<attr name="tableHeaderColumn" format="reference"/>
+	<attr name="spinner" format="reference"/>
+
+	<!-- Attributes -->
+	<attr name="pageMargin" format="reference|dimension" />
+	<attr name="contentLeftMargin" format="reference|dimension" />
+
+
+<declare-styleable name="LabelView">
+
+<attr name="text" format="string" />
+
+<attr name="titleText" format ="string"/>
+
+<attr name="textColor" format="color" />
+
+<attr name="textSize" format="dimension" />
+
+</declare-styleable>
+<declare-styleable name="TogglePrefAttrs">
+
+<attr name="android:preferenceLayoutChild" />
+
+</declare-styleable>
+
+<declare-styleable name="Gallery1">
+
+<attr name="android:galleryItemBackground" />
+
+</declare-styleable>
+
+</resources>
+

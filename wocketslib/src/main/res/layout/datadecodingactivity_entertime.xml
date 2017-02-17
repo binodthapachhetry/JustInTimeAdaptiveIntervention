@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/decoding_enterTime_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView android:id="@+id/starttimetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="    Please select the start time for decoding:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />    <RelativeLayout android:id="@+id/timeselecter1" android:layout_below="@+id/starttimetitle"
+        android:layout_centerHorizontal="true"
+     	android:layout_width="wrap_content" android:layout_height="wrap_content">
+	    <Spinner android:id="@+id/startTimeHour"
+	        android:layout_width="80dp" android:layout_height="40dp" 
+	        android:layout_alignParentTop="true"/>
+		<TextView android:id="@+id/column1" android:layout_width="wrap_content" android:textSize="30dp"
+        	android:layout_height="40dp" android:text=" : " android:layout_toRightOf="@+id/startTimeHour"
+        	android:layout_alignParentTop="true"/>
+    	<Spinner android:id="@+id/startTimeMinute"
+	        android:layout_width="80dp" android:layout_height="40dp" 
+	        android:layout_toRightOf="@+id/column1" android:layout_alignParentTop="true"/>
+		<TextView android:id="@+id/column2" android:layout_width="wrap_content" android:textSize="30dp"
+        	android:layout_height="40dp" android:text=" : " android:layout_toRightOf="@+id/startTimeMinute"
+        	android:layout_alignParentTop="true"/>
+    	<Spinner android:id="@+id/startTimeSec"
+	        android:layout_width="80dp" android:layout_height="40dp" 
+	        android:layout_toRightOf="@+id/column2" android:layout_alignParentTop="true"/>
+    </RelativeLayout>
+	<View android:id="@+id/divider1" android:layout_below="@+id/timeselecter1" android:layout_width="fill_parent" android:layout_height="2sp"
+		style="?listDivider" />
+    <TextView android:id="@+id/endtimetitle" android:layout_below="@+id/divider1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="    Please select the end time for decoding:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <RelativeLayout android:id="@+id/timeselecter2" android:layout_below="@+id/endtimetitle"
+        android:layout_centerHorizontal="true"
+     	android:layout_width="wrap_content" android:layout_height="wrap_content">
+	    <Spinner android:id="@+id/endTimeHour"
+	        android:layout_width="80dp" android:layout_height="40dp" 
+	        android:layout_alignParentTop="true"/>
+		<TextView android:id="@+id/column3" android:layout_width="wrap_content" android:textSize="30dp"
+        	android:layout_height="40dp" android:text=" : " android:layout_toRightOf="@+id/endTimeHour"
+        	android:layout_alignParentTop="true"/>
+    	<Spinner android:id="@+id/endTimeMinute"
+	        android:layout_width="80dp" android:layout_height="40dp" 
+	        android:layout_toRightOf="@+id/column3" android:layout_alignParentTop="true"/>
+		<TextView android:id="@+id/column4" android:layout_width="wrap_content" android:textSize="30dp"
+        	android:layout_height="40dp" android:text=" : " android:layout_toRightOf="@+id/endTimeMinute"
+        	android:layout_alignParentTop="true"/>
+    	<Spinner android:id="@+id/endTimeSec"
+	        android:layout_width="80dp" android:layout_height="40dp" 
+	        android:layout_toRightOf="@+id/column4" android:layout_alignParentTop="true"/>
+    </RelativeLayout>
+	
+</RelativeLayout>

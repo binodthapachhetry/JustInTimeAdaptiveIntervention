@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/addwockets_dialoglayout"
+    android:layout_width="240dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:scrollbars="vertical" >
+
+    <ImageButton
+        android:id="@+id/redw"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/wockets_plain_red_w" />
+
+    <ImageButton
+        android:id="@+id/reda"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/redw"
+        android:layout_toRightOf="@+id/redw"
+        android:src="@drawable/wockets_plain_red_a" />
+
+    <ImageButton
+        android:id="@+id/greenw"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/reda"
+        android:layout_toRightOf="@+id/reda"
+        android:src="@drawable/wockets_plain_green_w" />
+
+    <ImageButton
+        android:id="@+id/greena"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/greenw"
+        android:layout_toRightOf="@+id/greenw"
+        android:src="@drawable/wockets_plain_green_a" />
+
+    <ImageButton
+        android:id="@+id/hrmonitor"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/reda"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/wockets_heartratemonitor_plain" />
+
+    <TextView
+        android:id="@+id/or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/redw"
+        android:layout_alignTop="@+id/hrmonitor"
+        android:layout_marginTop="18dp"
+        android:text="OR..." />
+
+</RelativeLayout>

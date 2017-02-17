@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+	style="?pageBackground"
+	>
+
+	<LinearLayout 
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="vertical" android:padding="10dp" android:layout_weight="1">
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="News from the Wockets research team" android:textSize="20dp" 
+			style="?textTitle"			
+			/>
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:padding="2dp" 
+							style="?whiteBackground"
+			>
+			<WebView android:id="@+id/faqBrowse" android:layout_width="fill_parent"
+				android:layout_height="fill_parent" 
+				
+				/>
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center_vertical">
+		<Button android:id="@+id/btnNeverMind" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Up to speed. Thanks."
+			android:layout_weight="1" 
+			style="?buttonBlue"/>
+	</LinearLayout>
+</LinearLayout>

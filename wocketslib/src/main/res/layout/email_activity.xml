@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:paddingLeft="10dp" android:paddingRight="10dp" android:orientation="vertical"
+	style="?pageBackground"
+	>
+	<TextView android:id="@+id/title" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:text="What can we help you with?" android:textSize="20dp" 
+		style="?textSubheading"
+		/>
+	<EditText android:id="@+id/msgEditBox" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:text="Type your question here to send us an email."
+		android:layout_weight="1" android:gravity="top" 
+		/>
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<Button android:id="@+id/btnCancel" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="X"
+			android:layout_marginTop="5dp" android:textSize="20dp"
+			android:layout_alignParentLeft="true" 
+			style="?buttonRed"
+			/>
+		<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:paddingLeft="10dp" android:paddingRight="10dp" android:orientation="horizontal"
+	android:layout_alignParentRight="true">
+					
+		<Button android:id="@+id/btnPhone" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Call hotline"
+			android:layout_marginTop="5dp" android:textSize="20dp"
+			style="?buttonBlue"
+			/>
+		<Button android:id="@+id/btnSend" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Send"
+			android:layout_marginTop="5dp" android:textSize="20dp"
+			style="?buttonGreen"
+			/>
+			</LinearLayout>
+	
+	</RelativeLayout>
+</LinearLayout>

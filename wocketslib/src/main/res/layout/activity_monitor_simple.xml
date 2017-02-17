@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" style="?pageBackground">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/app_title_activity_monitor_simple"
+		style="?textTitle" />
+
+	<View android:layout_width="fill_parent" android:layout_height="2sp"
+		style="?listDivider" />
+
+	<ScrollView android:id="@+id/ScrollView01"
+		android:layout_width="fill_parent" android:layout_height="600px" 
+		style="?whiteBackground">
+
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Here's a bit of information about the status of the Wocket sensors."
+				style="?textControlBody" />
+
+			<View android:layout_width="fill_parent" android:layout_height="4sp" />
+
+			<TextView android:layout_width="fill_parent"
+				android:id="@+id/textViewStatus" 
+				android:layout_height="wrap_content"
+				android:text="[Hold on, getting information...]"
+				style="?textControlBody" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp"
+				style="?listDivider" />
+
+			<Button android:id="@+id/buttonSensors" android:layout_width="300px"
+				android:layout_height="wrap_content" android:text="Pair sensors" style="?buttonBlue"/>
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonSendFiles"
+				android:layout_width="300px" android:layout_height="wrap_content"
+				android:layout_weight="1" android:text="Send data files now" style="?buttonGreen" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonSendLogFiles"
+				android:layout_width="300px" android:layout_height="wrap_content"
+				android:layout_weight="1" android:text="Send log files now" style="?buttonGreen" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonVibrate"
+				android:layout_width="300px" android:layout_height="wrap_content"
+				android:layout_weight="1" android:text="Vibrate on connect" style="?buttonGreen" />
+
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonShutdown" android:layout_width="300px"
+				android:layout_height="wrap_content" android:layout_weight="1"
+				android:text="Shutdown Wockets" style="?buttonRed" />
+			
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+			
+			<Button android:id="@+id/buttonViewData" android:layout_width="300px"
+				android:layout_height="wrap_content" android:text="View Data Summary" style="?buttonRed"/>
+			
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+			
+			<Button android:id="@+id/buttonCleanFiles" android:layout_width="300px"
+				android:layout_height="wrap_content" android:text="Clean old data" style="?buttonRed"/>
+						
+		</LinearLayout>
+
+	</ScrollView>
+			<View android:layout_width="fill_parent" android:layout_height="2sp" />
+
+			<Button android:id="@+id/buttonBack" android:layout_width="100px"
+				android:layout_height="wrap_content" android:layout_weight="1"
+				android:text="Close" style="?buttonBlue" />
+
+</LinearLayout>

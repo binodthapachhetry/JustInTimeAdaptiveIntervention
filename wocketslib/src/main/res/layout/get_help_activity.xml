@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical"
+ style="?pageBackground"
+	>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:padding="20dp" android:layout_weight="1"
+		>
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="Geek Squad!" android:gravity="center_horizontal"
+			android:textSize="26dp" android:textStyle="bold" android:layout_marginTop="25dp" 
+			 style="?textTitle"
+			/>
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="Are you having a technical, err, um, ahem, glitch, with the software? We will try to help."
+			android:gravity="left" android:textSize="20dp" android:layout_marginTop="10dp"
+			style="?textSubheading"
+			 />
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text=" "
+			android:gravity="left" android:textSize="12dp" android:layout_marginTop="10dp"
+			 />
+		<TextView android:id="@+id/txtVersion" android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text="(Version)" android:gravity="center_horizontal" 
+			android:textSize="12dp" android:layout_marginTop="10dp"
+			 />
+		<Button android:id="@+id/btnGetHelp" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+			android:text="Get answers, get help" android:layout_marginTop="25dp"
+			android:textSize="20dp"
+			style="?buttonGreen"
+			 />
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:text=" "
+			android:gravity="center_horizontal" android:textSize="10dp"
+			android:layout_marginTop="10dp" android:paddingRight="40dp"
+			android:paddingLeft="40dp" />
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:gravity="center">
+		<Button android:id="@+id/btnNeverMind" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Never Mind"
+			android:layout_marginTop="5dp" android:textSize="20dp" 
+			style="?buttonBlue"
+			/>
+	</LinearLayout>
+</LinearLayout>

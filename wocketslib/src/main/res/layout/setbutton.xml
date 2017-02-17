@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+	<ImageButton android:layout_x="48dp" android:layout_y="175dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/righthand" />
+	<ImageButton android:layout_x="95dp" android:layout_y="350dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/rightfoot"/>
+	<ImageButton android:layout_x="220dp" android:layout_y="175dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/lefthand"/>
+	<ImageButton android:layout_x="175dp" android:layout_y="350dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/leftfoot"/>
+	<ImageButton android:layout_x="99dp" android:layout_y="205dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/rightpocket"/>
+	<ImageButton android:layout_x="168dp" android:layout_y="205dp" android:layout_width="48dp"
+	android:layout_height="48dp" android:id="@+id/leftpocket"/>
+	<ImageButton
+	    android:id="@+id/chest"
+	    android:layout_width="48dp"
+	    android:layout_height="48dp"
+	    android:layout_x="144dp"
+	    android:layout_y="117dp" 
+	    android:visibility="gone"/>
+	
+</AbsoluteLayout>
