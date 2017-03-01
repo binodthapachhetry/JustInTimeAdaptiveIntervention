@@ -13,14 +13,18 @@ public class Study {
 
 	public List<String> supportedLanguages;
 
+//	public List<Integer> supportedWheelDiameterCm;
+
 	public Study() {}
 
 	public Study(
 			List<Survey> surveys,
 	        List<String> supportedLanguages
+//			List<Integer> supportedWheelDiameterCm
 	) {
 		this.surveys = surveys;
 		this.supportedLanguages = supportedLanguages;
+//		this.supportedWheelDiameterCm = supportedWheelDiameterCm;
 	}
 
 	public Study setSurveys(List<Survey> surveys) {
@@ -32,6 +36,11 @@ public class Study {
 		this.supportedLanguages = supportedLanguages;
 		return this;
 	}
+
+//	public Study setsupportedWheelDiameterCm(List<Integer> supportedWheelDiameterCm) {
+//		this.supportedWheelDiameterCm = supportedWheelDiameterCm;
+//		return this;
+//	}
 
 	public Study createStudy() {
 		return new Study(surveys, supportedLanguages);

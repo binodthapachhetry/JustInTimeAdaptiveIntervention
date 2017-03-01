@@ -67,6 +67,7 @@ public class UploadManagerService extends WocketsIntentService {
             }
         }
 
+        // stuff related to phone
         // Zip required log files
         processLogs();
         // Zip required survey files
@@ -74,11 +75,13 @@ public class UploadManagerService extends WocketsIntentService {
         // Zip required data files
         processDataFiles();
 
+
         if (!ConnectivityManager.isInternetConnected(mContext)) {
             Log.i(TAG, "Internet is not connected. Not trying to upload files.", mContext);
             return;
         }
 
+        // stuff related to phone
         // Upload required log files
         processLogUploads();
         // Upload required survey files
@@ -87,10 +90,12 @@ public class UploadManagerService extends WocketsIntentService {
         processDataUploads();
 
         DataManager.setLastRunOfUploadManagerService(mContext);
+
+
     }
 
     private void processLogs() {
-        Log.i(TAG, "Processing Logs", mContext);
+        Log.i(TAG, "Processing Logs Phone", mContext);
         String logDirectory = DataManager.getDirectoryLogs(mContext);
         File logFiles = new File(logDirectory);
         if (!logFiles.exists()) {
@@ -104,6 +109,22 @@ public class UploadManagerService extends WocketsIntentService {
         for (File logDate : logFiles.listFiles()) {
             processLogs(logDate);
         }
+
+        Log.i(TAG, "Processing Logs Watch", mContext);
+        String logWatchDirectory = DataManager.getDirectoryWatchLogs(mContext);
+        File logWatchFiles = new File(logWatchDirectory);
+        if (!logWatchFiles.exists()) {
+            Log.w(TAG, "Log directory does not exist - " + logDirectory, mContext);
+            return;
+        }
+        if (logWatchFiles.listFiles() == null) {
+            Log.e(TAG, "No files present in logs directory. This should never happen", mContext);
+            return;
+        }
+        for (File logWatchDate : logWatchFiles.listFiles()) {
+            processLogs(logWatchDate);
+        }
+
     }
 
     private void processLogs(File logDate) {
@@ -127,6 +148,7 @@ public class UploadManagerService extends WocketsIntentService {
             }
             Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
         }
+
     }
 
     private void processSurveys() {
@@ -177,6 +199,23 @@ public class UploadManagerService extends WocketsIntentService {
         }
 
         for (File dataDate : dataFiles.listFiles()) {
+            processData(dataDate);
+        }
+
+        Log.i(TAG, "Processing Watch Data files", mContext);
+        String dataWatchDirectory = DataManager.getDirectoryWatchData(mContext);
+        File dataWatchFiles = new File(dataWatchDirectory);
+        if (!dataWatchFiles.exists()) {
+            Log.w(TAG, "Watch Data directory does not exist", mContext);
+            return;
+        }
+
+        if (dataWatchFiles.listFiles() == null) {
+            Log.w(TAG, "No files present in watch data directory.", mContext);
+            return;
+        }
+
+        for (File dataDate : dataWatchFiles.listFiles()) {
             processData(dataDate);
         }
     }
@@ -257,6 +296,50 @@ public class UploadManagerService extends WocketsIntentService {
                 UploadManager.uploadFile(logDate.getAbsolutePath(), mContext);
             }
         }
+
+        Log.i(TAG, "Processing Watch Log Uploads", mContext);
+        String logWatchDirectory = DataManager.getDirectoryWatchLogs(mContext);
+        File logWatchFiles = new File(logWatchDirectory);
+        if (!logWatchFiles.exists()) {
+            Log.w(TAG, "Watch Log directory does not exist - " + logDirectory, mContext);
+            return;
+        }
+
+        for (File logWatchDate : logWatchFiles.listFiles()) {
+            // TODO: This is a MATCH specific fix. Need to come up with a better solution
+            if (DateTime.getDate(logWatchDate.getName()).getTime() < (DateTime.getCurrentTimeInMillis() - (DateTime.DAYS_1_IN_MILLIS * 90))) {
+                Log.i(TAG, "Ignoring logs for date - " + logWatchDate.getName(), mContext);
+                continue;
+            }
+
+            if (logWatchDate.isDirectory()) {
+                for (File logHour : logWatchDate.listFiles()) {
+                    // We only want to upload zip files
+                    if (!logHour.getName().contains("zip")) {
+                        continue;
+                    }
+                    // We don't want to re-upload uploaded files.
+                    if (logHour.getName().contains("uploaded")) {
+                        continue;
+                    }
+
+                    Log.i(TAG, "Calling UploadManager.uploadFile on - " + logHour.getAbsolutePath(), mContext);
+                    UploadManager.uploadFile(logHour.getAbsolutePath(), mContext);
+                }
+            } else {
+                // We only want to upload zip files
+                if (!logWatchDate.getName().contains("zip")) {
+                    continue;
+                }
+                // We don't want to re-upload uploaded files.
+                if (logWatchDate.getName().contains("uploaded")) {
+                    continue;
+                }
+
+                Log.i(TAG, "Calling UploadManager.uploadFile on - " + logWatchDate.getAbsolutePath(), mContext);
+                UploadManager.uploadFile(logWatchDate.getAbsolutePath(), mContext);
+            }
+        }
     }
 
     private void processSurveyUploads() {
@@ -331,6 +414,49 @@ public class UploadManagerService extends WocketsIntentService {
                 UploadManager.uploadFile(dataDate.getAbsolutePath(), mContext);
             }
         }
+
+        Log.i(TAG, "Processing Watch Data Uploads", mContext);
+        String dataWatchDirectory = DataManager.getDirectoryWatchData(mContext);
+        File dataWatchFiles = new File(dataWatchDirectory);
+        if (!dataWatchFiles.exists()) {
+            Log.w(TAG, "Watch Data directory does not exist - " + dataDirectory, mContext);
+            return;
+        }
+
+        for (File dataWatchDate : dataWatchFiles.listFiles()) {
+            // TODO: This is a MATCH specific fix. Need to come up with a better solution
+            if (DateTime.getDate(dataWatchDate.getName()).getTime() < (DateTime.getCurrentTimeInMillis() - (DateTime.DAYS_1_IN_MILLIS * 90))) {
+                Log.i(TAG, "Ignoring data for date - " + dataWatchDate.getName(), mContext);
+                continue;
+            }
+            if (dataWatchDate.isDirectory()) {
+                for (File dataHour : dataWatchDate.listFiles()) {
+                    // We only want to upload zip files
+                    if (!dataHour.getName().contains("zip")) {
+                        continue;
+                    }
+                    // We don't want to re-upload uploaded files.
+                    if (dataHour.getName().contains("uploaded")) {
+                        continue;
+                    }
+
+                    Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataHour.getAbsolutePath(), mContext);
+                    UploadManager.uploadFile(dataHour.getAbsolutePath(), mContext);
+                }
+            } else {
+                // We only want to upload zip files
+                if (!dataWatchDate.getName().contains("zip")) {
+                    continue;
+                }
+                // We don't want to re-upload uploaded files.
+                if (dataWatchDate.getName().contains("uploaded")) {
+                    continue;
+                }
+
+                Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataWatchDate.getAbsolutePath(), mContext);
+                UploadManager.uploadFile(dataWatchDate.getAbsolutePath(), mContext);
+            }
+        }
     }
 
     @Override
@@ -345,6 +471,7 @@ public class UploadManagerService extends WocketsIntentService {
         ZipInputStream zipinputstream = null;
         ZipEntry zipentry;
         String watchZipFolder = DataManager.getDirectoryTransfer(mContext);
+        Log.i(TAG, "This is transfer folder: " + watchZipFolder,mContext);
         File watchZipFile = new File(watchZipFolder);
         watchZipFile.mkdirs();
         File[] zipFiles = new File[0];
@@ -384,46 +511,47 @@ public class UploadManagerService extends WocketsIntentService {
         ZipFile zipFile = new ZipFile(filePath + File.separator + fileName);
         List<FileHeader> fileHeaders = zipFile.getFileHeaders();
         for(FileHeader file : fileHeaders) {
-            String entryPath = file.getFileName();
-            Log.i(TAG, "Unzipping within helper " + entryPath,mContext);
-//            if(entryPath.endsWith("baf")){
-//                File currentFile = new File(entryPath);
-//                Log.i(TAG, "Decoding sensor file: " + currentFile,mContext);
-//                try {
-//                    boolean result;
-//                    InputStream assetInputStream = new FileInputStream(currentFile);
-//                    final byte[] b = IOUtils.toByteArray(assetInputStream);
-//                    result = decodeBinarySensorFile(b, currentFile.getParent(), currentFile.getName());
-//
-//                    if(result == true){
-//                        Log.i(TAG, "Successfully decoded sensor file: " + currentFile.getAbsolutePath(),mContext);
-//                        currentFile.delete();
-//                        Log.i(TAG, "Deleted the original binary file: " + currentFile.getAbsolutePath(),mContext);
-//                    }else{
-//                        Log.e(TAG, "Fail to decode binary sensor file: " + currentFile.getAbsolutePath(),mContext);
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
+            String original_entryPath = file.getFileName();
 
+            File original_unzippedFile = new File(original_entryPath);
+            if(!original_unzippedFile.isDirectory()) {
 
-//            if(entryPath.endsWith("baf") || entryPath.contains("event.csv")){
-//                String subjectID = DataStorage.GetValueString(getApplicationContext(), DataStorage.KEY_SUBJECT_ID,
-//                        AuthorizationChecker.SUBJECT_ID_UNDEFINED);
-//                entryPath = entryPath.replace("data", "data" + File.separator + subjectID);
-//            }
-
-
-            File unzippedFile = new File(entryPath);
-            if(!unzippedFile.isDirectory()) {
+                String entryPathFirst = original_entryPath.replace("/data/","/data-watch/");
+                String entryPath = entryPathFirst.replace("/logs/","/logs-watch/");
+                Log.i(TAG, "New path for transfer files: " + entryPath,mContext);
+                File unzippedFile = new File(entryPath);
+                Log.i(TAG, "New  path for transfer files: " + unzippedFile.getParentFile().getAbsolutePath(),mContext);
                 unzippedFile.getParentFile().mkdirs();
                 zipFile.extractFile(file, unzippedFile.getParent(), new UnzipParameters(), unzippedFile.getName());
                 Log.i(TAG, "Unzipped folder: " + unzippedFile.getParent() + ", name: " + unzippedFile.getName(),mContext);
+
+//                if(unzippedFile.getName().endsWith("baf")) {
+//                    File currentFile = new File(unzippedFile.getParent() + File.separator + unzippedFile.getName());
+//                    Log.i(TAG, "Decoding sensor file: " + currentFile, mContext);
+//                    try {
+//                        boolean result;
+//                        InputStream assetInputStream = new FileInputStream(currentFile);
+//                        final byte[] b = IOUtils.toByteArray(assetInputStream);
+//                        result = decodeBinarySensorFile(b, currentFile.getParent(), currentFile.getName());
+//
+//                        if (result == true) {
+//                            Log.i(TAG, "Successfully decoded sensor file: " + currentFile.getAbsolutePath(), mContext);
+//                            currentFile.delete();
+//                            Log.i(TAG, "Deleted the original binary file: " + currentFile.getAbsolutePath(), mContext);
+//                        } else {
+//                            Log.e(TAG, "Fail to decode binary sensor file: " + currentFile.getAbsolutePath(), mContext);
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+
             }
+
         }
     }
+
+
 
 //    private void decodePassBinaryDataFromWatch(String path){
 //        String folderPath = null;
@@ -471,6 +599,7 @@ public class UploadManagerService extends WocketsIntentService {
     private boolean decodeBinarySensorFile(byte[] b, String path, String fileName){
         String newName = fileName.replaceAll(".baf", ".csv");
         File newFile = new File(path + File.separator + newName);
+
         if(newFile.exists()){
             newFile.delete();
         }
@@ -495,6 +624,7 @@ public class UploadManagerService extends WocketsIntentService {
             }
         }
         try {
+            Log.e(TAG, "Before flush",mContext);
             accelRaw.flushAndCloseCsv();
         }catch(IOException e){
             Log.e(TAG, "IO error when closing the buffered writer when decoding binary from watch",mContext);

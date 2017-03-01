@@ -36,10 +36,34 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/activity_main_logged_in_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="Logged In User: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/activity_wheel_diameter_cm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="Wheel Diameter(cm): "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/activity_panobike_sensor_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="PanoBike Sensor id: "
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/activity_main_selected_survey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:text="Selected Survey: "
             android:textSize="20sp" />
 
@@ -47,23 +71,17 @@
             android:id="@+id/activity_main_selected_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:text="Selected Survey: "
+            android:paddingTop="10dp"
+            android:text="Selected Language: "
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/activity_main_logged_in_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:text="Logged In User: "
-            android:textSize="20sp" />
+
 
         <TextView
             android:id="@+id/activity_main_start_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:text="Start Date: "
             android:textSize="20sp" />
 
@@ -71,7 +89,7 @@
             android:id="@+id/activity_main_end_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:text="End Date: "
             android:textSize="20sp" />
 

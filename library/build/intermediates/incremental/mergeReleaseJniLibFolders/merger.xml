@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/jarvis/AndroidStudioProjects/phire/library/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/jarvis/AndroidStudioProjects/phire/library/src/release/jniLibs"/></dataSet></merger>

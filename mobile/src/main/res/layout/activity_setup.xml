@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:scaleType="fitCenter"
-        android:src="@drawable/match_background_home_old"/>
+        android:src="@drawable/match_background_home"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,6 +22,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/activity_setup_wheel_diameter_cm"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_wheel_diameter_cm"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_select_panobike_sensor"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_panobike_sensor"
+                android:textAllCaps="false"/>
+
+
+            <Button
+                android:id="@+id/activity_setup_select_language"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_language"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_setup_select_survey"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_survey"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_setup_start_demo"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_demo"
+                android:textAllCaps="false"/>
+
             <Button
                 android:id="@+id/activity_setup_select_start_date"
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
@@ -40,6 +86,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/select_end_date"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_setup_select_wake_time"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_wake_time"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_setup_select_sleep_time"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_sleep_time"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_setup_compliance"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compliance"
                 android:textAllCaps="false"/>
 
             <Button

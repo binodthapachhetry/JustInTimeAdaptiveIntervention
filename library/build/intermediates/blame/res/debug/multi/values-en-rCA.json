@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rCA/values-en-rCA.xml",
+        "outputFile": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rCA/values-en-rCA.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/res/values-en-rCA/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/res/values-en-rCA/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

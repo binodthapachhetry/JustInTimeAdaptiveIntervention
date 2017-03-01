@@ -65,6 +65,7 @@ public class Globals extends LibGlobals {
 	// These variables are most easily set by calling initDataDirectories(aContext) from the main app after setting APP_DIRECTORY
 	public static String LOG_DIRECTORY = APP_DIRECTORY + File.separator + "logs";
 	public static String DATA_DIRECTORY = APP_DIRECTORY + File.separator + "data";
+
 	public static String DATA_MHEALTH_DIRECTORY = DATA_DIRECTORY + File.separator + "mhealth";
 	public static String DATA_MHEALTH_SENSORS_DIRECTORY = DATA_MHEALTH_DIRECTORY + File.separator + "sensors";
 	public static String APP_DATA_DIRECTORY = APP_DIRECTORY + File.separator + "appdata";

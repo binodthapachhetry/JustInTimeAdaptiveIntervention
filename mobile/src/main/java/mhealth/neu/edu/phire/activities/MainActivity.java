@@ -22,6 +22,7 @@ import edu.neu.mhealth.android.wockets.library.support.Log;
 import edu.neu.mhealth.android.wockets.library.user.UserManager;
 import mhealth.neu.edu.phire.R;
 import mhealth.neu.edu.phire.TEMPLEConstants;
+import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 import mhealth.neu.edu.phire.services.AlwaysOnService;
 
 /**
@@ -36,6 +37,12 @@ public class MainActivity extends WocketsActivity {
 
     @BindView(R.id.activity_main_app_version)
     TextView appVersionTextView;
+
+    @BindView(R.id.activity_wheel_diameter_cm)
+    TextView selectedWheelDiameterCm;
+
+    @BindView(R.id.activity_panobike_sensor_id)
+    TextView selectedPanoBikeId;
 
     @BindView(R.id.activity_main_selected_survey)
     TextView selectedSurvey;
@@ -67,18 +74,20 @@ public class MainActivity extends WocketsActivity {
         mContext = getApplicationContext();
         mActivity = this;
 
-//        try {
-//            PackageInfo pInfo = mContext.getPackageManager().getPackageInfo(this.getPackageName(), 0);
-//            String version = pInfo.versionName;
-//            Log.d(TAG,version);
-//            appVersionTextView.setText("App Version: " + version);
-//        } catch (PackageManager.NameNotFoundException e) {
-//            Log.e(TAG, "Cannot get version info", e, mContext);
-//        }
+        try {
+            PackageInfo pInfo = mContext.getPackageManager().getPackageInfo(this.getPackageName(), 0);
+            String version = pInfo.versionName;
+            Log.d(TAG,version);
+            appVersionTextView.setText("App Version: " + version);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Cannot get version info", e, mContext);
+        }
 
-//        selectedSurvey.setText("Selected Survey: " + DataManager.getSelectedSurveyName(mContext));
-//        selectedLanguage.setText("Selected Language: " + DataManager.getSelectedLanguage(mContext));
-//        loggedInUser.setText("Logged In User: " + UserManager.getUserEmailFormatted());
+        selectedSurvey.setText("Selected Survey: " + DataManager.getSelectedSurveyName(mContext));
+        selectedLanguage.setText("Selected Language: " + DataManager.getSelectedLanguage(mContext));
+        loggedInUser.setText("Logged In User: " + UserManager.getUserEmailFormatted());
+        selectedWheelDiameterCm.setText("Selected Wheel Diameter(cm): " + TEMPLEDataManager.getWheelDiameterCm(mContext));
+        selectedPanoBikeId.setText("Selected PanoBike ID: " + TEMPLEDataManager.getPanoBikeSensorId(mContext));
 
         TEMPLEConstants.init(mContext);
 
@@ -101,8 +110,8 @@ public class MainActivity extends WocketsActivity {
             Log.i(TAG, "End Time set as " + DateTime.getTimestampString(endTime), mContext);
         }
 
-//        startDate.setText("Start Date: " + DateTime.getTimestampString(DataManager.getStartDate(mContext)));
-//        endDate.setText("End Date: " + DateTime.getTimestampString(DataManager.getEndDate(mContext)));
+        startDate.setText("Start Date: " + DateTime.getTimestampString(DataManager.getStartDate(mContext)));
+        endDate.setText("End Date: " + DateTime.getTimestampString(DataManager.getEndDate(mContext)));
 
         BuildManager.logBuildStatus(mContext);
     }
@@ -118,5 +127,6 @@ public class MainActivity extends WocketsActivity {
         backgroundImageClick = 1;
         startActivity(new Intent(this, SetupActivity.class));
     }
+
 }
 

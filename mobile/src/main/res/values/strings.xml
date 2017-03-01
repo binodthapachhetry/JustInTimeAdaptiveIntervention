@@ -3,6 +3,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="trigger_service">Trigger Service</string>
+    <string name="select_wheel_diameter_cm">Select Wheel Diameter(cm)</string>
+    <string name="select_panobike_sensor">Select PanoBike Sensor</string>
     <string name="select_survey">Select Survey</string>
     <string name="select_language">Select Language</string>
     <string name="select_start_date">Select Start Date</string>
@@ -13,5 +15,10 @@
     <string name="start_saliva_demo">Start Saliva Demo</string>
     <string name="compliance">Compliance</string>
     <string name="finish_study">Finish Study</string>
+
+    <string name="text_sensor"> PanoBike Sensor : </string>
+    <string name="none">None</string>
+    <string name="scan_for_devices">Scan For Device</string>
+
 </resources>
 

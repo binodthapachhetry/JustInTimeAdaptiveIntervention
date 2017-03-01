@@ -10,22 +10,28 @@ import android.support.v4.content.LocalBroadcastManager;
 import net.lingala.zip4j.exception.ZipException;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
+import java.io.FileInputStream;
+import java.util.zip.GZIPOutputStream;
 
 import edu.neu.android.wearwocketslib.Globals;
 import edu.neu.android.wearwocketslib.services.SensorManagerService;
@@ -38,9 +44,11 @@ import edu.neu.android.wearwocketslib.utils.io.FileHelper;
 import edu.neu.android.wearwocketslib.utils.log.Log;
 import edu.neu.android.wearwocketslib.utils.io.SharedPrefs;
 import edu.neu.android.wearwocketslib.utils.io.SizeLimitedZipper;
+import edu.neu.android.wocketslib.mhealthformat.entities.AndroidWearAccelerometerRaw;
 import edu.neu.android.wocketslib.mhealthformat.entities.event.BatteryEvent;
 import edu.neu.android.wocketslib.mhealthformat.entities.mHealthEntity;
 import edu.neu.android.wocketslib.mhealthformat.mHealthFormat;
+import edu.neu.android.wocketslib.mhealthformat.utils.ByteUtils;
 
 /**
  * Created by qutang on 8/20/15.
@@ -55,7 +63,7 @@ public class WearableWakefulService extends IntentService {
     public static final String KEY_LAST_TRANSFER_ATTEMPT = "KEY_LAST_TRANSFER_ATTEMPT";
 
     public static final long DELETE_CHECK_INTERVAL = 24 * 3600 * 1000;
-    public static final long SAVE_CHECK_INTERVAL = 600 * 1000; // should check more frequently so that we won't miss data when condition meets
+    public static final long SAVE_CHECK_INTERVAL = 600 * 1000; // 600 should check more frequently so that we won't miss data when condition meets
     public static final long ZIP_ATTEMPT_INTERVAL = 3600 * 1000; // 3600
     public static final long TRANSFER_ATTEMPT_INTERVAL = 1800 * 1000; //1800
     public static final int DATA_OUT_OF_DATE_DAYS = 7;
@@ -89,6 +97,8 @@ public class WearableWakefulService extends IntentService {
 
     private Intent incomingIntent;
     private static WakefulServiceArbitrator arbitrator = null;
+
+    private Context mContext;
 
     private BroadcastReceiver mTransferResultReceiver = new BroadcastReceiver() {
         @Override
@@ -536,8 +546,44 @@ public class WearableWakefulService extends IntentService {
         SizeLimitedZipper dataZipper = new SizeLimitedZipper("DATA", Globals.TRANSFER_FOLDER, "data", DATA_ZIP_FILE_SIZE_LIMIT);
         for(File dataFile: dataFiles){
             try {
-                String zipPathname = dataZipper.addToZip(dataFile.getAbsolutePath(), true, false);
-                logger.i("Added " + dataFile.getAbsolutePath() + " to " + zipPathname, getApplicationContext());
+
+                // if .baf convert to csv
+                if(dataFile.getName().endsWith("baf")) {
+                    File currentFile = new File(dataFile.getParent() + File.separator + dataFile.getName());
+                    Log.i(TAG, "Decoding sensor file: " + currentFile, mContext);
+                    try {
+                        boolean result;
+                        InputStream assetInputStream = new FileInputStream(currentFile);
+                        final byte[] b = IOUtils.toByteArray(assetInputStream);
+                        result = decodeBinarySensorFile(b, currentFile.getParent(), currentFile.getName());
+
+                        if (result == true) {
+                            Log.i(TAG, "Successfully decoded sensor file: " + currentFile.getAbsolutePath(), mContext);
+                            String newName = dataFile.getParent() + File.separator + currentFile.getName().replaceAll(".baf", ".csv");
+
+                            Log.i(TAG, "Gzipping file: " + newName,mContext);
+                            boolean resultIn = compressGzipFile(newName, newName + ".gz");
+                            if(resultIn == true){
+                                File csvDeleteFile = new File(newName);
+                                Log.i(TAG, "Deleting csv file: " + csvDeleteFile,mContext);
+                                csvDeleteFile.delete();
+                            }
+
+                            String zipPathname = dataZipper.addToZip(newName + ".gz", true, false);
+                            logger.i("Added " + newName + ".gz to " + zipPathname, getApplicationContext());
+                            currentFile.delete();
+                            Log.i(TAG, "Deleted the original binary file: " + currentFile.getAbsolutePath(), mContext);
+                        } else {
+                            Log.e(TAG, "Fail to decode binary sensor file: " + currentFile.getAbsolutePath(), mContext);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+
+                    String zipPathname = dataZipper.addToZip(dataFile.getAbsolutePath(), true, false);
+                    logger.i("Added " + dataFile.getAbsolutePath() + " to " + zipPathname, getApplicationContext());
+                }
             } catch (ZipException e) {
                 logger.e("ERROR when zipping file, so skip this file: " + dataFile.getAbsolutePath(), getApplicationContext());
                 logger.e(e.getMessage(), getApplicationContext());
@@ -800,5 +846,91 @@ public class WearableWakefulService extends IntentService {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mTransferResultReceiver);
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mFlushResultReceiver);
         logger.close();
+    }
+
+    private boolean decodeBinarySensorFile(byte[] b, String path, String fileName){
+        String newName = fileName.replaceAll(".baf", ".csv");
+        File newFile = new File(path + File.separator + newName);
+
+        if(newFile.exists()){
+            newFile.delete();
+        }
+        AndroidWearAccelerometerRaw accelRaw = new AndroidWearAccelerometerRaw(mContext);
+        Log.i(TAG, "I am here",mContext);
+        boolean result = true;
+        long startTime = System.currentTimeMillis();
+        for(int i = 0; i + 20 <= b.length ;i = i+20){
+            float rawx = ByteUtils.byteArray2Float(Arrays.copyOfRange(b, i, i + 4));
+            float rawy = ByteUtils.byteArray2Float(Arrays.copyOfRange(b, i+4, i + 8));
+            float rawz = ByteUtils.byteArray2Float(Arrays.copyOfRange(b, i+8, i + 12));
+            long ts = ByteUtils.byteArray2Long(Arrays.copyOfRange(b, i + 12, i + 20));
+            accelRaw.setRawx(rawx);
+            accelRaw.setRawy(rawy);
+            accelRaw.setRawz(rawz);
+            accelRaw.setTimestamp(ts);
+            try {
+                accelRaw.bufferedWriteToCustomCsv(path, newName, true);
+            }catch (IOException e){
+                Log.e(TAG, "IO error when decoding binary from watch, skip current bits and just to next 20 bits",mContext);
+                Log.e(TAG, e.getMessage(),mContext);
+            }
+        }
+        try {
+            Log.e(TAG, "Before flush",mContext);
+            accelRaw.flushAndCloseCsv();
+        }catch(IOException e){
+            Log.e(TAG, "IO error when closing the buffered writer when decoding binary from watch",mContext);
+            Log.e(TAG, e.getMessage(),mContext);
+        }
+        Log.i(TAG, "Decoding file time: " + (System.currentTimeMillis() - startTime) / 1000.0 + " seconds",mContext);
+        return result;
+    }
+
+    public static boolean compressGzipFile(String file, String gzipFile) {
+        boolean result = false;
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        GZIPOutputStream gzipOS = null;
+        try {
+            fis = new FileInputStream(file);
+            fos = new FileOutputStream(gzipFile);
+            gzipOS = new GZIPOutputStream(fos);
+            byte[] buffer = new byte[1024];
+            int len;
+            while((len=fis.read(buffer)) != -1){
+                gzipOS.write(buffer, 0, len);
+            }
+            //close resources
+            gzipOS.flush();
+            gzipOS.close();
+            gzipOS = null;
+            fos.flush();
+            fos.close();
+            fos = null;
+            fis.close();
+            fis = null;
+            result = true;
+        } catch (IOException e) {
+            e.printStackTrace();
+//            Log.e(TAG, e.getMessage(),mContext);
+//            Log.e(TAG, e,mContext);
+        } finally{
+            try{
+                if(gzipOS != null){
+                    gzipOS.flush();
+                    gzipOS.close();
+                }
+                if(fis != null){
+                    fis.close();
+                }
+                if(fos != null){
+                    fos.flush();
+                    fos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 }

@@ -4,6 +4,11 @@ package mhealth.neu.edu.phire;
 import android.content.Context;
 import android.os.Environment;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import edu.neu.mhealth.android.wockets.library.WocketsConstants;
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 
@@ -20,15 +25,25 @@ public class TEMPLEConstants extends WocketsConstants {
     private static final String DIRECTORY_DATA = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/data";
     private static final String DIRECTORY_TRANSFER = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/transfer";
 
-    public static final int START_HOUR = 19;
+
+    private static final String DIRECTORY_WATCH_DATA = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/data-watch";
+    private static final String DIRECTORY_WATCH_LOGS = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/logs-watch";
+
+
+    public static final int START_HOUR = 07;
     public static final int START_MINUTE = 0;
-    public static final int END_HOUR = 16;
+    public static final int END_HOUR = 23;
     public static final int END_MINUTE = 0;
 
-//	public static final String DEFAULT_SLEEP_TIME = "22:00";
-//	public static final String DEFAULT_WAKE_TIME = "06:30";
+	public static final String DEFAULT_SLEEP_TIME = "22:00";
+	public static final String DEFAULT_WAKE_TIME = "06:30";
 
     public static final String KEY_EMA_DEMO = "KEY_EMA_DEMO";
+
+    public static final List<String> SUPPORTED_WHEEL_DIAMETER_CM = Arrays.asList("22","23","24","25","26");
+
+    public static final String CSC_SERVICE_UUID = "00001816-0000-1000-8000-00805f9b34fb";
+
 
 //    public static final String KEY_SALIVA_WAKING_DEMO = "KEY_SALIVA_WAKING_DEMO";
 //	public static final String KEY_SALIVA_WAKING = "KEY_SALIVA_WAKING";
@@ -43,5 +58,10 @@ public class TEMPLEConstants extends WocketsConstants {
         DataManager.setDirectorySurveys(DIRECTORY_SURVEYS, mContext);
         DataManager.setDirectoryData(DIRECTORY_DATA, mContext);
         DataManager.setDirectoryTransfer(DIRECTORY_TRANSFER, mContext);
+
+        DataManager.setDirectoryWatchData(DIRECTORY_WATCH_DATA, mContext);
+        DataManager.setDirectoryWatchLogs(DIRECTORY_WATCH_LOGS, mContext);
+
+
     }
 }

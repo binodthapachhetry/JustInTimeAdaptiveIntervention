@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
+        "outputFile": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 204
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 312
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 435
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 535
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 643
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 727
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 827
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 942
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 1019
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1095
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1177
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1280
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1384
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1483
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1588
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 1691
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1795
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 1914
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 2014
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -372,7 +372,7 @@
                     "endOffset": 2089
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -391,7 +391,7 @@
                     "endOffset": 2185
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -410,7 +410,7 @@
                     "endOffset": 2280
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -429,7 +429,7 @@
                     "endOffset": 2399
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -448,7 +448,7 @@
                     "endOffset": 2484
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -467,7 +467,7 @@
                     "endOffset": 2598
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -486,7 +486,7 @@
                     "endOffset": 2708
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -505,7 +505,7 @@
                     "endOffset": 2825
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -524,7 +524,7 @@
                     "endOffset": 2926
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -543,7 +543,7 @@
                     "endOffset": 3028
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -562,7 +562,7 @@
                     "endOffset": 3107
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -581,7 +581,7 @@
                     "endOffset": 3201
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -600,7 +600,7 @@
                     "endOffset": 3298
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -619,7 +619,7 @@
                     "endOffset": 3406
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -638,7 +638,7 @@
                     "endOffset": 3479
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -657,7 +657,7 @@
                     "endOffset": 3616
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -676,7 +676,7 @@
                     "endOffset": 3755
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -695,7 +695,7 @@
                     "endOffset": 3853
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -714,7 +714,7 @@
                     "endOffset": 3928
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -733,7 +733,7 @@
                     "endOffset": 4001
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -752,7 +752,7 @@
                     "endOffset": 4078
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -771,7 +771,7 @@
                     "endOffset": 4170
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -790,7 +790,7 @@
                     "endOffset": 4265
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -809,7 +809,7 @@
                     "endOffset": 4359
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 24,
                         "startColumn": 4,
@@ -828,7 +828,7 @@
                     "endOffset": 4450
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 25,
                         "startColumn": 4,
@@ -847,7 +847,7 @@
                     "endOffset": 4545
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -866,7 +866,7 @@
                     "endOffset": 4618
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 27,
                         "startColumn": 4,
@@ -885,7 +885,7 @@
                     "endOffset": 4715
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 28,
                         "startColumn": 4,
@@ -904,7 +904,7 @@
                     "endOffset": 4812
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 29,
                         "startColumn": 4,
@@ -923,7 +923,7 @@
                     "endOffset": 4911
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
@@ -942,7 +942,7 @@
                     "endOffset": 5055
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 31,
                         "startColumn": 4,
@@ -961,7 +961,7 @@
                     "endOffset": 5182
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -980,7 +980,7 @@
                     "endOffset": 5307
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 33,
                         "startColumn": 4,
@@ -999,7 +999,7 @@
                     "endOffset": 5402
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 34,
                         "startColumn": 4,
@@ -1018,7 +1018,7 @@
                     "endOffset": 5493
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 35,
                         "startColumn": 4,
@@ -1037,7 +1037,7 @@
                     "endOffset": 5598
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 36,
                         "startColumn": 4,
@@ -1056,7 +1056,7 @@
                     "endOffset": 5675
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 37,
                         "startColumn": 4,
@@ -1075,7 +1075,7 @@
                     "endOffset": 5782
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1094,7 +1094,7 @@
                     "endOffset": 5966
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1113,7 +1113,7 @@
                     "endOffset": 6093
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -1132,7 +1132,7 @@
                     "endOffset": 6202
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -1151,7 +1151,7 @@
                     "endOffset": 6417
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -1170,7 +1170,7 @@
                     "endOffset": 6634
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -1189,7 +1189,7 @@
                     "endOffset": 6759
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -1208,7 +1208,7 @@
                     "endOffset": 6891
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -1227,7 +1227,7 @@
                     "endOffset": 7140
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1246,7 +1246,7 @@
                     "endOffset": 7389
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -1265,7 +1265,7 @@
                     "endOffset": 7513
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -1284,7 +1284,7 @@
                     "endOffset": 7620
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -1303,7 +1303,7 @@
                     "endOffset": 7803
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -1322,7 +1322,7 @@
                     "endOffset": 7930
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -1341,7 +1341,7 @@
                     "endOffset": 8135
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -1360,7 +1360,7 @@
                     "endOffset": 8270
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -1379,7 +1379,7 @@
                     "endOffset": 8448
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -1398,7 +1398,7 @@
                     "endOffset": 8541
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -1417,7 +1417,7 @@
                     "endOffset": 8633
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -1436,7 +1436,7 @@
                     "endOffset": 8741
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -1455,7 +1455,7 @@
                     "endOffset": 8841
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1474,7 +1474,7 @@
                     "endOffset": 8936
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -1493,7 +1493,7 @@
                     "endOffset": 9018
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1512,7 +1512,7 @@
                     "endOffset": 9110
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1531,7 +1531,7 @@
                     "endOffset": 9212
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -1550,7 +1550,7 @@
                     "endOffset": 9308
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -1569,7 +1569,7 @@
                     "endOffset": 9404
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -1588,7 +1588,7 @@
                     "endOffset": 9498
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -1607,7 +1607,7 @@
                     "endOffset": 9590
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -1626,7 +1626,7 @@
                     "endOffset": 9698
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -1645,7 +1645,7 @@
                     "endOffset": 9806
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -1664,7 +1664,7 @@
                     "endOffset": 9890
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -1683,7 +1683,7 @@
                     "endOffset": 9971
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -1702,7 +1702,7 @@
                     "endOffset": 10061
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -1721,7 +1721,7 @@
                     "endOffset": 10147
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -1740,7 +1740,7 @@
                     "endOffset": 10241
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -1759,7 +1759,7 @@
                     "endOffset": 10344
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1778,7 +1778,7 @@
                     "endOffset": 10440
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1797,7 +1797,7 @@
                     "endOffset": 10522
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -1816,7 +1816,7 @@
                     "endOffset": 10623
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/values-en-rGB/values-en-rGB.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -1835,7 +1835,7 @@
                     "endOffset": 10727
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/res/values-en-rGB/values.xml",
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/res/values-en-rGB/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

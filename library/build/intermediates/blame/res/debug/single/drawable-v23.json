@@ -1,6 +1,6 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-v23/abc_control_background_material.xml"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-v23/abc_control_background_material.xml"
     }
 ]

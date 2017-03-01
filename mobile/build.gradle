@@ -6,12 +6,12 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "mhealth.neu.edu.phire"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled  true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -28,4 +28,7 @@ dependencies {
     compile project(':library')
     compile project(':wocketslib')
     compile 'com.android.support:multidex:1.0.1'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
 }

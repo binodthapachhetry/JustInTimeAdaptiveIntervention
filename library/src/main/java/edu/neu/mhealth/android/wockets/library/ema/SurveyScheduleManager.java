@@ -24,6 +24,8 @@ public class SurveyScheduleManager {
         if(promptTimes != null){
             for (PromptTime promptTime : promptTimes) {
                 Log.i(TAG, "Scheduling Survey for - " + promptTime.key, mContext);
+                long tmp = DataManager.getSurveyScheduleTimeForDateByKey(mContext, promptTime.key, DateTime.getDate());
+                Log.i(TAG, String.valueOf(tmp), mContext);
                 if (DataManager.getSurveyScheduleTimeForDateByKey(mContext, promptTime.key, DateTime.getDate()) != 0) {
                     Log.i(TAG, "Survey " + promptTime.key + " is already scheduled", mContext);
                     continue;

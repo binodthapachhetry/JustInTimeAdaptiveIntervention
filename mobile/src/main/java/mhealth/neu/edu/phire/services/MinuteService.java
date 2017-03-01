@@ -197,17 +197,20 @@ public class MinuteService extends WocketsIntentService {
         Log.i(TAG, "Logging Notifications Status", mContext);
         NotificationManager.logNotificationStatus(mContext);
 
+        Log.i(TAG, "Fetching latest study data", mContext);
+        StudyManager.getInstance().fetchLatestStudyData(mContext);
+
+        Log.i(TAG, "Starting SurveyManagerService", mContext);
+        startService(new Intent(this, SurveyManagerService.class));
+
+        Log.i(TAG, "Starting PanobikeSensorService", mContext);
+        startService(new Intent(this, PanobikeSensorService.class));
+
         Log.i(TAG, "Logging Location", mContext);
         startService(new Intent(this, LocationManagerService.class));
 
         Log.i(TAG, "Logging Acceleration", mContext);
         startService(new Intent(this, AccelerationManagerService.class));
-
-//        Log.i(TAG, "Starting BluetoothManagerService", mContext);
-//        startService(new Intent(this,BluetoothSensorService.class));
-
-        Log.i(TAG, "Fetching latest study data", mContext);
-        StudyManager.getInstance().fetchLatestStudyData(mContext);
 
         Log.i(TAG, "Starting UploadManagerService", mContext);
         startService(new Intent(this, UploadManagerService.class));

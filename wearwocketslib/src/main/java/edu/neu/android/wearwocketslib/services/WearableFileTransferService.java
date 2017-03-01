@@ -249,6 +249,7 @@ public class WearableFileTransferService extends Service implements GoogleApiCli
 //        stopSelf();
 //    }
 
+
     private void setStopTimer() {
         timer = new Timer("STOP_FILE_TRANSFER_SERVICE", true);
         TimerTask stopTask = new TimerTask() {

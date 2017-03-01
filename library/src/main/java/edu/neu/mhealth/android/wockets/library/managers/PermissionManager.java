@@ -34,15 +34,15 @@ public class PermissionManager {
     private static List<String> getAllDangerousPermissions(Context mContext) {
         Log.i(TAG, "Inside getAllDangerousPermissions", mContext);
         List<String> permissions = new ArrayList<>();
-        permissions.add(Manifest.permission.READ_CALENDAR);
-        permissions.add(Manifest.permission.WRITE_CALENDAR);
-        permissions.add(Manifest.permission.CAMERA);
-        permissions.add(Manifest.permission.READ_CONTACTS);
-        permissions.add(Manifest.permission.WRITE_CONTACTS);
+//        permissions.add(Manifest.permission.READ_CALENDAR);
+//        permissions.add(Manifest.permission.WRITE_CALENDAR);
+//        permissions.add(Manifest.permission.CAMERA);
+//        permissions.add(Manifest.permission.READ_CONTACTS);
+//        permissions.add(Manifest.permission.WRITE_CONTACTS);
         permissions.add(Manifest.permission.GET_ACCOUNTS);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
-        permissions.add(Manifest.permission.RECORD_AUDIO);
+//        permissions.add(Manifest.permission.RECORD_AUDIO);
         permissions.add(Manifest.permission.READ_PHONE_STATE);
         permissions.add(Manifest.permission.CALL_PHONE);
         permissions.add(Manifest.permission.READ_CALL_LOG);

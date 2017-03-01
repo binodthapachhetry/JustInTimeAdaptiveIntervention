@@ -16,7 +16,7 @@ public class Zipper {
 
     private static final String TAG = "Zipper";
 //    private static final String PASSWORD = "7Qv8e3PfaXF25DLb";
-    private static final String PASSWORD = "binod";
+    private static final String PASSWORD = "qo3mD6ON8bvSx9T1";
 
     public static void zipFileWithEncryption(String filePath, Context context) {
         boolean isException = false;

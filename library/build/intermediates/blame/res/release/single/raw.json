@@ -1,26 +1,26 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/res/merged/release/raw/gtm_analytics",
-        "source": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/res/raw/gtm_analytics"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio4.mp3",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio4.mp3"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/res/merged/release/raw/audio2.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/res/raw/audio2.mp3"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/gtm_analytics",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/res/raw/gtm_analytics"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/res/merged/release/raw/audio3.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/res/raw/audio3.mp3"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio1.mp3",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio1.mp3"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/res/merged/release/raw/audio1.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/res/raw/audio1.mp3"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio5.wav",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio5.wav"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/res/merged/release/raw/audio5.wav",
-        "source": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/res/raw/audio5.wav"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio2.mp3",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio2.mp3"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/build/intermediates/res/merged/release/raw/audio4.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/PHIRE/library/src/main/res/raw/audio4.mp3"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio3.mp3",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio3.mp3"
     }
 ]

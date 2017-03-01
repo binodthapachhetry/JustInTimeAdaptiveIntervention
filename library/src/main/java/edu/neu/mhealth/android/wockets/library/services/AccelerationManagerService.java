@@ -31,7 +31,7 @@ public class AccelerationManagerService extends Service implements SensorEventLi
     private Context mContext;
     private Sensor mAccel;
     private static float[] gravity;
-    private final int maxDelay = 5000000;
+    private final int maxDelay = 60000000;
     private final static float alpha = 0.8f;
     private long timeInMillis;
 
@@ -77,7 +77,7 @@ public class AccelerationManagerService extends Service implements SensorEventLi
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG,"FLUSHING");
+//        Log.d(TAG,"FLUSHING");
 //        mSensorManager.flush(this);
         return Service.START_NOT_STICKY;
     }
@@ -92,15 +92,21 @@ public class AccelerationManagerService extends Service implements SensorEventLi
             gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
             gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
 
+            Date dateNow = new Date();
+            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
+
             timeInMillis = (new Date()).getTime()
                     + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
 
             Date date = new Date(timeInMillis);
             String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
-            String row = String.format("%s,%.5f,%.5f,%.5f", timestampString, event.values[0], event.values[1], event.values[2]);
+
+
+//            String row = String.format("%s,%s,%.5f,%.5f,%.5f", timestampStringNow,timestampString, event.values[0], event.values[1], event.values[2]);
 
 
             String[] accEntry = {
+                    timestampStringNow,
                     timestampString,
                     Float.toString(event.values[0]- gravity[0]),
                     Float.toString(event.values[1]- gravity[1]),

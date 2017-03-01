@@ -27,6 +27,7 @@ public class DataManager {
 
     //--------------------------------------------------------------------------------------------//
 
+
     private static final String STUDY = "STUDY";
 
     public static Study getStudy(Context context) {
@@ -164,6 +165,20 @@ public class DataManager {
 
     //--------------------------------------------------------------------------------------------//
 
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String DIRECTORY_WATCH_LOGS = "DIRECTORY_WATCH_LOGS";
+
+    public static void setDirectoryWatchLogs(String directoryWatchLogs, Context context) {
+        SharedPrefManager.setString(DIRECTORY_WATCH_LOGS, directoryWatchLogs, context);
+    }
+
+    public static String getDirectoryWatchLogs(Context context) {
+        return SharedPrefManager.getString(DIRECTORY_WATCH_LOGS, Environment.getExternalStorageState() + "/.WOCKETS/logs-watch", context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+
     private static final String DIRECTORY_SURVEYS = "DIRECTORY_SURVEYS";
 
     public static void setDirectorySurveys(String directorySurveys, Context context) {
@@ -187,6 +202,21 @@ public class DataManager {
     }
 
     //--------------------------------------------------------------------------------------------//
+
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String DIRECTORY_WATCH_DATA = "DIRECTORY_WATCH_DATA";
+
+    public static void setDirectoryWatchData(String directoryWatchData, Context context) {
+        SharedPrefManager.setString(DIRECTORY_WATCH_DATA, directoryWatchData, context);
+    }
+
+    public static String getDirectoryWatchData(Context context) {
+        return SharedPrefManager.getString(DIRECTORY_WATCH_DATA, Environment.getExternalStorageState() + "/.WOCKETS/data-watch", context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+
 
     private static final String DIRECTORY_TRANSFER = "DIRECTORY_TRANSFER";
 
@@ -326,6 +356,9 @@ public class DataManager {
         String key = BATTERY_PERCENTAGE + DateTime.getDate() + DateTime.getCurrentHourWithTimezone();
         SharedPrefManager.setInt(key, batteryPercentage, mContext);
     }
+
+    //--------------------------------------------------------------------------------------------//
+
 
     //--------------------------------------------------------------------------------------------//
 
