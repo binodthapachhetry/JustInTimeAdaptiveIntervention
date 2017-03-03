@@ -50,7 +50,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
     @Override
     public void onCreate() {
         logger = new Logger(TAG);
-        Log.i(TAG, "Inside onCreate", getApplicationContext());
+//        Log.i(TAG, "Inside onCreate", getApplicationContext());
         super.onCreate();
         message = null;
         isRunning = true;
@@ -59,6 +59,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         logger.i("Inside onStartCommand", getApplicationContext());
+//        Log.i(TAG,"Inside onStartCommand", getApplicationContext());
 
         setStopTimer();
 
@@ -66,6 +67,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
             String action = intent.getAction();
             if(action == null){
                 logger.i("Intent action is null", getApplicationContext());
+//                Log.e(TAG,"Intent action is null", getApplicationContext());
                 notifyTransferFinish("null", "Intent action is null");
                 stopSelf();
                 return super.onStartCommand(intent, flags, startId);
@@ -74,12 +76,14 @@ public class WearableMessageTransferService extends Service implements GoogleApi
                     message = intent.getStringExtra("MESSAGE");
                 }else if(action.equals("TIMEOUT")) {
                     logger.e("Has reached 45s time out, kill the service", getApplicationContext());
+//                    Log.e(TAG,"Has reached 45s time out, kill the service", getApplicationContext());
                     notifyTransferFailure("null", "Has reached 45s time out, kill the service");
                     stopSelf();
                     return super.onStartCommand(intent, flags, startId);
                 }
                 else{
                     logger.i("Unknown action: " + action, getApplicationContext());
+//                    Log.e(TAG,"Unknown action: " + action, getApplicationContext());
                     notifyTransferFinish("null", "Unknown action: " + action);
                     stopSelf();
                     return super.onStartCommand(intent, flags, startId);
@@ -87,6 +91,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
             }
         }else {
             logger.i("Intent is null", getApplicationContext());
+//            Log.i(TAG,"Intent is null", getApplicationContext());
             notifyTransferFinish("null", "Intent is null");
             stopSelf();
             return super.onStartCommand(intent, flags, startId);
@@ -103,6 +108,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
     @Override
     public void onDestroy() {
         logger.i("Inside onDestroy", getApplicationContext());
+//        Log.i(TAG,"Inside onDestroy", getApplicationContext());
         super.onDestroy();
         if(mGoogleApiClient != null) {
             mGoogleApiClient.disconnect();
@@ -116,6 +122,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
     @Override
     public void onConnected(Bundle bundle) {
         logger.i("Google Api Connected", getApplicationContext());
+//        Log.i(TAG,"Google Api Connected", getApplicationContext());
         // after google api is in connection, check phone connection
 //        checkPhoneConnection(Globals.CAPABILITY_NAME);
         checkPhoneConnectionTask = new CheckPhoneConnectionTask(mGoogleApiClient);
@@ -123,12 +130,14 @@ public class WearableMessageTransferService extends Service implements GoogleApi
             @Override
             public void onPhoneInConnection(Set<Node> nodes) {
                 logger.i("Phone is in connection!", getApplicationContext());
+//                Log.i(TAG,"Phone is in connection!", getApplicationContext());
                 String phoneNode = pickBestNodeId(nodes);
                 sendMessage(phoneNode);
                 SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
                 if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
                     WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
                     logger.i("Cancel lost connection notification", getApplicationContext());
+//                    Log.i(TAG,"Cancel lost connection notification", getApplicationContext());
                 }
             }
 
@@ -136,6 +145,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
             public void onPhoneNotInConnection() {
                 logger.i("Phone is not in connection!", getApplicationContext());
                 WearableMessageTransferService.this.stopSelf();
+//                Log.i(TAG,"Phone is not in connection", getApplicationContext());
             }
         });
     }
@@ -162,6 +172,7 @@ public class WearableMessageTransferService extends Service implements GoogleApi
     public IBinder onBind(Intent intent) {
         // normally it won't be called
         logger.i("Inside onBind", getApplicationContext());
+//        Log.i(TAG,"Inside onBind", getApplicationContext());
         return null;
     }
 
@@ -209,7 +220,8 @@ public class WearableMessageTransferService extends Service implements GoogleApi
             }
         };
         timer.schedule(stopTask, 45 * 1000);
-        logger.i("Message transfer service will stop in 45 seconds", getApplicationContext());
+//        logger.i("Message transfer service will stop in 45 seconds", getApplicationContext());
+        Log.i(TAG,"Message transfer service will stop in 45 seconds", getApplicationContext());
     }
 
 
@@ -265,12 +277,14 @@ public class WearableMessageTransferService extends Service implements GoogleApi
                     public void onResult(
                             MessageApi.SendMessageResult sendMessageResult) {
                         logger.i("Message: " + message, getApplicationContext());
+//                        Log.i(TAG,"Message: " + message, getApplicationContext());
                         if(!sendMessageResult.getStatus().isSuccess()){
-                            Log.e(TAG, "ERROR: failed to transfer message, status code: " + sendMessageResult.getStatus().getStatusCode(), getApplicationContext());
+//                            Log.e(TAG, "ERROR: failed to transfer message, status code: " + sendMessageResult.getStatus().getStatusCode(), getApplicationContext());
                             notifyTransferFailure(message, "ERROR: failed to transfer message, status code: " +
                                     +sendMessageResult.getStatus().getStatusCode());
                         }else{
                             logger.i("Message got sent to MessageApi successfully!", getApplicationContext());
+//                            Log.i(TAG,"Message got sent to MessageApi successfully!", getApplicationContext());
                             notifyTransferSuccess(message, "Message got sent to MessageApi");
                         }
                         WearableMessageTransferService.this.stopSelf();

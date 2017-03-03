@@ -23,6 +23,7 @@ public class WearableApplication extends Application {
         exceptionHandler.setDefaultHandler(Thread.getDefaultUncaughtExceptionHandler());
         Thread.setDefaultUncaughtExceptionHandler(exceptionHandler);
         Globals.init();
+
     }
 
     @Override

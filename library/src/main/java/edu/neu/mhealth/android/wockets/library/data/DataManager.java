@@ -509,6 +509,42 @@ public class DataManager {
     public static void setLastRunOfUploadManagerService(Context mConText) {
         SharedPrefManager.setLong(LAST_RUN_OF_UPLOAD_MANAGER_SERVICE, DateTime.getCurrentTimeInMillis(), mConText);
     }
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String LAST_RUN_OF_WATCH_UPLOAD_MANAGER_SERVICE = "LAST_RUN_OF_WATCH_UPLOAD_MANAGER_SERVICE";
+
+    /**
+     * Returns the last run time of the WATCH upload manager service
+     */
+    public static long getLastRunOfWatchUploadManagerService(Context mContext) {
+        return SharedPrefManager.getLong(LAST_RUN_OF_WATCH_UPLOAD_MANAGER_SERVICE, 0, mContext);
+    }
+
+    /**
+     * Sets the last run time of the WATCH upload manager service
+     */
+    public static void setLastRunOfWatchUploadManagerService(Context mConText) {
+        SharedPrefManager.setLong(LAST_RUN_OF_WATCH_UPLOAD_MANAGER_SERVICE, DateTime.getCurrentTimeInMillis(), mConText);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String IS_ZIP_TRANSFER_FINISHED = "IS_ZIP_TRANSFER_FINISHED";
+
+    /**
+     * Returns true if study finish button is pressed.
+     */
+    public static boolean isZipTransferFinished(Context mContext) {
+        return SharedPrefManager.getBoolean(IS_ZIP_TRANSFER_FINISHED, true, mContext);
+    }
+
+    /**
+     * Sets the flag to indicate that the study finish button was pressed.
+     */
+    public static void setZipTransferFinished(Context mConText, boolean finished) {
+        SharedPrefManager.setBoolean(IS_ZIP_TRANSFER_FINISHED, finished, mConText);
+    }
+
 
     //--------------------------------------------------------------------------------------------//
 

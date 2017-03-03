@@ -58,12 +58,20 @@ public class EMASingleChoiceActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.i(TAG, "10", getApplicationContext());
 		overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+		Log.i(TAG, "11", getApplicationContext());
 		setContentView(R.layout.wockets_activity_ema_single_choice);
+		Log.i(TAG, "12", getApplicationContext());
 		mContext = getApplicationContext();
+
+		Log.i(TAG, "13", mContext);
 		ButterKnife.bind(this);
+		Log.i(TAG, "14", mContext);
 		EventBus.getDefault().register(this);
+		Log.i(TAG, "15", mContext);
 		DataManager.setPromptOnScreen(mContext, false);
+
 
 		Log.i(TAG, "Inside onCreate, Starting EMA Single Choice Activity", mContext);
 

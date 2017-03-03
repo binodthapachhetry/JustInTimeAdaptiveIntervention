@@ -15,6 +15,9 @@ import java.util.Stack;
 
 import android.content.Context;
 import android.os.Environment;
+
+import org.apache.james.mime4j.field.datetime.DateTime;
+
 import au.com.bytecode.opencsv.CSVWriter;
 import edu.neu.android.wocketslib.Globals;
 import edu.neu.android.wocketslib.encryption.RSACipher;
@@ -566,6 +569,8 @@ public class Log {
 		String folderPath = String.format("/%04d-%02d-%02d", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
 				cal.get(Calendar.DAY_OF_MONTH));
 
+//		String folderPath = DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone()
+
 		return folderPath;
 	}
 
@@ -596,8 +601,16 @@ public class Log {
 		// return;
 		// }
 
-		File folder = new File(getLogDirectory().getAbsolutePath() + File.separator + folderPath);
-		folder.mkdirs();
+//		File folder = new File(getLogDirectory().getAbsolutePath() + File.separator + folderPath);
+//		folder.mkdirs();
+
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		String currentHour = new SimpleDateFormat("HH-z").format(new Date());
+		File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/logs/" + currentDate + "/" + currentHour + "/");
+
+		if (!folder.exists()) {
+			folder.mkdirs();
+		}
 
 		File logFile = new File(folder, String.format("%s.%s.csv", aModuleName, fileType));
 
@@ -653,8 +666,15 @@ public class Log {
 		// return;
 		// }
 
-		File folder = new File(getLogDirectory().getAbsolutePath() + File.separator + folderPath);
-		folder.mkdirs();
+//		File folder = new File(getLogDirectory().getAbsolutePath() + File.separator + folderPath);
+//		folder.mkdirs();
+
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		String currentHour = new SimpleDateFormat("HH-z").format(new Date());
+		File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/logs/" + currentDate + "/" + currentHour + "/");
+		if (!folder.exists()) {
+			folder.mkdirs();
+		}
 
 		File logFile = new File(folder, String.format("%s.%s.csv", aModuleName, fileType));
 

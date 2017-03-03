@@ -1,5 +1,7 @@
 package mhealth.neu.edu.phire.panobike;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.UUID;
 
 import android.bluetooth.BluetoothDevice;
@@ -12,6 +14,7 @@ import android.content.Context;
 import android.util.Log;
 
 import mhealth.neu.edu.phire.TEMPLEConstants;
+import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 
 public class BikeSensor
 {
@@ -57,6 +60,7 @@ public class BikeSensor
     private long mLastWheelReading;
     private int mLastCrankReading;
     private int mLastWheelTime, mLastCrankTime;
+
 
 
 
@@ -325,6 +329,10 @@ public class BikeSensor
         if (mState != ConnectionState.CONNECTED)
             throw new IllegalStateException("Not connected");
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
+
         return mHasWheel;
     }
 
@@ -332,6 +340,10 @@ public class BikeSensor
     {
         if (mState != ConnectionState.CONNECTED)
             throw new IllegalStateException("Not connected");
+
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
 
         return mHasCrank;
     }

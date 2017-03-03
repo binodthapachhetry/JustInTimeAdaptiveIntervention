@@ -16,6 +16,12 @@ import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 import mhealth.neu.edu.phire.TEMPLEConstants;
 
+//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_AFTERNOON_330TO4_MOTHER;
+//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_AFTERNOON_4TO430_CHILD;
+//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_BEDTIME;
+//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_WAKING;
+//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_WAKING_PLUS_30;
+
 /**
  * @author Dharam Maniar
  */
@@ -64,7 +70,194 @@ public class SurveyManagerService extends WocketsIntentService {
             startService(new Intent(this, SurveyService.class));
         }
 
+//        // Schedule saliva for today
+//        scheduleSalivaSurveysForToday(survey);
+//
+//        // Prompt saliva if time
+//        promptSalivaIfTime(survey);
     }
+
+//    private void scheduleSalivaSurveysForToday(Survey survey) {
+//        if (!isSalivaDay()) {
+//            Log.i(TAG, "Today is not a saliva day", mContext);
+//            return;
+//        }
+
+//        if (DataManager.getSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_WAKING, DateTime.getDate()) != 0) {
+//            Log.i(TAG, "Saliva surveys are already scheduled", mContext);
+//            scheduleSalivaBedTimeSurveyForToday();
+//            return;
+//        }
+
+//        boolean isMother = true;
+//        if ("Child".equals(survey.surveyName)) {
+//            isMother = false;
+//        }
+//
+//        String wakeTime = DataManager.getWakeTime(mContext, TEMPLEConstants.DEFAULT_WAKE_TIME);
+//        Calendar today = Calendar.getInstance();
+//        today.setTimeInMillis(DateTime.getCurrentTimeInMillis());
+//        today.set(Calendar.HOUR_OF_DAY, Integer.parseInt(wakeTime.split(":")[0]));
+//        today.set(Calendar.MINUTE, Integer.parseInt(wakeTime.split(":")[1]));
+//
+//        Log.i(TAG, "Survey " + KEY_SALIVA_WAKING + " scheduled for " + DateTime.getTimestampString(today.getTimeInMillis()), mContext);
+//        DataManager.setSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_WAKING, DateTime.getDate(), today.getTimeInMillis());
+//
+//        today.add(Calendar.MINUTE, 30);
+//
+//        Log.i(TAG, "Survey " + KEY_SALIVA_WAKING_PLUS_30 + " scheduled for " + DateTime.getTimestampString(today.getTimeInMillis()), mContext);
+//        DataManager.setSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_WAKING_PLUS_30, DateTime.getDate(), today.getTimeInMillis());
+//
+//        if (isMother) {
+//            long startTime = DateTime.getTimeInMillis(15, 30);
+//            long endTime = DateTime.getTimeInMillis(16, 0);
+//            long diff = endTime - startTime + 1;
+//            long randomTime = startTime + (long) (Math.random() * diff);
+//            Log.i(TAG, "Survey " + KEY_SALIVA_AFTERNOON_330TO4_MOTHER + " scheduled for " + DateTime.getTimestampString(randomTime), mContext);
+//            DataManager.setSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_AFTERNOON_330TO4_MOTHER, DateTime.getDate(), randomTime);
+//        } else {
+//            long startTime = DateTime.getTimeInMillis(16, 0);
+//            long endTime = DateTime.getTimeInMillis(16, 30);
+//            long diff = endTime - startTime + 1;
+//            long randomTime = startTime + (long) (Math.random() * diff);
+//            Log.i(TAG, "Survey " + KEY_SALIVA_AFTERNOON_4TO430_CHILD + " scheduled for " + DateTime.getTimestampString(randomTime), mContext);
+//            DataManager.setSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_AFTERNOON_4TO430_CHILD, DateTime.getDate(), randomTime);
+//        }
+//
+//        scheduleSalivaBedTimeSurveyForToday();
+//    }
+
+//    private void scheduleSalivaBedTimeSurveyForToday() {
+//        String sleepTime = DataManager.getSleepTime(mContext, TEMPLEConstants.DEFAULT_SLEEP_TIME);
+//        Calendar today = Calendar.getInstance();
+//        today.setTimeInMillis(DateTime.getCurrentTimeInMillis());
+//        today.set(Calendar.HOUR_OF_DAY, Integer.parseInt(sleepTime.split(":")[0]));
+//        today.set(Calendar.MINUTE, Integer.parseInt(sleepTime.split(":")[1]));
+//        Log.i(TAG, "Survey " + KEY_SALIVA_BEDTIME + " scheduled for " + DateTime.getTimestampString(today.getTimeInMillis()), mContext);
+//        DataManager.setSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_BEDTIME, DateTime.getDate(), today.getTimeInMillis());
+//    }
+
+    private boolean isSalivaDay() {
+        long startDate = DataManager.getStartDate(mContext);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(DateTime.getCurrentTimeInMillis());
+        int today = calendar.get(Calendar.DAY_OF_WEEK);
+        calendar.setTimeInMillis(startDate);
+        switch (calendar.get(Calendar.DAY_OF_WEEK)) {
+            case Calendar.THURSDAY:
+                return today == Calendar.FRIDAY ||
+                        today == Calendar.SATURDAY ||
+                        today == Calendar.SUNDAY ||
+                        today == Calendar.MONDAY;
+            case Calendar.FRIDAY:
+                return today == Calendar.SATURDAY ||
+                        today == Calendar.SUNDAY ||
+                        today == Calendar.MONDAY ||
+                        today == Calendar.TUESDAY;
+            case Calendar.MONDAY:
+            case Calendar.SATURDAY:
+            case Calendar.SUNDAY:
+            case Calendar.TUESDAY:
+            case Calendar.WEDNESDAY:
+            default:
+                return today == Calendar.THURSDAY ||
+                        today == Calendar.FRIDAY ||
+                        today == Calendar.SATURDAY ||
+                        today == Calendar.SUNDAY;
+        }
+    }
+
+
+//    private void promptSalivaIfTime(Survey survey) {
+//        if (!isSalivaDay()) {
+//            Log.i(TAG, "Today is not a saliva day", mContext);
+//            return;
+//        }
+//
+//        boolean isMother = true;
+//        if ("Child".equals(survey.surveyName)) {
+//            isMother = false;
+//        }
+//
+//        long wakeUpSalivaPromptTime = DataManager.getSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_WAKING, DateTime.getDate());
+//        Log.i(TAG, KEY_SALIVA_WAKING + " is scheduled for " + DateTime.getTimestampString(wakeUpSalivaPromptTime), mContext);
+//        promptSalivaIfTime(KEY_SALIVA_WAKING, wakeUpSalivaPromptTime);
+//
+//        long wakeUpPlus30SalivaPromptTime = DataManager.getSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_WAKING_PLUS_30, DateTime.getDate());
+//        Log.i(TAG, KEY_SALIVA_WAKING_PLUS_30 + " is scheduled for " + DateTime.getTimestampString(wakeUpPlus30SalivaPromptTime), mContext);
+//        promptSalivaIfTime(KEY_SALIVA_WAKING_PLUS_30, wakeUpPlus30SalivaPromptTime);
+//
+//        if (isMother) {
+//            long afternoonSalivaMotherPromptTime = DataManager.getSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_AFTERNOON_330TO4_MOTHER, DateTime.getDate());
+//            Log.i(TAG, KEY_SALIVA_AFTERNOON_330TO4_MOTHER + " is scheduled for " + DateTime.getTimestampString(afternoonSalivaMotherPromptTime), mContext);
+//            promptSalivaIfTime(KEY_SALIVA_AFTERNOON_330TO4_MOTHER, afternoonSalivaMotherPromptTime);
+//        } else {
+//            long afternoonSalivaChildPromptTime = DataManager.getSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_AFTERNOON_4TO430_CHILD, DateTime.getDate());
+//            Log.i(TAG, KEY_SALIVA_AFTERNOON_4TO430_CHILD + " is scheduled for " + DateTime.getTimestampString(afternoonSalivaChildPromptTime), mContext);
+//            promptSalivaIfTime(KEY_SALIVA_AFTERNOON_4TO430_CHILD, afternoonSalivaChildPromptTime);
+//        }
+//
+//        long bedTimeSalivaPromptTime = DataManager.getSurveyScheduleTimeForDateByKey(mContext, KEY_SALIVA_BEDTIME, DateTime.getDate());
+//        Log.i(TAG, KEY_SALIVA_BEDTIME + " is scheduled for " + DateTime.getTimestampString(bedTimeSalivaPromptTime), mContext);
+//        promptSalivaIfTime(KEY_SALIVA_BEDTIME, bedTimeSalivaPromptTime);
+//    }
+
+//    private void promptSalivaIfTime(String promptKey, long promptTime) {
+//        if (DataManager.isPromptCompleteForDate(mContext, promptKey, DateTime.getDate())) {
+//            Log.i(TAG, "Prompt " + promptKey + " already completed for the day", mContext);
+//            return;
+//        }
+//
+//        if (DateTime.getCurrentTimeInMillis() < promptTime) {
+//            Log.i(TAG, "Prompt " + promptKey + " is in the future - " + DateTime.getTimestampString(promptTime), mContext);
+//            return;
+//        }
+//        String activePromptKey = DataManager.getActivePromptKey(mContext);
+//        if (promptTime > DateTime.getCurrentTimeInMillis() - DateTime.MINUTES_5_IN_MILLIS) {
+//            Log.i(TAG, "Time to prompt - " + promptKey, mContext);
+//
+//            if (SurveyScheduleManager.isAnyPromptActive(mContext)) {
+//                if (activePromptKey.equals(promptKey)) {
+//                    Log.i(TAG, "Prompt " + activePromptKey + " is already active.", mContext);
+//                    return;
+//                }
+//                Log.i(TAG, "Prompt " + activePromptKey + " is already active. Delaying " + promptKey + " by 10 minutes", mContext);
+//                DataManager.setSurveyScheduleTimeForDateByKey(mContext, promptKey, DateTime.getDate(), promptTime + DateTime.MINUTES_10_IN_MILLIS);
+//                return;
+//            }
+//            Log.i(TAG, "Prompting - " + promptKey, mContext);
+//            DataManager.setActivePromptKey(mContext, promptKey);
+//            DataManager.setActivePromptStartTime(mContext, DateTime.getCurrentTimeInMillis());
+//            startService(new Intent(this, SurveyService.class));
+//        }
+//
+//        Log.i(TAG, "Survey never prompted for the user. Trying to figure out the reason why.", mContext);
+//        long lastPhoneOffTime = DataManager.getLastPhoneOffTime(mContext);
+//        long lastPhoneOnTime = DataManager.getLastPhoneOnTime(mContext);
+//        if (lastPhoneOffTime > 0 && lastPhoneOnTime > 0) {
+//            if (lastPhoneOffTime < promptTime && promptTime < lastPhoneOnTime) {
+//                Log.i(TAG, "Prompt " + promptKey + " not prompted due to phone switch off", mContext);
+//                SurveyManager.writePrompt(mContext, promptKey, promptTime, -1, -1, "", false, 0, SurveyManager.Status.NEVER_PROMPTED, "Phone switched off");
+//                DataManager.setPromptCompleteForDate(mContext, promptKey, DateTime.getDate());
+//                return;
+//            }
+//        }
+//        if (DateTime.getCurrentTimeInMillis() > promptTime + DateTime.MINUTES_10_IN_MILLIS) {
+//            if (activePromptKey.equals(promptKey)) {
+//                Log.i(TAG, "Prompt " + promptKey + " - something went wrong", mContext);
+//                SurveyManager.writePrompt(mContext, promptKey, promptTime, -1, -1, "", false, 0, SurveyManager.Status.NEVER_PROMPTED, "Something went wrong");
+//                DataManager.setPromptCompleteForDate(mContext, promptKey, DateTime.getDate());
+//                DataManager.setActivePromptKey(mContext, "");
+//                DataManager.setActivePromptStartTime(mContext, -1);
+//            } else {
+//                Log.i(TAG, "Prompt " + promptKey + " - not prompted due to minute service issue", mContext);
+//                SurveyManager.writePrompt(mContext, promptKey, promptTime, -1, -1, "", false, 0, SurveyManager.Status.NEVER_PROMPTED, "Minute Service Issue");
+//                DataManager.setPromptCompleteForDate(mContext, promptKey, DateTime.getDate());
+//            }
+//        }
+//    }
+
 
     @Override
     public void onDestroy() {

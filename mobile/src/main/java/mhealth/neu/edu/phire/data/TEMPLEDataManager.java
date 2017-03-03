@@ -88,4 +88,16 @@ public class TEMPLEDataManager {
         SharedPrefManager.setBoolean(CONNECTED_TO_PANOBIKE_SENSOR, panobikeConnectionStatus, mContext);
     }
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String PANOBIKE_LAST_CONNECTED_TIME = "PANOBIKE_LAST_CONNECTED_TIME";
+
+    public static String getPanoBikeLastConnectionTime(Context mContext){
+        return SharedPrefManager.getString(PANOBIKE_LAST_CONNECTED_TIME , "", mContext);
+    }
+
+    public static void setPanoBikeLastConnectionTime(Context mContext, String panobikeLastConnectionTime) {
+        SharedPrefManager.setString(PANOBIKE_LAST_CONNECTED_TIME, panobikeLastConnectionTime, mContext);
+    }
+
+
 }

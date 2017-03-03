@@ -60,6 +60,15 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/activity_panobike_lastconnected_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="PanoBike last connected:"
+            android:textSize="20sp" />
+
+
+        <TextView
             android:id="@+id/activity_main_selected_survey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

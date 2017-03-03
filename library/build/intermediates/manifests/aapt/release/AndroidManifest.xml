@@ -18,44 +18,37 @@
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.activities.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMAMessageActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMASingleChoiceActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMAMultiChoiceActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMATimePickerActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar" >
-        </activity>
+            android:theme="@android:style/Theme.Holo.NoActionBar" />
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMANumberPickerActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar" >
-        </activity>
+            android:theme="@android:style/Theme.Holo.NoActionBar" />
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMATextInputActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar" >
-        </activity>
+            android:theme="@android:style/Theme.Holo.NoActionBar" />
         <!-- Services -->
         <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.UploadManagerService" />

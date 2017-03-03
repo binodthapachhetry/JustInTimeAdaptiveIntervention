@@ -47,12 +47,12 @@ public class Globals extends LibGlobals {
 	public static boolean IS_DEBUG = false;
 	// These MUST be set in calling code
 	public static String PACKAGE_NAME = "edu.neu.android.wocketslib";
-	public static String STUDY_NAME = "WOCKETSLIB";
+	public static String STUDY_NAME = "TEMPLE";
 	public static String STUDY_SERVER_NAME = "WocketsLib";
 //	public static final String SURVEY = "USCStudy";
 
 	// By default save logs to internal memory
-	public static Boolean IS_LOG_EXTERNAL = false;
+	public static Boolean IS_LOG_EXTERNAL = true;
 
 	// By default save mhealth data to external memory
 	public static Boolean IS_MHEALTH_EXTERNAL = true;

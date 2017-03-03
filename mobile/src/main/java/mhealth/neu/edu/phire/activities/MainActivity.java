@@ -44,6 +44,9 @@ public class MainActivity extends WocketsActivity {
     @BindView(R.id.activity_panobike_sensor_id)
     TextView selectedPanoBikeId;
 
+    @BindView(R.id.activity_panobike_lastconnected_time)
+    TextView panobikeLastConnectedTime;
+
     @BindView(R.id.activity_main_selected_survey)
     TextView selectedSurvey;
 
@@ -88,6 +91,7 @@ public class MainActivity extends WocketsActivity {
         loggedInUser.setText("Logged In User: " + UserManager.getUserEmailFormatted());
         selectedWheelDiameterCm.setText("Selected Wheel Diameter(cm): " + TEMPLEDataManager.getWheelDiameterCm(mContext));
         selectedPanoBikeId.setText("Selected PanoBike ID: " + TEMPLEDataManager.getPanoBikeSensorId(mContext));
+        panobikeLastConnectedTime.setText("PanoBike Last Connected: " + TEMPLEDataManager.getPanoBikeLastConnectionTime(mContext));
 
         TEMPLEConstants.init(mContext);
 

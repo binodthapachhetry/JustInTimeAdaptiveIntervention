@@ -254,7 +254,7 @@ public class WearableWakefulService extends IntentService {
 
     private void eventLogging() {
         if(Globals.IS_BATTERY_LOGGING_ENABLED){
-            Log.i(TAG, "Write battery event", getApplicationContext());
+            logger.i("Write battery event", getApplicationContext());
             boolean isCharing = BatteryLogger.isBatteryCharging(getApplicationContext());
             int level = (int) BatteryLogger.getBatteryLevel(getApplicationContext());
             Date now = new Date();
@@ -547,43 +547,43 @@ public class WearableWakefulService extends IntentService {
         for(File dataFile: dataFiles){
             try {
 
-                // if .baf convert to csv
-                if(dataFile.getName().endsWith("baf")) {
-                    File currentFile = new File(dataFile.getParent() + File.separator + dataFile.getName());
-                    Log.i(TAG, "Decoding sensor file: " + currentFile, mContext);
-                    try {
-                        boolean result;
-                        InputStream assetInputStream = new FileInputStream(currentFile);
-                        final byte[] b = IOUtils.toByteArray(assetInputStream);
-                        result = decodeBinarySensorFile(b, currentFile.getParent(), currentFile.getName());
-
-                        if (result == true) {
-                            Log.i(TAG, "Successfully decoded sensor file: " + currentFile.getAbsolutePath(), mContext);
-                            String newName = dataFile.getParent() + File.separator + currentFile.getName().replaceAll(".baf", ".csv");
-
-                            Log.i(TAG, "Gzipping file: " + newName,mContext);
-                            boolean resultIn = compressGzipFile(newName, newName + ".gz");
-                            if(resultIn == true){
-                                File csvDeleteFile = new File(newName);
-                                Log.i(TAG, "Deleting csv file: " + csvDeleteFile,mContext);
-                                csvDeleteFile.delete();
-                            }
-
-                            String zipPathname = dataZipper.addToZip(newName + ".gz", true, false);
-                            logger.i("Added " + newName + ".gz to " + zipPathname, getApplicationContext());
-                            currentFile.delete();
-                            Log.i(TAG, "Deleted the original binary file: " + currentFile.getAbsolutePath(), mContext);
-                        } else {
-                            Log.e(TAG, "Fail to decode binary sensor file: " + currentFile.getAbsolutePath(), mContext);
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }else {
+//                // if .baf convert to csv
+//                if(dataFile.getName().endsWith("baf")) {
+//                    File currentFile = new File(dataFile.getParent() + File.separator + dataFile.getName());
+//                    Log.i(TAG, "Decoding sensor file: " + currentFile, mContext);
+//                    try {
+//                        boolean result;
+//                        InputStream assetInputStream = new FileInputStream(currentFile);
+//                        final byte[] b = IOUtils.toByteArray(assetInputStream);
+//                        result = decodeBinarySensorFile(b, currentFile.getParent(), currentFile.getName());
+//
+//                        if (result == true) {
+//                            Log.i(TAG, "Successfully decoded sensor file: " + currentFile.getAbsolutePath(), mContext);
+//                            String newName = dataFile.getParent() + File.separator + currentFile.getName().replaceAll(".baf", ".csv");
+//
+//                            Log.i(TAG, "Gzipping file: " + newName,mContext);
+//                            boolean resultIn = compressGzipFile(newName, newName + ".gz");
+//                            if(resultIn == true){
+//                                File csvDeleteFile = new File(newName);
+//                                Log.i(TAG, "Deleting csv file: " + csvDeleteFile,mContext);
+//                                csvDeleteFile.delete();
+//                            }
+//
+//                            String zipPathname = dataZipper.addToZip(newName + ".gz", true, false);
+//                            logger.i("Added " + newName + ".gz to " + zipPathname, getApplicationContext());
+//                            currentFile.delete();
+//                            Log.i(TAG, "Deleted the original binary file: " + currentFile.getAbsolutePath(), mContext);
+//                        } else {
+//                            Log.e(TAG, "Fail to decode binary sensor file: " + currentFile.getAbsolutePath(), mContext);
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }else {
 
                     String zipPathname = dataZipper.addToZip(dataFile.getAbsolutePath(), true, false);
                     logger.i("Added " + dataFile.getAbsolutePath() + " to " + zipPathname, getApplicationContext());
-                }
+//                }
             } catch (ZipException e) {
                 logger.e("ERROR when zipping file, so skip this file: " + dataFile.getAbsolutePath(), getApplicationContext());
                 logger.e(e.getMessage(), getApplicationContext());
@@ -856,7 +856,7 @@ public class WearableWakefulService extends IntentService {
             newFile.delete();
         }
         AndroidWearAccelerometerRaw accelRaw = new AndroidWearAccelerometerRaw(mContext);
-        Log.i(TAG, "I am here",mContext);
+        logger.i("I am here",mContext);
         boolean result = true;
         long startTime = System.currentTimeMillis();
         for(int i = 0; i + 20 <= b.length ;i = i+20){
@@ -871,18 +871,18 @@ public class WearableWakefulService extends IntentService {
             try {
                 accelRaw.bufferedWriteToCustomCsv(path, newName, true);
             }catch (IOException e){
-                Log.e(TAG, "IO error when decoding binary from watch, skip current bits and just to next 20 bits",mContext);
-                Log.e(TAG, e.getMessage(),mContext);
+                logger.e("IO error when decoding binary from watch, skip current bits and just to next 20 bits",mContext);
+                logger.e(e.getMessage(),mContext);
             }
         }
         try {
-            Log.e(TAG, "Before flush",mContext);
+            logger.e("Before flush",mContext);
             accelRaw.flushAndCloseCsv();
         }catch(IOException e){
-            Log.e(TAG, "IO error when closing the buffered writer when decoding binary from watch",mContext);
-            Log.e(TAG, e.getMessage(),mContext);
+            logger.e("IO error when closing the buffered writer when decoding binary from watch",mContext);
+            logger.e(e.getMessage(),mContext);
         }
-        Log.i(TAG, "Decoding file time: " + (System.currentTimeMillis() - startTime) / 1000.0 + " seconds",mContext);
+        logger.i("Decoding file time: " + (System.currentTimeMillis() - startTime) / 1000.0 + " seconds",mContext);
         return result;
     }
 

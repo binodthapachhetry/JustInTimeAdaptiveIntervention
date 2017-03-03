@@ -5,7 +5,7 @@ import android.app.PendingIntent;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+//import android.util.//Log;
 
 
 import java.text.DecimalFormat;
@@ -16,6 +16,7 @@ import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
+//import edu.neu.mhealth.android.wockets.library.support.//Log;
 
 /**
  * Created by jarvis on 7/21/16.
@@ -36,12 +37,15 @@ public class BikeActivity {
     private String sensorID;
     public static BluetoothDevice device;
 
+    private Context mContext;
+
 
     public BikeActivity(Context context, BluetoothDevice bluetoothDevice,Integer diameter, String sensorID){
         this.context = context;
         this.mBluetoothDevice = bluetoothDevice;
         this.diameter = diameter;
         this.sensorID = sensorID;
+        context = context;
         runthis();
 
     }
@@ -69,14 +73,13 @@ public class BikeActivity {
 //    }
 
     private void runthis(){
-        Log.d(TAG, "run this!");
 
         mCallback = new BikeSensor.Callback() {
             @Override
             public void onConnectionStateChange(BikeSensor sensor, BikeSensor.ConnectionState newState) {
                 BikeActivity parent = BikeActivity.this;
                 if (newState == BikeSensor.ConnectionState.ERROR) {
-                    Log.d(TAG, "Error in connection or lost connection!");
+                    //Log.i(TAG, "Error in connection or lost connection!",context);
                     // need to start Alarm activity
                     // tell sharedpref that panobike connection is lost
                     TEMPLEDataManager.setPanoBikeConnectionStatus(context,false);
@@ -88,7 +91,7 @@ public class BikeActivity {
                     TEMPLEDataManager.setPanoBikeConnectionStatus(context,true);
                     parent.hasSpeed = parent.mSensor.hasSpeed();
                     parent.hasSpeed = parent.mSensor.hasCadence();
-                    Log.i(TAG, "Connected to device");
+                    //Log.i(TAG, "Connected to device",mContext);
                     parent.mSensor.setNotificationsEnabled(true);
                 }
             }
@@ -105,7 +108,7 @@ public class BikeActivity {
                 }
                 DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
                 final String speed_dec = String.valueOf(oneDigit.format(parent.instSpeed));
-                Log.i(TAG, "Speed: " + " = " + speed_dec + " m/s" + " CumRotation: " + rot);
+                //Log.i(TAG, "Speed: " + " = " + speed_dec + " m/s" + " CumRotation: " + rot,mContext);
 
 
                 Calendar c = Calendar.getInstance();
@@ -118,7 +121,9 @@ public class BikeActivity {
                 };
                 String dataDirectory = DataManager.getDirectoryData(context);
                 String speedFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Speed.csv";
+
                 CSV.write(speedEntry, speedFile, true);
+//                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
             }
 
             @Override
@@ -133,7 +138,7 @@ public class BikeActivity {
                 }
                 DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
                 final String cadence_dec = String.valueOf(oneDigit.format(parent.instCadence));
-                Log.i(TAG, "Cadence: " + " = " + cadence_dec + " rpm" + " CumCrankRotation: " + crankRot);
+                //Log.i(TAG, "Cadence: " + " = " + cadence_dec + " rpm" + " CumCrankRotation: " + crankRot,mContext);
 
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -146,6 +151,7 @@ public class BikeActivity {
                 String dataDirectory = DataManager.getDirectoryData(context);
                 String cadenceFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
                 CSV.write(cadenceEntry, cadenceFile, true);
+//                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
 
 
 

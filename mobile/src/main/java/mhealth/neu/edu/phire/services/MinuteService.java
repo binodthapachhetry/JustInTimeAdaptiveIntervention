@@ -215,6 +215,9 @@ public class MinuteService extends WocketsIntentService {
         Log.i(TAG, "Starting UploadManagerService", mContext);
         startService(new Intent(this, UploadManagerService.class));
 
+        Log.i(TAG, "Starting WatchUploadManagerService", mContext);
+        startService(new Intent(this, WatchUploadManagerService.class));
+
 
     }
 

@@ -40,7 +40,7 @@ public class TEMPLEConstants extends WocketsConstants {
 
     public static final String KEY_EMA_DEMO = "KEY_EMA_DEMO";
 
-    public static final List<String> SUPPORTED_WHEEL_DIAMETER_CM = Arrays.asList("22","23","24","25","26");
+    public static final List<String> SUPPORTED_WHEEL_DIAMETER_CM = Arrays.asList("20","21","22","23","24","25","26","27","28");
 
     public static final String CSC_SERVICE_UUID = "00001816-0000-1000-8000-00805f9b34fb";
 
