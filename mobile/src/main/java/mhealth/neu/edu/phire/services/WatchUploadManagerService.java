@@ -231,6 +231,13 @@ public class WatchUploadManagerService extends WocketsIntentService {
 
         for (File logWatchDate : logWatchFiles.listFiles()) {
             // TODO: This is a MATCH specific fix. Need to come up with a better solution
+
+            if (logWatchDate.getName().contains("sdcard")) {
+                Log.d(TAG, "Deleting " + logWatchDate.getAbsolutePath());
+                logWatchDate.delete();
+                continue;
+            }
+
             if (DateTime.getDate(logWatchDate.getName()).getTime() < (DateTime.getCurrentTimeInMillis() - (DateTime.DAYS_1_IN_MILLIS * 90))) {
                 Log.i(TAG, "Ignoring logs for date - " + logWatchDate.getName(), mContext);
                 continue;
