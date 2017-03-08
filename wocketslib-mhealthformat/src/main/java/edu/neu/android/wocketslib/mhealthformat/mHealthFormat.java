@@ -28,7 +28,8 @@ public class mHealthFormat {
     public static final String MASTER_SYNCED_DIRECTORY = "MasterSynced";
     public static final String METADATA_PREFIX = "Metadata-";
 
-    private static String STUDY_NAME = null;
+//    private static String STUDY_NAME = null;
+    private static String STUDY_NAME = "TEMPLE";
     private static String SUBJECT_ID = null;
     private static boolean IS_EXTERNAL_STORAGE;
     private static final String EXTERNAL_STORAGE = Environment.getExternalStorageDirectory().getAbsolutePath();

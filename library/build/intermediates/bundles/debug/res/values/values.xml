@@ -29,4 +29,7 @@
     <string name="logo">Wockets</string>
     <string name="next">Next</string>
     <string name="password">Password</string>
+    <style name="YourTheme">
+        <item name="android:windowBackground">@null</item>
+    </style>
 </resources>

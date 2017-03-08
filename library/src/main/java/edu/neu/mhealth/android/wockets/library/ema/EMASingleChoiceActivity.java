@@ -53,25 +53,18 @@ public class EMASingleChoiceActivity extends AppCompatActivity {
 	@BindView(R2.id.wockets_activity_ema_single_choice_button_next)
 	Button nextButton;
 
-    private Question question;
+	private Question question;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.i(TAG, "10", getApplicationContext());
+//		getWindow().setBackgroundDrawable(null);
 		overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
-		Log.i(TAG, "11", getApplicationContext());
 		setContentView(R.layout.wockets_activity_ema_single_choice);
-		Log.i(TAG, "12", getApplicationContext());
 		mContext = getApplicationContext();
-
-		Log.i(TAG, "13", mContext);
 		ButterKnife.bind(this);
-		Log.i(TAG, "14", mContext);
 		EventBus.getDefault().register(this);
-		Log.i(TAG, "15", mContext);
 		DataManager.setPromptOnScreen(mContext, false);
-
 
 		Log.i(TAG, "Inside onCreate, Starting EMA Single Choice Activity", mContext);
 
@@ -114,7 +107,7 @@ public class EMASingleChoiceActivity extends AppCompatActivity {
 		for (Answer answer : question.answers) {
 			RadioButton radioButton = new RadioButton(mContext);
 			radioButton.setText(
-					WocketsUtil.getStringFromListofTextForLanguage(answer.text, selectedLanguage)
+					HtmlTagger.convertStringToHtmlText(WocketsUtil.getStringFromListofTextForLanguage(answer.text, selectedLanguage))
 			);
 			radioButton.setTag(answer.key);
 			RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(
@@ -124,7 +117,6 @@ public class EMASingleChoiceActivity extends AppCompatActivity {
 			layoutParams.setMargins(0, 0, 0, 25);
 			radioButton.setLayoutParams(layoutParams);
 			radioButton.setTextSize(20f);
-			radioButton.setTypeface(Typeface.DEFAULT_BOLD);
 			radioButton.setTextColor(getResources().getColor(R.color.primary_text));
 			if (answerString.equals(answer.key)) {
 				radioButton.setChecked(true);
@@ -160,39 +152,39 @@ public class EMASingleChoiceActivity extends AppCompatActivity {
 		if (!answer.isEmpty()) {
 			EventBus.getDefault().post(new EMANextPressedEvent(answer));
 		} else {
-            Log.w(TAG, "Next selected without selecting any answer", mContext);
-            if (question.allowToSkip) {
-                AlertDialog alertDialog = new AlertDialog.Builder(EMASingleChoiceActivity.this)
-                        .setTitle("Skip Question")
-                        .setMessage("Are you sure you want to skip this question?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                EventBus.getDefault().post(new EMANextPressedEvent());
-                                dialog.dismiss();
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .create();
-                alertDialog.show();
-            } else {
-                final AlertDialog alertDialog = new AlertDialog.Builder(EMASingleChoiceActivity.this)
-                        .setTitle("Skip Question")
-                        .setMessage("Sorry, you cannot skip this question.")
-                        .setPositiveButton("Got it", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .create();
-                alertDialog.show();
-            }
+			Log.w(TAG, "Next selected without selecting any answer", mContext);
+			if (question.allowToSkip) {
+				AlertDialog alertDialog = new AlertDialog.Builder(EMASingleChoiceActivity.this)
+						.setTitle("Skip Question")
+						.setMessage("Are you sure you want to skip this question?")
+						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								EventBus.getDefault().post(new EMANextPressedEvent());
+								dialog.dismiss();
+							}
+						})
+						.setNegativeButton("No", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								dialog.dismiss();
+							}
+						})
+						.create();
+				alertDialog.show();
+			} else {
+				final AlertDialog alertDialog = new AlertDialog.Builder(EMASingleChoiceActivity.this)
+						.setTitle("Skip Question")
+						.setMessage("Sorry, you cannot skip this question.")
+						.setPositiveButton("Got it", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								dialog.dismiss();
+							}
+						})
+						.create();
+				alertDialog.show();
+			}
 		}
 	}
 

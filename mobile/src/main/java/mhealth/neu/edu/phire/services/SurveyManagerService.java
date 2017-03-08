@@ -67,7 +67,7 @@ public class SurveyManagerService extends WocketsIntentService {
 
         // Prompt survey if time
         if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
-            startService(new Intent(this, SurveyService.class));
+            startService(new Intent(getApplicationContext(), SurveyService.class));
         }
 
 //        // Schedule saliva for today

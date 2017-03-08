@@ -221,7 +221,7 @@
 
         <service
             android:name=".support.MyCSVconversionService"
-            android:exported="false"></service>
+            android:exported="false" />
     </application>
 
 </manifest>

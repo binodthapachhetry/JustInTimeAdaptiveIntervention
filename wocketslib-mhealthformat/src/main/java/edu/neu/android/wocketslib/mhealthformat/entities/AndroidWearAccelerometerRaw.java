@@ -2,6 +2,7 @@ package edu.neu.android.wocketslib.mhealthformat.entities;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -18,6 +19,7 @@ import edu.neu.android.wocketslib.mhealthformat.mHealthFormat;
 import edu.neu.android.wocketslib.mhealthformat.utils.ByteUtils;
 import edu.neu.android.wocketslib.mhealthformat.utils.PhoneInfo;
 
+
 /**
  * Created by Dharam on 4/9/2015.
  */
@@ -27,6 +29,7 @@ public class AndroidWearAccelerometerRaw extends mHealthEntity{
     public static final String SENSOR_TYPE = "AndroidWearWatch";
     public static final String DATA_TYPE = "AccelerationCalibrated";
     public static final String VERSION_INFO = "NA";
+    private static final String TAG = "AccelerometerRaw";
 
     private static final int BINARY_BUFFER_SIZE = 20000;
     private long timestamp;
@@ -236,14 +239,21 @@ public class AndroidWearAccelerometerRaw extends mHealthEntity{
         }else if(BINARY_BUFFER_SIZE - bufferPos < 20 || force){
             //save the whole buffer
             File folder = new File(mHealthFormat.buildmHealthPath(current, mHealthFormat.PATH_LEVEL.HOURLY, getEntityType()));
+            Log.i(TAG,folder.getName());
             File[] currentHourFolder = folder.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File dir, String filename) {
                     return filename.contains("baf");
                 }
             });
-            if (currentHourFolder.length > 0) {
-                toBeWritten = currentHourFolder[0];
+
+//            Log.i(TAG,currentHourFolder.toString());
+
+//            if (currentHourFolder.length > 0) {
+//            if (currentHourFolder != null) {
+                if(currentHourFolder.length > 0 ) {
+                    toBeWritten = currentHourFolder[0];
+//                }
             } else {
                 toBeWritten = new File(folder + File.separator + mHealthFormat.buildBafFilename(current, section1, section2, "sensor"));
             }

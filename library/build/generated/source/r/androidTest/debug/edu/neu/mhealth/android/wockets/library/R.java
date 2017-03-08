@@ -2108,6 +2108,7 @@ public final class R {
 		public static final int Widget_MediaRouter_ControllerText_Title_Light = 0x7f090188;
 		public static final int Widget_MediaRouter_Light_MediaRouteButton = 0x7f090189;
 		public static final int Widget_MediaRouter_MediaRouteButton = 0x7f09018a;
+		public static final int YourTheme = 0x7f09018b;
 	}
 	public static final class styleable {
 		public static final int[] ActionBar = { 0x7f010003, 0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f01001c, 0x7f01001d, 0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022, 0x7f010023, 0x7f010024, 0x7f010025, 0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031, 0x7f010032, 0x7f010033, 0x7f010078 };

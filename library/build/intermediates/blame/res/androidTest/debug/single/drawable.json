@@ -36,12 +36,12 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_ic_expanded_controller_pause.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/logo.png",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/bundles/debug/res/drawable/logo.png"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/cast_ic_mini_controller_play.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_ic_mini_controller_play.xml"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/logo.png",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/bundles/debug/res/drawable/logo.png"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/abc_text_cursor_material.xml",

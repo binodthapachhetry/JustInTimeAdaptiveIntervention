@@ -339,6 +339,7 @@ public class WearableWakefulService extends IntentService {
     private void transferAFile(long lastTransferAttempt){
         // try to get a log file first
         File transferFolder = new File(Globals.TRANSFER_FOLDER);
+//        File transferFolder = new File("/sdcard/.TEMPLE/transfer'");
         File[] logZips = transferFolder.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String filename) {

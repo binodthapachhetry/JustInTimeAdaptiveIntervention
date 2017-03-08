@@ -4818,6 +4818,7 @@ containing a value of this type.
         public static int Widget_MediaRouter_ControllerText_Title_Light=0x7f090188;
         public static int Widget_MediaRouter_Light_MediaRouteButton=0x7f090189;
         public static int Widget_MediaRouter_MediaRouteButton=0x7f09018a;
+        public static int YourTheme=0x7f09018b;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

@@ -17014,6 +17014,27 @@
                         "endOffset": 11318
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 2493,
+                    "startColumn": 4,
+                    "startOffset": 186894,
+                    "endLine": 2495,
+                    "endColumn": 12,
+                    "endOffset": 186990
+                },
+                "from": {
+                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/bundles/debug/res/values/values.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 1834,
+                        "endLine": 33,
+                        "endColumn": 12,
+                        "endOffset": 1930
+                    }
+                }
             }
         ]
     }

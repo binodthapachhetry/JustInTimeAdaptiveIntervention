@@ -17,6 +17,7 @@ import edu.neu.mhealth.android.wockets.library.managers.PowerManager;
 import edu.neu.mhealth.android.wockets.library.managers.StorageManager;
 import edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService;
 import edu.neu.mhealth.android.wockets.library.services.LocationManagerService;
+import edu.neu.mhealth.android.wockets.library.services.LocationUpdateManagerService;
 import edu.neu.mhealth.android.wockets.library.services.UploadManagerService;
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.study.StudyManager;
@@ -199,6 +200,7 @@ public class MinuteService extends WocketsIntentService {
 
         Log.i(TAG, "Fetching latest study data", mContext);
         StudyManager.getInstance().fetchLatestStudyData(mContext);
+
 
         Log.i(TAG, "Starting SurveyManagerService", mContext);
         startService(new Intent(this, SurveyManagerService.class));

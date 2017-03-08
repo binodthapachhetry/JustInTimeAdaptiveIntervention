@@ -28,7 +28,7 @@
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMASingleChoiceActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/YourTheme" />
         <activity
             android:name="edu.neu.mhealth.android.wockets.library.ema.EMAMultiChoiceActivity"
             android:excludeFromRecents="true"
@@ -53,6 +53,7 @@
         <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.UploadManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService" />
+        <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationUpdateManagerService" />
     </application>
 
 </manifest>

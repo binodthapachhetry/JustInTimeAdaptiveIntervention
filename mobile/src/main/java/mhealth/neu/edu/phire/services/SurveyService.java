@@ -40,7 +40,7 @@ import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.R;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 //import edu.neu.mhealth.android.wockets.match.saliva.SalivaSurveyManager;
-
+//
 //import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_WAKING;
 
 /**
@@ -125,8 +125,12 @@ public class SurveyService extends WocketsService {
         numReprompts = 0;
 
         if (!isDemoSurvey) {
+            if (survey.surveyName.equals("Saliva")) {
+                TEMPLEDataManager.incrementSalivaSurveyPromptedCount(mContext);
+            } else {
                 DataManager.incrementEMASurveyPromptedCount(mContext);
                 DataManager.incrementEMASurveyPromptedCountForDate(mContext, DateTime.getDate());
+            }
         }
 
         // Handles audio and vibration prompts
@@ -356,19 +360,12 @@ public class SurveyService extends WocketsService {
         if (questionAnswerMap.containsKey(question)) {
             answer = questionAnswerMap.get(question);
         }
-        Log.i(TAG, "3", mContext);
         questionAnswerMap.remove(question);
-        Log.i(TAG, "4", mContext);
         Intent singleChoiceQuestionIntent = new Intent(this, EMASingleChoiceActivity.class);
-        Log.i(TAG, "5", mContext);
         singleChoiceQuestionIntent.putExtra("questionJson", ObjectMapper.serialize(question));
-        Log.i(TAG, "6", mContext);
         singleChoiceQuestionIntent.putExtra("answerString", answer);
-        Log.i(TAG, "7", mContext);
         singleChoiceQuestionIntent.putExtra("isFirstPromptOfTheDay", DataManager.isFirstPromptForDay(mContext, DateTime.getDate()));
-        Log.i(TAG, "8", mContext);
-        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Log.i(TAG, "9", mContext);
+        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         startActivity(singleChoiceQuestionIntent);
     }
 
