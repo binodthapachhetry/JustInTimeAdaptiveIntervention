@@ -19,6 +19,8 @@
     <string name="text_sensor"> PanoBike Sensor : </string>
     <string name="none">None</string>
     <string name="scan_for_devices">Scan For Device</string>
+    <string name="force_app_crash">Force App Crash</string>
+
 
 </resources>
 

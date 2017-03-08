@@ -78,6 +78,12 @@ public class SetupActivity extends WocketsActivity {
 
     }
 
+    @OnClick(R.id.activity_setup_crashreporting_test)
+    public void onClickForceCrash(){
+        Log.i(TAG,"Force crash to test reporting on google developer console",mContext);
+        throw new RuntimeException("This is a forced crash");
+    }
+
     @OnClick(R.id.activity_select_panobike_sensor)
     public void onClickSelectPanoBikeSensor(){
         Study study = DataManager.getStudy(mContext);

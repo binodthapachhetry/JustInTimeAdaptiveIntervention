@@ -127,6 +127,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/finish_study"
                 android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_setup_crashreporting_test"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/force_app_crash"
+                android:textAllCaps="false"/>
+
         </LinearLayout>
 
     </ScrollView>
