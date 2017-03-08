@@ -180,6 +180,13 @@ public class MyCSVconversionService extends IntentService {
         return result;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "Inside onDestroy", mContext);
+        DataManager.setZipTransferFinished(mContext,true);
+    }
+
 
 
 }
