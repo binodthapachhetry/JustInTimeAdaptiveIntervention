@@ -35,7 +35,7 @@ public class TEMPLEConstants extends WocketsConstants {
     public static final int END_HOUR = 23;
     public static final int END_MINUTE = 0;
 
-	public static final String DEFAULT_SLEEP_TIME = "22:00";
+	public static final String DEFAULT_SLEEP_TIME = "23:59";
 	public static final String DEFAULT_WAKE_TIME = "06:30";
 
     public static final String KEY_EMA_DEMO = "KEY_EMA_DEMO";

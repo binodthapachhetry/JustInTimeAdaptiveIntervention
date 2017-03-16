@@ -5,6 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
@@ -19,6 +24,8 @@ public class PanobikeSensorService extends WocketsIntentService {
     private static final String TAG = "PanobikeSensorService";
 
     private Context mContext;
+
+    private static final long PANOBIKE_ATTEMPT_INTERVAL = 30 * 1000; // 3600
 
     @Override
     public void onCreate() {
@@ -46,13 +53,36 @@ public class PanobikeSensorService extends WocketsIntentService {
             return;
         }
 
-        Log.i(TAG,String.valueOf(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)), mContext);
+        String lastConnectedTime = String.valueOf(TEMPLEDataManager.getPanoBikeLastConnectionTime(mContext));
+        Log.i(TAG,"Last connected time:" + lastConnectedTime, mContext);
 
-        if(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)){
-            Log.i(TAG,"Panobike sensor already in connection!", mContext);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        try {
+            Date lastDate = simpleDateFormat.parse(lastConnectedTime);
+            if(System.currentTimeMillis() - lastDate.getTime()<PANOBIKE_ATTEMPT_INTERVAL){
+                Log.i(TAG,"Panobike sensor might still be in connection!", mContext);
+                return;
+            }
+        } catch (ParseException e) {
+            Log.i(TAG,"Error while converting string to datetime" + e, mContext);
+            e.printStackTrace();
             return;
         }
 
+        Log.i(TAG,"Panobike not connected, so trying to connect", mContext);
+
+
+
+
+
+//        Log.i(TAG,String.valueOf(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)), mContext);
+//
+//        if(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)){
+//            Log.i(TAG,"Panobike sensor already in connection!", mContext);
+//            return;
+//        }
+//
         Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
         // Create a PendingIntent to be triggered when the alarm goes off
         final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,

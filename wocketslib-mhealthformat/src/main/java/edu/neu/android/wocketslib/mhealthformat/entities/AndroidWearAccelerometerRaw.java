@@ -239,7 +239,7 @@ public class AndroidWearAccelerometerRaw extends mHealthEntity{
         }else if(BINARY_BUFFER_SIZE - bufferPos < 20 || force){
             //save the whole buffer
             File folder = new File(mHealthFormat.buildmHealthPath(current, mHealthFormat.PATH_LEVEL.HOURLY, getEntityType()));
-            Log.i(TAG,folder.getName());
+            Log.i(TAG,folder.getAbsolutePath());
             File[] currentHourFolder = folder.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File dir, String filename) {

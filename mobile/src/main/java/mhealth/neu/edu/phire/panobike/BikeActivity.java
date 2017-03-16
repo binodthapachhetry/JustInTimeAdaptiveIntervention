@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 //import android.util.//Log;
 
 
@@ -111,19 +112,20 @@ public class BikeActivity {
                 //Log.i(TAG, "Speed: " + " = " + speed_dec + " m/s" + " CumRotation: " + rot,mContext);
 
 
-                Calendar c = Calendar.getInstance();
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Calendar cs = Calendar.getInstance();
+                SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //                speedMessage = df.format(c.getTime()) + ',' + sensorID + ',' + diameter+ ',' + rot;
 
                 String[] speedEntry = {
-                        df.format(c.getTime()),
+                        dfs.format(cs.getTime()),
                         String.valueOf(rot)
                 };
                 String dataDirectory = DataManager.getDirectoryData(context);
                 String speedFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Speed.csv";
 
                 CSV.write(speedEntry, speedFile, true);
-//                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
+//                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
+                Log.i(TAG,"SET LAST CONNECTION TIME AS:");
             }
 
             @Override
@@ -152,6 +154,7 @@ public class BikeActivity {
                 String cadenceFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
                 CSV.write(cadenceEntry, cadenceFile, true);
 //                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
+                Log.i(TAG,"SET LAST CONNECTION TIME AS:");
 
 
 

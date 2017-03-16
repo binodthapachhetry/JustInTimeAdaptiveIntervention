@@ -338,6 +338,7 @@ public class WearableWakefulService extends IntentService {
 
     private void transferAFile(long lastTransferAttempt){
         // try to get a log file first
+        Globals.init();
         File transferFolder = new File(Globals.TRANSFER_FOLDER);
 //        File transferFolder = new File("/sdcard/.TEMPLE/transfer'");
         File[] logZips = transferFolder.listFiles(new FilenameFilter() {
@@ -779,6 +780,7 @@ public class WearableWakefulService extends IntentService {
         Calendar current = Calendar.getInstance();
         try {
             String masterDir = mHealthFormat.buildmHealthPath(mHealthFormat.ROOT_DIRECTORY.MASTER, mHealthFormat.PATH_LEVEL.ROOT);
+            logger.i("MasterDir: " + masterDir, getApplicationContext());
             ArrayList<String> dirs = FileHelper.getRecusiveDirs(masterDir, 2);
             for(String dir : dirs){
                 String[] tokens = dir.split("/");

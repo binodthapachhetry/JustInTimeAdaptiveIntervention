@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -22,6 +21,7 @@ import java.util.Locale;
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
+import edu.neu.mhealth.android.wockets.library.support.Log;
 
 /**
  * @author Dharam Maniar
@@ -36,14 +36,12 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
     public final static String TAG = "LocationManagerService";
 
 
-
-    // save the
-
     @Override
     public void onCreate() {
         super.onCreate();
         // Create an instance of GoogleAPIClient.
         mContext = getApplicationContext();
+        Log.i(TAG,"INSIDE ONCREATE",mContext);
 
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -58,6 +56,7 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
     @Override
     public void onDestroy() {
         mGoogleApiClient.disconnect();
+        Log.i(TAG,"INSIDE ONDESTROY",mContext);
         super.onDestroy();
     }
 
@@ -75,8 +74,8 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
 
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z", Locale.US);
 
-            Log.i(TAG,DateTime.getCurrentTimestampString());
-            Log.i(TAG,df.format(mLastLocation.getTime()));
+//            Log.i(TAG,DateTime.getCurrentTimestampString());
+//            Log.i(TAG,df.format(mLastLocation.getTime()));
 
             String[] gpsEntry = {
                     DateTime.getCurrentTimestampString(),
@@ -97,11 +96,13 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
 
     @Override
     public void onConnectionSuspended(int i) {
+        Log.i(TAG,"INSIDE ONCONNECTION SUSPENDED",mContext);
         stopSelf();
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.i(TAG,"INSIDE ONCONNECTION FAILED",mContext);
         stopSelf();
     }
 }

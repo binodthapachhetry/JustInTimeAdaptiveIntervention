@@ -5,7 +5,7 @@
     android:versionName="1" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="21"
         android:targetSdkVersion="24" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -53,7 +53,6 @@
         <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.UploadManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService" />
-        <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationUpdateManagerService" />
     </application>
 
 </manifest>

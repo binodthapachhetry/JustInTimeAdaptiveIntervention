@@ -2,6 +2,7 @@ package mhealth.neu.edu.phire;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.orm.SugarApp;
 import com.orm.SugarContext;
@@ -28,5 +29,6 @@ public class App extends SugarApp {
     public void onTerminate() {
         SugarContext.terminate();
         super.onTerminate();
+        Log.d("MainApp","Terminated");
     }
 }

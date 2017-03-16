@@ -3,6 +3,7 @@ package mhealth.neu.edu.phire.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.WakefulBroadcastReceiver;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.database.DatabaseManager;
@@ -14,7 +15,7 @@ import mhealth.neu.edu.phire.services.MinuteService;
 /**
  * @author Dharam Maniar
  */
-public class SystemBroadcastReceiver extends BroadcastReceiver {
+public class SystemBroadcastReceiver extends WakefulBroadcastReceiver {
 
     private static final String TAG = "SystemBroadcastReceiver";
 

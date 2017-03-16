@@ -80,12 +80,12 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable/mr_dialog_material_background_light.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_clear_material.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/mr_ic_cast_dark.xml",

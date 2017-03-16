@@ -24,16 +24,16 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable-mdpi-v4/quantum_ic_art_track_grey600_48.png"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/ic_cast_off_light.png",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-mdpi-v4/ic_cast_off_light.png"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/cast_ic_notification_0.png",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/drawable-mdpi-v4/cast_ic_notification_0.png"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/ic_cast_off_light.png",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-mdpi-v4/ic_cast_off_light.png"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/quantum_ic_bigtop_updates_white_24.png",
@@ -76,12 +76,12 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/powered_by_google_dark.png",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/drawable-mdpi-v4/powered_by_google_dark.png"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/powered_by_google_dark.png",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/drawable-mdpi-v4/powered_by_google_dark.png"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/common_google_signin_btn_icon_light_pressed.9.png",
@@ -100,12 +100,12 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/quantum_ic_refresh_white_24.png",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable-mdpi-v4/quantum_ic_refresh_white_24.png"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/cast_ic_notification_1.png",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/drawable-mdpi-v4/cast_ic_notification_1.png"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/quantum_ic_refresh_white_24.png",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable-mdpi-v4/quantum_ic_refresh_white_24.png"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable-mdpi-v4/quantum_ic_replay_30_white_36.png",

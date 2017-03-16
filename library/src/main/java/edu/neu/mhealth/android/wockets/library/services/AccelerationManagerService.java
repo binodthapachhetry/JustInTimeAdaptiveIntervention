@@ -1,17 +1,18 @@
 package edu.neu.mhealth.android.wockets.library.services;
 
+import android.app.IntentService;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorEventListener2;
 import android.hardware.SensorManager;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,9 +20,13 @@ import java.util.Date;
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
+import edu.neu.mhealth.android.wockets.library.support.Log;
 
 
-public class AccelerationManagerService extends Service implements SensorEventListener2{
+//public class AccelerationManagerService extends Service implements SensorEventListener2{
+
+public class AccelerationManagerService extends WocketsIntentService implements SensorEventListener {
+
 
     private static final String TAG = "AccelerationManager";
     public static final String mHealthTimestampFormat = "yyyy-MM-dd HH:mm:ss.SSS";
@@ -31,14 +36,13 @@ public class AccelerationManagerService extends Service implements SensorEventLi
     private Context mContext;
     private Sensor mAccel;
     private static float[] gravity;
-    private final int maxDelay = 60000000;
+    private final int maxDelay = 90000000;
     private final static float alpha = 0.8f;
     private long timeInMillis;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG,"INSIDE ONCREATE");
 
         gravity = new float[3];
         gravity[0] = 0.0f;
@@ -46,17 +50,18 @@ public class AccelerationManagerService extends Service implements SensorEventLi
         gravity[2] = 0.0f;
 
         mContext = getApplicationContext();
+        Log.i(TAG,"INSIDE ONCREATE",mContext);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccel = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        Log.d(TAG,Integer.toString(mAccel.getType()));
-        Log.d(TAG,mAccel.getName());
-        Log.d(TAG,Float.toString(mAccel.getMaximumRange()));
-
+        Log.i(TAG,"Is wakeup sensor? " + String.valueOf(mAccel.isWakeUpSensor()),mContext);
+        Log.i(TAG, "FIFO Count - " + mAccel.getFifoMaxEventCount(),mContext);
+        Log.i(TAG, "FIFO Res Count - " + mAccel.getFifoReservedEventCount(),mContext);
 
         registerSensorListeners();
     }
 
     private void registerSensorListeners(){
+        Log.i(TAG,"registering listener",mContext);
         mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_GAME, maxDelay);
     }
 
@@ -67,6 +72,7 @@ public class AccelerationManagerService extends Service implements SensorEventLi
         mSensorManager.flush(this);
         mSensorManager.unregisterListener(this);
         notifyServiceStop();
+        Log.i(TAG,"INSIDE ONDESTROY",mContext);
     }
 
     @Nullable
@@ -77,9 +83,9 @@ public class AccelerationManagerService extends Service implements SensorEventLi
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//        Log.d(TAG,"FLUSHING");
+        Log.i(TAG,"on start command",mContext);
 //        mSensorManager.flush(this);
-        return Service.START_NOT_STICKY;
+        return Service.START_STICKY;
     }
 
 
@@ -126,12 +132,12 @@ public class AccelerationManagerService extends Service implements SensorEventLi
 
     }
 
-    @Override
-    public void onFlushCompleted(Sensor sensor) {
-        mSensorManager.unregisterListener(this);
-        registerSensorListeners();
-        notifyFlushComplete();
-    }
+//    @Override
+//    public void onFlushCompleted(Sensor sensor) {
+//        mSensorManager.unregisterListener(this);
+//        registerSensorListeners();
+//        notifyFlushComplete();
+//    }
 
     private void notifyFlushComplete(){
         Intent broadcastIntent = new Intent("FLUSH_RESULT");

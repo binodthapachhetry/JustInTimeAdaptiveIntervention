@@ -9,6 +9,7 @@ import android.support.v4.content.WakefulBroadcastReceiver;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.managers.NotificationManager;
+import edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService;
 import edu.neu.mhealth.android.wockets.library.services.UploadManagerService;
 import edu.neu.mhealth.android.wockets.library.services.WocketsService;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
@@ -76,8 +77,11 @@ public class AlwaysOnService extends WocketsService {
 
             @Override
             public void onFinish() {
+                Log.i(TAG, "starting acceleration manager service", mContext);
+                startService(new Intent(mContext, AccelerationManagerService.class));
                 startService(new Intent(mContext, UploadManagerService.class));
                 startService(new Intent(mContext, MinuteService.class));
+
                 startCountDownTimer();
             }
         };

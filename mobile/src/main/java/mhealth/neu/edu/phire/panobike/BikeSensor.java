@@ -217,12 +217,16 @@ public class BikeSensor
 
 //                    parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
 //                            (timeDiff * 1000000.0) / 1024.0);
-
                     parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
                             (timeDiff / 1024.0), wheelRotations);
 
                     mLastWheelReading = wheelRotations;
                     mLastWheelTime = time;
+
+                    Calendar cs = Calendar.getInstance();
+                    SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
+//                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+dfs.format(cs.getTime()));
                 }
 
                 i += 6;
@@ -258,6 +262,11 @@ public class BikeSensor
 
                     mLastCrankReading = crankRotations;
                     mLastCrankTime = time;
+
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
+//                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+df.format(c.getTime()));
                 }
             }
         }
@@ -329,10 +338,10 @@ public class BikeSensor
         if (mState != ConnectionState.CONNECTED)
             throw new IllegalStateException("Not connected");
 
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
-
+//        Calendar ca = Calendar.getInstance();
+//        SimpleDateFormat dfa = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfa.format(ca.getTime()));
+//        Log.i(TAG,"SET LAST CONNECTION TIME AS:"+dfa.format(ca.getTime()));
         return mHasWheel;
     }
 
@@ -341,9 +350,10 @@ public class BikeSensor
         if (mState != ConnectionState.CONNECTED)
             throw new IllegalStateException("Not connected");
 
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
+//        Calendar c = Calendar.getInstance();
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
+//        Log.i(TAG,"SET LAST CONNECTION TIME AS:"+df.format(c.getTime()));
 
         return mHasCrank;
     }

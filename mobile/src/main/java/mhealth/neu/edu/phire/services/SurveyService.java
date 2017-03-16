@@ -32,6 +32,7 @@ import edu.neu.mhealth.android.wockets.library.events.EMASurveyCompleteEvent;
 import edu.neu.mhealth.android.wockets.library.managers.AudioManager;
 import edu.neu.mhealth.android.wockets.library.managers.NotificationManager;
 import edu.neu.mhealth.android.wockets.library.managers.VibrationManager;
+import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.services.WocketsService;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
@@ -88,12 +89,16 @@ public class SurveyService extends WocketsService {
             isDemoSurvey = true;
         }
 
+        Log.i(TAG, "Inside onCreate, got promptkey", mContext);
+
         survey = SurveyManager.getSelectedSurvey(mContext);
         if (survey == null) {
             Log.i(TAG, "No selected survey, stopping service", mContext);
             stopSelf();
             return;
         }
+
+        Log.i(TAG, "Inside onCreate, got survey", mContext);
 
         boolean isMother = true;
         if ("Child".equals(survey.surveyName)) {
@@ -366,6 +371,7 @@ public class SurveyService extends WocketsService {
         singleChoiceQuestionIntent.putExtra("answerString", answer);
         singleChoiceQuestionIntent.putExtra("isFirstPromptOfTheDay", DataManager.isFirstPromptForDay(mContext, DateTime.getDate()));
         singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+//        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(singleChoiceQuestionIntent);
     }
 

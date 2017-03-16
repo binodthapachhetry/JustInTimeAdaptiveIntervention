@@ -3,7 +3,7 @@
     package="edu.neu.mhealth.android.wockets.library.test" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="21"
         android:targetSdkVersion="24" />
 
     <instrumentation
@@ -73,7 +73,6 @@
         <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.UploadManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService" />
-        <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationUpdateManagerService" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
