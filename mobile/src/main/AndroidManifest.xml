@@ -120,6 +120,8 @@
         <service android:name=".services.AlwaysOnService" />
         <service android:name=".services.SurveyManagerService" />
         <service android:name=".services.WatchUploadManagerService" />
+        <service android:name=".services.AccelerationManagerService"/>
+
         <service
             android:name=".panobike.MyTestService"
             android:exported="false" />
@@ -203,25 +205,28 @@
             android:name=".panobike.MyAlarmReceiver"
             android:enabled="true"
             android:exported="true" />
-        <receiver
-            android:name=".panobike.BootBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true" />
+        <!-- <receiver -->
+        <!-- android:name=".panobike.BootBroadcastReceiver" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" /> -->
 
         <service
             android:name=".services.PanobikeSensorService"
             android:exported="false" />
 
-        <activity android:name=".activities.UnzipFromWatch" />
+        <!-- <activity android:name=".activities.UnzipFromWatch" /> -->
 
-        <receiver
-            android:name=".support.MyConversionReceiver"
-            android:enabled="true"
-            android:exported="true" />
 
-        <service
-            android:name=".support.MyCSVconversionService"
-            android:exported="false" />
+        <!-- <receiver -->
+        <!-- android:name=".support.MyConversionReceiver" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" /> -->
+
+
+        <!-- <service -->
+        <!-- android:name=".support.MyCSVconversionService" -->
+        <!-- android:exported="false" /> -->
+
     </application>
 
 </manifest>

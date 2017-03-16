@@ -54,33 +54,36 @@ public class WatchUploadManagerService extends WocketsIntentService {
     private void initialize() {
         mContext = getApplicationContext();
 
+        Log.i(TAG, "Getting last run of watch upload manager service", mContext);
         long lastRunTime = DataManager.getLastRunOfWatchUploadManagerService(mContext);
 
+        Log.i(TAG, "Checking if study finished", mContext);
         isStudyFinished = DataManager.isStudyFinished(mContext);
 
-        isZipTransferFinished = DataManager.isZipTransferFinished(mContext);
-
-        Log.i(TAG, "Is zip transfer complete: " + String.valueOf(isZipTransferFinished), mContext);
-
-
-        if(!isZipTransferFinished){
-            Log.i(TAG, "WatchUploadManagerService decoding the binary watch file. So exiting.", mContext);
-            return;
-        }
-
-        Intent intent = new Intent(getApplicationContext(), MyConversionReceiver.class);
-        // Create a PendingIntent to be triggered when the alarm goes off
-        final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyConversionReceiver.REQUEST_CODE,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        try {
-            // Perform the operation associated with our pendingIntent
-            Log.i(TAG,"Intent sent to grab files from transfer folder", mContext);
-            pIntent.send();
-        } catch (PendingIntent.CanceledException e) {
-            Log.e(TAG,"Intent sent to grab files from transfer folder", mContext);
-            e.printStackTrace();
-        }
+//        Log.i(TAG, "Checking if zip transfer finished", mContext);
+//        isZipTransferFinished = DataManager.isZipTransferFinished(mContext);
+//
+//        Log.i(TAG, "Is zip transfer complete: " + String.valueOf(isZipTransferFinished), mContext);
+//
+//
+//        if(!isZipTransferFinished){
+//            Log.i(TAG, "WatchUploadManagerService decoding the binary watch file. So exiting.", mContext);
+//            return;
+//        }
+//
+//        Intent intent = new Intent(getApplicationContext(), MyConversionReceiver.class);
+//        // Create a PendingIntent to be triggered when the alarm goes off
+//        final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyConversionReceiver.REQUEST_CODE,
+//                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        try {
+//            // Perform the operation associated with our pendingIntent
+//            Log.i(TAG,"Intent sent to grab files from transfer folder", mContext);
+//            pIntent.send();
+//        } catch (PendingIntent.CanceledException e) {
+//            Log.e(TAG,"Intent sent to grab files from transfer folder", mContext);
+//            e.printStackTrace();
+//        }
 
 //        Intent dialogIntent = new Intent(this, UnzipFromWatch.class);
 //        dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -88,7 +91,7 @@ public class WatchUploadManagerService extends WocketsIntentService {
 
 
 //        // process transferred files from watch
-//        unzipFromWatch();
+        unzipFromWatch();
 //        DataManager.setZipTransferFinished(mContext,true);
 //        unzipFromWatch();
 
@@ -104,10 +107,14 @@ public class WatchUploadManagerService extends WocketsIntentService {
         // stuff related to phone
         // Zip required log files
         processLogs();
+
+        processDataFiles();
+
         // Zip required data files
-        if(DataManager.isZipTransferFinished(mContext)) {
-            processDataFiles();
-        }
+//        if(DataManager.isZipTransferFinished(mContext)) {
+//            Log.i(TAG, "Processing data files", mContext);
+//            processDataFiles();
+//        }
 
         if (!ConnectivityManager.isInternetConnected(mContext)) {
             Log.i(TAG, "Internet is not connected. Not trying to upload files.", mContext);
@@ -328,9 +335,9 @@ public class WatchUploadManagerService extends WocketsIntentService {
 
     private void unzipFromWatch() {
         DataManager.setZipTransferFinished(mContext,false);
-        byte[] buf = new byte[1024];
-        ZipInputStream zipinputstream = null;
-        ZipEntry zipentry;
+//        byte[] buf = new byte[1024];
+//        ZipInputStream zipinputstream = null;
+//        ZipEntry zipentry;
         String watchZipFolder = DataManager.getDirectoryTransfer(mContext);
         Log.i(TAG, "This is transfer folder: " + watchZipFolder,mContext);
         File watchZipFile = new File(watchZipFolder);

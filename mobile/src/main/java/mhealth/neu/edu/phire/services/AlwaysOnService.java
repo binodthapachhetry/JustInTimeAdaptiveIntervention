@@ -41,7 +41,10 @@ public class AlwaysOnService extends WocketsService {
 
         acquireWakelock();
 
+
+        Log.i(TAG, "getting EMA survey prompted for date", mContext);
         int emaSurveysPrompted = DataManager.getEMASurveyPromptedCountForDate(mContext, DateTime.getDate());
+        Log.i(TAG, "getting EMA survey completed for date", mContext);
         int emaSurveysCompleted = DataManager.getEMASurveyCompletedCountForDate(mContext, DateTime.getDate());
         int emaSurveysMissed = emaSurveysPrompted - emaSurveysCompleted;
 
@@ -63,10 +66,15 @@ public class AlwaysOnService extends WocketsService {
             }
         };
 
+        Log.i(TAG, "registering action time tick", mContext);
         registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
+        Log.i(TAG, "registering action battery changed", mContext);
         registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        Log.i(TAG, "registering action configuration changed", mContext);
         registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_CONFIGURATION_CHANGED));
+        Log.i(TAG, "registering action screen off", mContext);
         registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_SCREEN_OFF));
+        Log.i(TAG, "reistering action screen on", mContext);
         registerReceiver(broadcastReceiver, new IntentFilter(Intent.ACTION_SCREEN_ON));
 
         countDownTimer = new CountDownTimer(DateTime.MINUTES_1_IN_MILLIS, 1000) {

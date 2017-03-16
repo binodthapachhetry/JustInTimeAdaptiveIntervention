@@ -47,7 +47,7 @@
         <!-- Services -->
         <service android:name=".services.LocationManagerService" />
         <service android:name=".services.UploadManagerService" />
-        <service android:name=".services.AccelerationManagerService" />
+        <!--<service android:name=".services.AccelerationManagerService" />-->
 
     </application>
 

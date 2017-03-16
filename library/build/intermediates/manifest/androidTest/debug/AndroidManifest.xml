@@ -72,7 +72,6 @@
             android:theme="@android:style/Theme.Holo.NoActionBar" /> <!-- Services -->
         <service android:name="edu.neu.mhealth.android.wockets.library.services.LocationManagerService" />
         <service android:name="edu.neu.mhealth.android.wockets.library.services.UploadManagerService" />
-        <service android:name="edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"

@@ -15,7 +15,7 @@ import edu.neu.mhealth.android.wockets.library.managers.MemoryManager;
 import edu.neu.mhealth.android.wockets.library.managers.NotificationManager;
 import edu.neu.mhealth.android.wockets.library.managers.PowerManager;
 import edu.neu.mhealth.android.wockets.library.managers.StorageManager;
-import edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService;
+//import edu.neu.mhealth.android.wockets.library.services.AccelerationManagerService;
 import edu.neu.mhealth.android.wockets.library.services.LocationManagerService;
 import edu.neu.mhealth.android.wockets.library.services.UploadManagerService;
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
@@ -29,6 +29,7 @@ import edu.neu.android.wocketslib.sensormonitor.BluetoothSensorService;
 import mhealth.neu.edu.phire.R;
 import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.support.Util;
+import mhealth.neu.edu.phire.services.AccelerationManagerService;
 
 /**
  * @author Binod Thapa Chhetry
