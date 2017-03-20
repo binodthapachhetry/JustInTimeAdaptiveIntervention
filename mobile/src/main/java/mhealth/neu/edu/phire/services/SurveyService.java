@@ -370,8 +370,8 @@ public class SurveyService extends WocketsService {
         singleChoiceQuestionIntent.putExtra("questionJson", ObjectMapper.serialize(question));
         singleChoiceQuestionIntent.putExtra("answerString", answer);
         singleChoiceQuestionIntent.putExtra("isFirstPromptOfTheDay", DataManager.isFirstPromptForDay(mContext, DateTime.getDate()));
-        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-//        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(singleChoiceQuestionIntent);
     }
 

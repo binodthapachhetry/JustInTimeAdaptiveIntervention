@@ -24,7 +24,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
@@ -189,6 +191,10 @@ public class SelectSensorActivity extends AppCompatActivity implements View.OnCl
                         TEMPLEDataManager.setPanoBikeSensorId(mContext,currentSensor);
                         currentSensorView.setText(currentSensor);
                         ToastManager.showShortToast(mContext, "Selected PanoBike sensor id - " + currentSensor);
+
+                        Calendar cs = Calendar.getInstance();
+                        SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
 
 //                        BikeActivity bikeActivity = new BikeActivity(getApplicationContext(),currentSensorDevice ,diameterCm,sensorID);
 //                        bikeActivity.startRead();

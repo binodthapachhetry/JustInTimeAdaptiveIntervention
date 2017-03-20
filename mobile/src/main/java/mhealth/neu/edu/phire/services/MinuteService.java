@@ -209,10 +209,10 @@ public class MinuteService extends WocketsIntentService {
 
         Log.i(TAG, "Starting PanobikeSensorService", mContext);
         startService(new Intent(this, PanobikeSensorService.class));
-
+//
         Log.i(TAG, "Logging Location", mContext);
         startService(new Intent(this, LocationManagerService.class));
-
+//
         Log.i(TAG, "Starting UploadManagerService", mContext);
         startService(new Intent(this, UploadManagerService.class));
 

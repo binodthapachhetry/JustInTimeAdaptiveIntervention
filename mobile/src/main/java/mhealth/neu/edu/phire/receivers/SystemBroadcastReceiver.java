@@ -28,8 +28,8 @@ public class SystemBroadcastReceiver extends WakefulBroadcastReceiver {
         Log.i(TAG, "starting always on service using intent", mContext);
         mContext.startService(new Intent(mContext, AlwaysOnService.class));
 
-//        Log.i(TAG, "writing note to database related to system broadcact and action in intent", mContext);
-//        DatabaseManager.writeNote(mContext, DatabaseManager.SYSTEM_BROADCAST, intent.getAction()); // disabling it to check it's impact on ANR
+        Log.i(TAG, "writing note to database related to system broadcact and action in intent", mContext);
+        DatabaseManager.writeNote(mContext, DatabaseManager.SYSTEM_BROADCAST, intent.getAction()); // disabling it to check it's impact on ANR
 
         Log.i(TAG, intent.getAction(), mContext);
 
