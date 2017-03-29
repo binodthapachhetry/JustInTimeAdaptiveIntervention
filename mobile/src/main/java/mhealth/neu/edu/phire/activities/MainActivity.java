@@ -89,7 +89,7 @@ public class MainActivity extends WocketsActivity {
         selectedSurvey.setText("Selected Survey: " + DataManager.getSelectedSurveyName(mContext));
         selectedLanguage.setText("Selected Language: " + DataManager.getSelectedLanguage(mContext));
         loggedInUser.setText("Logged In User: " + UserManager.getUserEmailFormatted());
-        selectedWheelDiameterCm.setText("Selected Wheel Diameter(cm): " + TEMPLEDataManager.getWheelDiameterCm(mContext));
+        selectedWheelDiameterCm.setText("Selected Wheel Diameter(inch): " + TEMPLEDataManager.getWheelDiameterCm(mContext));
         selectedPanoBikeId.setText("Selected PanoBike ID: " + TEMPLEDataManager.getPanoBikeSensorId(mContext));
         panobikeLastConnectedTime.setText("PanoBike Last Connected: " + TEMPLEDataManager.getPanoBikeLastConnectionTime(mContext));
 

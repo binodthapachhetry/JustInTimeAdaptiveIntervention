@@ -1,18 +1,32 @@
 package mhealth.neu.edu.phire.services;
 
 import android.app.PendingIntent;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanCallback;
+import android.bluetooth.le.ScanFilter;
+import android.bluetooth.le.ScanResult;
+import android.bluetooth.le.ScanSettings;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.ParcelUuid;
 
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.List;
 
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.support.Log;
+import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
+import mhealth.neu.edu.phire.panobike.BikeActivity;
 import mhealth.neu.edu.phire.panobike.MyAlarmReceiver;
 
 
@@ -26,6 +40,15 @@ public class PanobikeSensorService extends WocketsIntentService {
     private Context mContext;
 
     private static final long PANOBIKE_ATTEMPT_INTERVAL = 30 * 1000; // 3600
+
+    private BluetoothAdapter mBluetoothAdapter;
+    private BluetoothDevice mBluetoothDevice;
+    private BluetoothLeScanner mBluetoothLEScanner;
+    private ScanCallback mScanCallback;
+    private String sensorID;
+    private int diameterCM;
+    public static final ParcelUuid CSC_SERVICE_UUID = ParcelUuid.fromString(TEMPLEConstants.CSC_SERVICE_UUID);
+
 
     @Override
     public void onCreate() {
@@ -46,31 +69,31 @@ public class PanobikeSensorService extends WocketsIntentService {
         }
 
         String wheelDiameterCm = TEMPLEDataManager.getWheelDiameterCm(mContext);
-        Log.i(TAG,"Wheel diameter(cm): " + wheelDiameterCm, mContext);
+        Log.i(TAG,"Wheel diameter(inch): " + wheelDiameterCm, mContext);
 
         if(wheelDiameterCm == null || wheelDiameterCm.isEmpty()){
             Log.i(TAG,"Wheel diameter not selected. Select one using setupactivity menu", mContext);
             return;
         }
 
-        String lastConnectedTime = String.valueOf(TEMPLEDataManager.getPanoBikeLastConnectionTime(mContext));
-        Log.i(TAG,"Last connected time:" + lastConnectedTime, mContext);
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-        try {
-            Date lastDate = simpleDateFormat.parse(lastConnectedTime);
-            if(System.currentTimeMillis() - lastDate.getTime()<PANOBIKE_ATTEMPT_INTERVAL){
-                Log.i(TAG,"Panobike sensor might still be in connection!", mContext);
-                return;
-            }
-        } catch (ParseException e) {
-            Log.i(TAG,"Error while converting string to datetime" + e, mContext);
-            e.printStackTrace();
-            return;
-        }
-
-        Log.i(TAG,"Panobike not connected, so trying to connect", mContext);
+//        String lastConnectedTime = String.valueOf(TEMPLEDataManager.getPanoBikeLastConnectionTime(mContext));
+//        Log.i(TAG,"Last connected time:" + lastConnectedTime, mContext);
+//
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//
+//        try {
+//            Date lastDate = simpleDateFormat.parse(lastConnectedTime);
+//            if(System.currentTimeMillis() - lastDate.getTime()<PANOBIKE_ATTEMPT_INTERVAL){
+//                Log.i(TAG,"Panobike sensor might still be in connection!", mContext);
+//                return;
+//            }
+//        } catch (ParseException e) {
+//            Log.i(TAG,"Error while converting string to datetime" + e, mContext);
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        Log.i(TAG,"Panobike not connected, so trying to connect", mContext);
 
 
 
@@ -83,21 +106,103 @@ public class PanobikeSensorService extends WocketsIntentService {
 //            return;
 //        }
 //
-        Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
-        // Create a PendingIntent to be triggered when the alarm goes off
-        final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
+//        // Create a PendingIntent to be triggered when the alarm goes off
+//        final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
+//                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        try {
+//            // Perform the operation associated with our pendingIntent
+//            Log.i(TAG,"Intent sent to connect/read panobike sensor", mContext);
+//            pIntent.send();
+//        } catch (PendingIntent.CanceledException e) {
+//            Log.e(TAG,"Intent to connect/read panobike sensor failed", mContext);
+//            e.printStackTrace();
+//        }
 
-        try {
-            // Perform the operation associated with our pendingIntent
-            Log.i(TAG,"Intent sent to connect/read panobike sensor", mContext);
-            pIntent.send();
-        } catch (PendingIntent.CanceledException e) {
-            Log.e(TAG,"Intent to connect/read panobike sensor failed", mContext);
-            e.printStackTrace();
-        }
+        // scanning for ble panobike sensor
+        scanForPanobike();
 
 
+    }
+
+    private void scanForPanobike(){
+        sensorID = TEMPLEDataManager.getPanoBikeSensorId(getApplicationContext());
+        diameterCM = Integer.parseInt(TEMPLEDataManager.getWheelDiameterCm(getApplicationContext()));
+
+        // Initializes Bluetooth adapter.
+        final BluetoothManager bluetoothManager =
+                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        mBluetoothAdapter = bluetoothManager.getAdapter();
+        mBluetoothLEScanner = mBluetoothAdapter.getBluetoothLeScanner();
+
+        mScanCallback = new ScanCallback() {
+            @Override
+            public void onScanResult(int callbackType, ScanResult result) {
+                android.util.Log.i(TAG,"Scan result: " + result.toString());
+
+                if(result.getDevice().getAddress().equals(sensorID)) {
+                    android.util.Log.i(TAG,"Matching Scan result found");
+                    mBluetoothLEScanner.stopScan(mScanCallback);
+                    mScanCallback = null;
+//                    cancelAlarm();
+                    BikeActivity bikeActivity = new BikeActivity(getApplicationContext(), result.getDevice(),diameterCM,sensorID);
+                    bikeActivity.startRead();
+                }
+            }
+
+            @Override
+            public void onBatchScanResults(List<ScanResult> results) {
+                for (ScanResult result : results) {
+
+                    if(result.getDevice().getAddress().equals(sensorID)) {
+                        mBluetoothLEScanner.stopScan(mScanCallback);
+                        mScanCallback = null;
+//                        cancelAlarm();
+//
+                        BikeActivity bikeActivity = new BikeActivity(getApplicationContext(), result.getDevice(),diameterCM,sensorID);
+                        bikeActivity.startRead();
+                        break;
+                    }
+
+                }
+            }
+
+            @Override
+            public void onScanFailed(int errorCode) {
+                android.util.Log.e(TAG,"Scan Failed, Error Code: " + errorCode);
+                // DISABLE AND ENABLE BLUETOOTH PROGRAMATICALLY
+                mBluetoothAdapter.disable();
+                Boolean disabled = true;
+
+                if(disabled){
+                    android.util.Log.d(TAG, "bluetooth adapter turned off");
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            android.util.Log.d(TAG, "bluetooth adapter try to enable");
+                            mBluetoothAdapter.enable();
+                        }}, 500);
+                }
+
+            }
+
+        };
+
+        //Scan for devices advertising the cadence and speed service
+        ScanFilter cscFilter = new ScanFilter.Builder()
+                .setServiceUuid(CSC_SERVICE_UUID)
+                .build();
+
+        ArrayList<ScanFilter> filters = new ArrayList<ScanFilter>();
+        filters.add(cscFilter);
+
+        ScanSettings settings = new ScanSettings.Builder()
+                .setScanMode(ScanSettings.SCAN_MODE_BALANCED)
+                .build();
+
+        mBluetoothLEScanner.startScan(filters, settings, mScanCallback);
     }
 
     @Override

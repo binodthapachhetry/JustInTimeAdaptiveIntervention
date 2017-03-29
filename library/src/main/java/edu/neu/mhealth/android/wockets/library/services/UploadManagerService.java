@@ -1,6 +1,7 @@
 package edu.neu.mhealth.android.wockets.library.services;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -225,7 +226,19 @@ public class UploadManagerService extends WocketsIntentService {
                 Log.d(TAG, hourDirectory.getAbsolutePath() + " - Still writing");
                 continue;
             }
-            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
+//            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
+            new ToZip().execute(hourDirectory.getAbsolutePath());
+        }
+    }
+
+
+    private class ToZip extends AsyncTask<String,Void,Void> {
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            String path = strings[0];
+            Zipper.zipFolderWithEncryption(path, mContext);
+            return null;
         }
     }
 

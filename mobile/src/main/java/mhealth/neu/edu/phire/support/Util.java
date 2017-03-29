@@ -41,6 +41,7 @@ public class Util extends WocketsUtil {
     public static void setBackupMinuteServiceAlarm(Context context) {
         Log.i(TAG, "Inside setBackupMinuteServiceAlarm", context);
         long backupMinuteServiceLastRun = DataManager.getBackupMinuteServiceLastRun(context);
+        Log.i(TAG, "BackupMinuteService last run in long "+ backupMinuteServiceLastRun, context);
         Log.i(TAG, "BackupMinuteService last run at - " + DateTime.getTimestampString(backupMinuteServiceLastRun), context);
         long minuteServiceNextRun = (backupMinuteServiceLastRun < DateTime.getCurrentTimeInMillis() - DateTime.MINUTES_1_IN_MILLIS) ?
                 DateTime.getCurrentTimeInMillis() :

@@ -68,10 +68,19 @@ public class WearableWakefulBroadcastReceiver extends WakefulBroadcastReceiver{
         // Set restart alarm
         setMinuteAlarm(fromWhere);
 
+        // Set Always on service
+        startAlwaysOnService();
+
         // Send inverse trigger to phone (in case phone service doesn't running correctly
         sendTriggerToPhone();
 
         logger.close();
+    }
+
+    private void startAlwaysOnService(){
+        logger.i("Starting Always on service @ " + new Date().toString(), mContext);
+        Intent alwaysOnServiceIntent = new Intent(mContext,AlwaysOnService.class);
+        mContext.startService(alwaysOnServiceIntent);
     }
 
     private void sendTriggerToPhone() {

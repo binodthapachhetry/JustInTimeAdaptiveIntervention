@@ -74,6 +74,7 @@ public class BikeSensor
 
             if (status != BluetoothGatt.GATT_SUCCESS) {
                 doError("Error connecting to device");
+//                gatt.close();
                 // DISCONNECT AND CLOSE THE DEVICE HERE
 //                disConnect();
 
@@ -150,6 +151,8 @@ public class BikeSensor
             int crankRotations;
             int time;
 
+
+
             // We'll only ever be notified on the measurement characteristic
 
             byte[] value = parent.mMeasurementChar.getValue();
@@ -220,12 +223,16 @@ public class BikeSensor
                     parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
                             (timeDiff / 1024.0), wheelRotations);
 
+
                     mLastWheelReading = wheelRotations;
                     mLastWheelTime = time;
 
                     Calendar cs = Calendar.getInstance();
                     SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
+                    gatt.disconnect();
+                    gatt.close();
+
 //                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+dfs.format(cs.getTime()));
                 }
 
@@ -266,6 +273,10 @@ public class BikeSensor
                     Calendar c = Calendar.getInstance();
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
+                    gatt.disconnect();
+                    gatt.close();
+
+
 //                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+df.format(c.getTime()));
                 }
             }

@@ -18,7 +18,7 @@ public class WearableApplication extends Application {
     public void onCreate() {
         logger = new Logger(TAG);
         super.onCreate();
-        logger.i("onCreate", this);
+        logger.i("onCreate", getApplicationContext());
         WearableUncaughtExceptionHandler exceptionHandler = new WearableUncaughtExceptionHandler(getApplicationContext());
         exceptionHandler.setDefaultHandler(Thread.getDefaultUncaughtExceptionHandler());
         Thread.setDefaultUncaughtExceptionHandler(exceptionHandler);
@@ -29,9 +29,9 @@ public class WearableApplication extends Application {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        logger.i("onLowMemory", this);
-        logger.i("Low memory threshold is: " + DeviceInfo.getMemoryUsageInMB(this) + "MB", this);
-        logger.i("Stop sensor manager service", this);
+        logger.i("onLowMemory", getApplicationContext());
+        logger.i("Low memory threshold is: " + DeviceInfo.getMemoryUsageInMB(this) + "MB", getApplicationContext());
+        logger.i("Stop sensor manager service", getApplicationContext());
         Intent stopIntent = new Intent(this, SensorManagerService.class);
         stopService(stopIntent);
         logger.close();
@@ -40,8 +40,8 @@ public class WearableApplication extends Application {
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
-        logger.i("onTrimMemory", this);
-        logger.i("Trim memory when ram is: " + DeviceInfo.getMemoryUsageInMB(this) + "MB", this);
+        logger.i("onTrimMemory", getApplicationContext());
+        logger.i("Trim memory when ram is: " + DeviceInfo.getMemoryUsageInMB(this) + "MB", getApplicationContext());
         logger.close();
     }
 }

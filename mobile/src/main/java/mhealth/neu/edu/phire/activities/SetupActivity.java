@@ -66,7 +66,7 @@ public class SetupActivity extends WocketsActivity {
             diameters[i] = supportedWheelDiameterCm.get(i);
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select a wheel diameter(cm)");
+        builder.setTitle("Select a wheel diameter(inch)");
         builder.setItems(diameters, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

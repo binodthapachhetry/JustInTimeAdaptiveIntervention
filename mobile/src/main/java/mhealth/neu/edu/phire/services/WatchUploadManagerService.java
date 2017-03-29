@@ -3,6 +3,7 @@ package mhealth.neu.edu.phire.services;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -223,7 +224,20 @@ public class WatchUploadManagerService extends WocketsIntentService {
                 Log.d(TAG, hourDirectory.getAbsolutePath() + " - Still writing");
                 continue;
             }
-            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
+
+//            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
+            new ToZipWatch().execute(hourDirectory.getAbsolutePath());
+        }
+    }
+
+
+    private class ToZipWatch extends AsyncTask<String,Void,Void> {
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            String path = strings[0];
+            Zipper.zipFolderWithEncryption(path, mContext);
+            return null;
         }
     }
 

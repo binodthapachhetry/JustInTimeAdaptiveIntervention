@@ -17,6 +17,7 @@ import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
+import mhealth.neu.edu.phire.services.PanobikeSensorService;
 //import edu.neu.mhealth.android.wockets.library.support.//Log;
 
 /**
@@ -107,25 +108,30 @@ public class BikeActivity {
                 } else {
                     parent.instSpeed = distance / elapsedUs;
                 }
-                DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
-                final String speed_dec = String.valueOf(oneDigit.format(parent.instSpeed));
-                //Log.i(TAG, "Speed: " + " = " + speed_dec + " m/s" + " CumRotation: " + rot,mContext);
+
+                if(rot!=0L) {
+                    DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
+                    final String speed_dec = String.valueOf(oneDigit.format(parent.instSpeed));
+                    //Log.i(TAG, "Speed: " + " = " + speed_dec + " m/s" + " CumRotation: " + rot,mContext);
 
 
-                Calendar cs = Calendar.getInstance();
-                SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Calendar cs = Calendar.getInstance();
+                    SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //                speedMessage = df.format(c.getTime()) + ',' + sensorID + ',' + diameter+ ',' + rot;
 
-                String[] speedEntry = {
-                        dfs.format(cs.getTime()),
-                        String.valueOf(rot)
-                };
-                String dataDirectory = DataManager.getDirectoryData(context);
-                String speedFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Speed.csv";
+                    String[] speedEntry = {
+                            dfs.format(cs.getTime()),
+                            String.valueOf(rot)
+                    };
+                    String dataDirectory = DataManager.getDirectoryData(context);
+                    String speedFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Speed.csv";
 
-                CSV.write(speedEntry, speedFile, true);
+                    CSV.write(speedEntry, speedFile, true);
+
+//                Log.i(TAG,"Closing the panobike service after speed reading");
+//                mContext.stopService(new Intent(mContext, PanobikeSensorService.class));
 //                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
-                Log.i(TAG,"SET LAST CONNECTION TIME AS:");
+                }
             }
 
             @Override
@@ -138,24 +144,27 @@ public class BikeActivity {
                 } else {
                     parent.instCadence = rotations * 60 / (elapsedUs);
                 }
-                DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
-                final String cadence_dec = String.valueOf(oneDigit.format(parent.instCadence));
-                //Log.i(TAG, "Cadence: " + " = " + cadence_dec + " rpm" + " CumCrankRotation: " + crankRot,mContext);
 
-                Calendar c = Calendar.getInstance();
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                if(crankRot!=0) {
+                    DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
+                    final String cadence_dec = String.valueOf(oneDigit.format(parent.instCadence));
+                    //Log.i(TAG, "Cadence: " + " = " + cadence_dec + " rpm" + " CumCrankRotation: " + crankRot,mContext);
+
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //                cadenceMessage = df.format(c.getTime()) + ',' + sensorID +',' + diameter +','+ crankRot;
 
-                String[] cadenceEntry = {
-                        df.format(c.getTime()),
-                        String.valueOf(crankRot)
-                };
-                String dataDirectory = DataManager.getDirectoryData(context);
-                String cadenceFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
-                CSV.write(cadenceEntry, cadenceFile, true);
+                    String[] cadenceEntry = {
+                            df.format(c.getTime()),
+                            String.valueOf(crankRot)
+                    };
+                    String dataDirectory = DataManager.getDirectoryData(context);
+                    String cadenceFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
+                    CSV.write(cadenceEntry, cadenceFile, true);
 //                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
-                Log.i(TAG,"SET LAST CONNECTION TIME AS:");
-
+//                Log.i(TAG,"Closing the panobike service after cadence reading");
+//                mContext.stopService(new Intent(mContext, PanobikeSensorService.class));
+                }
 
 
             }

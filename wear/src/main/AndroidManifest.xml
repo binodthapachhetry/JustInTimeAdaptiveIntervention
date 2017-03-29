@@ -37,7 +37,7 @@
         <service android:enabled="true" android:name="edu.neu.android.wearwocketslib.services.WearableFileTransferService" />
         <service android:enabled="true" android:name="edu.neu.android.wearwocketslib.services.WearableMessageTransferService" />
 
-
+        <service android:enabled="true" android:name="edu.neu.android.wearwocketslib.core.repeatedwakefulservice.AlwaysOnService" />
         <service android:enabled="true" android:name="edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WearableWakefulService" />
         <service android:enabled="true" android:name="edu.neu.android.wearwocketslib.core.DaemonService"></service>
         <receiver android:enabled="true" android:name="edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WearableWakefulBroadcastReceiver">

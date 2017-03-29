@@ -123,7 +123,6 @@ public class MyTestService extends IntentService {
 
         };
 
-
         //Scan for devices advertising the cadence and speed service
         ScanFilter cscFilter = new ScanFilter.Builder()
                 .setServiceUuid(CSC_SERVICE_UUID)

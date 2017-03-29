@@ -1,6 +1,7 @@
 package edu.neu.android.wearwocketslib.services;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -42,6 +43,7 @@ public class SensorManagerService extends Service implements SensorEventListener
     private int sr = 0;
     private long timeInMillis;
     private long lastBootupTime;
+    private Context mContext;
 
     private AndroidWearAccelerometerRaw accelRaw;
 
@@ -54,13 +56,15 @@ public class SensorManagerService extends Service implements SensorEventListener
     public void onCreate() {
         super.onCreate();
         logger = new Logger(TAG);
-        SharedPrefs.setBoolean(Globals.SENSOR_MANAGER_SERVICE_STATUS, true, getApplicationContext());
+        mContext = getApplicationContext();
+
+        SharedPrefs.setBoolean(Globals.SENSOR_MANAGER_SERVICE_STATUS, true, mContext);
         logger.i("Inside onCreate", getApplicationContext());
         initializeMembers();
     }
 
     private void initializeMembers() {
-        logger.i("Inside initializeMembers", getApplicationContext());
+        logger.i("Inside initializeMembers", mContext);
         gravity = new float[3];
         gravity[0] = 0.0f;
         gravity[1] = 0.0f;
@@ -72,7 +76,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         valuesHeartRate = new byte[1600];
         countHeartRate = 0;
 
-        accelRaw = new AndroidWearAccelerometerRaw(getApplicationContext());
+        accelRaw = new AndroidWearAccelerometerRaw(mContext);
 
         mSensorManager = (android.hardware.SensorManager) getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -87,9 +91,9 @@ public class SensorManagerService extends Service implements SensorEventListener
     private void registerSensorListeners(){
         if (Globals.IS_ACCELEROMETER_LOGGING_ENABLED) {
             if(mSensorManager.registerListener(this, mAccelerometer, android.hardware.SensorManager.SENSOR_DELAY_GAME, 90000000)){
-                logger.i("Accelerometer listener registered", getApplicationContext());
+                logger.i("Accelerometer listener registered", mContext);
             }else{
-                logger.i("Accelerometer listener register unsuccessful", getApplicationContext());
+                logger.i("Accelerometer listener register unsuccessful", mContext);
             }
 
         }
@@ -98,27 +102,27 @@ public class SensorManagerService extends Service implements SensorEventListener
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
             if(intent != null)
-                logger.i("Inside onStartCommand: " + intent.getAction(), getApplicationContext());
+                logger.i("Inside onStartCommand: " + intent.getAction(), mContext);
             else
-                logger.i("Inside onStartCommand", getApplicationContext());
+                logger.i("Inside onStartCommand", mContext);
 //        }
         if (intent != null) {
             if ("FLUSH".equals(intent.getAction())) {
-                logger.i("Got Flush command", getApplicationContext());
+                logger.i("Got Flush command", mContext);
                 boolean success = mSensorManager.flush(this);
-                logger.i("Flush result: " + success, getApplicationContext());
+                logger.i("Flush result: " + success, mContext);
                 if(!success){
                     try {
                         accelRaw.flushAndCloseBinary(true);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        logger.e(e.getMessage(), getApplicationContext());
-                        logger.logStackTrace(e, getApplicationContext());
+                        logger.e(e.getMessage(), mContext);
+                        logger.logStackTrace(e, mContext);
                     }
                     notifyFlushFailure();
                 }
-                logger.i("Whole WakeLock cycle SamplingRate,"+sr, getApplicationContext());
-                logger.i("Avail Memory percentage," + DeviceInfo.getMemoryUsageInPercentage(getApplicationContext()),getApplicationContext());
+                logger.i("Whole WakeLock cycle SamplingRate,"+sr, mContext);
+                logger.i("Avail Memory percentage," + DeviceInfo.getMemoryUsageInPercentage(mContext),mContext);
                 sr = 0;
                 if(!success){
                     stopSelf();
@@ -139,7 +143,7 @@ public class SensorManagerService extends Service implements SensorEventListener
                             @Override
                             public void onFinish() {
                                 mSensorManager.unregisterListener(SensorManagerService.this, mHeartRate);
-                                logger.i("HeartRate listener unregistered", getApplicationContext());
+                                logger.i("HeartRate listener unregistered", mContext);
                             }
                         };
                         timer.start();

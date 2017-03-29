@@ -12,6 +12,8 @@ import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 
+import edu.neu.android.wearwocketslib.utils.log.Logger;
+
 /**
  * Created by qutang on 8/26/15.
  */

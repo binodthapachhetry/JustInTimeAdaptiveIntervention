@@ -32,7 +32,6 @@ import edu.neu.mhealth.android.wockets.library.events.EMASurveyCompleteEvent;
 import edu.neu.mhealth.android.wockets.library.managers.AudioManager;
 import edu.neu.mhealth.android.wockets.library.managers.NotificationManager;
 import edu.neu.mhealth.android.wockets.library.managers.VibrationManager;
-import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.services.WocketsService;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
@@ -371,7 +370,7 @@ public class SurveyService extends WocketsService {
         singleChoiceQuestionIntent.putExtra("answerString", answer);
         singleChoiceQuestionIntent.putExtra("isFirstPromptOfTheDay", DataManager.isFirstPromptForDay(mContext, DateTime.getDate()));
 //        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         startActivity(singleChoiceQuestionIntent);
     }
 

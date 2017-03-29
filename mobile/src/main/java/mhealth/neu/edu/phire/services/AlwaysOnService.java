@@ -85,9 +85,9 @@ public class AlwaysOnService extends WocketsService {
 
             @Override
             public void onFinish() {
-                Log.i(TAG, "starting acceleration manager service", mContext);
+                Log.i(TAG, "starting minute service", mContext);
 //                startService(new Intent(mContext, AccelerationManagerService.class));
-                startService(new Intent(mContext, UploadManagerService.class));
+//                startService(new Intent(mContext, UploadManagerService.class));
                 startService(new Intent(mContext, MinuteService.class));
 
                 startCountDownTimer();

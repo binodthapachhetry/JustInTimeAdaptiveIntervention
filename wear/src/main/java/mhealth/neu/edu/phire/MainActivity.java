@@ -59,6 +59,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.AlwaysOnService;
 import mhealth.neu.edu.phire.fragments.AssetFragment;
 import mhealth.neu.edu.phire.fragments.ControlFragment;
 import mhealth.neu.edu.phire.fragments.DataFragment;
@@ -140,13 +141,17 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
         }
         mGoogleApiClient.connect();
         showNodes(edu.neu.android.wearwocketslib.Globals.CAPABILITY_NAME);
-        setAlarmForWakefulService();
+
+        startService(new Intent(this, AlwaysOnService.class));
+
+//        setAlarmForWakefulService();
+
     }
 
-    private void setAlarmForWakefulService(){
-        WearableWakefulBroadcastAlarm alarm = new WearableWakefulBroadcastAlarm(this, "MAIN_ACTIVITY");
-        alarm.setAlarm();
-    }
+//    private void setAlarmForWakefulService(){
+//        WearableWakefulBroadcastAlarm alarm = new WearableWakefulBroadcastAlarm(this, "MAIN_ACTIVITY");
+//        alarm.setAlarm();
+//    }
 
     @Override
     protected void onPause() {

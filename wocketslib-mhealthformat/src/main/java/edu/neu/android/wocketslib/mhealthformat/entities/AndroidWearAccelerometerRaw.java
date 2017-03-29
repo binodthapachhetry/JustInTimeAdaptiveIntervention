@@ -13,6 +13,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 import edu.neu.android.wocketslib.mhealthformat.mHealthFormat;
@@ -42,6 +43,7 @@ public class AndroidWearAccelerometerRaw extends mHealthEntity{
     private File lastFile = null;
     private byte[] binaryBuffer = new byte[BINARY_BUFFER_SIZE];
     private int bufferPos = 0;
+//    private long ref = 0;
 
     public AndroidWearAccelerometerRaw(long timestamp, float rawx, float rawy, float rawz, Context context){
         super();
@@ -190,100 +192,114 @@ public class AndroidWearAccelerometerRaw extends mHealthEntity{
         if(lastTimestamp == 0){
             lastTimestamp = getTimestamp();
         }
+
         Date current = new Date(getTimestamp());
         Date last = new Date(lastTimestamp);
-        File toBeWritten = null;
-        lastTimestamp = getTimestamp();
 
-        if(current.getHours() - last.getHours() == 1 || (current.getHours() == 0 && last.getHours() == 23)){
-            //save the whole buffer to previous hour folder
-            File folder = new File(mHealthFormat.buildmHealthPath(last, mHealthFormat.PATH_LEVEL.HOURLY, getEntityType()));
-            File[] previousHourFolder = folder.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String filename) {
-                    return filename.contains("baf");
+        Calendar cal = Calendar.getInstance();
+        cal.set(2017, Calendar.MARCH, 9, 10, 11, 12); //Year, month, day of month, hours, minutes and seconds
+        Date toCompare = cal.getTime();
+
+        Log.i(TAG, "Date current:" + current.toString());
+        Log.i(TAG, "Date last:" + last.toString());
+        Log.i(TAG, "Date reference:" + toCompare.toString());
+
+
+        if(last.after(toCompare)) {
+            Log.i(TAG, "Last after reference. So saving");
+//        }
+
+            File toBeWritten = null;
+            lastTimestamp = getTimestamp();
+
+            if (current.getHours() - last.getHours() == 1 || (current.getHours() == 0 && last.getHours() == 23)) {
+                //save the whole buffer to previous hour folder
+                File folder = new File(mHealthFormat.buildmHealthPath(last, mHealthFormat.PATH_LEVEL.HOURLY, getEntityType()));
+                File[] previousHourFolder = folder.listFiles(new FilenameFilter() {
+                    @Override
+                    public boolean accept(File dir, String filename) {
+                        return filename.contains("baf");
+                    }
+                });
+                if (previousHourFolder.length > 0) {
+                    toBeWritten = previousHourFolder[0];
+                } else {
+                    throw new IOException("Can't find the previous hour file, please verify it still exists");
                 }
-            });
-            if(previousHourFolder.length > 0){
-                toBeWritten = previousHourFolder[0];
-            }else{
-                throw new IOException("Can't find the previous hour file, please verify it still exists");
-            }
-            final byte[] cloned = Arrays.copyOfRange(binaryBuffer, 0, bufferPos);
-            bufferPos = 0;
-            final File finalToBeWritten = toBeWritten;
-            new AsyncTask<String, String, String>() {
-                @Override
-                protected String doInBackground(String... params) {
-                    FileOutputStream writer = null;
-                    try {
-                        writer = new FileOutputStream(finalToBeWritten, true);
-                        writer.write(cloned);
-                        writer.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally{
-                        if(writer != null){
-                            try {
-                                writer.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                final byte[] cloned = Arrays.copyOfRange(binaryBuffer, 0, bufferPos);
+                bufferPos = 0;
+                final File finalToBeWritten = toBeWritten;
+                new AsyncTask<String, String, String>() {
+                    @Override
+                    protected String doInBackground(String... params) {
+                        FileOutputStream writer = null;
+                        try {
+                            writer = new FileOutputStream(finalToBeWritten, true);
+                            writer.write(cloned);
+                            writer.close();
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            if (writer != null) {
+                                try {
+                                    writer.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }
+                        return null;
                     }
-                    return null;
-                }
-            }.execute();
-        }else if(BINARY_BUFFER_SIZE - bufferPos < 20 || force){
-            //save the whole buffer
-            File folder = new File(mHealthFormat.buildmHealthPath(current, mHealthFormat.PATH_LEVEL.HOURLY, getEntityType()));
-            Log.i(TAG,folder.getAbsolutePath());
-            File[] currentHourFolder = folder.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String filename) {
-                    return filename.contains("baf");
-                }
-            });
+                }.execute();
+            } else if (BINARY_BUFFER_SIZE - bufferPos < 20 || force) {
+                //save the whole buffer
+                File folder = new File(mHealthFormat.buildmHealthPath(current, mHealthFormat.PATH_LEVEL.HOURLY, getEntityType()));
+                Log.i(TAG, folder.getPath());
+                File[] currentHourFolder = folder.listFiles(new FilenameFilter() {
+                    @Override
+                    public boolean accept(File dir, String filename) {
+                        return filename.contains("baf");
+                    }
+                });
 
-//            Log.i(TAG,currentHourFolder.toString());
-
-//            if (currentHourFolder.length > 0) {
-//            if (currentHourFolder != null) {
-                if(currentHourFolder.length > 0 ) {
-                    toBeWritten = currentHourFolder[0];
-//                }
-            } else {
-                toBeWritten = new File(folder + File.separator + mHealthFormat.buildBafFilename(current, section1, section2, "sensor"));
-            }
-            final byte[] cloned = Arrays.copyOfRange(binaryBuffer, 0, bufferPos);
-            final File finalToBeWritten = toBeWritten;
-            bufferPos = 0;
-            new AsyncTask<String, String, String>() {
-                @Override
-                protected String doInBackground(String... params) {
-                    FileOutputStream writer = null;
-                    try {
-                        writer = new FileOutputStream(finalToBeWritten, true);
-                        writer.write(cloned);
-                        writer.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally{
-                        if(writer != null){
+                if (currentHourFolder != null) {
+                    if (currentHourFolder.length > 0) {
+                        toBeWritten = currentHourFolder[0];
+                        //                }
+                    } else {
+                        toBeWritten = new File(folder + File.separator + mHealthFormat.buildBafFilename(current, section1, section2, "sensor"));
+                    }
+                    final byte[] cloned = Arrays.copyOfRange(binaryBuffer, 0, bufferPos);
+                    final File finalToBeWritten = toBeWritten;
+                    bufferPos = 0;
+                    new AsyncTask<String, String, String>() {
+                        @Override
+                        protected String doInBackground(String... params) {
+                            FileOutputStream writer = null;
                             try {
+                                writer = new FileOutputStream(finalToBeWritten, true);
+                                writer.write(cloned);
                                 writer.close();
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
                             } catch (IOException e) {
                                 e.printStackTrace();
+                            } finally {
+                                if (writer != null) {
+                                    try {
+                                        writer.close();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                             }
+                            return null;
                         }
-                    }
-                    return null;
+                    }.execute();
                 }
-            }.execute();
+            }
         }
     }
 }

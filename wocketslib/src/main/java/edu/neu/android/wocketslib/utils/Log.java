@@ -123,7 +123,7 @@ public class Log {
 	public static final boolean LOG_SHOW = true;
 	public static final boolean NO_LOG_SHOW = false;
 
-	private static String dateFormatter = "yyyy-MM-dd HH:mm:ss.SSSZ";
+	private static String dateFormatter = "yyyy-MM-dd HH:mm:ss.SSS";
 
 	private static boolean writeToFile = true;
 

@@ -190,7 +190,9 @@ public class WearableWakefulService extends IntentService {
     public void onCreate() {
         logger.i("On Create Wakeful Service", getApplicationContext());
         startServiceTime = System.currentTimeMillis();
+        Globals.init();
         SharedPrefs.setLong(KEY_WAKFUL_SERVICE_LAST_RUN, startServiceTime, getApplicationContext());
+
         super.onCreate();
     }
 
@@ -460,6 +462,7 @@ public class WearableWakefulService extends IntentService {
         SizeLimitedZipper previousDayZipper = new SizeLimitedZipper("PREVIOUS_DAY", Globals.TRANSFER_FOLDER, "log", DATA_ZIP_FILE_SIZE_LIMIT);
         for(File previousDayLog : previousDaysLogFolders) {
             try {
+                logger.i("Previous day log folder path" + previousDayLog.getPath(), getApplicationContext());
                 String zipPathname = previousDayZipper.addToZip(previousDayLog.getAbsolutePath(), true, false);
                 logger.i("Added " + previousDayLog.getAbsolutePath() + " to " + zipPathname, getApplicationContext());
             } catch (ZipException e) {
@@ -485,6 +488,7 @@ public class WearableWakefulService extends IntentService {
         SizeLimitedZipper todayZipper = new SizeLimitedZipper("TODAY", Globals.TRANSFER_FOLDER, "log", DATA_ZIP_FILE_SIZE_LIMIT);
         for(File todayLog : todayLogFolder) {
             try {
+                logger.i("Today log folder path" + todayLog.getPath(), getApplicationContext());
                 String zipPathname = todayZipper.addToZip(todayLog.getAbsolutePath(), false, true);
                 logger.i("Added " + todayLog.getAbsolutePath() + " to " + zipPathname, getApplicationContext());
             } catch (ZipException e) {
