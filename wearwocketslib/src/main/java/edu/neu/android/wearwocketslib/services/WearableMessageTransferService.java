@@ -221,7 +221,8 @@ public class WearableMessageTransferService extends Service implements GoogleApi
         };
         timer.schedule(stopTask, 45 * 1000);
 //        logger.i("Message transfer service will stop in 45 seconds", getApplicationContext());
-        Log.i(TAG,"Message transfer service will stop in 45 seconds", getApplicationContext());
+//        Log.i(TAG,"Message transfer service will stop in 45 seconds", getApplicationContext());
+        logger.i("Message transfer service will stop in 45 seconds", getApplicationContext());
     }
 
 

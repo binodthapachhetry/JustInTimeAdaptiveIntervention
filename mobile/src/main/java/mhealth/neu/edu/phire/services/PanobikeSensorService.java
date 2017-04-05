@@ -142,7 +142,7 @@ public class PanobikeSensorService extends WocketsIntentService {
                 android.util.Log.i(TAG,"Scan result: " + result.toString());
 
                 if(result.getDevice().getAddress().equals(sensorID)) {
-                    android.util.Log.i(TAG,"Matching Scan result found");
+                    Log.i(TAG,"Matching Scan result found",mContext);
                     mBluetoothLEScanner.stopScan(mScanCallback);
                     mScanCallback = null;
 //                    cancelAlarm();
@@ -159,6 +159,7 @@ public class PanobikeSensorService extends WocketsIntentService {
                         mBluetoothLEScanner.stopScan(mScanCallback);
                         mScanCallback = null;
 //                        cancelAlarm();
+                        Log.i(TAG,"Scan successful. Starting to read.",mContext);
 //
                         BikeActivity bikeActivity = new BikeActivity(getApplicationContext(), result.getDevice(),diameterCM,sensorID);
                         bikeActivity.startRead();
@@ -170,18 +171,18 @@ public class PanobikeSensorService extends WocketsIntentService {
 
             @Override
             public void onScanFailed(int errorCode) {
-                android.util.Log.e(TAG,"Scan Failed, Error Code: " + errorCode);
+                Log.e(TAG,"Scan Failed, Error Code: " + errorCode,mContext);
                 // DISABLE AND ENABLE BLUETOOTH PROGRAMATICALLY
                 mBluetoothAdapter.disable();
                 Boolean disabled = true;
 
                 if(disabled){
-                    android.util.Log.d(TAG, "bluetooth adapter turned off");
+                    Log.e(TAG, "bluetooth adapter turned off",mContext);
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            android.util.Log.d(TAG, "bluetooth adapter try to enable");
+                            Log.e(TAG, "bluetooth adapter try to enable",mContext);
                             mBluetoothAdapter.enable();
                         }}, 500);
                 }
@@ -199,9 +200,10 @@ public class PanobikeSensorService extends WocketsIntentService {
         filters.add(cscFilter);
 
         ScanSettings settings = new ScanSettings.Builder()
-                .setScanMode(ScanSettings.SCAN_MODE_BALANCED)
+                .setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
                 .build();
 
+        Log.i(TAG,"Starting scan.",mContext);
         mBluetoothLEScanner.startScan(filters, settings, mScanCallback);
     }
 

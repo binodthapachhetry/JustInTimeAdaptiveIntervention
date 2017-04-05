@@ -85,9 +85,12 @@ public class UploadManagerService extends WocketsIntentService {
 
         }
 
+//        unzipFromWatch();
+
         // stuff related to phone
         // Zip required log files
         processLogs();
+
         // Zip required survey files
         processSurveys();
         // Zip required data files
@@ -127,6 +130,21 @@ public class UploadManagerService extends WocketsIntentService {
         for (File logDate : logFiles.listFiles()) {
             processLogs(logDate);
         }
+
+//        Log.i(TAG, "Processing Logs Watch", mContext);
+//        String logWatchDirectory = DataManager.getDirectoryWatchLogs(mContext);
+//        File logWatchFiles = new File(logWatchDirectory);
+//        if (!logWatchFiles.exists()) {
+//            Log.w(TAG, "Log directory does not exist - " + logWatchDirectory, mContext);
+//            return;
+//        }
+//        if (logWatchFiles.listFiles() == null) {
+//            Log.e(TAG, "No files present in logs directory. This should never happen", mContext);
+//            return;
+//        }
+//        for (File logWatchDate : logWatchFiles.listFiles()) {
+//            processLogs(logWatchDate);
+//        }
     }
 
     private void processLogs(File logDate) {
@@ -146,6 +164,16 @@ public class UploadManagerService extends WocketsIntentService {
             }
             if (!isStudyFinished && hourDirectory.getName().equals(DateTime.getCurrentHourWithTimezone())) {
                 Log.d(TAG, hourDirectory.getAbsolutePath() + " - Still writing");
+                continue;
+            }
+            if (hourDirectory.getName().contains("sdcard")) {
+                Log.d(TAG, "Deleting " + hourDirectory.getAbsolutePath());
+                hourDirectory.delete();
+                continue;
+            }
+            if (hourDirectory.getName().contains("Watch-")) {
+                Log.d(TAG, "Deleting " + hourDirectory.getAbsolutePath());
+                hourDirectory.delete();
                 continue;
             }
             Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
@@ -204,6 +232,23 @@ public class UploadManagerService extends WocketsIntentService {
             processData(dataDate);
         }
 
+//        Log.i(TAG, "Processing Watch Data files", mContext);
+//        String dataWatchDirectory = DataManager.getDirectoryWatchData(mContext);
+//        File dataWatchFiles = new File(dataWatchDirectory);
+//        if (!dataWatchFiles.exists()) {
+//            Log.w(TAG, "Watch Data directory does not exist", mContext);
+//            return;
+//        }
+//
+//        if (dataWatchFiles.listFiles() == null) {
+//            Log.w(TAG, "No files present in watch data directory.", mContext);
+//            return;
+//        }
+//
+//        for (File dataDate : dataWatchFiles.listFiles()) {
+//            processData(dataDate);
+//        }
+
     }
 
     private void processData(File dataDate) {
@@ -227,17 +272,23 @@ public class UploadManagerService extends WocketsIntentService {
                 continue;
             }
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
-            new ToZip().execute(hourDirectory.getAbsolutePath());
+            ZipTask task = new ZipTask(mContext);
+            task.execute(hourDirectory.getAbsolutePath());
         }
     }
 
 
-    private class ToZip extends AsyncTask<String,Void,Void> {
+    public class ZipTask extends AsyncTask<String,Void,Void> {
+        private Context aContext;
+
+        public ZipTask(Context context){
+            aContext = context;
+        }
 
         @Override
         protected Void doInBackground(String... strings) {
             String path = strings[0];
-            Zipper.zipFolderWithEncryption(path, mContext);
+            Zipper.zipFolderWithEncryption(path, aContext);
             return null;
         }
     }
@@ -286,6 +337,57 @@ public class UploadManagerService extends WocketsIntentService {
                 UploadManager.uploadFile(logDate.getAbsolutePath(), mContext);
             }
         }
+
+//        Log.i(TAG, "Processing Watch Log Uploads", mContext);
+//        String logWatchDirectory = DataManager.getDirectoryWatchLogs(mContext);
+//        File logWatchFiles = new File(logWatchDirectory);
+//        if (!logWatchFiles.exists()) {
+//            Log.w(TAG, "Watch Log directory does not exist - " + logWatchDirectory, mContext);
+//            return;
+//        }
+//
+//        for (File logWatchDate : logWatchFiles.listFiles()) {
+//            // TODO: This is a MATCH specific fix. Need to come up with a better solution
+//
+//            if (logWatchDate.getName().contains("sdcard")) {
+//                Log.d(TAG, "Deleting " + logWatchDate.getAbsolutePath());
+//                logWatchDate.delete();
+//                continue;
+//            }
+//
+//            if (DateTime.getDate(logWatchDate.getName()).getTime() < (DateTime.getCurrentTimeInMillis() - (DateTime.DAYS_1_IN_MILLIS * 90))) {
+//                Log.i(TAG, "Ignoring logs for date - " + logWatchDate.getName(), mContext);
+//                continue;
+//            }
+//
+//            if (logWatchDate.isDirectory()) {
+//                for (File logHour : logWatchDate.listFiles()) {
+//                    // We only want to upload zip files
+//                    if (!logHour.getName().contains("zip")) {
+//                        continue;
+//                    }
+//                    // We don't want to re-upload uploaded files.
+//                    if (logHour.getName().contains("uploaded")) {
+//                        continue;
+//                    }
+//
+//                    Log.i(TAG, "Calling UploadManager.uploadFile on - " + logHour.getAbsolutePath(), mContext);
+//                    UploadManager.uploadFile(logHour.getAbsolutePath(), mContext);
+//                }
+//            } else {
+//                // We only want to upload zip files
+//                if (!logWatchDate.getName().contains("zip")) {
+//                    continue;
+//                }
+//                // We don't want to re-upload uploaded files.
+//                if (logWatchDate.getName().contains("uploaded")) {
+//                    continue;
+//                }
+//
+//                Log.i(TAG, "Calling UploadManager.uploadFile on - " + logWatchDate.getAbsolutePath(), mContext);
+//                UploadManager.uploadFile(logWatchDate.getAbsolutePath(), mContext);
+//            }
+//        }
     }
 
     private void processSurveyUploads() {
@@ -360,6 +462,49 @@ public class UploadManagerService extends WocketsIntentService {
                 UploadManager.uploadFile(dataDate.getAbsolutePath(), mContext);
             }
         }
+
+//        Log.i(TAG, "Processing Watch Data Uploads", mContext);
+//        String dataWatchDirectory = DataManager.getDirectoryWatchData(mContext);
+//        File dataWatchFiles = new File(dataWatchDirectory);
+//        if (!dataWatchFiles.exists()) {
+//            Log.w(TAG, "Watch Data directory does not exist - " + dataWatchDirectory, mContext);
+//            return;
+//        }
+//
+//        for (File dataWatchDate : dataWatchFiles.listFiles()) {
+//            // TODO: This is a MATCH specific fix. Need to come up with a better solution
+//            if (DateTime.getDate(dataWatchDate.getName()).getTime() < (DateTime.getCurrentTimeInMillis() - (DateTime.DAYS_1_IN_MILLIS * 90))) {
+//                Log.i(TAG, "Ignoring data for date - " + dataWatchDate.getName(), mContext);
+//                continue;
+//            }
+//            if (dataWatchDate.isDirectory()) {
+//                for (File dataHour : dataWatchDate.listFiles()) {
+//                    // We only want to upload zip files
+//                    if (!dataHour.getName().contains("zip")) {
+//                        continue;
+//                    }
+//                    // We don't want to re-upload uploaded files.
+//                    if (dataHour.getName().contains("uploaded")) {
+//                        continue;
+//                    }
+//
+//                    Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataHour.getAbsolutePath(), mContext);
+//                    UploadManager.uploadFile(dataHour.getAbsolutePath(), mContext);
+//                }
+//            } else {
+//                // We only want to upload zip files
+//                if (!dataWatchDate.getName().contains("zip")) {
+//                    continue;
+//                }
+//                // We don't want to re-upload uploaded files.
+//                if (dataWatchDate.getName().contains("uploaded")) {
+//                    continue;
+//                }
+//
+//                Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataWatchDate.getAbsolutePath(), mContext);
+//                UploadManager.uploadFile(dataWatchDate.getAbsolutePath(), mContext);
+//            }
+//        }
     }
 
     @Override
@@ -377,6 +522,68 @@ public class UploadManagerService extends WocketsIntentService {
         } );
 
     }
+
+    private void unzipFromWatch() {
+        DataManager.setZipTransferFinished(mContext,false);
+        String watchZipFolder = DataManager.getDirectoryTransfer(mContext);
+        Log.i(TAG, "This is transfer folder: " + watchZipFolder,mContext);
+        File watchZipFile = new File(watchZipFolder);
+        watchZipFile.mkdirs();
+        File[] zipFiles = new File[0];
+        if(watchZipFile.isDirectory()) {
+            zipFiles = watchZipFile.listFiles();
+        }else{
+            Log.e(TAG, "This is not a directory: " + watchZipFile.getAbsolutePath(),mContext);
+
+            if(watchZipFile.delete()){
+                Log.i(TAG, "Delete and quit!",mContext);
+            }else{
+                Log.e(TAG, "Can't delete so just quit!",mContext);
+            }
+            return;
+        }
+        for(File zipFile : zipFiles) {
+            try {
+                Log.i(TAG, "Unzipping " + zipFile.getAbsolutePath(),mContext);
+                _unzipFromWatchHelper(watchZipFolder, zipFile.getName());
+                if(zipFile.delete()){
+                    Log.i(TAG, "Delete watch zip file: " + zipFile.getAbsolutePath() + " upon successfully unzipping",mContext);
+                }else{
+                    Log.e(TAG, "Fail to delete watch zip file: " + zipFile.getAbsolutePath() + " after successfully unzipping",mContext);
+                }
+            } catch (ZipException e) {
+                e.printStackTrace();
+                Log.e(TAG, "ERROR when unzipping from watch:" + e.getMessage(),mContext);
+                Log.e(TAG, "skip delete the file",mContext);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Log.e(TAG, "ERROR when using unzip helper:" + e.getMessage(),mContext);
+            }
+        }
+    }
+
+    private void _unzipFromWatchHelper(String filePath, String fileName) throws ZipException, FileNotFoundException {
+        ZipFile zipFile = new ZipFile(filePath + File.separator + fileName);
+        List<FileHeader> fileHeaders = zipFile.getFileHeaders();
+        for(FileHeader file : fileHeaders) {
+            String original_entryPath = file.getFileName();
+
+            File original_unzippedFile = new File(original_entryPath);
+            if(!original_unzippedFile.isDirectory()) {
+
+                String entryPathFirst = original_entryPath.replace("/data/","/data-watch/");
+                String entryPath = entryPathFirst.replace("/logs/","/logs-watch/");
+                Log.i(TAG, "New path for transfer files: " + entryPath,mContext);
+                File unzippedFile = new File(entryPath);
+                Log.i(TAG, "New  path for transfer files: " + unzippedFile.getParentFile().getAbsolutePath(),mContext);
+                unzippedFile.getParentFile().mkdirs();
+                zipFile.extractFile(file, unzippedFile.getParent(), new UnzipParameters(), unzippedFile.getName());
+                Log.i(TAG, "Unzipped folder: " + unzippedFile.getParent() + ", name: " + unzippedFile.getName(),mContext);
+            }
+
+        }
+    }
+
 
 
 }

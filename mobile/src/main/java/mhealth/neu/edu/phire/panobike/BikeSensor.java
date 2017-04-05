@@ -49,7 +49,7 @@ public class BikeSensor
 
 
     private BluetoothDevice mBluetoothDevice;
-    public static BluetoothGatt mBluetoothGatt;
+    private static BluetoothGatt mBluetoothGatt;
     private BluetoothGattCharacteristic mFeatureChar;
     private BluetoothGattCharacteristic mMeasurementChar;
 
@@ -232,6 +232,7 @@ public class BikeSensor
                     TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
                     gatt.disconnect();
                     gatt.close();
+                    gatt = null;
 
 //                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+dfs.format(cs.getTime()));
                 }
@@ -275,6 +276,7 @@ public class BikeSensor
                     TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
                     gatt.disconnect();
                     gatt.close();
+                    gatt = null;
 
 
 //                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+df.format(c.getTime()));

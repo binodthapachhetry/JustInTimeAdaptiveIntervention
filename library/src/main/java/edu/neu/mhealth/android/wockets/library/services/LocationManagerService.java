@@ -78,9 +78,9 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
 //            Log.i(TAG,df.format(mLastLocation.getTime()));
 
             String[] gpsEntry = {
-//                    DateTime.getCurrentTimestampString(),
+                    DateTime.getCurrentTimestampString(),
                     df.format(mLastLocation.getTime()),
-                    String.valueOf(DateTime.getCurrentTimeInMillis()),
+//                    String.valueOf(DateTime.getCurrentTimeInMillis()),
                     String.valueOf(mLastLocation.getLatitude()),
                     String.valueOf(mLastLocation.getLongitude()),
                     String.valueOf(mLastLocation.getAccuracy()),

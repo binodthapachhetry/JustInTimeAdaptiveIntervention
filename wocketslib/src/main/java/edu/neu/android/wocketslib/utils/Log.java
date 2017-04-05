@@ -753,9 +753,9 @@ public class Log {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(String.valueOf(nowDate.getTime()));
-
-		sb.append(',');
+//		sb.append(String.valueOf(nowDate.getTime()));
+//
+//		sb.append(',');
 		sb.append(new SimpleDateFormat(dateFormatter).format(nowDate));
 
 		sb.append(',');
@@ -804,9 +804,9 @@ public class Log {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(String.valueOf(nowDate.getTime()));
+//		sb.append(String.valueOf(nowDate.getTime()));
 
-		sb.append(',');
+//		sb.append(',');
 		sb.append(new SimpleDateFormat(dateFormatter).format(nowDate));
 
 		sb.append(',');
@@ -844,8 +844,12 @@ public class Log {
 //		String folderPath = String.format(Globals.DEFAULT_LOGS_DIR + "logs/%04d-%02d-%02d", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
 //				cal.get(Calendar.DAY_OF_MONTH));
 
-		String folderPath = String.format("/%04d-%02d-%02d", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
-				cal.get(Calendar.DAY_OF_MONTH));
+//		String folderPath = String.format("/%04d-%02d-%02d", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
+//				cal.get(Calendar.DAY_OF_MONTH));
+
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		String currentHour = new SimpleDateFormat("HH-z").format(new Date());
+		String folderPath = currentDate + "/" + currentHour;
 
 		// Optional check for free space
 		// disabled for now for performance reasons
@@ -887,8 +891,12 @@ public class Log {
 //		String folderPath = String.format(Globals.DEFAULT_LOGS_DIR + "logs/%04d-%02d-%02d", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
 //				cal.get(Calendar.DAY_OF_MONTH));
 
-		String folderPath = String.format("/%04d-%02d-%02d", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
-				cal.get(Calendar.DAY_OF_MONTH));
+//		String folderPath = String.format("/%04d-%02d-%02d", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1,
+//				cal.get(Calendar.DAY_OF_MONTH));
+
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		String currentHour = new SimpleDateFormat("HH-z").format(new Date());
+		String folderPath = currentDate + "/" + currentHour;
 
 		// Optional check for free space
 		// disabled for now for performance reasons

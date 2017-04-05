@@ -96,42 +96,46 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 
-            new SensorEventLoggerTask().execute(event);
-//            Log.i(TAG,"incoming accelerometer reading",mContext);
-//
-//            gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
-//            gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
-//            gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
-//
-//            Date dateNow = new Date();
-//            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
-//
-//            timeInMillis = (new Date()).getTime()
-//                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
-//
-//            Date date = new Date(timeInMillis);
-//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
-//
-//
-////            String row = String.format("%s,%s,%.5f,%.5f,%.5f", timestampStringNow,timestampString, event.values[0], event.values[1], event.values[2]);
-//
-//
-//            String[] accEntry = {
-//                    timestampStringNow,
-//                    timestampString,
-//                    Float.toString(event.values[0]- gravity[0]),
-//                    Float.toString(event.values[1]- gravity[1]),
-//                    Float.toString(event.values[2]- gravity[2])
-//            };
-//
-//            String dataDirectory = DataManager.getDirectoryData(mContext);
-//            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
-//            CSV.write(accEntry, accFile, true);
+//            SensorEventLoggerTask task = new SensorEventLoggerTask(mContext);
+//            task.execute(event);
+
+//            Log.i(TAG, "incoming accelerometer reading", mContext);
+
+            gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
+            gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
+            gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
+
+            Date dateNow = new Date();
+            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
+
+            timeInMillis = (new Date()).getTime()
+                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
+
+            Date date = new Date(timeInMillis);
+            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
+
+
+            String[] accEntry = {
+                    timestampStringNow,
+                    timestampString,
+                    Float.toString(event.values[0] - gravity[0]),
+                    Float.toString(event.values[1] - gravity[1]),
+                    Float.toString(event.values[2] - gravity[2])
+            };
+
+            String dataDirectory = DataManager.getDirectoryData(mContext);
+            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
+            CSV.write(accEntry, accFile, true);
         }
 
     }
 
     private class SensorEventLoggerTask extends AsyncTask<SensorEvent, Void, Void> {
+
+        private Context aContext;
+        public SensorEventLoggerTask(Context context){
+            aContext = context;
+        }
 
         @Override
         protected Void doInBackground(SensorEvent... events) {
@@ -157,7 +161,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
                     Float.toString(event.values[2]- gravity[2])
             };
 
-            String dataDirectory = DataManager.getDirectoryData(mContext);
+            String dataDirectory = DataManager.getDirectoryData(aContext);
             String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
             CSV.write(accEntry, accFile, true);
 

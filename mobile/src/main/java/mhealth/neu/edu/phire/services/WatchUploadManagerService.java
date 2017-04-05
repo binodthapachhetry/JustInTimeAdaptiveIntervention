@@ -226,17 +226,23 @@ public class WatchUploadManagerService extends WocketsIntentService {
             }
 
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
-            new ToZipWatch().execute(hourDirectory.getAbsolutePath());
+            WatchZipTask task = new WatchZipTask(mContext);
+            task.execute(hourDirectory.getAbsolutePath());
         }
     }
 
 
-    private class ToZipWatch extends AsyncTask<String,Void,Void> {
+    public class WatchZipTask extends AsyncTask<String,Void,Void> {
+        private Context aContext;
+
+        public WatchZipTask(Context context){
+            aContext = context;
+        }
 
         @Override
         protected Void doInBackground(String... strings) {
             String path = strings[0];
-            Zipper.zipFolderWithEncryption(path, mContext);
+            Zipper.zipFolderWithEncryption(path, aContext);
             return null;
         }
     }

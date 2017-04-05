@@ -65,7 +65,7 @@ public class WearableWakefulService extends IntentService {
     public static final long DELETE_CHECK_INTERVAL = 24 * 3600 * 1000;
     public static final long SAVE_CHECK_INTERVAL = 600 * 1000; // 600 should check more frequently so that we won't miss data when condition meets
     public static final long ZIP_ATTEMPT_INTERVAL = 3600 * 1000; // 3600
-    public static final long TRANSFER_ATTEMPT_INTERVAL = 1800 * 1000; //1800
+    public static final long TRANSFER_ATTEMPT_INTERVAL = 3600 * 1000; //1800
     public static final int DATA_OUT_OF_DATE_DAYS = 7;
     public static final int LOG_OUT_OF_DATE_DAYS = 7;
     public static final long DATA_ZIP_FILE_SIZE_LIMIT = 1024 * 1024 * 7; // 7 MB
