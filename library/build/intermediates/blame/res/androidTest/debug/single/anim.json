@@ -12,10 +12,6 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_fab_in.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/anim/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_bottom_sheet_slide_out.xml"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/anim/trans_left_in.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/bundles/debug/res/anim/trans_left_in.xml"
     },
@@ -42,10 +38,6 @@
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/anim/abc_slide_out_bottom.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/anim/abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/anim/design_bottom_sheet_slide_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_bottom_sheet_slide_in.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/anim/trans_left_out.xml",

@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.ParcelUuid;
+import android.support.v4.app.ActivityCompat;
 
 
 import java.text.ParseException;
@@ -22,6 +23,7 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.List;
 
+import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 import mhealth.neu.edu.phire.TEMPLEConstants;
@@ -120,6 +122,27 @@ public class PanobikeSensorService extends WocketsIntentService {
 //            e.printStackTrace();
 //        }
 
+        // check for ble on
+        final BluetoothManager bluetoothManager =
+                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+
+        mBluetoothAdapter = bluetoothManager.getAdapter();
+
+
+        if (mBluetoothAdapter == null) {
+            // Device does not support Bluetooth
+            ToastManager.showShortToast(mContext, "This device does not support bluetooth.");
+            stopSelf();
+
+        } else {
+            if (!mBluetoothAdapter.isEnabled()) {
+                // Bluetooth is not enable :)
+                ToastManager.showShortToast(mContext, "Please enable bluetooth for the app to function properly.");
+                stopSelf();
+
+            }
+        }
+
         // scanning for ble panobike sensor
         scanForPanobike();
 
@@ -131,9 +154,9 @@ public class PanobikeSensorService extends WocketsIntentService {
         diameterCM = Integer.parseInt(TEMPLEDataManager.getWheelDiameterCm(getApplicationContext()));
 
         // Initializes Bluetooth adapter.
-        final BluetoothManager bluetoothManager =
-                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-        mBluetoothAdapter = bluetoothManager.getAdapter();
+//        final BluetoothManager bluetoothManager =
+//                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+//        mBluetoothAdapter = bluetoothManager.getAdapter();
         mBluetoothLEScanner = mBluetoothAdapter.getBluetoothLeScanner();
 
         mScanCallback = new ScanCallback() {

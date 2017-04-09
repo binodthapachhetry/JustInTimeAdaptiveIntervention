@@ -3,6 +3,7 @@ package mhealth.neu.edu.phire.services;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 
 import net.lingala.zip4j.core.ZipFile;
@@ -92,7 +93,7 @@ public class WatchUploadManagerService extends WocketsIntentService {
 
 
 //        // process transferred files from watch
-        unzipFromWatch();
+//        unzipFromWatch();
 //        DataManager.setZipTransferFinished(mContext,true);
 //        unzipFromWatch();
 
@@ -104,6 +105,8 @@ public class WatchUploadManagerService extends WocketsIntentService {
             }
 
         }
+
+        unzipFromWatch();
 
         // stuff related to phone
         // Zip required log files
@@ -256,6 +259,12 @@ public class WatchUploadManagerService extends WocketsIntentService {
             return;
         }
 
+        if (logWatchFiles == null) {
+            Log.w(TAG, "Current watch path not present - " + logWatchFiles.getPath(), mContext);
+            return;
+
+        }
+
         for (File logWatchDate : logWatchFiles.listFiles()) {
             // TODO: This is a MATCH specific fix. Need to come up with a better solution
 
@@ -270,6 +279,11 @@ public class WatchUploadManagerService extends WocketsIntentService {
                 continue;
             }
 
+            if (logWatchDate == null) {
+                Log.w(TAG, "Current watch log date not present - " + logWatchDate.getPath(), mContext);
+                continue;
+
+            }
             if (logWatchDate.isDirectory()) {
                 for (File logHour : logWatchDate.listFiles()) {
                     // We only want to upload zip files
@@ -408,31 +422,23 @@ public class WatchUploadManagerService extends WocketsIntentService {
                 String entryPath = entryPathFirst.replace("/logs/","/logs-watch/");
                 Log.i(TAG, "New path for transfer files: " + entryPath,mContext);
                 File unzippedFile = new File(entryPath);
-                Log.i(TAG, "New  path for transfer files: " + unzippedFile.getParentFile().getAbsolutePath(),mContext);
+
+                if(unzippedFile.getParentFile().getName().equals(DateTime.getCurrentHourWithTimezone())) {
+                    Log.i(TAG, "Skipping because current hour :" + unzippedFile.getParentFile().getAbsolutePath(),mContext);
+                    continue;
+                }
+
+
                 unzippedFile.getParentFile().mkdirs();
                 zipFile.extractFile(file, unzippedFile.getParent(), new UnzipParameters(), unzippedFile.getName());
-                Log.i(TAG, "Unzipped folder: " + unzippedFile.getParent() + ", name: " + unzippedFile.getName(),mContext);
 
-//                if(unzippedFile.getName().endsWith("baf")) {
-//                    File currentFile = new File(unzippedFile.getParent() + File.separator + unzippedFile.getName());
-//                    Log.i(TAG, "Decoding sensor file: " + currentFile, mContext);
-//                    try {
-//                        boolean result;
-//                        InputStream assetInputStream = new FileInputStream(currentFile);
-//                        final byte[] b = IOUtils.toByteArray(assetInputStream);
-//                        result = decodeBinarySensorFile(b, currentFile.getParent(), currentFile.getName());
-//
-//                        if (result == true) {
-//                            Log.i(TAG, "Successfully decoded sensor file: " + currentFile.getAbsolutePath(), mContext);
-//                            currentFile.delete();
-//                            Log.i(TAG, "Deleted the original binary file: " + currentFile.getAbsolutePath(), mContext);
-//                        } else {
-//                            Log.e(TAG, "Fail to decode binary sensor file: " + currentFile.getAbsolutePath(), mContext);
-//                        }
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
+                // mouting the zipped data
+                Intent intent =
+                        new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                intent.setData(Uri.fromFile(unzippedFile));
+                sendBroadcast(intent);
+
+                Log.i(TAG, "Unzipped folder: " + unzippedFile.getParent() + ", name: " + unzippedFile.getName(), mContext);
 
             }
 

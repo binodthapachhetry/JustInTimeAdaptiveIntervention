@@ -17,14 +17,19 @@
 package mhealth.neu.edu.phire;
 
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
@@ -60,6 +65,7 @@ import java.util.Map;
 import java.util.Set;
 
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.AlwaysOnService;
+import edu.neu.android.wearwocketslib.support.PermissionManager;
 import mhealth.neu.edu.phire.fragments.AssetFragment;
 import mhealth.neu.edu.phire.fragments.ControlFragment;
 import mhealth.neu.edu.phire.fragments.DataFragment;
@@ -96,12 +102,20 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     private ControlFragment mControlFragment;
     private SplashFragment mSplashFragment;
     private KeyInformationFragment mKeyInfoFragment;
+    private Context mContext;
+    private Activity mActivity;
 
     private Logger logger = null;
 
     @Override
     public void onCreate(Bundle b) {
         logger = new Logger(TAG);
+
+        mActivity = this;
+
+        mContext = getApplicationContext();
+
+
         super.onCreate(b);
         mHandler = new Handler();
         setContentView(R.layout.main_activity);
@@ -113,11 +127,47 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
+
+        getPermissions();
     }
 
     public GoogleApiClient getGoogleApiClient(){
         return mGoogleApiClient;
     }
+
+
+    private void getPermissions() {
+//        Log.i(TAG, "Inside getPermissions", mContext);
+        if (!PermissionManager.areAllPermissionsAvailable(mContext)) {
+            PermissionManager.requestAllPermissions(mActivity, mContext);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        Log.i(TAG, "Inside onRequestPermissionsResult", mContext);
+
+        boolean tryToGetPermissionsAgain = false;
+
+        for (int i = 0; i < permissions.length; i++) {
+            if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+                boolean showRationale = shouldShowRequestPermissionRationale(permissions[i]);
+                if (!showRationale) {
+//                    Log.i(TAG, "User denied flagging NEVER ASK AGAIN for permission - " + permissions[i], mContext);
+                } else {
+                    tryToGetPermissionsAgain = true;
+                    break;
+                }
+            }
+        }
+        if (tryToGetPermissionsAgain) {
+            getPermissions();
+        }
+    }
+
+
 
     @Override
     protected void onNewIntent(Intent intent) {

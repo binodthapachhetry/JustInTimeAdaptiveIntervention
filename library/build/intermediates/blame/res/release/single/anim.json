@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_bottom_sheet_slide_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_bottom_sheet_slide_in.xml"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_fab_out.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_fab_out.xml"
     },
@@ -38,10 +34,6 @@
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/trans_right_in.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/anim/trans_right_in.xml"
-    },
-    {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/anim/design_bottom_sheet_slide_out.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_snackbar_out.xml",

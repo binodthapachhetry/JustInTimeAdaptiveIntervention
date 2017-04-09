@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/abc_action_bar_title_item.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_bar_title_item.xml"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_action_bar_title_item.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/abc_action_bar_up_container.xml",
@@ -94,10 +94,6 @@
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/wockets_activity_ema_single_choice.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/bundles/debug/res/layout/wockets_activity_ema_single_choice.xml"
-    },
-    {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/place_autocomplete_fragment.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/layout/place_autocomplete_fragment.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/mr_controller_volume_item.xml",

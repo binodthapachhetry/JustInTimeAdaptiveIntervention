@@ -9,6 +9,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorEventListener2;
 import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
@@ -32,6 +34,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     public static final String mHealthTimestampFormat = "yyyy-MM-dd HH:mm:ss.SSS";
 
     private SensorManager mSensorManager;
+    private HandlerThread mHandlerThread;
 
     private Context mContext;
     private Sensor mAccel;
@@ -62,7 +65,11 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
     private void registerSensorListeners(){
         Log.i(TAG,"registering listener",mContext);
-        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_GAME, maxDelay);
+//        mHandlerThread = new HandlerThread("AccelerometerLogListener");
+//        mHandlerThread.start();
+//        Handler handler = new Handler(mHandlerThread.getLooper());
+
+        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_NORMAL, maxDelay);
     }
 
 
@@ -71,6 +78,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
         super.onDestroy();
         mSensorManager.flush(this);
         mSensorManager.unregisterListener(this);
+
         notifyServiceStop();
         Log.i(TAG,"INSIDE ONDESTROY",mContext);
     }
@@ -94,35 +102,39 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 
-            gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
-            gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
-            gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
+//            gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
+//            gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
+//            gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
 
-            Date dateNow = new Date();
-            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
-
-            timeInMillis = (new Date()).getTime()
-                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
-
-            Date date = new Date(timeInMillis);
-            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
-
-
-//            String row = String.format("%s,%s,%.5f,%.5f,%.5f", timestampStringNow,timestampString, event.values[0], event.values[1], event.values[2]);
+//            Date dateNow = new Date();
+//            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
+//
+//            timeInMillis = (new Date()).getTime()
+//                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
+//
+//            Date date = new Date(timeInMillis);
+//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
 
 
-            String[] accEntry = {
-                    timestampStringNow,
-                    timestampString,
-                    Float.toString(event.values[0]- gravity[0]),
-                    Float.toString(event.values[1]- gravity[1]),
-                    Float.toString(event.values[2]- gravity[2])
-            };
+//            String[] accEntry = {
+//                    timestampStringNow,
+//                    timestampString,
+//                    Float.toString(event.values[0]- gravity[0]),
+//                    Float.toString(event.values[1]- gravity[1]),
+//                    Float.toString(event.values[2]- gravity[2])
+//            };
 
-//        Log.d(TAG,row);
-            String dataDirectory = DataManager.getDirectoryData(mContext);
-            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
-            CSV.write(accEntry, accFile, true);
+//            String[] accEntry = {
+//                    timestampStringNow,
+//                    timestampString,
+//                    Float.toString(event.values[0]),
+//                    Float.toString(event.values[1]),
+//                    Float.toString(event.values[2])
+//            };
+
+//            String dataDirectory = DataManager.getDirectoryData(mContext);
+//            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
+//            CSV.write(accEntry, accFile, true);
         }
 
     }

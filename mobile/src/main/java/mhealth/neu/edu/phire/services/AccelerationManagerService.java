@@ -17,6 +17,8 @@ import android.support.v4.content.LocalBroadcastManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
@@ -36,9 +38,12 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     private Context mContext;
     private Sensor mAccel;
     private static float[] gravity;
+    private static float[] linear_accleration;
     private final int maxDelay = 90000000;
     private final static float alpha = 0.8f;
     private long timeInMillis;
+    private ExecutorService executor;
+
 
 
     @Override
@@ -46,6 +51,8 @@ public class AccelerationManagerService extends WocketsIntentService implements 
         super.onCreate();
 
         gravity = new float[3];
+        linear_accleration = new float[3];
+
         gravity[0] = 0.0f;
         gravity[1] = 0.0f;
         gravity[2] = 0.0f;
@@ -63,7 +70,39 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
     private void registerSensorListeners(){
         Log.i(TAG,"registering listener",mContext);
-        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_GAME, maxDelay);
+//        SensorEventLoggerTask task = new SensorEventLoggerTask(mContext);
+        executor = Executors.newSingleThreadExecutor();
+
+        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_NORMAL, maxDelay);
+    }
+
+    class InsertHandler implements Runnable {
+        final float[] accelerometerMatrix;
+        final String eventTime;
+        final String receivedTime;
+        final Context rContext;
+
+
+        public InsertHandler(float[] accelerometerMatrix, String eventTime,String receivedTime, Context rContext) {
+            this.accelerometerMatrix = accelerometerMatrix;
+            this.eventTime = eventTime;
+            this.receivedTime = receivedTime;
+            this.rContext = rContext;
+        }
+
+        public void run() {
+            String[] accEntry = {
+                    receivedTime,
+                    eventTime,
+                    Float.toString(accelerometerMatrix[0]),
+                    Float.toString(accelerometerMatrix[1]),
+                    Float.toString(accelerometerMatrix[2])
+            };
+
+            String dataDirectory = DataManager.getDirectoryData(rContext);
+            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
+            CSV.write(accEntry, accFile, true);
+        }
     }
 
 
@@ -96,6 +135,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 
+
 //            SensorEventLoggerTask task = new SensorEventLoggerTask(mContext);
 //            task.execute(event);
 
@@ -105,44 +145,9 @@ public class AccelerationManagerService extends WocketsIntentService implements 
             gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
             gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
 
-            Date dateNow = new Date();
-            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
-
-            timeInMillis = (new Date()).getTime()
-                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
-
-            Date date = new Date(timeInMillis);
-            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
-
-
-            String[] accEntry = {
-                    timestampStringNow,
-                    timestampString,
-                    Float.toString(event.values[0] - gravity[0]),
-                    Float.toString(event.values[1] - gravity[1]),
-                    Float.toString(event.values[2] - gravity[2])
-            };
-
-            String dataDirectory = DataManager.getDirectoryData(mContext);
-            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
-            CSV.write(accEntry, accFile, true);
-        }
-
-    }
-
-    private class SensorEventLoggerTask extends AsyncTask<SensorEvent, Void, Void> {
-
-        private Context aContext;
-        public SensorEventLoggerTask(Context context){
-            aContext = context;
-        }
-
-        @Override
-        protected Void doInBackground(SensorEvent... events) {
-            SensorEvent event = events[0];
-            gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
-            gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
-            gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
+            linear_accleration[0] = event.values[0] - gravity[0];
+            linear_accleration[1] = event.values[1] - gravity[1];
+            linear_accleration[2] = event.values[2] - gravity[2];
 
             Date dateNow = new Date();
             String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
@@ -153,23 +158,82 @@ public class AccelerationManagerService extends WocketsIntentService implements 
             Date date = new Date(timeInMillis);
             String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
 
-            String[] accEntry = {
-                    timestampStringNow,
-                    timestampString,
-                    Float.toString(event.values[0]- gravity[0]),
-                    Float.toString(event.values[1]- gravity[1]),
-                    Float.toString(event.values[2]- gravity[2])
-            };
-
-            String dataDirectory = DataManager.getDirectoryData(aContext);
-            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
-            CSV.write(accEntry, accFile, true);
+            Runnable insertHandler = new InsertHandler(linear_accleration, timestampString, timestampStringNow, mContext);
+            executor.execute(insertHandler);
 
 
-            return null;
+
+
+
+
+
+//            Date dateNow = new Date();
+//            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
+//
+//            timeInMillis = (new Date()).getTime()
+//                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
+//
+//            Date date = new Date(timeInMillis);
+//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
+//
+//
+//            String[] accEntry = {
+//                    timestampStringNow,
+//                    timestampString,
+//                    Float.toString(event.values[0] - gravity[0]),
+//                    Float.toString(event.values[1] - gravity[1]),
+//                    Float.toString(event.values[2] - gravity[2])
+//            };
+//
+//            String dataDirectory = DataManager.getDirectoryData(mContext);
+//            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
+//            CSV.write(accEntry, accFile, true);
+
         }
 
     }
+
+
+//    public class SensorEventLoggerTask extends AsyncTask<SensorEvent, Void, Void> {
+//
+//        private Context aContext;
+//        public SensorEventLoggerTask(Context context){
+//            aContext = context;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(SensorEvent... events) {
+//            SensorEvent event = events[0];
+//            gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
+//            gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
+//            gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
+//
+//            Date dateNow = new Date();
+//            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
+//
+//            timeInMillis = (new Date()).getTime()
+//                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
+//
+//            Date date = new Date(timeInMillis);
+//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
+//
+//            String[] accEntry = {
+//                    timestampStringNow,
+//                    timestampString,
+//                    Float.toString(event.values[0]- gravity[0]),
+//                    Float.toString(event.values[1]- gravity[1]),
+//                    Float.toString(event.values[2]- gravity[2])
+//            };
+//
+//            String dataDirectory = DataManager.getDirectoryData(aContext);
+//            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
+//            CSV.write(accEntry, accFile, true);
+//
+//
+//            return null;
+//        }
+//
+//    }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {

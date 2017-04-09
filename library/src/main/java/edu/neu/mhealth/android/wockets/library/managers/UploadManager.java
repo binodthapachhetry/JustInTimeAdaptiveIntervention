@@ -1,6 +1,7 @@
 package edu.neu.mhealth.android.wockets.library.managers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
@@ -100,6 +101,14 @@ public class UploadManager {
                         Log.i(TAG, "File upload successful - " + file.getAbsolutePath(), mContext);
                         FileUtils.renameFile(file, file.getAbsolutePath() + ".uploaded");
                         fileUploadEntry.delete();
+
+                        File uploadFile = new File(file.getAbsolutePath() + ".uploaded");
+                        // mouting the zipped data
+                        Intent intent =
+                                new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                        intent.setData(Uri.fromFile(uploadFile));
+                        mContext.sendBroadcast(intent);
+
                         notifyUser(mContext);
                         uploadFileNow(mContext);
                     }

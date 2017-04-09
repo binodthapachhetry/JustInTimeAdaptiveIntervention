@@ -1,11 +1,14 @@
 package edu.neu.mhealth.android.wockets.library.services;
 
 import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.icu.text.DateFormat;
 import java.text.SimpleDateFormat;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +22,7 @@ import java.text.Format;
 import java.util.Locale;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
+import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
@@ -34,6 +38,7 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
     private Context mContext;
 
     public final static String TAG = "LocationManagerService";
+    private BluetoothAdapter mBluetoothAdapter;
 
 
     @Override
@@ -64,9 +69,29 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
     public void onConnected(@Nullable Bundle bundle) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            ToastManager.showShortToast(mContext, "Please enable location service for the app to function properly.");
             stopSelf();
+
             return;
         }
+
+        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        boolean gps_enabled = false;
+        boolean network_enabled = false;
+
+        try {
+            gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        } catch(Exception ex) {}
+
+        try {
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        } catch(Exception ex) {}
+
+        if(!gps_enabled || !network_enabled) {
+            ToastManager.showShortToast(mContext, "Please enable location service for the app to function properly.");
+            stopSelf();
+        }
+
         Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
             String dataDirectory = DataManager.getDirectoryData(mContext);
@@ -83,8 +108,8 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
 //                    String.valueOf(DateTime.getCurrentTimeInMillis()),
                     String.valueOf(mLastLocation.getLatitude()),
                     String.valueOf(mLastLocation.getLongitude()),
-                    String.valueOf(mLastLocation.getAccuracy()),
-                    mLastLocation.getProvider()
+                    String.valueOf(mLastLocation.getAccuracy())
+//                    mLastLocation.getProvider()
             };
             CSV.writeAndZip(gpsEntry, gpsFile, true, mContext);
         }

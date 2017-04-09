@@ -1,6 +1,8 @@
 package edu.neu.mhealth.android.wockets.library.support;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -35,6 +37,13 @@ public class Zipper {
             ZipFile zip = new ZipFile(zipFile);
             Log.i(TAG, "Creating ZipFile - " + zipFile.getAbsolutePath(), context);
             zip.createZipFile(fileToZip, zipParameters);
+
+            // mouting the zipped data
+            Intent intent =
+                    new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            intent.setData(Uri.fromFile(zipFile));
+            context.sendBroadcast(intent);
+
         } catch (ZipException e) {
             isException = true;
             Log.e(TAG, "Exception while creating zip file with encryption", e, context);
