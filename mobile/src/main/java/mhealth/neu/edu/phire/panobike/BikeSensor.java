@@ -152,6 +152,11 @@ public class BikeSensor
             int time;
 
 
+            Calendar cs = Calendar.getInstance();
+            SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext, dfs.format(cs.getTime()));
+
+
 
             // We'll only ever be notified on the measurement characteristic
 
@@ -206,35 +211,37 @@ public class BikeSensor
                     parent.mCallback.onSpeedUpdate(parent, 0, 0.0,0);
 
                 } else {
-                    // Delta over last update
-                    int timeDiff;
-
-                    if (wheelRotations < mLastWheelReading) {
+                    if (wheelRotations == mLastWheelReading) {
                         // Can happen if bicycle reverses
-                        wheelRotations = 0;
-                    }
+//                        wheelRotations = 0;
+                        // do nothing
+
+                    }else {
+                        // Delta over last update
+                        int timeDiff;
+                        timeDiff = do16BitDiff(time, mLastWheelTime);
+                        if(wheelRotations > mLastWheelReading) {
+                            parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
+                                    (timeDiff / 1024.0), wheelRotations);
+                        }else{
+                            parent.mCallback.onSpeedUpdate(parent, (mLastWheelReading - wheelRotations) * mCircumference,
+                                    (timeDiff / 1024.0), wheelRotations);
+                        }
+
+                        mLastWheelReading = wheelRotations;
+                        mLastWheelTime = time;
+
+//                        Calendar cs = Calendar.getInstance();
+//                        SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext, dfs.format(cs.getTime()));
 
 
-
-                    timeDiff = do16BitDiff(time, mLastWheelTime);
-
-//                    parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
-//                            (timeDiff * 1000000.0) / 1024.0);
-                    parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
-                            (timeDiff / 1024.0), wheelRotations);
-
-
-                    mLastWheelReading = wheelRotations;
-                    mLastWheelTime = time;
-
-                    Calendar cs = Calendar.getInstance();
-                    SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
-                    gatt.disconnect();
-                    gatt.close();
-                    gatt = null;
+//                    gatt.disconnect();
+//                    gatt.close();
 
 //                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+dfs.format(cs.getTime()));
+                    }
+
                 }
 
                 i += 6;
@@ -260,26 +267,29 @@ public class BikeSensor
 
                 } else {
                     // Delta over last update
-                    int rotDiff, timeDiff;
-
+                    int rotDiff;
                     rotDiff = do16BitDiff(crankRotations, mLastCrankReading);
-                    timeDiff = do16BitDiff(time, mLastCrankTime);
+                    if (rotDiff == 0) {
+                        // do nothing
+                    } else {
+                        int timeDiff;
+                        timeDiff = do16BitDiff(time, mLastCrankTime);
 
-//                    parent.mCallback.onCadenceUpdate(parent, rotDiff, (timeDiff * 1000000.0) / 1024.0);
-                    parent.mCallback.onCadenceUpdate(parent, rotDiff, (timeDiff / 1024.0),crankRotations);
+                        parent.mCallback.onCadenceUpdate(parent, Math.abs(rotDiff), (timeDiff / 1024.0), crankRotations);
 
-                    mLastCrankReading = crankRotations;
-                    mLastCrankTime = time;
+                        mLastCrankReading = crankRotations;
+                        mLastCrankTime = time;
 
-                    Calendar c = Calendar.getInstance();
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
-                    gatt.disconnect();
-                    gatt.close();
-                    gatt = null;
+//                        Calendar c = Calendar.getInstance();
+//                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                        TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext, df.format(c.getTime()));
+
+//                    gatt.disconnect();
+//                    gatt.close();
 
 
 //                    Log.i(TAG,"SET LAST CONNECTION TIME AS:"+df.format(c.getTime()));
+                    }
                 }
             }
         }

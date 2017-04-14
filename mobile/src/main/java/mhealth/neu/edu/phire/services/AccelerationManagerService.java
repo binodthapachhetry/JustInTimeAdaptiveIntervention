@@ -32,6 +32,8 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
     private static final String TAG = "AccelerationManager";
     public static final String mHealthTimestampFormat = "yyyy-MM-dd HH:mm:ss.SSS";
+    public static final String dayFormat = "yyyy-MM-dd";
+    public static final String hourFormat = "HH-z";
 
     private SensorManager mSensorManager;
 
@@ -39,6 +41,8 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     private Sensor mAccel;
     private static float[] gravity;
     private static float[] linear_accleration;
+    private Date dateEvent;
+    private Date dateNow;
     private final int maxDelay = 90000000;
     private final static float alpha = 0.8f;
     private long timeInMillis;
@@ -78,12 +82,12 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
     class InsertHandler implements Runnable {
         final float[] accelerometerMatrix;
-        final String eventTime;
-        final String receivedTime;
+        final Date eventTime;
+        final Date receivedTime;
         final Context rContext;
 
 
-        public InsertHandler(float[] accelerometerMatrix, String eventTime,String receivedTime, Context rContext) {
+        public InsertHandler(float[] accelerometerMatrix, Date eventTime,Date receivedTime, Context rContext) {
             this.accelerometerMatrix = accelerometerMatrix;
             this.eventTime = eventTime;
             this.receivedTime = receivedTime;
@@ -91,16 +95,20 @@ public class AccelerationManagerService extends WocketsIntentService implements 
         }
 
         public void run() {
+            String receivedTimeString = new SimpleDateFormat(mHealthTimestampFormat).format(receivedTime);
+            String eventTimeString = new SimpleDateFormat(mHealthTimestampFormat).format(eventTime);
             String[] accEntry = {
-                    receivedTime,
-                    eventTime,
+                    receivedTimeString,
+                    eventTimeString,
                     Float.toString(accelerometerMatrix[0]),
                     Float.toString(accelerometerMatrix[1]),
                     Float.toString(accelerometerMatrix[2])
             };
 
             String dataDirectory = DataManager.getDirectoryData(rContext);
-            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
+            String dayDirectory = new SimpleDateFormat(dayFormat).format(receivedTime);
+            String hourDirectory = new SimpleDateFormat(hourFormat).format(receivedTime);
+            String accFile = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Acceleration.csv";
             CSV.write(accEntry, accFile, true);
         }
     }
@@ -149,16 +157,16 @@ public class AccelerationManagerService extends WocketsIntentService implements 
             linear_accleration[1] = event.values[1] - gravity[1];
             linear_accleration[2] = event.values[2] - gravity[2];
 
-            Date dateNow = new Date();
-            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
+            dateNow = new Date();
+//            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
 
             timeInMillis = (new Date()).getTime()
                     + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
 
-            Date date = new Date(timeInMillis);
-            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
+            dateEvent = new Date(timeInMillis);
+//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
 
-            Runnable insertHandler = new InsertHandler(linear_accleration, timestampString, timestampStringNow, mContext);
+            Runnable insertHandler = new InsertHandler(linear_accleration, dateEvent, dateNow, mContext);
             executor.execute(insertHandler);
 
 

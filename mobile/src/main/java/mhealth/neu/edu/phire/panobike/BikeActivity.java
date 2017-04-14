@@ -84,13 +84,13 @@ public class BikeActivity {
                     //Log.i(TAG, "Error in connection or lost connection!",context);
                     // need to start Alarm activity
                     // tell sharedpref that panobike connection is lost
-                    TEMPLEDataManager.setPanoBikeConnectionStatus(context,false);
+//                    TEMPLEDataManager.setPanoBikeConnectionStatus(context,false);
 
 //                    scheduleAlarm();
 
                     mSensor = null;
                 } else if (newState == BikeSensor.ConnectionState.CONNECTED) {
-                    TEMPLEDataManager.setPanoBikeConnectionStatus(context,true);
+//                    TEMPLEDataManager.setPanoBikeConnectionStatus(context,true);
                     parent.hasSpeed = parent.mSensor.hasSpeed();
                     parent.hasSpeed = parent.mSensor.hasCadence();
                     //Log.i(TAG, "Connected to device",mContext);

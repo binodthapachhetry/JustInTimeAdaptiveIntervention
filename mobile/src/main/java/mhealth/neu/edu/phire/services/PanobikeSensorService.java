@@ -78,49 +78,24 @@ public class PanobikeSensorService extends WocketsIntentService {
             return;
         }
 
-//        String lastConnectedTime = String.valueOf(TEMPLEDataManager.getPanoBikeLastConnectionTime(mContext));
-//        Log.i(TAG,"Last connected time:" + lastConnectedTime, mContext);
-//
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//
-//        try {
-//            Date lastDate = simpleDateFormat.parse(lastConnectedTime);
-//            if(System.currentTimeMillis() - lastDate.getTime()<PANOBIKE_ATTEMPT_INTERVAL){
-//                Log.i(TAG,"Panobike sensor might still be in connection!", mContext);
-//                return;
-//            }
-//        } catch (ParseException e) {
-//            Log.i(TAG,"Error while converting string to datetime" + e, mContext);
-//            e.printStackTrace();
-//            return;
-//        }
-//
-//        Log.i(TAG,"Panobike not connected, so trying to connect", mContext);
+        String lastConnectedTime = String.valueOf(TEMPLEDataManager.getPanoBikeLastConnectionTime(mContext));
+        Log.i(TAG,"Last connected time:" + lastConnectedTime, mContext);
 
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        try {
+            Date lastDate = simpleDateFormat.parse(lastConnectedTime);
+            if(System.currentTimeMillis() - lastDate.getTime()<PANOBIKE_ATTEMPT_INTERVAL){
+                Log.i(TAG,"Panobike sensor might still be in connection!", mContext);
+                return;
+            }
+        } catch (ParseException e) {
+            Log.i(TAG,"Error while converting string to datetime" + e, mContext);
+            e.printStackTrace();
+            return;
+        }
 
-
-
-//        Log.i(TAG,String.valueOf(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)), mContext);
-//
-//        if(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)){
-//            Log.i(TAG,"Panobike sensor already in connection!", mContext);
-//            return;
-//        }
-//
-//        Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
-//        // Create a PendingIntent to be triggered when the alarm goes off
-//        final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
-//                intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        try {
-//            // Perform the operation associated with our pendingIntent
-//            Log.i(TAG,"Intent sent to connect/read panobike sensor", mContext);
-//            pIntent.send();
-//        } catch (PendingIntent.CanceledException e) {
-//            Log.e(TAG,"Intent to connect/read panobike sensor failed", mContext);
-//            e.printStackTrace();
-//        }
+        Log.i(TAG,"Panobike not connected, so trying to connect", mContext);
 
         // check for ble on
         final BluetoothManager bluetoothManager =
@@ -143,8 +118,52 @@ public class PanobikeSensorService extends WocketsIntentService {
             }
         }
 
-        // scanning for ble panobike sensor
-        scanForPanobike();
+        Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
+        // Create a PendingIntent to be triggered when the alarm goes off
+        final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        try {
+            // Perform the operation associated with our pendingIntent
+            Log.i(TAG,"Intent sent to connect/read panobike sensor", mContext);
+            pIntent.send();
+        } catch (PendingIntent.CanceledException e) {
+            Log.e(TAG,"Intent to connect/read panobike sensor failed", mContext);
+            e.printStackTrace();
+        }
+
+//        Log.i(TAG,String.valueOf(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)), mContext);
+//
+//        if(TEMPLEDataManager.getPanoBikeConnectionStatus(mContext)){
+//            Log.i(TAG,"Panobike sensor already in connection!", mContext);
+//            return;
+//        }
+
+
+
+//        // check for ble on
+//        final BluetoothManager bluetoothManager =
+//                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+//
+//        mBluetoothAdapter = bluetoothManager.getAdapter();
+//
+//
+//        if (mBluetoothAdapter == null) {
+//            // Device does not support Bluetooth
+//            ToastManager.showShortToast(mContext, "This device does not support bluetooth.");
+//            stopSelf();
+//
+//        } else {
+//            if (!mBluetoothAdapter.isEnabled()) {
+//                // Bluetooth is not enable :)
+//                ToastManager.showShortToast(mContext, "Please enable bluetooth for the app to function properly.");
+//                stopSelf();
+//
+//            }
+//        }
+//
+////         scanning for ble panobike sensor
+//        scanForPanobike();
 
 
     }
