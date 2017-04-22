@@ -15,7 +15,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.Arrays;
@@ -24,6 +28,7 @@ import java.io.FilenameFilter;
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.managers.ConnectivityManager;
 import edu.neu.mhealth.android.wockets.library.managers.UploadManager;
+import edu.neu.mhealth.android.wockets.library.support.CSV;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 import edu.neu.mhealth.android.wockets.library.support.Zipper;
@@ -43,6 +48,7 @@ public class UploadManagerService extends WocketsIntentService {
 
     private boolean isStudyFinished;
     private boolean isZipTransferFinished;
+    private ExecutorService executor;
 
     @Override
     public void onCreate() {
@@ -51,8 +57,25 @@ public class UploadManagerService extends WocketsIntentService {
         initialize();
     }
 
+    class ZipHandler implements Runnable {
+        final String pathToZip;
+        final Context rContext;
+
+
+        public ZipHandler(String pathToZip, Context rContext) {
+            this.pathToZip = pathToZip;
+            this.rContext = rContext;
+        }
+
+        public void run() {
+            Zipper.zipFolderWithEncryption(pathToZip, rContext);
+        }
+    }
+
     private void initialize() {
         mContext = getApplicationContext();
+
+        executor = Executors.newSingleThreadExecutor();
 
         long lastRunTime = DataManager.getLastRunOfUploadManagerService(mContext);
 
@@ -96,11 +119,25 @@ public class UploadManagerService extends WocketsIntentService {
         // Zip required data files
         processDataFiles();
 
+        executor.shutdown();
+        while(!executor.isTerminated()){
+            Log.i(TAG,"Waiting for executor service to finish",mContext);
+        }
+        Log.i(TAG,"Moving on to uploads",mContext);
+
 
         if (!ConnectivityManager.isInternetConnected(mContext)) {
             Log.i(TAG, "Internet is not connected. Not trying to upload files.", mContext);
             return;
         }
+
+
+//        try {
+//            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+//        } catch (InterruptedException e) {
+//            ...
+//        }
+
 
         // stuff related to phone
         // Upload required log files
@@ -261,6 +298,9 @@ public class UploadManagerService extends WocketsIntentService {
             Log.e(TAG, "No hourly files present. This should usually not happen", mContext);
             return;
         }
+
+//        executor = Executors.newSingleThreadExecutor();
+
         for (File hourDirectory : dataDate.listFiles()) {
             Log.i(TAG, "Processing data for hour " + hourDirectory.getAbsolutePath(), mContext);
             if (hourDirectory.getName().contains("zip")) {
@@ -272,26 +312,31 @@ public class UploadManagerService extends WocketsIntentService {
                 continue;
             }
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
-            ZipTask task = new ZipTask(mContext);
-            task.execute(hourDirectory.getAbsolutePath());
+//            ZipTask task = new ZipTask(mContext);
+//            task.execute(hourDirectory.getAbsolutePath());
+
+            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
+            executor.execute(zipHandler);
         }
+
+
     }
 
 
-    public class ZipTask extends AsyncTask<String,Void,Void> {
-        private Context aContext;
-
-        public ZipTask(Context context){
-            aContext = context;
-        }
-
-        @Override
-        protected Void doInBackground(String... strings) {
-            String path = strings[0];
-            Zipper.zipFolderWithEncryption(path, aContext);
-            return null;
-        }
-    }
+//    public class ZipTask extends AsyncTask<String,Void,Void> {
+//        private Context aContext;
+//
+//        public ZipTask(Context context){
+//            aContext = context;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(String... strings) {
+//            String path = strings[0];
+//            Zipper.zipFolderWithEncryption(path, aContext);
+//            return null;
+//        }
+//    }
 
     private void processLogUploads() {
         Log.i(TAG, "Processing Log Uploads", mContext);

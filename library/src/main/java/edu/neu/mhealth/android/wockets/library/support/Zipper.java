@@ -17,7 +17,6 @@ import java.io.File;
 public class Zipper {
 
     private static final String TAG = "Zipper";
-//    private static final String PASSWORD = "7Qv8e3PfaXF25DLb";
     private static final String PASSWORD = "qo3mD6ON8bvSx9T1";
 
     public static void zipFileWithEncryption(String filePath, Context context) {
@@ -37,12 +36,14 @@ public class Zipper {
             ZipFile zip = new ZipFile(zipFile);
             Log.i(TAG, "Creating ZipFile - " + zipFile.getAbsolutePath(), context);
             zip.createZipFile(fileToZip, zipParameters);
+            Log.i(TAG, "ZipFile created - " + zipFile.getAbsolutePath(), context);
 
-            // mouting the zipped data
-            Intent intent =
-                    new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-            intent.setData(Uri.fromFile(zipFile));
-            context.sendBroadcast(intent);
+//            // mounting the zipped data
+//            Log.i(TAG, "Mounting zipFile - " + zipFile.getAbsolutePath(), context);
+//            Intent intent =
+//                    new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//            intent.setData(Uri.fromFile(zipFile));
+//            context.sendBroadcast(intent);
 
         } catch (ZipException e) {
             isException = true;
@@ -98,9 +99,12 @@ public class Zipper {
             ZipFile zip = new ZipFile(zipFile);
             Log.i(TAG, "Creating ZipFile from Folder - " + zipFolder.getAbsolutePath(), context);
             zip.createZipFileFromFolder(zipFolder, zipParameters, false, 0);
+            Log.i(TAG, "ZipFile created - " + zipFile.getAbsolutePath(), context);
+
         } catch (ZipException e) {
             isException = true;
             Log.e(TAG, "Exception while creating zip folder with encryption", e, context);
+            Log.e(TAG,"Related folder: " + zipFolder.getAbsolutePath(),context);
         }
 
         if (!isException) {
