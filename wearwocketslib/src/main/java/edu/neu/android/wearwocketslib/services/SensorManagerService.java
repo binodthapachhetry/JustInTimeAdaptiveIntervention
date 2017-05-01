@@ -3,6 +3,7 @@ package edu.neu.android.wearwocketslib.services;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener2;
@@ -11,11 +12,17 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.v4.content.LocalBroadcastManager;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 import edu.neu.android.wearwocketslib.Globals;
 import edu.neu.android.wearwocketslib.utils.io.SharedPrefs;
+import edu.neu.android.wearwocketslib.utils.log.FeatureLogger;
 import edu.neu.android.wearwocketslib.utils.log.Log;
 import edu.neu.android.wearwocketslib.utils.log.Logger;
 import edu.neu.android.wearwocketslib.utils.system.ByteUtils;
@@ -28,8 +35,11 @@ import edu.neu.android.wocketslib.mhealthformat.entities.AndroidWearAcceleromete
 public class SensorManagerService extends Service implements SensorEventListener2 {
 
     private Logger logger;
+    private FeatureLogger logger_feature;
 
     private static final String TAG = "SensorManagerService";
+    private static final String TAGF = "ComputedFeature";
+//    private static final String TAGF = "FeatureVector";
 
     private android.hardware.SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -45,6 +55,20 @@ public class SensorManagerService extends Service implements SensorEventListener
     private long lastBootupTime;
     private Context mContext;
 
+//    private float[] xReading;
+//    private float[] yReading;
+//    private float[] zReading;
+
+    private ArrayList<Float> xReading;
+    private ArrayList<Float> yReading;
+    private ArrayList<Float> zReading;
+    private ArrayList<Long> timeReading;
+    private int lenArray;
+    private DateFormat df;
+
+
+    private int counter;
+
     private AndroidWearAccelerometerRaw accelRaw;
 
     @Override
@@ -55,7 +79,10 @@ public class SensorManagerService extends Service implements SensorEventListener
     @Override
     public void onCreate() {
         super.onCreate();
+        logger_feature = new FeatureLogger(TAGF);
         logger = new Logger(TAG);
+
+
         mContext = getApplicationContext();
 
         SharedPrefs.setBoolean(Globals.SENSOR_MANAGER_SERVICE_STATUS, true, mContext);
@@ -71,6 +98,14 @@ public class SensorManagerService extends Service implements SensorEventListener
         gravity[2] = 0.0f;
 
         count = 0;
+        counter = 0;
+
+        xReading = new ArrayList<Float>();
+        yReading = new ArrayList<Float>();
+        zReading = new ArrayList<Float>();
+        timeReading = new ArrayList<Long>();
+        df = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
+
         lastBootupTime = 0;
 
         valuesHeartRate = new byte[1600];
@@ -101,14 +136,45 @@ public class SensorManagerService extends Service implements SensorEventListener
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-            if(intent != null)
+            if(intent != null) {
                 logger.i("Inside onStartCommand: " + intent.getAction(), mContext);
-            else
+            }else {
                 logger.i("Inside onStartCommand", mContext);
+            }
 //        }
         if (intent != null) {
             if ("FLUSH".equals(intent.getAction())) {
                 logger.i("Got Flush command", mContext);
+
+//                String currentDate = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
+//                logger_feature = new Logger(TAGF+'-'+currentDate);
+
+//                logger.i("Length of list:" + Integer.toString(xReading.size()),this);
+                // calculate the features for each axis + use start and end time//////////////////////////////
+
+                if(xReading.size()!=0) {
+                    float xReadingMean = getMean(xReading);
+                    float zReadingMean = getMean(zReading);
+                    float distXZ = xReadingMean - zReadingMean;
+                    float fluctInAmp = getMaxValue(xReading) - getMinValue(xReading);
+//                    float rms = getRMS(xReading, yReading, zReading);
+                    Date firstDate = new Date(timeReading.get(0));
+                    Date lastDate = new Date(timeReading.get(timeReading.size()-1));
+                    String firstD = df.format(firstDate);
+                    String lastD = df.format(lastDate);
+                    String row = String.format("%s,%s,%d,%.5f,%.5f,%.5f,%5f", firstD,lastD,xReading.size(),xReadingMean,distXZ,fluctInAmp);
+//                    String feat = df.format(firstDate) +"," + df.format(lastDate) + "," + Integer.toString(xReading.size()) + "," + Float.toString(xReadingMean) + "," + Float.toString(distXZ) + "," + Float.toString(fluctInAmp) + "," + Float.toString(rms);
+//                    logger_feature.i(df.format(firstDate) +"," + df.format(lastDate) + "," + Integer.toString(xReading.size()) + "," + Float.toString(xReadingMean) + "," + Float.toString(distXZ) + "," + Float.toString(fluctInAmp) + "," + Float.toString(rms),mContext);
+                    logger_feature.i(row,mContext);
+//                    logger.i(row,mContext);
+
+//                    logger.i("Features:" + df.format(firstDate) +',' + df.format(lastDate) + ',' + Integer.toString(xReading.size()) + ',' + Float.toString(xReadingMean) + ',' + Float.toString(distXZ) + ',' + Float.toString(fluctInAmp) + ',' + Float.toString(rms), this);
+
+                    logger.i(row, mContext);
+
+
+                }
+
                 boolean success = mSensorManager.flush(this);
                 logger.i("Flush result: " + success, mContext);
                 if(!success){
@@ -121,8 +187,15 @@ public class SensorManagerService extends Service implements SensorEventListener
                     }
                     notifyFlushFailure();
                 }
+
                 logger.i("Whole WakeLock cycle SamplingRate,"+sr, mContext);
                 logger.i("Avail Memory percentage," + DeviceInfo.getMemoryUsageInPercentage(mContext),mContext);
+
+                xReading.clear();
+                yReading.clear();
+                zReading.clear();
+                timeReading.clear();
+
                 sr = 0;
                 if(!success){
                     stopSelf();
@@ -182,6 +255,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         broadcastIntent.putExtra("MESSAGE", "COMPLETED");
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
         logger.close();
+        logger_feature.close();
     }
 
     private void notifyFlushFailure(){
@@ -190,6 +264,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         broadcastIntent.putExtra("MESSAGE", "FAILURE");
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
         logger.close();
+        logger_feature.close();
     }
 
     private void notifyServiceStop(){
@@ -198,6 +273,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         broadcastIntent.putExtra("MESSAGE", "SERVICE_STOP");
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
         logger.close();
+        logger_feature.close();
     }
 
     @Override
@@ -245,6 +321,21 @@ public class SensorManagerService extends Service implements SensorEventListener
                 accelRaw.setRawy(event.values[1] - gravity[1]);
                 accelRaw.setRawz(event.values[2] - gravity[2]);
                 accelRaw.setTimestamp(timeInMillis);
+
+                // populate the array
+//                logger.i("HERE!!", this);
+                xReading.add(event.values[0] - gravity[0]);
+                yReading.add(event.values[1] - gravity[1]);
+                zReading.add(event.values[2] - gravity[2]);
+                timeReading.add(timeInMillis);
+//                counter++;
+
+
+//                xReading[counter] = event.values[0] - gravity[0];
+//                yReading[counter] = event.values[1] - gravity[1];
+//                zReading[counter] = event.values[2] - gravity[2];
+//                counter++;
+
                 try {
                     accelRaw.bufferedWriteTomHealthBinary(true);
                 } catch (IOException e) {
@@ -332,7 +423,6 @@ public class SensorManagerService extends Service implements SensorEventListener
     @Override
     public void onFlushCompleted(Sensor sensor) {
         logger.i("Flush is completed:" + sensor.getName(), this);
-        logger.i("Flush is completed:" + sensor.getName(), this);
         // reregister the sensor listener when flush is completed
         mSensorManager.unregisterListener(this);
         logger.i("Accelerometer listener unregistered", getApplicationContext());
@@ -341,4 +431,45 @@ public class SensorManagerService extends Service implements SensorEventListener
         registerSensorListeners();
         notifyFlushComplete();
     }
+
+    public float getMean(ArrayList<Float> ar){
+        float total = 0;
+        for (float element : ar) {
+            total += element;
+        }
+        float average = total / ar.size();
+        return average;
+    }
+
+    public float getMaxValue(ArrayList<Float> ar) {
+        float maxValue = ar.get(0);
+        for (float element : ar){
+            if(element > maxValue){
+                maxValue = element;
+            }
+        }
+        return maxValue;
+    }
+
+    public float getMinValue(ArrayList<Float> ar) {
+        float minValue = ar.get(0);
+        for (float element : ar){
+            if(element < minValue){
+                minValue = element;
+            }
+        }
+        return minValue;
+    }
+
+    public float getRMS(ArrayList<Float> xAr, ArrayList<Float> yAr, ArrayList<Float> zAr) {
+        ArrayList<Float> RMS = new ArrayList<Float>();
+
+        for (int i = 1; i < xAr.size(); i++) {
+            float tmp = (float) Math.sqrt(xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i));
+            RMS.add(tmp);
+        }
+        return getMean(RMS);
+    }
+
+
 }

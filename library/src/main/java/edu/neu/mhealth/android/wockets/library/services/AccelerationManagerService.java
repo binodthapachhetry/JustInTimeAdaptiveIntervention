@@ -69,7 +69,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 //        mHandlerThread.start();
 //        Handler handler = new Handler(mHandlerThread.getLooper());
 
-        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_NORMAL, maxDelay);
+        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_UI, maxDelay);
     }
 
 

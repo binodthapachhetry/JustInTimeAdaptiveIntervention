@@ -86,11 +86,16 @@ public class WearListenerService extends WearableListenerService implements Goog
             }else if(message.startsWith("TRANSFER_SUCCESS")){
                 String[] tokens = message.split(":");
                 File toBeDeleted = new File(tokens[1]);
+
+                String subString = "ComputedFeature";
                 String name = toBeDeleted.getName();
-                if(toBeDeleted.delete()){
-                    Log.i(WearableWakefulService.TAG, "Successfully deleted file upon successful transfer: " + toBeDeleted.getAbsolutePath(), getApplicationContext());
-                }else{
-                    Log.e(WearableWakefulService.TAG, "Fail to delete original zip file upon successful transfer: " + toBeDeleted.getAbsolutePath(), getApplicationContext());
+                if(!name.toLowerCase().contains(subString.toLowerCase())) {
+
+                    if (toBeDeleted.delete()) {
+                        Log.i(WearableWakefulService.TAG, "Successfully deleted file upon successful transfer: " + toBeDeleted.getAbsolutePath(), getApplicationContext());
+                    } else {
+                        Log.e(WearableWakefulService.TAG, "Fail to delete original zip file upon successful transfer: " + toBeDeleted.getAbsolutePath(), getApplicationContext());
+                    }
                 }
             }else if(message.startsWith("TRANSFER_FAILURE")){
                 //add to queue to transfer again

@@ -120,8 +120,14 @@ public class UploadManagerService extends WocketsIntentService {
         processDataFiles();
 
         executor.shutdown();
-        while(!executor.isTerminated()){
-            Log.i(TAG,"Waiting for executor service to finish",mContext);
+//        while(!executor.isTerminated()){
+//            Log.i(TAG,"Waiting for executor service to finish",mContext);
+//        }
+//        Log.i(TAG,"Moving on to uploads",mContext);
+
+        if(!executor.isTerminated()){
+            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
+            return;
         }
         Log.i(TAG,"Moving on to uploads",mContext);
 

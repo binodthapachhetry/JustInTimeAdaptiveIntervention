@@ -8,8 +8,8 @@ android {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 22
-        versionName "1.21"
+        versionCode 24
+        versionName "1.23"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -27,6 +27,7 @@ dependencies {
     wearApp project(':wear')
     compile project(':library')
     compile project(':wocketslib')
+    compile project(':wocketslib-mhealthformat')
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.android.support:appcompat-v7:24.2.1'

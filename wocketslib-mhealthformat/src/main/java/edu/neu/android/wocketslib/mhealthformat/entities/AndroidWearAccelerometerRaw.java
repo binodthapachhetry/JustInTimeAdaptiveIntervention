@@ -200,13 +200,13 @@ public class AndroidWearAccelerometerRaw extends mHealthEntity{
         cal.set(2017, Calendar.MARCH, 9, 10, 11, 12); //Year, month, day of month, hours, minutes and seconds
         Date toCompare = cal.getTime();
 
-        Log.i(TAG, "Date current:" + current.toString());
-        Log.i(TAG, "Date last:" + last.toString());
-        Log.i(TAG, "Date reference:" + toCompare.toString());
+//        Log.i(TAG, "Date current:" + current.toString());
+//        Log.i(TAG, "Date last:" + last.toString());
+//        Log.i(TAG, "Date reference:" + toCompare.toString());
 
 
         if(last.after(toCompare)) {
-            Log.i(TAG, "Last after reference. So saving");
+//            Log.i(TAG, "Last after reference. So saving");
 //        }
 
             File toBeWritten = null;

@@ -203,6 +203,7 @@ public class MinuteService extends WocketsIntentService {
 
         Log.i(TAG, "Logging Acceleration", mContext);
         startService(new Intent(this, AccelerationManagerService.class));
+//        startService(new Intent(this, SensorManagerService.class));
 
         Log.i(TAG, "Starting SurveyManagerService", mContext);
         startService(new Intent(this, SurveyManagerService.class));

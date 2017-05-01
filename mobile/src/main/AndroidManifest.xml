@@ -120,8 +120,8 @@
         <service android:name=".services.AlwaysOnService" />
         <service android:name=".services.SurveyManagerService" />
         <service android:name=".services.WatchUploadManagerService" />
-        <service android:name=".services.AccelerationManagerService"/>
-
+        <service android:name=".services.AccelerationManagerService" />
+        <service android:name=".services.SensorManagerService" />
         <service
             android:name=".panobike.MyTestService"
             android:exported="false" />
