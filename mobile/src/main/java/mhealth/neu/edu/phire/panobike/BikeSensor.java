@@ -212,9 +212,11 @@ public class BikeSensor
 
                 } else {
                     if (wheelRotations == mLastWheelReading) {
+//                        parent.mCallback.onSpeedUpdate(parent, 0, wheelRotations);
                         // Can happen if bicycle reverses
 //                        wheelRotations = 0;
                         // do nothing
+                        return;
 
                     }else {
                         // Delta over last update
@@ -271,6 +273,7 @@ public class BikeSensor
                     rotDiff = do16BitDiff(crankRotations, mLastCrankReading);
                     if (rotDiff == 0) {
                         // do nothing
+                        return;
                     } else {
                         int timeDiff;
                         timeDiff = do16BitDiff(time, mLastCrankTime);

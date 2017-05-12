@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.Arrays;
@@ -45,6 +47,7 @@ public class WatchUploadManagerService extends WocketsIntentService {
 
     private boolean isStudyFinished;
     private boolean isZipTransferFinished;
+    private ExecutorService executor;
 
     @Override
     public void onCreate() {
@@ -53,8 +56,25 @@ public class WatchUploadManagerService extends WocketsIntentService {
         initialize();
     }
 
+    class ZipHandler implements Runnable {
+        final String pathToZip;
+        final Context rContext;
+
+
+        public ZipHandler(String pathToZip, Context rContext) {
+            this.pathToZip = pathToZip;
+            this.rContext = rContext;
+        }
+
+        public void run() {
+            Zipper.zipFolderWithEncryption(pathToZip, rContext);
+        }
+    }
+
     private void initialize() {
         mContext = getApplicationContext();
+
+        executor = Executors.newSingleThreadExecutor();
 
         Log.i(TAG, "Getting last run of watch upload manager service", mContext);
         long lastRunTime = DataManager.getLastRunOfWatchUploadManagerService(mContext);
@@ -113,6 +133,15 @@ public class WatchUploadManagerService extends WocketsIntentService {
         processLogs();
 
         processDataFiles();
+
+        executor.shutdown();
+
+
+        if(!executor.isTerminated()){
+            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
+            return;
+        }
+        Log.i(TAG,"Moving on to uploads",mContext);
 
         // Zip required data files
 //        if(DataManager.isZipTransferFinished(mContext)) {
@@ -181,6 +210,7 @@ public class WatchUploadManagerService extends WocketsIntentService {
                 hourDirectory.delete();
                 continue;
             }
+            Log.i(TAG, "Processing Logs for hour - " + hourDirectory.getAbsolutePath(), mContext);
             Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
         }
 
@@ -229,8 +259,11 @@ public class WatchUploadManagerService extends WocketsIntentService {
             }
 
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
-            WatchZipTask task = new WatchZipTask(mContext);
-            task.execute(hourDirectory.getAbsolutePath());
+//            WatchZipTask task = new WatchZipTask(mContext);
+//            task.execute(hourDirectory.getAbsolutePath());
+
+            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
+            executor.execute(zipHandler);
         }
     }
 
@@ -261,6 +294,12 @@ public class WatchUploadManagerService extends WocketsIntentService {
 
         if (logWatchFiles == null) {
             Log.w(TAG, "Current watch path not present - " + logWatchFiles.getPath(), mContext);
+            return;
+
+        }
+
+        if (logWatchFiles.listFiles() == null) {
+            Log.w(TAG, "No log files present in the current watch path not present - " + logWatchFiles.getPath(), mContext);
             return;
 
         }

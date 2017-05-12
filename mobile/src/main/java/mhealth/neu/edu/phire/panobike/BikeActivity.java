@@ -30,7 +30,7 @@ public class BikeActivity {
     private BikeSensor.Callback mCallback;
     private BikeSensor mSensor;
     private boolean hasSpeed, hasCadence;
-    private double instSpeed, instCadence;
+    private double instSpeed, instCadence, instDistance;
     private boolean newSpeed = false;
     private boolean newCadence = false;
     private static String speedMessage,cadenceMessage;
@@ -105,13 +105,16 @@ public class BikeActivity {
                 newSpeed = true;
                 if (elapsedUs == 0) {
                     parent.instSpeed = 0.0;
+                    parent.instDistance = 0.0;
                 } else {
                     parent.instSpeed = distance / elapsedUs;
+                    parent.instDistance = distance;
                 }
 
                 if(rot!=0L) {
                     DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
                     final String speed_dec = String.valueOf(oneDigit.format(parent.instSpeed));
+                    final String distance_dec = String.valueOf(oneDigit.format(parent.instDistance));
                     //Log.i(TAG, "Speed: " + " = " + speed_dec + " m/s" + " CumRotation: " + rot,mContext);
 
 
@@ -119,9 +122,16 @@ public class BikeActivity {
                     SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //                speedMessage = df.format(c.getTime()) + ',' + sensorID + ',' + diameter+ ',' + rot;
 
+//                    String[] speedEntry = {
+//                            dfs.format(cs.getTime()),
+//                            String.valueOf(rot),
+//                            String.valueOf(distance_dec),
+//                            speed_dec
+//                    };
+
                     String[] speedEntry = {
                             dfs.format(cs.getTime()),
-                            String.valueOf(rot)
+                            String.valueOf(rot),
                     };
                     String dataDirectory = DataManager.getDirectoryData(context);
                     String speedFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Speed.csv";
@@ -154,10 +164,18 @@ public class BikeActivity {
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //                cadenceMessage = df.format(c.getTime()) + ',' + sensorID +',' + diameter +','+ crankRot;
 
+//                    String[] cadenceEntry = {
+//                            df.format(c.getTime()),
+//                            String.valueOf(crankRot),
+//                            cadence_dec
+//                    };
+
                     String[] cadenceEntry = {
                             df.format(c.getTime()),
-                            String.valueOf(crankRot)
+                            String.valueOf(crankRot),
+//                            cadence_dec
                     };
+
                     String dataDirectory = DataManager.getDirectoryData(context);
                     String cadenceFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
                     CSV.write(cadenceEntry, cadenceFile, true);

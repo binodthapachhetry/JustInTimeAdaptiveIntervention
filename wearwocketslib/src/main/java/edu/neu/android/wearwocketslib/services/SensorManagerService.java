@@ -18,6 +18,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 import edu.neu.android.wearwocketslib.Globals;
@@ -49,6 +51,8 @@ public class SensorManagerService extends Service implements SensorEventListener
     private byte[] valuesHeartRate;
     private int countHeartRate;
     private final static float alpha = 0.8f;
+    private final static float freqCutOff = 5.0f;
+    private final static float samplingRate = 50.0f;
     private int count;
     private int sr = 0;
     private long timeInMillis;
@@ -62,7 +66,15 @@ public class SensorManagerService extends Service implements SensorEventListener
     private ArrayList<Float> xReading;
     private ArrayList<Float> yReading;
     private ArrayList<Float> zReading;
+
+    private ArrayList<Float> xReadingLPF;
+    private ArrayList<Float> yReadingLPF;
+    private ArrayList<Float> zReadingLPF;
+
+
     private ArrayList<Long> timeReading;
+    private ArrayList<Float> filteredAr;
+
     private int lenArray;
     private DateFormat df;
 
@@ -104,6 +116,12 @@ public class SensorManagerService extends Service implements SensorEventListener
         yReading = new ArrayList<Float>();
         zReading = new ArrayList<Float>();
         timeReading = new ArrayList<Long>();
+
+        xReadingLPF = new ArrayList<Float>();
+        yReadingLPF = new ArrayList<Float>();
+        zReadingLPF = new ArrayList<Float>();
+
+
         df = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
 
         lastBootupTime = 0;
@@ -146,23 +164,30 @@ public class SensorManagerService extends Service implements SensorEventListener
             if ("FLUSH".equals(intent.getAction())) {
                 logger.i("Got Flush command", mContext);
 
-//                String currentDate = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
-//                logger_feature = new Logger(TAGF+'-'+currentDate);
+                String currentDate = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
 
-//                logger.i("Length of list:" + Integer.toString(xReading.size()),this);
-                // calculate the features for each axis + use start and end time//////////////////////////////
+                logger.i("Length of list:" + Integer.toString(xReading.size()),this);
 
                 if(xReading.size()!=0) {
-                    float xReadingMean = getMean(xReading);
-                    float zReadingMean = getMean(zReading);
-                    float distXZ = xReadingMean - zReadingMean;
-                    float fluctInAmp = getMaxValue(xReading) - getMinValue(xReading);
-//                    float rms = getRMS(xReading, yReading, zReading);
+
+                    xReadingLPF = lowPassFilter(xReading);
+                    yReadingLPF = lowPassFilter(yReading);
+                    zReadingLPF = lowPassFilter(zReading);
+
+                    int meanCrossLPF = getMeanCrossing(xReadingLPF, yReadingLPF, zReadingLPF);
+
+                    float xReadingMeanLPF = getMean(xReadingLPF);
+                    float zReadingMeanLPF = getMean(zReadingLPF);
+                    float distXZLPF = xReadingMeanLPF - zReadingMeanLPF;
+                    float fluctInAmpLPF = getMaxValue(xReadingLPF) - getMinValue(xReadingLPF);
+                    float madMedianLPF = getMadMedian(xReadingLPF, yReadingLPF, zReadingLPF);
                     Date firstDate = new Date(timeReading.get(0));
                     Date lastDate = new Date(timeReading.get(timeReading.size()-1));
                     String firstD = df.format(firstDate);
                     String lastD = df.format(lastDate);
-                    String row = String.format("%s,%s,%d,%.5f,%.5f,%.5f,%5f", firstD,lastD,xReading.size(),xReadingMean,distXZ,fluctInAmp);
+//                    String row = String.format("%s,%s,%d,%d,%.5f,%.5f,%.5f", firstD,lastD,xReading.size(),meanCross,xReadingMean,distXZ,fluctInAmp);
+
+                    String row = String.format("%s,%s,%d,%d,%.5f,%5f,%.5f,%.5f", firstD,lastD,xReading.size(),meanCrossLPF,xReadingMeanLPF,distXZLPF,fluctInAmpLPF,madMedianLPF);
 //                    String feat = df.format(firstDate) +"," + df.format(lastDate) + "," + Integer.toString(xReading.size()) + "," + Float.toString(xReadingMean) + "," + Float.toString(distXZ) + "," + Float.toString(fluctInAmp) + "," + Float.toString(rms);
 //                    logger_feature.i(df.format(firstDate) +"," + df.format(lastDate) + "," + Integer.toString(xReading.size()) + "," + Float.toString(xReadingMean) + "," + Float.toString(distXZ) + "," + Float.toString(fluctInAmp) + "," + Float.toString(rms),mContext);
                     logger_feature.i(row,mContext);
@@ -195,6 +220,9 @@ public class SensorManagerService extends Service implements SensorEventListener
                 yReading.clear();
                 zReading.clear();
                 timeReading.clear();
+                xReadingLPF.clear();
+                yReadingLPF.clear();
+                zReadingLPF.clear();
 
                 sr = 0;
                 if(!success){
@@ -461,14 +489,108 @@ public class SensorManagerService extends Service implements SensorEventListener
         return minValue;
     }
 
-    public float getRMS(ArrayList<Float> xAr, ArrayList<Float> yAr, ArrayList<Float> zAr) {
+    public int getMeanCrossing(ArrayList<Float> xAr, ArrayList<Float> yAr, ArrayList<Float> zAr) {
         ArrayList<Float> RMS = new ArrayList<Float>();
 
         for (int i = 1; i < xAr.size(); i++) {
             float tmp = (float) Math.sqrt(xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i));
             RMS.add(tmp);
         }
-        return getMean(RMS);
+        logger.i("RMS size " + Integer.toString(RMS.size()), getApplicationContext());
+
+        return calculateMeanCross(RMS);
+
+    }
+
+    public int calculateMeanCross(ArrayList<Float> data)
+    {
+        float meanVal = getMean(data);
+
+        for (int i = 0; i < data.size(); i++) {
+            float val = data.get(i);
+            data.set(i, (val-meanVal));
+        }
+
+        logger.i("Demeaned data size " + Integer.toString(data.size()), getApplicationContext());
+        int numCrossing = 0;
+
+        for (int i = 0; i < data.size()-1; i++)
+        {
+            if ((data.get(i) > 0 && data.get(i+1)  <= 0) ||
+                    (data.get(i) < 0 && data.get(i+1) >= 0))
+            {
+                numCrossing++;
+            }
+        }
+
+        logger.i("Number of mean crossing is half " + Integer.toString(numCrossing), getApplicationContext());
+        int numCycles = Math.round(numCrossing/2);
+        return numCycles;
+    }
+
+    public float getMadMedian(ArrayList<Float> xAr, ArrayList<Float> yAr, ArrayList<Float> zAr) {
+        ArrayList<Float> RMS = new ArrayList<Float>();
+
+        for (int i = 0; i < xAr.size(); i++) {
+            float tmp = (float) Math.sqrt(xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i));
+            RMS.add(tmp);
+        }
+        return calculateMadMed(RMS);
+    }
+
+    public float calculateMadMed(ArrayList<Float> data)
+    {
+        Collections.sort(data);
+
+        int n = data.size();
+
+        float medianVal = 0;
+
+        if (n%2 == 0){
+            medianVal = ( data.get(n/2) + data.get((n/2)-1)) / 2;
+        }else{
+            medianVal = data.get((n-1)/2);
+        }
+
+        for (int i = 0; i < data.size(); i++) {
+            float val = data.get(i);
+            data.set(i, (Math.abs(val-medianVal)));
+        }
+
+        Collections.sort(data);
+
+        float finalMedianVal = 0;
+
+        if (n%2 == 0){
+            finalMedianVal = ( data.get(n/2) + data.get((n/2)-1)) / 2;
+        }else{
+            finalMedianVal = data.get((n-1)/2);
+        }
+
+        return finalMedianVal;
+    }
+
+    public ArrayList<Float> lowPassFilter(ArrayList<Float> data){
+        float pi = (float) Math.PI;
+        float RC = 1/(2*pi*freqCutOff);
+        float dt = 1/samplingRate;
+        float alp = dt/(dt+RC);
+
+        filteredAr = new ArrayList<Float>();
+        float smh = data.get(0)*alp;
+        int start = 0;
+
+        filteredAr.add(start,smh);
+
+        for (int i = 1; i < data.size(); i++) {
+
+            float tmp = alp *(data.get(i)-filteredAr.get(i-1)) + filteredAr.get(i-1);
+
+            filteredAr.add(i,tmp);
+        }
+
+        return filteredAr;
+
     }
 
 

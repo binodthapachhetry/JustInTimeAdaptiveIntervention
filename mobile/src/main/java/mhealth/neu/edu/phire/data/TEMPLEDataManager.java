@@ -99,5 +99,16 @@ public class TEMPLEDataManager {
         SharedPrefManager.setString(PANOBIKE_LAST_CONNECTED_TIME, panobikeLastConnectionTime, mContext);
     }
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String WATCH_LAST_CONNECTED_TIME = "WATCH_LAST_CONNECTED_TIME";
+
+    public static String getWatchLastConnectionTime(Context mContext){
+        return SharedPrefManager.getString(WATCH_LAST_CONNECTED_TIME , "", mContext);
+    }
+
+    public static void setWatchLastConnectionTime(Context mContext, String watchLastConnectionTime) {
+        SharedPrefManager.setString(WATCH_LAST_CONNECTED_TIME, watchLastConnectionTime, mContext);
+    }
+
 
 }

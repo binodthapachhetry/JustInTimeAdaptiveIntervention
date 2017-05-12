@@ -8,8 +8,8 @@ android {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 24
-        versionName "1.23"
+        versionCode 25
+        versionName "1.24"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -23,7 +23,6 @@ android {
 }
 
 dependencies {
-
     wearApp project(':wear')
     compile project(':library')
     compile project(':wocketslib')
@@ -32,4 +31,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.android.support:appcompat-v7:24.2.1'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile files('libs/weka.jar')
 }

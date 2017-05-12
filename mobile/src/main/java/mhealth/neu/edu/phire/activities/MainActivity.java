@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,18 +28,24 @@ import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 import mhealth.neu.edu.phire.services.AlwaysOnService;
 
+import edu.neu.android.wocketslib.utils.SharedPrefs;
+
 /**
  * @author Binod Thapa Chhetry
  */
 public class MainActivity extends WocketsActivity {
 
     private static final String TAG = "MainActivity";
+    public static final String watchTimeFormat = "yyyy-MM-dd HH:mm:ss";
 
     private Context mContext;
     private Activity mActivity;
 
     @BindView(R.id.activity_main_app_version)
     TextView appVersionTextView;
+
+    @BindView(R.id.activity_main_watch_connected_time)
+    TextView watchConnectionView;
 
     @BindView(R.id.activity_wheel_diameter_cm)
     TextView selectedWheelDiameterCm;
@@ -86,6 +95,10 @@ public class MainActivity extends WocketsActivity {
             Log.e(TAG, "Cannot get version info", e, mContext);
         }
 
+        String dateString = new SimpleDateFormat(watchTimeFormat).format(new Date(SharedPrefs.getLong("LAST_WATCH_IN_CONNECTION_TIME",0, mContext)));
+
+
+        watchConnectionView.setText("WatchConnected: " + dateString);
         selectedSurvey.setText("Selected Survey: " + DataManager.getSelectedSurveyName(mContext));
         selectedLanguage.setText("Selected Language: " + DataManager.getSelectedLanguage(mContext));
         loggedInUser.setText("Logged In User: " + UserManager.getUserEmailFormatted());

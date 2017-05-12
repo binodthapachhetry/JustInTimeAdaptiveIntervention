@@ -6,6 +6,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import com.google.android.gms.location.ActivityRecognition;
+
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.database.DatabaseManager;
 import edu.neu.mhealth.android.wockets.library.managers.AnalyticsManager;
@@ -200,6 +202,9 @@ public class MinuteService extends WocketsIntentService {
 
         Log.i(TAG, "Fetching latest study data", mContext);
         StudyManager.getInstance().fetchLatestStudyData(mContext);
+
+//        Log.i(TAG, "Starting ActivityRecognition", mContext);
+//        startService(new Intent(this, ActivityRecognitionService.class));
 
         Log.i(TAG, "Logging Acceleration", mContext);
         startService(new Intent(this, AccelerationManagerService.class));

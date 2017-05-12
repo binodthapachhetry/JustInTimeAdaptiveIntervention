@@ -227,6 +227,9 @@
         <!-- android:name=".support.MyCSVconversionService" -->
         <!-- android:exported="false" /> -->
 
+        <service
+            android:name=".services.ActivityRecognitionService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

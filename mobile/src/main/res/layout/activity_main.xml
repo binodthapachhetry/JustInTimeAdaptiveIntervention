@@ -33,56 +33,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Version: "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/activity_main_watch_connected_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Watch Last Connected: "
+            android:paddingTop="5dp"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/activity_main_logged_in_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="Logged In User: "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/activity_wheel_diameter_cm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="Wheel Diameter(cm): "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/activity_panobike_sensor_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="PanoBike Sensor id: "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/activity_panobike_lastconnected_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="PanoBike last connected:"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
 
         <TextView
             android:id="@+id/activity_main_selected_survey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="Selected Survey: "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/activity_main_selected_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="Selected Language: "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
 
 
@@ -90,17 +98,17 @@
             android:id="@+id/activity_main_start_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="Start Date: "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/activity_main_end_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="End Date: "
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 

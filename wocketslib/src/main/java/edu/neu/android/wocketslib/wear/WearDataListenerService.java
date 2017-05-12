@@ -40,12 +40,14 @@ import java.util.concurrent.Executors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import edu.neu.android.wocketslib.Globals;
 import edu.neu.android.wocketslib.broadcastreceivers.MonitorServiceBroadcastReceiver;
 import edu.neu.android.wocketslib.mhealthformat.mHealthFormat;
 import edu.neu.android.wocketslib.support.AuthorizationChecker;
 import edu.neu.android.wocketslib.support.DataStorage;
 import edu.neu.android.wocketslib.utils.FileHelper;
 import edu.neu.android.wocketslib.utils.Log;
+import edu.neu.android.wocketslib.utils.SharedPrefs;
 
 /**
  * Created by qutang on 6/10/15.
@@ -237,6 +239,7 @@ public class WearDataListenerService extends WearableListenerService {
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         Log.i(TAG, "onMessageReceived: " + messageEvent.toString());
+        SharedPrefs.setLong(Globals.LAST_WATCH_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
 
         if(messageEvent.getPath().equals(NOTE_PATH)){
             String message = new String(messageEvent.getData());
