@@ -1,6 +1,7 @@
 package edu.neu.mhealth.android.wockets.library.support;
 
 import android.content.Context;
+import android.os.Looper;
 
 import java.io.File;
 import java.io.FileReader;
@@ -16,6 +17,8 @@ import au.com.bytecode.opencsv.CSVWriter;
  */
 public class CSV {
 
+    private static final String TAG = "CSV";
+
     /**
      * Write a csv file.
      *
@@ -24,6 +27,10 @@ public class CSV {
      * @param isAppend  Boolean indicating whether the line needs to be appended or overwritten
      */
     public static synchronized void write(String[] line, String file, boolean isAppend) {
+
+//        if (Looper.myLooper() == Looper.getMainLooper()){
+//            Log.d(TAG,"Inside Main Thread");
+//        }
         try {
             File fileToWrite = new File(file);
             File directory = fileToWrite.getParentFile();
@@ -45,6 +52,8 @@ public class CSV {
      * @param isAppend  Boolean indicating whether the line needs to be appended or overwritten
      */
     public static synchronized void writeAndZip(String[] line, String file, boolean isAppend, Context context) {
+
+
         try {
             File zippedFile = new File(file + ".zip");
             if (zippedFile.exists()) {

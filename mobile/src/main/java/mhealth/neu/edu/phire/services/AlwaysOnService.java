@@ -48,16 +48,23 @@ public class AlwaysOnService extends WocketsService {
         int emaSurveysCompleted = DataManager.getEMASurveyCompletedCountForDate(mContext, DateTime.getDate());
         int emaSurveysMissed = emaSurveysPrompted - emaSurveysCompleted;
 
-        startForeground(
-                NotificationManager.NOTIFICATION_ID_MINUTE_SERVICE,
-                NotificationManager.getAlwaysOnServiceNotification(
-                        mContext,
-                        R.mipmap.ic_launcher,
-                        "Prompted: " + emaSurveysPrompted +
-                                ", Completed: " + emaSurveysCompleted +
-                                ", Missed: " + emaSurveysMissed
-                )
-        );
+
+//        long currentTime = DateTime.getCurrentTimeInMillis();
+//        long endTime = DataManager.getEndDate(mContext);
+
+
+
+            startForeground(
+                    NotificationManager.NOTIFICATION_ID_MINUTE_SERVICE,
+                    NotificationManager.getAlwaysOnServiceNotification(
+                            mContext,
+                            R.mipmap.ic_launcher,
+                            "Prompted: " + emaSurveysPrompted +
+                                    ", Completed: " + emaSurveysCompleted +
+                                    ", Missed: " + emaSurveysMissed
+                    )
+            );
+
 
         broadcastReceiver = new WakefulBroadcastReceiver() {
             @Override

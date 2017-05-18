@@ -157,12 +157,15 @@ public class DataTransfer extends Service implements GoogleApiClient.ConnectionC
                                 Log.i(TAG, "Cancel lost connection notification");
                             }
 
-                            if (type.equals("note")) {
-                                sendNote(value);
-                            }
+                            if(type != null) {
 
-                            if (type.equals("file")) {
-                                sendFile(new File(value));
+                                if (type.equals("note")) {
+                                    sendNote(value);
+                                }
+
+                                if (type.equals("file")) {
+                                    sendFile(new File(value));
+                                }
                             }
                         } else {
                             Log.i(TAG, "Watch is not in connection!");

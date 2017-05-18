@@ -97,6 +97,14 @@ public class MinuteService extends WocketsIntentService {
         Log.i(TAG, "Notifying user about minute service run", mContext);
         notifyUser();
 
+
+        long currentTime = DateTime.getCurrentTimeInMillis();
+        long endTime = DataManager.getEndDate(mContext);
+
+        if (currentTime > endTime) {
+            notifyUserStudyEnded(endTime);
+        }
+
         Log.i(TAG, "Writing status to Firebase Database", mContext);
         DatabaseManager.writeNote(mContext, DatabaseManager.MINUTE_SERVICE_PATH, timeSincePreviousRun);
 
@@ -258,6 +266,16 @@ public class MinuteService extends WocketsIntentService {
                         ", Missed: " + emaSurveysMissed,
                 R.mipmap.ic_launcher
         );
+    }
+
+    private void notifyUserStudyEnded(long eTime){
+        NotificationManager.showMinuteServiceNotification(
+                mContext,
+                TEMPLEConstants.STUDY_NAME,
+                "Study ended on: " + DateTime.getTimestampString(eTime),
+                R.mipmap.ic_launcher
+        );
+
     }
 
     @Override

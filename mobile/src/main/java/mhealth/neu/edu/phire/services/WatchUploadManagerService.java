@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Looper;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -52,7 +53,13 @@ public class WatchUploadManagerService extends WocketsIntentService {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         Log.i(TAG, "Inside onCreate", getApplicationContext());
+
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Log.i(TAG,"In main thread",mContext);
+        }
+
         initialize();
     }
 
@@ -67,12 +74,18 @@ public class WatchUploadManagerService extends WocketsIntentService {
         }
 
         public void run() {
+
+//            if (Looper.myLooper() == Looper.getMainLooper()){
+//                Log.i("Executable","In main thread",mContext);
+//            }else{
+//                Log.i("Executable","Not In main thread",mContext);
+//            }
+
             Zipper.zipFolderWithEncryption(pathToZip, rContext);
         }
     }
 
     private void initialize() {
-        mContext = getApplicationContext();
 
         executor = Executors.newSingleThreadExecutor();
 

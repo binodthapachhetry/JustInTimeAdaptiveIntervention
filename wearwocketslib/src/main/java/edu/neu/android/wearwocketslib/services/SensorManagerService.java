@@ -32,7 +32,7 @@ import edu.neu.android.wearwocketslib.utils.system.DeviceInfo;
 import edu.neu.android.wocketslib.mhealthformat.entities.AndroidWearAccelerometerRaw;
 
 /**
- * Created by Dharam on 5/1/2015.
+ * Created by Binod on 5/1/2015.
  */
 public class SensorManagerService extends Service implements SensorEventListener2 {
 
@@ -41,7 +41,6 @@ public class SensorManagerService extends Service implements SensorEventListener
 
     private static final String TAG = "SensorManagerService";
     private static final String TAGF = "ComputedFeature";
-//    private static final String TAGF = "FeatureVector";
 
     private android.hardware.SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -59,17 +58,14 @@ public class SensorManagerService extends Service implements SensorEventListener
     private long lastBootupTime;
     private Context mContext;
 
-//    private float[] xReading;
-//    private float[] yReading;
-//    private float[] zReading;
 
     private ArrayList<Float> xReading;
     private ArrayList<Float> yReading;
     private ArrayList<Float> zReading;
 
-    private ArrayList<Float> xReadingLPF;
-    private ArrayList<Float> yReadingLPF;
-    private ArrayList<Float> zReadingLPF;
+//    private ArrayList<Float> xReadingLPF;
+//    private ArrayList<Float> yReadingLPF;
+//    private ArrayList<Float> zReadingLPF;
 
 
     private ArrayList<Long> timeReading;
@@ -117,9 +113,9 @@ public class SensorManagerService extends Service implements SensorEventListener
         zReading = new ArrayList<Float>();
         timeReading = new ArrayList<Long>();
 
-        xReadingLPF = new ArrayList<Float>();
-        yReadingLPF = new ArrayList<Float>();
-        zReadingLPF = new ArrayList<Float>();
+//        xReadingLPF = new ArrayList<Float>();
+//        yReadingLPF = new ArrayList<Float>();
+//        zReadingLPF = new ArrayList<Float>();
 
 
         df = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
@@ -170,33 +166,25 @@ public class SensorManagerService extends Service implements SensorEventListener
 
                 if(xReading.size()!=0) {
 
-                    xReadingLPF = lowPassFilter(xReading);
-                    yReadingLPF = lowPassFilter(yReading);
-                    zReadingLPF = lowPassFilter(zReading);
+//                    xReadingLPF = lowPassFilter(xReading);
+//                    yReadingLPF = lowPassFilter(yReading);
+//                    zReadingLPF = lowPassFilter(zReading);
 
-                    int meanCrossLPF = getMeanCrossing(xReadingLPF, yReadingLPF, zReadingLPF);
+                    int meanCross = getMeanCrossing(xReading, yReading, zReading);
 
-                    float xReadingMeanLPF = getMean(xReadingLPF);
-                    float zReadingMeanLPF = getMean(zReadingLPF);
-                    float distXZLPF = xReadingMeanLPF - zReadingMeanLPF;
-                    float fluctInAmpLPF = getMaxValue(xReadingLPF) - getMinValue(xReadingLPF);
-                    float madMedianLPF = getMadMedian(xReadingLPF, yReadingLPF, zReadingLPF);
+                    float xReadingMean = getMean(xReading);
+                    float zReadingMean = getMean(zReading);
+                    float distXZ = xReadingMean - zReadingMean;
+                    float fluctInAmp = getMaxValue(xReading) - getMinValue(xReading);
+                    float madMedian = getMadMedian(xReading, yReading, zReading);
                     Date firstDate = new Date(timeReading.get(0));
                     Date lastDate = new Date(timeReading.get(timeReading.size()-1));
                     String firstD = df.format(firstDate);
                     String lastD = df.format(lastDate);
-//                    String row = String.format("%s,%s,%d,%d,%.5f,%.5f,%.5f", firstD,lastD,xReading.size(),meanCross,xReadingMean,distXZ,fluctInAmp);
 
-                    String row = String.format("%s,%s,%d,%d,%.5f,%5f,%.5f,%.5f", firstD,lastD,xReading.size(),meanCrossLPF,xReadingMeanLPF,distXZLPF,fluctInAmpLPF,madMedianLPF);
-//                    String feat = df.format(firstDate) +"," + df.format(lastDate) + "," + Integer.toString(xReading.size()) + "," + Float.toString(xReadingMean) + "," + Float.toString(distXZ) + "," + Float.toString(fluctInAmp) + "," + Float.toString(rms);
-//                    logger_feature.i(df.format(firstDate) +"," + df.format(lastDate) + "," + Integer.toString(xReading.size()) + "," + Float.toString(xReadingMean) + "," + Float.toString(distXZ) + "," + Float.toString(fluctInAmp) + "," + Float.toString(rms),mContext);
+                    String row = String.format("%s,%s,%d,%.5f,%d,%.5f,%.5f,%.5f",firstD,lastD,xReading.size(),xReadingMean,meanCross,distXZ,fluctInAmp,madMedian);
                     logger_feature.i(row,mContext);
-//                    logger.i(row,mContext);
-
-//                    logger.i("Features:" + df.format(firstDate) +',' + df.format(lastDate) + ',' + Integer.toString(xReading.size()) + ',' + Float.toString(xReadingMean) + ',' + Float.toString(distXZ) + ',' + Float.toString(fluctInAmp) + ',' + Float.toString(rms), this);
-
                     logger.i(row, mContext);
-
 
                 }
 
@@ -220,9 +208,9 @@ public class SensorManagerService extends Service implements SensorEventListener
                 yReading.clear();
                 zReading.clear();
                 timeReading.clear();
-                xReadingLPF.clear();
-                yReadingLPF.clear();
-                zReadingLPF.clear();
+//                xReadingLPF.clear();
+//                yReadingLPF.clear();
+//                zReadingLPF.clear();
 
                 sr = 0;
                 if(!success){
@@ -345,24 +333,27 @@ public class SensorManagerService extends Service implements SensorEventListener
             sr++;
 
             if(accelRaw.verifyCurrentDate(new Date(timeInMillis))) {
-                accelRaw.setRawx(event.values[0] - gravity[0]);
-                accelRaw.setRawy(event.values[1] - gravity[1]);
-                accelRaw.setRawz(event.values[2] - gravity[2]);
+
+//                accelRaw.setRawx(event.values[0] - gravity[0]);
+//                accelRaw.setRawy(event.values[1] - gravity[1]);
+//                accelRaw.setRawz(event.values[2] - gravity[2]);
+
+                accelRaw.setRawx(event.values[0]);
+                accelRaw.setRawy(event.values[1]);
+                accelRaw.setRawz(event.values[2]);
+
                 accelRaw.setTimestamp(timeInMillis);
 
                 // populate the array
-//                logger.i("HERE!!", this);
-                xReading.add(event.values[0] - gravity[0]);
-                yReading.add(event.values[1] - gravity[1]);
-                zReading.add(event.values[2] - gravity[2]);
+//                xReading.add(event.values[0] - gravity[0]);
+//                yReading.add(event.values[1] - gravity[1]);
+//                zReading.add(event.values[2] - gravity[2]);
+
+                xReading.add(event.values[0]);
+                yReading.add(event.values[1]);
+                zReading.add(event.values[2]);
+
                 timeReading.add(timeInMillis);
-//                counter++;
-
-
-//                xReading[counter] = event.values[0] - gravity[0];
-//                yReading[counter] = event.values[1] - gravity[1];
-//                zReading[counter] = event.values[2] - gravity[2];
-//                counter++;
 
                 try {
                     accelRaw.bufferedWriteTomHealthBinary(true);

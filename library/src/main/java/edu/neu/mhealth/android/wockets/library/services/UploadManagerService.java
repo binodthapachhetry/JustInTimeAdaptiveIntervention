@@ -2,6 +2,7 @@ package edu.neu.mhealth.android.wockets.library.services;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Looper;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -53,7 +54,12 @@ public class UploadManagerService extends WocketsIntentService {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         Log.i(TAG, "Inside onCreate", getApplicationContext());
+
+//        if (Looper.myLooper() == Looper.getMainLooper()){
+//            Log.i(TAG,"In main thread",mContext);
+//        }
         initialize();
     }
 
@@ -73,7 +79,7 @@ public class UploadManagerService extends WocketsIntentService {
     }
 
     private void initialize() {
-        mContext = getApplicationContext();
+
 
         executor = Executors.newSingleThreadExecutor();
 
@@ -306,7 +312,7 @@ public class UploadManagerService extends WocketsIntentService {
 //        executor = Executors.newSingleThreadExecutor();
 
         for (File hourDirectory : dataDate.listFiles()) {
-            Log.i(TAG, "Processing data for hour " + hourDirectory.getAbsolutePath(), mContext);
+//            Log.i(TAG, "Processing data for hour " + hourDirectory.getAbsolutePath(), mContext);
             if (hourDirectory.getName().contains("zip")) {
                 Log.d(TAG, hourDirectory.getAbsolutePath() + " - Already zipped");
                 continue;
