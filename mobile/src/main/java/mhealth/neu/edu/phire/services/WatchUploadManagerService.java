@@ -1,5 +1,6 @@
 package mhealth.neu.edu.phire.services;
 
+import android.app.IntentService;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +27,6 @@ import java.io.FilenameFilter;
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.managers.ConnectivityManager;
 import edu.neu.mhealth.android.wockets.library.managers.UploadManager;
-import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 import edu.neu.mhealth.android.wockets.library.support.Zipper;
@@ -40,7 +40,7 @@ import mhealth.neu.edu.phire.support.MyConversionReceiver;
 /**
  * @author Dharam Maniar
  */
-public class WatchUploadManagerService extends WocketsIntentService {
+public class WatchUploadManagerService extends IntentService {
 
     private static final String TAG = "WatchUploadManagerService";
 
@@ -50,42 +50,67 @@ public class WatchUploadManagerService extends WocketsIntentService {
     private boolean isZipTransferFinished;
     private ExecutorService executor;
 
+    public WatchUploadManagerService(){
+        super("WatchUploadManagerService");
+    }
+
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void onHandleIntent(Intent intent) {
         mContext = getApplicationContext();
         Log.i(TAG, "Inside onCreate", getApplicationContext());
-
-        if (Looper.myLooper() == Looper.getMainLooper()){
-            Log.i(TAG,"In main thread",mContext);
-        }
-
         initialize();
     }
 
-    class ZipHandler implements Runnable {
-        final String pathToZip;
+    class WatchUploadHandler implements Runnable {
+        final String pathToUpload;
         final Context rContext;
 
 
-        public ZipHandler(String pathToZip, Context rContext) {
-            this.pathToZip = pathToZip;
+        public WatchUploadHandler(String pathToUpload, Context rContext) {
+            this.pathToUpload = pathToUpload;
             this.rContext = rContext;
         }
 
         public void run() {
-
-//            if (Looper.myLooper() == Looper.getMainLooper()){
-//                Log.i("Executable","In main thread",mContext);
-//            }else{
-//                Log.i("Executable","Not In main thread",mContext);
-//            }
-
-            Zipper.zipFolderWithEncryption(pathToZip, rContext);
+            UploadManager.uploadFile(pathToUpload, rContext);
         }
     }
 
+//    @Override
+//    public void onCreate() {
+//        super.onCreate();
+//        mContext = getApplicationContext();
+//        Log.i(TAG, "Inside onCreate", getApplicationContext());
+//
+//        if (Looper.myLooper() == Looper.getMainLooper()){
+//            Log.i(TAG,"In main thread",mContext);
+//        }
+//
+//        initialize();
+//    }
+
+//    class ZipHandler implements Runnable {
+//        final String pathToZip;
+//        final Context rContext;
+//
+//
+//        public ZipHandler(String pathToZip, Context rContext) {
+//            this.pathToZip = pathToZip;
+//            this.rContext = rContext;
+//        }
+//
+//        public void run() {
+//            Zipper.zipFolderWithEncryption(pathToZip, rContext);
+//        }
+//    }
+
     private void initialize() {
+
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Log.i(TAG,"In main thread",mContext);
+        }else{
+            Log.i(TAG,"Not in main thread",mContext);
+        }
 
         executor = Executors.newSingleThreadExecutor();
 
@@ -147,14 +172,14 @@ public class WatchUploadManagerService extends WocketsIntentService {
 
         processDataFiles();
 
-        executor.shutdown();
+//        executor.shutdown();
 
 
-        if(!executor.isTerminated()){
-            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
-            return;
-        }
-        Log.i(TAG,"Moving on to uploads",mContext);
+//        if(!executor.isTerminated()){
+//            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
+//            return;
+//        }
+//        Log.i(TAG,"Moving on to uploads",mContext);
 
         // Zip required data files
 //        if(DataManager.isZipTransferFinished(mContext)) {
@@ -271,30 +296,32 @@ public class WatchUploadManagerService extends WocketsIntentService {
                 continue;
             }
 
+            Log.i(TAG, "Processing Logs for hour - " + hourDirectory.getAbsolutePath(), mContext);
+            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
 //            WatchZipTask task = new WatchZipTask(mContext);
 //            task.execute(hourDirectory.getAbsolutePath());
 
-            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
-            executor.execute(zipHandler);
+//            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
+//            executor.execute(zipHandler);
         }
     }
 
 
-    public class WatchZipTask extends AsyncTask<String,Void,Void> {
-        private Context aContext;
-
-        public WatchZipTask(Context context){
-            aContext = context;
-        }
-
-        @Override
-        protected Void doInBackground(String... strings) {
-            String path = strings[0];
-            Zipper.zipFolderWithEncryption(path, aContext);
-            return null;
-        }
-    }
+//    public class WatchZipTask extends AsyncTask<String,Void,Void> {
+//        private Context aContext;
+//
+//        public WatchZipTask(Context context){
+//            aContext = context;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(String... strings) {
+//            String path = strings[0];
+//            Zipper.zipFolderWithEncryption(path, aContext);
+//            return null;
+//        }
+//    }
 
     private void processLogUploads() {
         Log.i(TAG, "Processing Watch Log Uploads", mContext);
@@ -347,8 +374,14 @@ public class WatchUploadManagerService extends WocketsIntentService {
                         continue;
                     }
 
+                    if(logHour.isDirectory()){
+                        continue;
+                    }
+
                     Log.i(TAG, "Calling UploadManager.uploadFile on - " + logHour.getAbsolutePath(), mContext);
-                    UploadManager.uploadFile(logHour.getAbsolutePath(), mContext);
+                    Runnable uploadHandler = new WatchUploadHandler(logHour.getAbsolutePath(), mContext);
+                    executor.execute(uploadHandler);
+//                    UploadManager.uploadFile(logHour.getAbsolutePath(), mContext);
                 }
             } else {
                 // We only want to upload zip files
@@ -361,7 +394,9 @@ public class WatchUploadManagerService extends WocketsIntentService {
                 }
 
                 Log.i(TAG, "Calling UploadManager.uploadFile on - " + logWatchDate.getAbsolutePath(), mContext);
-                UploadManager.uploadFile(logWatchDate.getAbsolutePath(), mContext);
+                Runnable uploadHandler = new WatchUploadHandler(logWatchDate.getAbsolutePath(), mContext);
+                executor.execute(uploadHandler);
+//                UploadManager.uploadFile(logWatchDate.getAbsolutePath(), mContext);
             }
         }
     }
@@ -394,7 +429,9 @@ public class WatchUploadManagerService extends WocketsIntentService {
                     }
 
                     Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataHour.getAbsolutePath(), mContext);
-                    UploadManager.uploadFile(dataHour.getAbsolutePath(), mContext);
+                    Runnable uploadHandler = new WatchUploadHandler(dataHour.getAbsolutePath(), mContext);
+                    executor.execute(uploadHandler);
+//                    UploadManager.uploadFile(dataHour.getAbsolutePath(), mContext);
                 }
             } else {
                 // We only want to upload zip files
@@ -407,7 +444,9 @@ public class WatchUploadManagerService extends WocketsIntentService {
                 }
 
                 Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataWatchDate.getAbsolutePath(), mContext);
-                UploadManager.uploadFile(dataWatchDate.getAbsolutePath(), mContext);
+                Runnable uploadHandler = new WatchUploadHandler(dataWatchDate.getAbsolutePath(), mContext);
+                executor.execute(uploadHandler);
+//                UploadManager.uploadFile(dataWatchDate.getAbsolutePath(), mContext);
             }
         }
     }

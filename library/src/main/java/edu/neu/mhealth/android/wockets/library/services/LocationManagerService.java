@@ -1,9 +1,11 @@
 package edu.neu.mhealth.android.wockets.library.services;
 
 import android.Manifest;
+import android.app.IntentService;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.icu.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -31,7 +33,7 @@ import edu.neu.mhealth.android.wockets.library.support.Log;
  * @author Dharam Maniar
  */
 
-public class LocationManagerService extends WocketsService implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class LocationManagerService extends IntentService implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -41,12 +43,34 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
     private BluetoothAdapter mBluetoothAdapter;
 
 
+//    @Override
+//    public void onCreate() {
+//        super.onCreate();
+//        // Create an instance of GoogleAPIClient.
+//        mContext = getApplicationContext();
+//        Log.i(TAG,"INSIDE ONCREATE",mContext);
+//
+//        if (mGoogleApiClient == null) {
+//            mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                    .addConnectionCallbacks(this)
+//                    .addOnConnectionFailedListener(this)
+//                    .addApi(LocationServices.API)
+//                    .build();
+//            mGoogleApiClient.connect();
+//        }
+//    }
+
+    public LocationManagerService(){
+        super("LocationManagerService");
+    }
+
+
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void onHandleIntent(Intent intent) {
+
         // Create an instance of GoogleAPIClient.
         mContext = getApplicationContext();
-        Log.i(TAG,"INSIDE ONCREATE",mContext);
+        Log.i(TAG,"INSIDE ONHANDLE INTENT",mContext);
 
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -56,6 +80,7 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
                     .build();
             mGoogleApiClient.connect();
         }
+
     }
 
     @Override
@@ -64,6 +89,8 @@ public class LocationManagerService extends WocketsService implements GoogleApiC
         Log.i(TAG,"INSIDE ONDESTROY",mContext);
         super.onDestroy();
     }
+
+
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {

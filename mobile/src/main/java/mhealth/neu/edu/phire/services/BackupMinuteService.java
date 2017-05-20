@@ -1,7 +1,9 @@
 package mhealth.neu.edu.phire.services;
 
+import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Looper;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
@@ -11,24 +13,38 @@ import mhealth.neu.edu.phire.support.Util;
 /**
  * @author Binod Thapa Chhetry
  */
-public class BackupMinuteService extends WocketsIntentService {
+public class BackupMinuteService extends IntentService {
 
     private final static String TAG = "BackupMinuteService";
 
     private Context mContext;
 
-    @Override
-    protected void onHandleIntent(Intent intent) {}
+    public BackupMinuteService() {
+        super("BackupMinuteService");
+    }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.i(TAG, "Inside onCreate", getApplicationContext());
+    protected void onHandleIntent(Intent intent) {
+        mContext = getApplicationContext();
+        Log.i(TAG, "Inside on Handle Intent", mContext);
         initialize();
     }
 
+//    @Override
+//    public void onCreate() {
+//        super.onCreate();
+//        Log.i(TAG, "Inside onCreate", getApplicationContext());
+//        initialize();
+//    }
+
     private void initialize() {
-        mContext = getApplicationContext();
+//        mContext = getApplicationContext();
+
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Log.i(TAG,"In main thread",mContext);
+        }else{
+            Log.i(TAG,"Not in main thread",mContext);
+        }
 
         DataManager.setBackupMinuteServiceLastRun(mContext);
         Util.setBackupMinuteServiceAlarm(mContext);

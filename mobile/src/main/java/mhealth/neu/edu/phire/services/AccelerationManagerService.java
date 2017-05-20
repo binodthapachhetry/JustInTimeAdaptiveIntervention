@@ -10,10 +10,14 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorEventListener2;
 import android.hardware.SensorManager;
 import android.os.AsyncTask;
+import android.os.HandlerThread;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
+import android.os.Handler;
+import android.os.HandlerThread;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -49,8 +53,36 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     private final static float alpha = 0.8f;
     private long timeInMillis;
     private ExecutorService executor;
+    private HandlerThread mHandlerThread;
+    private Handler handler;
+
 
 //    private AndroidWearAccelerometerRaw accelRaw;
+
+    public AccelerationManagerService(){
+        super("AccelerationManagerService");
+    }
+
+
+//    @Override
+//    protected void onHandleIntent(Intent intent) {
+//        gravity = new float[3];
+//        linear_accleration = new float[3];
+//
+//        gravity[0] = 0.0f;
+//        gravity[1] = 0.0f;
+//        gravity[2] = 0.0f;
+//
+//        mContext = getApplicationContext();
+//        Log.i(TAG,"INSIDE ONHANDLE INTENT",mContext);
+//        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+//        mAccel = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        Log.i(TAG,"Is wakeup sensor? " + String.valueOf(mAccel.isWakeUpSensor()),mContext);
+//        Log.i(TAG, "FIFO Count - " + mAccel.getFifoMaxEventCount(),mContext);
+//        Log.i(TAG, "FIFO Res Count - " + mAccel.getFifoReservedEventCount(),mContext);
+//
+//        registerSensorListeners();
+//    }
 
 
 
@@ -69,6 +101,11 @@ public class AccelerationManagerService extends WocketsIntentService implements 
         Log.i(TAG,"INSIDE ONCREATE",mContext);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccel = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        mHandlerThread = new HandlerThread("AccelerometerLogListener");
+        mHandlerThread.start();
+        handler = new Handler(mHandlerThread.getLooper());
+
         Log.i(TAG,"Is wakeup sensor? " + String.valueOf(mAccel.isWakeUpSensor()),mContext);
         Log.i(TAG, "FIFO Count - " + mAccel.getFifoMaxEventCount(),mContext);
         Log.i(TAG, "FIFO Res Count - " + mAccel.getFifoReservedEventCount(),mContext);
@@ -78,65 +115,54 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 
     private void registerSensorListeners(){
         Log.i(TAG,"registering listener",mContext);
+
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Log.i(TAG,"In main thread",mContext);
+        }else{
+            Log.i(TAG,"Not in main thread",mContext);
+        }
 //        accelRaw = new AndroidWearAccelerometerRaw(mContext);
 //        SensorEventLoggerTask task = new SensorEventLoggerTask(mContext);
-        executor = Executors.newSingleThreadExecutor();
+//        executor = Executors.newSingleThreadExecutor();
 
-        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_UI, maxDelay);
+        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_UI, maxDelay,handler);
     }
 
-    class InsertHandler implements Runnable {
-        final float[] accelerometerMatrix;
-        final Date eventTime;
-        final Date receivedTime;
-        final Context rContext;
-        final long time;
-
-
-        public InsertHandler(float[] accelerometerMatrix, Date eventTime,Date receivedTime, long time,Context rContext) {
-            this.accelerometerMatrix = accelerometerMatrix;
-            this.eventTime = eventTime;
-            this.receivedTime = receivedTime;
-            this.rContext = rContext;
-            this.time = time;
-        }
-
-        public void run() {
-            String receivedTimeString = new SimpleDateFormat(mHealthTimestampFormat).format(receivedTime);
-            String eventTimeString = new SimpleDateFormat(mHealthTimestampFormat).format(eventTime);
-
-//            accelRaw.setRawx(accelerometerMatrix[0]);
-//            accelRaw.setRawy(accelerometerMatrix[1]);
-//            accelRaw.setRawz(accelerometerMatrix[2]);
-//            accelRaw.setTimestamp(time);
+//    class InsertHandler implements Runnable {
+//        final float[] accelerometerMatrix;
+//        final Date eventTime;
+//        final Date receivedTime;
+//        final Context rContext;
+//        final long time;
 //
-//            try {
-//                accelRaw.bufferedWriteTomHealthBinary(true);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//                Log.e(TAG,e.getMessage(), rContext);
-////                logger.logStackTrace(e, rContext);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                Log.e(TAG,e.getMessage(), rContext);
-////                logger.logStackTrace(e, rContext);
-//            }
-
-            String[] accEntry = {
-                    receivedTimeString,
-                    eventTimeString,
-                    Float.toString(accelerometerMatrix[0]),
-                    Float.toString(accelerometerMatrix[1]),
-                    Float.toString(accelerometerMatrix[2])
-            };
-
-            String dataDirectory = DataManager.getDirectoryData(rContext);
-            String dayDirectory = new SimpleDateFormat(dayFormat).format(receivedTime);
-            String hourDirectory = new SimpleDateFormat(hourFormat).format(receivedTime);
-            String accFile = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Acceleration.csv";
-            CSV.write(accEntry, accFile, true);
-        }
-    }
+//
+//        public InsertHandler(float[] accelerometerMatrix, Date eventTime,Date receivedTime, long time,Context rContext) {
+//            this.accelerometerMatrix = accelerometerMatrix;
+//            this.eventTime = eventTime;
+//            this.receivedTime = receivedTime;
+//            this.rContext = rContext;
+//            this.time = time;
+//        }
+//
+//        public void run() {
+//            String receivedTimeString = new SimpleDateFormat(mHealthTimestampFormat).format(receivedTime);
+//            String eventTimeString = new SimpleDateFormat(mHealthTimestampFormat).format(eventTime);
+//
+//            String[] accEntry = {
+//                    receivedTimeString,
+//                    eventTimeString,
+//                    Float.toString(accelerometerMatrix[0]),
+//                    Float.toString(accelerometerMatrix[1]),
+//                    Float.toString(accelerometerMatrix[2])
+//            };
+//
+//            String dataDirectory = DataManager.getDirectoryData(rContext);
+//            String dayDirectory = new SimpleDateFormat(dayFormat).format(receivedTime);
+//            String hourDirectory = new SimpleDateFormat(hourFormat).format(receivedTime);
+//            String accFile = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Acceleration.csv";
+//            CSV.write(accEntry, accFile, true);
+//        }
+//    }
 
 
     @Override
@@ -151,7 +177,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
         mSensorManager.flush(this);
         mSensorManager.unregisterListener(this);
         notifyServiceStop();
-        Log.i(TAG,"INSIDE ONDESTROY",mContext);
+        Log.i(TAG,"INSIDE ON DESTROY",mContext);
     }
 
     @Nullable
@@ -161,21 +187,12 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     }
 
 
+
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i(TAG,"on start command",mContext);
         mSensorManager.flush(this);
-//        boolean success = mSensorManager.flush(this);
-//
-//        if(!success){
-//            try {
-//                accelRaw.flushAndCloseBinary(true);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                Log.e(TAG, e.getMessage(), mContext);
-//            }
-//            notifyFlushFailure();
-//        }
         return Service.START_STICKY;
     }
 
@@ -184,7 +201,6 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     public void onSensorChanged(SensorEvent event) {
 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-
 
 //            SensorEventLoggerTask task = new SensorEventLoggerTask(mContext);
 //            task.execute(event);
@@ -202,42 +218,37 @@ public class AccelerationManagerService extends WocketsIntentService implements 
             dateNow = new Date();
 //            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
 
+//            timeInMillis = (new Date()).getTime()
+//                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
+
+//            dateEvent = new Date(timeInMillis);
+//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
+
+//            Runnable insertHandler = new InsertHandler(linear_accleration, dateEvent, dateNow, timeInMillis,mContext);
+//            executor.execute(insertHandler);
+
+
+
+            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
+
             timeInMillis = (new Date()).getTime()
                     + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
 
-            dateEvent = new Date(timeInMillis);
-//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
-
-            Runnable insertHandler = new InsertHandler(linear_accleration, dateEvent, dateNow, timeInMillis,mContext);
-            executor.execute(insertHandler);
+            Date date = new Date(timeInMillis);
+            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
 
 
+            String[] accEntry = {
+                    timestampStringNow,
+                    timestampString,
+                    Float.toString(event.values[0] - gravity[0]),
+                    Float.toString(event.values[1] - gravity[1]),
+                    Float.toString(event.values[2] - gravity[2])
+            };
 
-
-
-
-
-//            Date dateNow = new Date();
-//            String timestampStringNow = new SimpleDateFormat(mHealthTimestampFormat).format(dateNow);
-//
-//            timeInMillis = (new Date()).getTime()
-//                    + (event.timestamp - SystemClock.elapsedRealtimeNanos()) / 1000000L;
-//
-//            Date date = new Date(timeInMillis);
-//            String timestampString = new SimpleDateFormat(mHealthTimestampFormat).format(date);
-//
-//
-//            String[] accEntry = {
-//                    timestampStringNow,
-//                    timestampString,
-//                    Float.toString(event.values[0] - gravity[0]),
-//                    Float.toString(event.values[1] - gravity[1]),
-//                    Float.toString(event.values[2] - gravity[2])
-//            };
-//
-//            String dataDirectory = DataManager.getDirectoryData(mContext);
-//            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
-//            CSV.write(accEntry, accFile, true);
+            String dataDirectory = DataManager.getDirectoryData(mContext);
+            String accFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Acceleration.csv";
+            CSV.write(accEntry, accFile, true);
 
         }
 

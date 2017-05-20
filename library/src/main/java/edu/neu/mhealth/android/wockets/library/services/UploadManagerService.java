@@ -1,6 +1,8 @@
 package edu.neu.mhealth.android.wockets.library.services;
 
+import android.app.IntentService;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Looper;
 
@@ -41,7 +43,7 @@ import edu.neu.android.wocketslib.mhealthformat.utils.ByteUtils;
 /**
  * @author Dharam Maniar
  */
-public class UploadManagerService extends WocketsIntentService {
+public class UploadManagerService extends IntentService {
 
     private static final String TAG = "UploadManagerService";
 
@@ -51,30 +53,39 @@ public class UploadManagerService extends WocketsIntentService {
     private boolean isZipTransferFinished;
     private ExecutorService executor;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mContext = getApplicationContext();
-        Log.i(TAG, "Inside onCreate", getApplicationContext());
+//    @Override
+//    public void onCreate() {
+//        super.onCreate();
+//        mContext = getApplicationContext();
+//        Log.i(TAG, "Inside onCreate", getApplicationContext());
+//        initialize();
+//    }
 
-//        if (Looper.myLooper() == Looper.getMainLooper()){
-//            Log.i(TAG,"In main thread",mContext);
-//        }
-        initialize();
+    public UploadManagerService(){
+        super("UploadManagerService");
     }
 
-    class ZipHandler implements Runnable {
-        final String pathToZip;
+    @Override
+    protected void onHandleIntent(Intent intent) {
+
+        mContext = getApplicationContext();
+        Log.i(TAG, "Inside onHandle Intent", getApplicationContext());
+        initialize();
+
+    }
+
+    class UploadHandler implements Runnable {
+        final String pathToUpload;
         final Context rContext;
 
 
-        public ZipHandler(String pathToZip, Context rContext) {
-            this.pathToZip = pathToZip;
+        public UploadHandler(String pathToUpload, Context rContext) {
+            this.pathToUpload = pathToUpload;
             this.rContext = rContext;
         }
 
         public void run() {
-            Zipper.zipFolderWithEncryption(pathToZip, rContext);
+            UploadManager.uploadFile(pathToUpload, rContext);
         }
     }
 
@@ -125,14 +136,14 @@ public class UploadManagerService extends WocketsIntentService {
         // Zip required data files
         processDataFiles();
 
-        executor.shutdown();
-
-
-        if(!executor.isTerminated()){
-            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
-            return;
-        }
-        Log.i(TAG,"Moving on to uploads",mContext);
+//        executor.shutdown();
+//
+//
+//        if(!executor.isTerminated()){
+//            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
+//            return;
+//        }
+//        Log.i(TAG,"Moving on to uploads",mContext);
 
 
         if (!ConnectivityManager.isInternetConnected(mContext)) {
@@ -163,6 +174,11 @@ public class UploadManagerService extends WocketsIntentService {
 
     private void processLogs() {
         Log.i(TAG, "Processing Logs Phone", mContext);
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Log.i(TAG,"In main thread",mContext);
+        }else{
+            Log.i(TAG,"Not in main thread",mContext);
+        }
         String logDirectory = DataManager.getDirectoryLogs(mContext);
         File logFiles = new File(logDirectory);
         if (!logFiles.exists()) {
@@ -222,6 +238,12 @@ public class UploadManagerService extends WocketsIntentService {
                 hourDirectory.delete();
                 continue;
             }
+            if(hourDirectory.isFile()){
+                Log.d(TAG, "File instead of folder. Deleting: " + hourDirectory.getAbsolutePath());
+                hourDirectory.delete();
+                continue;
+            }
+
             Log.i(TAG, "Processing Logs for hour - " + hourDirectory.getAbsolutePath(), mContext);
             Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
         }
@@ -321,12 +343,22 @@ public class UploadManagerService extends WocketsIntentService {
                 Log.d(TAG, hourDirectory.getAbsolutePath() + " - Still writing");
                 continue;
             }
+
+            if(hourDirectory.isFile()){
+                Log.d(TAG, "File instead of folder. Deleting: " + hourDirectory.getAbsolutePath());
+                hourDirectory.delete();
+                continue;
+            }
+
+
+            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
+
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
 //            ZipTask task = new ZipTask(mContext);
 //            task.execute(hourDirectory.getAbsolutePath());
 
-            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
-            executor.execute(zipHandler);
+//            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
+//            executor.execute(zipHandler);
         }
 
 
@@ -375,8 +407,14 @@ public class UploadManagerService extends WocketsIntentService {
                         continue;
                     }
 
+                    if (logHour.isDirectory()){
+                        continue;
+                    }
+
                     Log.i(TAG, "Calling UploadManager.uploadFile on - " + logHour.getAbsolutePath(), mContext);
-                    UploadManager.uploadFile(logHour.getAbsolutePath(), mContext);
+                    Runnable uploadHandler = new UploadHandler(logHour.getAbsolutePath(), mContext);
+                    executor.execute(uploadHandler);
+//                    UploadManager.uploadFile(logHour.getAbsolutePath(), mContext);
                 }
             } else {
                 // We only want to upload zip files
@@ -389,7 +427,10 @@ public class UploadManagerService extends WocketsIntentService {
                 }
 
                 Log.i(TAG, "Calling UploadManager.uploadFile on - " + logDate.getAbsolutePath(), mContext);
-                UploadManager.uploadFile(logDate.getAbsolutePath(), mContext);
+
+                Runnable uploadHandler = new UploadHandler(logDate.getAbsolutePath(), mContext);
+                executor.execute(uploadHandler);
+//                UploadManager.uploadFile(logDate.getAbsolutePath(), mContext);
             }
         }
 
@@ -500,8 +541,15 @@ public class UploadManagerService extends WocketsIntentService {
                         continue;
                     }
 
+                    if(dataHour.isDirectory()){
+                        continue;
+                    }
+
                     Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataHour.getAbsolutePath(), mContext);
-                    UploadManager.uploadFile(dataHour.getAbsolutePath(), mContext);
+                    Runnable uploadHandler = new UploadHandler(dataHour.getAbsolutePath(), mContext);
+                    executor.execute(uploadHandler);
+
+//                    UploadManager.uploadFile(dataHour.getAbsolutePath(), mContext);
                 }
             } else {
                 // We only want to upload zip files
@@ -514,7 +562,10 @@ public class UploadManagerService extends WocketsIntentService {
                 }
 
                 Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataDate.getAbsolutePath(), mContext);
-                UploadManager.uploadFile(dataDate.getAbsolutePath(), mContext);
+                Runnable uploadHandler = new UploadHandler(dataDate.getAbsolutePath(), mContext);
+                executor.execute(uploadHandler);
+
+//                UploadManager.uploadFile(dataDate.getAbsolutePath(), mContext);
             }
         }
 
@@ -567,6 +618,8 @@ public class UploadManagerService extends WocketsIntentService {
         super.onDestroy();
         Log.i(TAG, "Inside onDestroy", mContext);
     }
+
+
 
     public File[] finder( String dirName){
         File dir = new File(dirName);

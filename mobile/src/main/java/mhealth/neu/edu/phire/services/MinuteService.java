@@ -1,10 +1,12 @@
 package mhealth.neu.edu.phire.services;
 
+import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Looper;
 
 import com.google.android.gms.location.ActivityRecognition;
 
@@ -36,24 +38,37 @@ import mhealth.neu.edu.phire.services.AccelerationManagerService;
 /**
  * @author Binod Thapa Chhetry
  */
-public class MinuteService extends WocketsIntentService {
+public class MinuteService extends IntentService {
 
     public final static String TAG = "MinuteService";
 
     private Context mContext;
 
-    @Override
-    protected void onHandleIntent(Intent intent) {}
+    public MinuteService() {
+        super("MinuteService");
+    }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.i(TAG, "Inside onCreate", getApplicationContext());
+    protected void onHandleIntent(Intent intent) {
+        mContext = getApplicationContext();
+        Log.i(TAG, "Inside onHandleIntent", mContext);
         initialize();
     }
 
+//    @Override
+//    public void onCreate() {
+//        super.onCreate();
+//        Log.i(TAG, "Inside onCreate", getApplicationContext());
+//        initialize();
+//    }
+
     private void initialize() {
-        mContext = getApplicationContext();
+//        mContext = getApplicationContext();
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Log.i(TAG,"In main thread",mContext);
+        }else{
+            Log.i(TAG,"Not in main thread",mContext);
+        }
 
         boolean isStudyFinished = DataManager.isStudyFinished(mContext);
 
@@ -216,17 +231,16 @@ public class MinuteService extends WocketsIntentService {
 
         Log.i(TAG, "Logging Acceleration", mContext);
         startService(new Intent(this, AccelerationManagerService.class));
-//        startService(new Intent(this, SensorManagerService.class));
 
         Log.i(TAG, "Starting SurveyManagerService", mContext);
         startService(new Intent(this, SurveyManagerService.class));
 
         Log.i(TAG, "Starting PanobikeSensorService", mContext);
         startService(new Intent(this, PanobikeSensorService.class));
-//
+
         Log.i(TAG, "Logging Location", mContext);
         startService(new Intent(this, LocationManagerService.class));
-//
+
         Log.i(TAG, "Starting UploadManagerService", mContext);
         startService(new Intent(this, UploadManagerService.class));
 

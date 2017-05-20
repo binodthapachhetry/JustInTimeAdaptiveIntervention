@@ -1,7 +1,9 @@
 package mhealth.neu.edu.phire.services;
 
+import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Looper;
 
 import java.util.Calendar;
 import java.util.List;
@@ -25,21 +27,52 @@ import mhealth.neu.edu.phire.TEMPLEConstants;
 /**
  * @author Dharam Maniar
  */
-public class SurveyManagerService extends WocketsIntentService {
+public class SurveyManagerService extends IntentService {
 
     private static final String TAG = "SurveyManagerService";
 
     private Context mContext;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mContext = getApplicationContext();
-        Log.i(TAG, "Inside onCreate", mContext);
-        processSurvey();
+    public SurveyManagerService() {
+        super("SurveyManagerService");
     }
 
+//    @Override
+//    public void onCreate() {
+//        super.onCreate();
+//        mContext = getApplicationContext();
+//        Log.i(TAG, "Inside onCreate", mContext);
+//        processSurvey();
+//    }
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+        mContext = getApplicationContext();
+        Log.i(TAG, "Inside on Handle Intent", mContext);
+        processSurvey();
+
+    }
+
+
+//    public SurveyManagerService(){
+//        super("SurveyManagerService");
+//    }
+//    @Override
+//    protected void onHandleIntent(Intent intent) {
+//        mContext = getApplicationContext();
+//        Log.i(TAG, "Inside onCreate", mContext);
+//        processSurvey();
+//
+//    }
+
     private void processSurvey() {
+
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Log.i(TAG,"In main thread",mContext);
+        }else{
+            Log.i(TAG,"Not in main thread",mContext);
+        }
+
         Survey survey = SurveyManager.getSelectedSurvey(mContext);
         if (survey == null) {
             return;
@@ -264,4 +297,7 @@ public class SurveyManagerService extends WocketsIntentService {
         super.onDestroy();
         Log.i(TAG, "Inside onDestroy", mContext);
     }
+
+
+
 }
