@@ -515,7 +515,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         }
 
         logger.i("Number of mean crossing is half " + Integer.toString(numCrossing), getApplicationContext());
-        int numCycles = Math.round(numCrossing/2);
+        int numCycles = Math.round(numCrossing);
         return numCycles;
     }
 

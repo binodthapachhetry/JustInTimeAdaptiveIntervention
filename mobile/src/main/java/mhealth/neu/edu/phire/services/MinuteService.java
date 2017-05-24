@@ -38,7 +38,7 @@ import mhealth.neu.edu.phire.services.AccelerationManagerService;
 /**
  * @author Binod Thapa Chhetry
  */
-public class MinuteService extends IntentService {
+public class MinuteService extends WocketsIntentService {
 
     public final static String TAG = "MinuteService";
 
@@ -48,19 +48,20 @@ public class MinuteService extends IntentService {
         super("MinuteService");
     }
 
-    @Override
-    protected void onHandleIntent(Intent intent) {
-        mContext = getApplicationContext();
-        Log.i(TAG, "Inside onHandleIntent", mContext);
-        initialize();
-    }
-
 //    @Override
-//    public void onCreate() {
-//        super.onCreate();
-//        Log.i(TAG, "Inside onCreate", getApplicationContext());
+//    protected void onHandleIntent(Intent intent) {
+//        mContext = getApplicationContext();
+//        Log.i(TAG, "Inside onHandleIntent", mContext);
 //        initialize();
 //    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mContext = getApplicationContext();
+        Log.i(TAG, "Inside onCreate", mContext);
+        initialize();
+    }
 
     private void initialize() {
 //        mContext = getApplicationContext();
@@ -226,8 +227,8 @@ public class MinuteService extends IntentService {
         Log.i(TAG, "Fetching latest study data", mContext);
         StudyManager.getInstance().fetchLatestStudyData(mContext);
 
-//        Log.i(TAG, "Starting ActivityRecognition", mContext);
-//        startService(new Intent(this, ActivityRecognitionService.class));
+        Log.i(TAG, "Starting ActivityRecognition", mContext);
+        startService(new Intent(this, ActivityRecognitionService.class));
 
         Log.i(TAG, "Logging Acceleration", mContext);
         startService(new Intent(this, AccelerationManagerService.class));

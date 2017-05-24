@@ -69,7 +69,7 @@ public class UploadManagerService extends IntentService {
     protected void onHandleIntent(Intent intent) {
 
         mContext = getApplicationContext();
-        Log.i(TAG, "Inside onHandle Intent", getApplicationContext());
+        Log.i(TAG, "Inside onHandle Intent", mContext);
         initialize();
 
     }
@@ -86,6 +86,22 @@ public class UploadManagerService extends IntentService {
 
         public void run() {
             UploadManager.uploadFile(pathToUpload, rContext);
+        }
+    }
+
+
+    class ZipHandler implements Runnable {
+        final String pathToZip;
+        final Context rContext;
+
+
+        public ZipHandler(String pathToZip, Context rContext) {
+            this.pathToZip = pathToZip;
+            this.rContext = rContext;
+        }
+
+        public void run() {
+            Zipper.zipFolderWithEncryption(pathToZip, rContext);
         }
     }
 
@@ -136,14 +152,14 @@ public class UploadManagerService extends IntentService {
         // Zip required data files
         processDataFiles();
 
-//        executor.shutdown();
-//
-//
-//        if(!executor.isTerminated()){
-//            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
-//            return;
-//        }
-//        Log.i(TAG,"Moving on to uploads",mContext);
+        executor.shutdown();
+
+
+        if(!executor.isTerminated()){
+            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
+            return;
+        }
+        Log.i(TAG,"Moving on to uploads",mContext);
 
 
         if (!ConnectivityManager.isInternetConnected(mContext)) {
@@ -159,6 +175,7 @@ public class UploadManagerService extends IntentService {
 //        }
 
 
+        executor = Executors.newSingleThreadExecutor();
         // stuff related to phone
         // Upload required log files
         processLogUploads();
@@ -351,14 +368,14 @@ public class UploadManagerService extends IntentService {
             }
 
 
-            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
+//            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
 
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
 //            ZipTask task = new ZipTask(mContext);
 //            task.execute(hourDirectory.getAbsolutePath());
 
-//            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
-//            executor.execute(zipHandler);
+            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
+            executor.execute(zipHandler);
         }
 
 

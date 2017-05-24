@@ -76,6 +76,22 @@ public class WatchUploadManagerService extends IntentService {
         }
     }
 
+    class ZipHandler implements Runnable {
+        final String pathToZip;
+        final Context rContext;
+
+
+        public ZipHandler(String pathToZip, Context rContext) {
+            this.pathToZip = pathToZip;
+            this.rContext = rContext;
+        }
+
+        public void run() {
+            Zipper.zipFolderWithEncryption(pathToZip, rContext);
+        }
+    }
+
+
 //    @Override
 //    public void onCreate() {
 //        super.onCreate();
@@ -172,14 +188,14 @@ public class WatchUploadManagerService extends IntentService {
 
         processDataFiles();
 
-//        executor.shutdown();
+        executor.shutdown();
 
 
-//        if(!executor.isTerminated()){
-//            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
-//            return;
-//        }
-//        Log.i(TAG,"Moving on to uploads",mContext);
+        if(!executor.isTerminated()){
+            Log.i(TAG,"Executor service zipping file is not finished, so stopping the service",mContext);
+            return;
+        }
+        Log.i(TAG,"Moving on to uploads",mContext);
 
         // Zip required data files
 //        if(DataManager.isZipTransferFinished(mContext)) {
@@ -191,6 +207,8 @@ public class WatchUploadManagerService extends IntentService {
             Log.i(TAG, "Internet is not connected. Not trying to upload files.", mContext);
             return;
         }
+
+        executor = Executors.newSingleThreadExecutor();
 
         // stuff related to phone
         // Upload required log files
@@ -297,13 +315,13 @@ public class WatchUploadManagerService extends IntentService {
             }
 
             Log.i(TAG, "Processing Logs for hour - " + hourDirectory.getAbsolutePath(), mContext);
-            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
+//            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
 //            Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);
 //            WatchZipTask task = new WatchZipTask(mContext);
 //            task.execute(hourDirectory.getAbsolutePath());
 
-//            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
-//            executor.execute(zipHandler);
+            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
+            executor.execute(zipHandler);
         }
     }
 

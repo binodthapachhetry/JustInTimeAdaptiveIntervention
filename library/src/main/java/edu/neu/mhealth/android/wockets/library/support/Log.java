@@ -15,6 +15,10 @@ import edu.neu.mhealth.android.wockets.library.user.UserManager;
  */
 
 public class Log {
+
+    public static final String mHealthTimestampFormat = "yyyy-MM-dd HH:mm:ss.SSS";
+    public static final String dayFormat = "yyyy-MM-dd";
+    public static final String hourFormat = "HH-z";
     /**
      * Write log entry to the file
      *
@@ -25,9 +29,10 @@ public class Log {
     private static void writeLogToFile(String logType, String TAG, String message, Context mContext) {
 	    String[] logEntry = {DateTime.getCurrentTimestampString(), logType, UserManager.getUserEmail(), TAG, message};
 	    String logDirectory = DataManager.getDirectoryLogs(mContext);
-	    String logFileMaster = logDirectory  + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/master.log.csv";
+
+//	    String logFileMaster = logDirectory  + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/master.log.csv";
         String logFileTAG = logDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + TAG +  ".log.csv";
-        CSV.write(logEntry, logFileMaster, true);
+//        CSV.write(logEntry, logFileMaster, true);
 	    CSV.write(logEntry, logFileTAG, true);
     }
 
@@ -44,9 +49,9 @@ public class Log {
 
 	    String logDirectory = DataManager.getDirectoryLogs(mContext);
 
-	    String logFileMaster = logDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/master.err.log";
+//	    String logFileMaster = logDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/master.err.log";
 	    String logFileTAG = logDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + TAG +  ".err.log";
-	    CSV.write(logEntry, logFileMaster, true);
+//	    CSV.write(logEntry, logFileMaster, true);
 	    CSV.write(logEntry, logFileTAG, true);
     }
 
