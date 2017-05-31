@@ -229,6 +229,9 @@
 
         <service
             android:name=".services.ActivityRecognitionService"
+            android:exported="false" />
+        <service
+            android:name=".services.SendMessageToWatch"
             android:exported="false"></service>
     </application>
 

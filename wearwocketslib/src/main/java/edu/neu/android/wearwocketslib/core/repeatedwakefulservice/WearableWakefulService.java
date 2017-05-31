@@ -188,6 +188,7 @@ public class WearableWakefulService extends IntentService {
 
     @Override
     public void onCreate() {
+        mContext = getApplicationContext();
         logger.i("On Create Wakeful Service", getApplicationContext());
         startServiceTime = System.currentTimeMillis();
         Globals.init();
@@ -216,6 +217,10 @@ public class WearableWakefulService extends IntentService {
         }
 
         sendFeatureFile();
+
+        logger.i("starting always on service using intent",mContext);
+        Intent alwaysOnServiceIntent = new Intent(mContext,AlwaysOnService.class);
+        mContext.startService(alwaysOnServiceIntent);
 
         // Data delete operation
         deleteCheck();
@@ -878,7 +883,7 @@ public class WearableWakefulService extends IntentService {
         super.onDestroy();
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mTransferResultReceiver);
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mFlushResultReceiver);
-        logger.close();
+//        logger.close();
     }
 
     private boolean decodeBinarySensorFile(byte[] b, String path, String fileName){

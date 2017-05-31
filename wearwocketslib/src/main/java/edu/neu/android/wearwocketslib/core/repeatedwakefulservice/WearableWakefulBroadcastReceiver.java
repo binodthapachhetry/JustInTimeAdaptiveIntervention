@@ -26,6 +26,8 @@ public class WearableWakefulBroadcastReceiver extends WakefulBroadcastReceiver{
     private WearableWakefulBroadcastAlarm alarm;
     private String fromWhere;
 
+
+
     private Logger logger = new Logger(TAG);
 
     @Override
@@ -61,6 +63,7 @@ public class WearableWakefulBroadcastReceiver extends WakefulBroadcastReceiver{
         }
 
         // Start the service, keeping the device awake while it is launching.
+
         startRepeatedWakefulService(intent);
 
         startDeamonService();
@@ -124,3 +127,5 @@ public class WearableWakefulBroadcastReceiver extends WakefulBroadcastReceiver{
         SharedPrefs.setInt(WearableUncaughtExceptionHandler.KEY_CRASH_RETRY_COUNT, 0, mContext);
     }
 }
+
+

@@ -5,8 +5,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.widget.DatePicker;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 
 import java.util.List;
 import java.util.Timer;
@@ -39,10 +45,11 @@ import mhealth.neu.edu.phire.panobike.SelectSensorActivity;
 /**
  * @author Binod Thapa Chhetry
  */
-public class SetupActivity extends WocketsActivity {
+public class SetupActivity extends WocketsActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = "SetupActivity";
     private Context mContext;
+    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +90,25 @@ public class SetupActivity extends WocketsActivity {
         Log.i(TAG,"Force crash to test reporting on google developer console",mContext);
         throw new RuntimeException("This is a forced crash");
     }
+
+    @OnClick(R.id.activity_connect_gapicli)
+    public void onClickForGAC(){
+        Log.i(TAG,"Connecting to Google API Client",mContext);
+        if (mGoogleApiClient == null) {
+            Log.i(TAG, "Inside connecting to Location Services API", mContext);
+            mGoogleApiClient = new GoogleApiClient.Builder(mContext)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API)
+                    .build();
+            mGoogleApiClient.connect();
+            Log.i(TAG, "Trying to connect", mContext);
+        }
+
+
+    }
+
+
 
     @OnClick(R.id.activity_select_panobike_sensor)
     public void onClickSelectPanoBikeSensor(){
@@ -311,6 +337,26 @@ public class SetupActivity extends WocketsActivity {
         ToastManager.showShortToast(mContext, "Uploading pending files now");
         DataManager.setStudyFinished(mContext);
         startService(new Intent(this, UploadManagerService.class));
+    }
+
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        Log.i(TAG,"INSIDE ONCONNECTED",mContext);
+//        mGoogleApiClient.disconnect();
+//        Log.i(TAG,"GOOGLE API CLIENT DISCONNECTED",mContext);
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        Log.i(TAG,"INSIDE ONCONNECTION SUSPENDED",mContext);
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.i(TAG,"INSIDE ONCONNECTION FAILED",mContext);
+
     }
 }
 

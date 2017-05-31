@@ -17,6 +17,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
@@ -36,27 +38,25 @@ import edu.neu.mhealth.android.wockets.library.support.Log;
 public class LocationManagerService extends IntentService implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient mGoogleApiClient;
-
     private Context mContext;
-
     public final static String TAG = "LocationManagerService";
-    private BluetoothAdapter mBluetoothAdapter;
 
 
 //    @Override
 //    public void onCreate() {
 //        super.onCreate();
-//        // Create an instance of GoogleAPIClient.
 //        mContext = getApplicationContext();
 //        Log.i(TAG,"INSIDE ONCREATE",mContext);
 //
 //        if (mGoogleApiClient == null) {
-//            mGoogleApiClient = new GoogleApiClient.Builder(this)
+//            Log.i(TAG, "Inside connecting to Location Services API", mContext);
+//            mGoogleApiClient = new GoogleApiClient.Builder(mContext)
 //                    .addConnectionCallbacks(this)
 //                    .addOnConnectionFailedListener(this)
 //                    .addApi(LocationServices.API)
 //                    .build();
 //            mGoogleApiClient.connect();
+//            Log.i(TAG, "Trying to connect", mContext);
 //        }
 //    }
 
@@ -67,8 +67,6 @@ public class LocationManagerService extends IntentService implements GoogleApiCl
 
     @Override
     protected void onHandleIntent(Intent intent) {
-
-        // Create an instance of GoogleAPIClient.
         mContext = getApplicationContext();
         Log.i(TAG,"INSIDE ONHANDLE INTENT",mContext);
 
@@ -83,17 +81,18 @@ public class LocationManagerService extends IntentService implements GoogleApiCl
 
     }
 
-    @Override
-    public void onDestroy() {
-        mGoogleApiClient.disconnect();
-        Log.i(TAG,"INSIDE ONDESTROY",mContext);
-        super.onDestroy();
-    }
+//    @Override
+//    public void onDestroy() {
+//        mGoogleApiClient.disconnect();
+//        Log.i(TAG,"INSIDE ONDESTROY",mContext);
+//        super.onDestroy();
+//    }
 
 
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        Log.i(TAG,"Inside onConnected!",mContext);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 //            ToastManager.showShortToast(mContext, "Please enable location service for the app to function properly.");
@@ -121,6 +120,7 @@ public class LocationManagerService extends IntentService implements GoogleApiCl
 
         Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
+            Log.i(TAG,"Writing location!",mContext);
             String dataDirectory = DataManager.getDirectoryData(mContext);
             String gpsFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "GPS.csv";
 
@@ -153,8 +153,9 @@ public class LocationManagerService extends IntentService implements GoogleApiCl
     }
 
     @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+    public void onConnectionFailed(ConnectionResult connectionResult) {
         Log.i(TAG,"INSIDE ONCONNECTION FAILED",mContext);
         stopSelf();
     }
+
 }

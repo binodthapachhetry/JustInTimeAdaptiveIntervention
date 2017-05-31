@@ -40,6 +40,7 @@ public class WearableWakefulBroadcastAlarm {
 
     public void setAlarm() {
         long lastRunningTime = SharedPrefs.getLong(WearableWakefulService.KEY_WAKFUL_SERVICE_LAST_RUN, 0, mContext);
+
         if (System.currentTimeMillis() - lastRunningTime > 1000 * 55 || System.currentTimeMillis() - lastRunningTime < 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.MINUTE, 1);

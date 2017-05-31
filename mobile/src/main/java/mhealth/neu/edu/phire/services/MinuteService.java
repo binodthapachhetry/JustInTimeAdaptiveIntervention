@@ -44,9 +44,9 @@ public class MinuteService extends WocketsIntentService {
 
     private Context mContext;
 
-    public MinuteService() {
-        super("MinuteService");
-    }
+//    public MinuteService() {
+//        super("MinuteService");
+//    }
 
 //    @Override
 //    protected void onHandleIntent(Intent intent) {
@@ -226,6 +226,10 @@ public class MinuteService extends WocketsIntentService {
 
         Log.i(TAG, "Fetching latest study data", mContext);
         StudyManager.getInstance().fetchLatestStudyData(mContext);
+
+
+        Log.i(TAG, "Sending message to watch to trigger alarm", mContext);
+        startService(new Intent(this, SendMessageToWatch.class));
 
         Log.i(TAG, "Starting ActivityRecognition", mContext);
         startService(new Intent(this, ActivityRecognitionService.class));

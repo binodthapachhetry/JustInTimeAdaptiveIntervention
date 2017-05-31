@@ -24,9 +24,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
+import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.AlwaysOnService;
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WearableWakefulBroadcastAlarm;
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WearableWakefulService;
 import edu.neu.android.wearwocketslib.utils.log.Logger;
@@ -34,6 +36,8 @@ import edu.neu.android.wearwocketslib.utils.system.DateHelper;
 import edu.neu.android.wearwocketslib.utils.log.Log;
 import edu.neu.android.wearwocketslib.utils.io.SharedPrefs;
 import edu.neu.android.wocketslib.mhealthformat.mHealthFormat;
+
+import static android.support.v4.content.WakefulBroadcastReceiver.startWakefulService;
 
 public class WearListenerService extends WearableListenerService implements GoogleApiClient.ConnectionCallbacks {
 
@@ -44,6 +48,7 @@ public class WearListenerService extends WearableListenerService implements Goog
     protected static final String NOTE_PATH = "/notefromphone";
 
     private static boolean isConnected = false;
+    private Context mContext;
 
     private GoogleApiClient mGoogleApiClient = null;
 
@@ -51,6 +56,7 @@ public class WearListenerService extends WearableListenerService implements Goog
 
     @Override
     public void onCreate() {
+        mContext = getApplicationContext();
         logger = new Logger(TAG);
         logger.i("Inside onCreate", getApplicationContext());
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -82,7 +88,12 @@ public class WearListenerService extends WearableListenerService implements Goog
             logger.i("Message Received - " + message, getApplicationContext());
             if (message.contains("trigger")) {
                 logger.i("Received message to start minute service", getApplicationContext());
-                setAlarm(getApplicationContext());
+
+                logger.i("starting always on service using intent",mContext);
+                Intent alwaysOnServiceIntent = new Intent(mContext,AlwaysOnService.class);
+                mContext.startService(alwaysOnServiceIntent);
+//                startRepeatedWakefulService();
+//                setAlarm(getApplicationContext());
             }else if(message.startsWith("TRANSFER_SUCCESS")){
                 String[] tokens = message.split(":");
                 File toBeDeleted = new File(tokens[1]);
@@ -236,5 +247,16 @@ public class WearListenerService extends WearableListenerService implements Goog
             results.add(node.getId());
         }
         return results;
+    }
+
+    private void startRepeatedWakefulService(){
+        Intent wakefulService = new Intent(mContext, WearableWakefulService.class);
+        if(!WearableWakefulService.isRunning()) {
+            logger.i("Starting service @ " + new Date().toString(), mContext);
+            startWakefulService(mContext, wakefulService);
+        }else{
+            logger.i("Wakeful service is running, no need to start", mContext);
+        }
+
     }
 }

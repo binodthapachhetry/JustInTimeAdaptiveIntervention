@@ -21,6 +21,8 @@
     <string name="scan_for_devices">Scan For Device</string>
     <string name="force_app_crash">Force App Crash</string>
 
+    <string name="connect">Googl API CLIENT</string>
+
 
 </resources>
 

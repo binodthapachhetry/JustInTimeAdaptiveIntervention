@@ -8,8 +8,8 @@ android {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 29
-        versionName "1.28"
+        versionCode 31
+        versionName "1.30"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -29,6 +29,7 @@ dependencies {
     compile project(':wocketslib-mhealthformat')
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.jakewharton:butterknife:8.2.1'
+    compile 'com.google.android.gms:play-services-wearable:9.6.1'
     compile 'com.android.support:appcompat-v7:24.2.1'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile files('libs/weka.jar')
