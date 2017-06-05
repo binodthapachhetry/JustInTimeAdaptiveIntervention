@@ -268,12 +268,12 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/layout/mr_controller_material_dialog_b.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/abc_alert_dialog_button_bar_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_alert_dialog_button_bar_material.xml"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/design_layout_tab_text.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/layout/design_menu_item_action_area.xml",

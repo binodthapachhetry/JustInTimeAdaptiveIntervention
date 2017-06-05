@@ -15,6 +15,8 @@ import com.google.android.gms.wearable.MessageApi;
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.Wearable;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -133,12 +135,20 @@ public class WearableMessageTransferService extends Service implements GoogleApi
 //                Log.i(TAG,"Phone is in connection!", getApplicationContext());
                 String phoneNode = pickBestNodeId(nodes);
                 sendMessage(phoneNode);
-                SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
-                if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
-                    WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
-                    logger.i("Cancel lost connection notification", getApplicationContext());
-//                    Log.i(TAG,"Cancel lost connection notification", getApplicationContext());
-                }
+//                SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+//
+//                long lastConnection = SharedPrefs.getLong(edu.neu.android.wearwocketslib.Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+//
+//                Date date = new Date(lastConnection);
+//                SimpleDateFormat df2 = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
+//                String dateText = df2.format(date);
+//                logger.i("Last phone connected time was: " + dateText, getApplicationContext());
+
+//                if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
+//                    WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
+//                    logger.i("Cancel lost connection notification", getApplicationContext());
+////                    Log.i(TAG,"Cancel lost connection notification", getApplicationContext());
+//                }
             }
 
             @Override

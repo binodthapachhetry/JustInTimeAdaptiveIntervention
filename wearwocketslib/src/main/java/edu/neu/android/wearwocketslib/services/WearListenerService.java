@@ -28,9 +28,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
+import edu.neu.android.wearwocketslib.Globals;
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.AlwaysOnService;
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WearableWakefulBroadcastAlarm;
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WearableWakefulService;
+import edu.neu.android.wearwocketslib.notification.LostConnectionWearableNotification;
+import edu.neu.android.wearwocketslib.notification.WearableNotification;
 import edu.neu.android.wearwocketslib.utils.log.Logger;
 import edu.neu.android.wearwocketslib.utils.system.DateHelper;
 import edu.neu.android.wearwocketslib.utils.log.Log;
@@ -83,11 +86,22 @@ public class WearListenerService extends WearableListenerService implements Goog
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         logger.i("Inside onMessageReceived: " + messageEvent.getPath(), getApplicationContext());
+        logger.i("Phone is in connection(from onMessageReceived)!",getApplicationContext());
+        SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+
+        if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
+            WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
+            logger.i("Cancel lost connection notification", getApplicationContext());
+        }
+
+
         if(messageEvent.getPath().equals(NOTE_PATH)) {
             String message = new String(messageEvent.getData());
             logger.i("Message Received - " + message, getApplicationContext());
             if (message.contains("trigger")) {
                 logger.i("Received message to start minute service", getApplicationContext());
+//                logger.i("Phone is in connection(from onMessageReceived)!",getApplicationContext());
+//                SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
 
                 logger.i("starting always on service using intent",mContext);
                 Intent alwaysOnServiceIntent = new Intent(mContext,AlwaysOnService.class);
@@ -153,6 +167,10 @@ public class WearListenerService extends WearableListenerService implements Goog
         logger.i("Inside onPeerConnected", getApplicationContext());
         logger.i("Node Connected - " + node.getDisplayName(), getApplicationContext());
         isConnected = true;
+        if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
+            WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
+            logger.i("Cancel lost connection notification", getApplicationContext());
+        }
     }
 
     @Override
@@ -160,11 +178,15 @@ public class WearListenerService extends WearableListenerService implements Goog
         logger.i("Inside onPeerDisconnected", getApplicationContext());
         logger.i("Node Disconnected - " + node.getDisplayName(), getApplicationContext());
         isConnected = false;
+//        LostConnectionWearableNotification notification = new LostConnectionWearableNotification("PHIRE: Connection lost", "Please check phone/watch connection", R.drawable.ic_launcher, true, WearableNotification.LOST_CONNECTION_NOTIFICATION, mContext);
+//        notification.show();
     }
 
     @Override
     public void onDataChanged(DataEventBuffer dataEventBuffer) {
         logger.i("Inside onDataChanged", getApplicationContext());
+//        logger.i("Phone is in connection(from onDataChanged)!",getApplicationContext());
+//        SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
         final List<DataEvent> events = FreezableUtils.freezeIterable(dataEventBuffer);
         dataEventBuffer.close();
         for (DataEvent event : events) {
@@ -230,7 +252,8 @@ public class WearListenerService extends WearableListenerService implements Goog
             Collection<String> nodes = getNodes();
             if(nodes.size() > 0 && !WearListenerService.isConnected()){
                 WearListenerService.setConnection(true);
-                logger.i("Phone is in connection!",getApplicationContext());
+//                logger.i("Phone is in connection(from checkConnectionTask)!",getApplicationContext());
+//                SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
             }else if(nodes.size() == 0 && WearListenerService.isConnected()){
                 WearListenerService.setConnection(false);
                 logger.i("Phone is not in connection!", getApplicationContext());

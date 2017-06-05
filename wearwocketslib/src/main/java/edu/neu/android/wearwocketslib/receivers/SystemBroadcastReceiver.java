@@ -18,7 +18,8 @@ public class SystemBroadcastReceiver extends WakefulBroadcastReceiver {
     private Logger logger = null;
 
     @Override
-    public void onReceive(Context mContext, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
+        mContext = context;
         logger = new Logger(TAG);
 
         logger.i("stating minute service using intent",mContext);

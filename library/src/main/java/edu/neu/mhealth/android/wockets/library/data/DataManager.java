@@ -81,6 +81,7 @@ public class DataManager {
 
     //--------------------------------------------------------------------------------------------//
 
+
     private static final String ACTIVE_PROMPT_KEY = "ACTIVE_PROMPT_KEY";
 
     public static String getActivePromptKey(Context context) {
@@ -105,6 +106,17 @@ public class DataManager {
 
     //--------------------------------------------------------------------------------------------//
 
+    private static final String LAST_AR_WINDOW_STOP_TIME = "LAST_AR_WINDOW_STOP_TIME";
+
+    public static long getLastARwindowStopTime(Context context) {
+        return SharedPrefManager.getLong(LAST_AR_WINDOW_STOP_TIME, -1, context);
+    }
+
+    public static void setLastARwindowStopTime(Context context, long stopTime) {
+        SharedPrefManager.setLong(LAST_AR_WINDOW_STOP_TIME, stopTime, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
     private static final String IS_PROMPT_COMPLETE = "IS_PROMPT_COMPLETE";
 
     public static boolean isPromptCompleteForDate(Context context, String key, String date) {

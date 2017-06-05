@@ -2,6 +2,10 @@ package mhealth.neu.edu.phire;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.ViewDebug;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WakefulServiceArbitrator;
 import edu.neu.android.wearwocketslib.notification.LostConnectionWearableNotification;
@@ -15,7 +19,7 @@ import edu.neu.android.wearwocketslib.utils.log.Logger;
  * BluetoothSensorService in WocketsLib.
  */
 public class PHIREArbitrater extends WakefulServiceArbitrator {
-	private static final String TAG = "SPADESArbitrater";
+	private static final String TAG = "PHIREArbitrater";
 
 	protected Context mContext;
 
@@ -30,9 +34,20 @@ public class PHIREArbitrater extends WakefulServiceArbitrator {
 	public void doArbitrate(Intent intent) {
 		logger.i("UEMATEST . doArbitrate", mContext);
 		long lastConnection = SharedPrefs.getLong(edu.neu.android.wearwocketslib.Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), mContext);
-		if(System.currentTimeMillis() - lastConnection >= edu.neu.android.wearwocketslib.Globals.PHONE_CONNECTION_NOTIFICATION_THRESHOLD * 1000 * 3600){
+
+		Date date = new Date(lastConnection);
+		SimpleDateFormat df2 = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
+		String dateText = df2.format(date);
+		logger.i("Last phone connected time was: " + dateText, mContext);
+		logger.i("Current time is: " + df2.format(new Date(System.currentTimeMillis())), mContext);
+		logger.i("Time difference: " + String.valueOf(System.currentTimeMillis() - lastConnection), mContext);
+		logger.i("Compared to:" + String.valueOf(edu.neu.android.wearwocketslib.Globals.PHONE_CONNECTION_NOTIFICATION_THRESHOLD * 1000 * 120),mContext);
+
+		if(System.currentTimeMillis() - lastConnection >= edu.neu.android.wearwocketslib.Globals.PHONE_CONNECTION_NOTIFICATION_THRESHOLD * 1000 * 120){
+			logger.i("Phone has been disconnected more than 36 seconds", mContext);
+
 			if(!LostConnectionWearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
-				LostConnectionWearableNotification notification = new LostConnectionWearableNotification("SPADES: Connection lost", "Please check phone/watch connection", R.drawable.ic_launcher, true, WearableNotification.LOST_CONNECTION_NOTIFICATION, mContext);
+				LostConnectionWearableNotification notification = new LostConnectionWearableNotification("PHIRE: Connection lost", "Please check phone/watch connection", R.drawable.ic_launcher, true, WearableNotification.LOST_CONNECTION_NOTIFICATION, mContext);
 				notification.show();
 				logger.i("Showing lost connection notification", mContext);
 			}else{

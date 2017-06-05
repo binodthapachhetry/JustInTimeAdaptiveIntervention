@@ -284,12 +284,12 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable/ic_expand.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/abc_btn_default_mtrl_shape.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_default_mtrl_shape.xml"
-    },
-    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/cast_ic_mini_controller_skip_next.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_ic_mini_controller_skip_next.xml"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/androidTest/debug/drawable/common_google_signin_btn_text_dark.xml",

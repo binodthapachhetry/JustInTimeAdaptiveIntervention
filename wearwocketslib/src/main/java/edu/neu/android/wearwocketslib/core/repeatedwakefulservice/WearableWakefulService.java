@@ -36,6 +36,7 @@ import java.util.zip.GZIPOutputStream;
 import edu.neu.android.wearwocketslib.Globals;
 import edu.neu.android.wearwocketslib.services.SensorManagerService;
 import edu.neu.android.wearwocketslib.services.WearableFileTransferService;
+import edu.neu.android.wearwocketslib.services.WearableMessageTransferService;
 import edu.neu.android.wearwocketslib.utils.log.BatteryLogger;
 import edu.neu.android.wearwocketslib.utils.log.Logger;
 import edu.neu.android.wearwocketslib.utils.system.DateHelper;
@@ -222,6 +223,7 @@ public class WearableWakefulService extends IntentService {
         Intent alwaysOnServiceIntent = new Intent(mContext,AlwaysOnService.class);
         mContext.startService(alwaysOnServiceIntent);
 
+
         // Data delete operation
         deleteCheck();
 
@@ -257,8 +259,20 @@ public class WearableWakefulService extends IntentService {
 
         runArbitratorOperation();
 
+        // Send inverse trigger to phone (in case phone service doesn't running correctly
+        sendTriggerToPhone();
+
         // Stop
         stopWakefulService(intent);
+    }
+
+
+    private void sendTriggerToPhone() {
+        logger.i("Send trigger to phone through message transfer", mContext);
+        Intent phoneTriggerIntent = new Intent(mContext, WearableMessageTransferService.class);
+        phoneTriggerIntent.setAction("TRANSFER_MESSAGE");
+        phoneTriggerIntent.putExtra("MESSAGE", "TRIGGER");
+        mContext.startService(phoneTriggerIntent);
     }
 
     private void sendFeatureFile(){
@@ -332,6 +346,7 @@ public class WearableWakefulService extends IntentService {
 
     private void runArbitratorOperation(){
         if(arbitrator != null){
+            logger.e("Doing the arbitrating", getApplicationContext());
             arbitrator.doArbitrate(incomingIntent);
         }else{
             logger.e("Arbitrator is null", getApplicationContext());
