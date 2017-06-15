@@ -134,9 +134,13 @@ public class BikeActivity {
                             String.valueOf(rot),
                     };
                     String dataDirectory = DataManager.getDirectoryData(context);
-                    String speedFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Speed.csv";
+                    String featureDirectory = DataManager.getDirectoryFeature(context);
+                    String speedFileHour = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Speed.csv";
+                    String speedFileDay = featureDirectory + "/" + DateTime.getDate() + "/" + "SpeedDay.csv";
 
-                    CSV.write(speedEntry, speedFile, true);
+
+                    CSV.write(speedEntry, speedFileHour, true);
+                    CSV.write(speedEntry,speedFileDay,true);
 
 //                Log.i(TAG,"Closing the panobike service after speed reading");
 //                mContext.stopService(new Intent(mContext, PanobikeSensorService.class));
@@ -173,12 +177,18 @@ public class BikeActivity {
                     String[] cadenceEntry = {
                             df.format(c.getTime()),
                             String.valueOf(crankRot),
-//                            cadence_dec
                     };
 
                     String dataDirectory = DataManager.getDirectoryData(context);
-                    String cadenceFile = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
-                    CSV.write(cadenceEntry, cadenceFile, true);
+                    String cadenceFileHour = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
+                    String featureDirectory = DataManager.getDirectoryFeature(context);
+                    String cadenceFileDay = featureDirectory + "/" + DateTime.getDate() + "/" + "CadenceDay.csv";
+
+
+                    CSV.write(cadenceEntry, cadenceFileHour, true);
+                    CSV.write(cadenceEntry, cadenceFileDay, true);
+
+
 //                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
 //                Log.i(TAG,"Closing the panobike service after cadence reading");
 //                mContext.stopService(new Intent(mContext, PanobikeSensorService.class));

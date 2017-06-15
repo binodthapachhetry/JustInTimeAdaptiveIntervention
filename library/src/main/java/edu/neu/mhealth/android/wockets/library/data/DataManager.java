@@ -177,6 +177,18 @@ public class DataManager {
 
     //--------------------------------------------------------------------------------------------//
 
+
+    private static final String DIRECTORY_FEATURE = "DIRECTORY_FEATURE";
+
+    public static void setDirectoryFeature(String directoryFeature, Context context) {
+        SharedPrefManager.setString(DIRECTORY_FEATURE, directoryFeature, context);
+    }
+
+    public static String getDirectoryFeature(Context context) {
+        return SharedPrefManager.getString(DIRECTORY_FEATURE, Environment.getExternalStorageState() + "/.WOCKETS/feature", context);
+    }
+
+
     //--------------------------------------------------------------------------------------------//
 
     private static final String DIRECTORY_WATCH_LOGS = "DIRECTORY_WATCH_LOGS";

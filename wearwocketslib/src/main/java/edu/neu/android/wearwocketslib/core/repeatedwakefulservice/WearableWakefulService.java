@@ -276,19 +276,35 @@ public class WearableWakefulService extends IntentService {
     }
 
     private void sendFeatureFile(){
+//        String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+//        String currentHour = new SimpleDateFormat("HH-z").format(new Date());
+//        File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/logs/" + currentDate + "/" + currentHour + "/");
+//        if (!folder.exists()) {
+//            folder.mkdirs();
+//        }
+//
+//        String currentDateFeature = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
+//        File file = new File(folder.getAbsolutePath() + "/" + "Watch-ComputedFeature.log.csv");
+//        if(file.exists()) {
+//            logger.i("Register transfer result broadcast manager", getApplicationContext());
+//            LocalBroadcastManager.getInstance(this).registerReceiver(mTransferResultReceiver, new IntentFilter("FILE_TRANSFER_RESULT"));
+//            //start service
+//            logger.i("Start transfer service for feature file: " + file.getAbsolutePath(), getApplicationContext());
+//            Intent transferIntent = new Intent(getApplicationContext(), WearableFileTransferService.class);
+//            transferIntent.setAction("TRANSFER_FILE");
+//            transferIntent.putExtra("FILE_PATH", file.getAbsolutePath());
+//            startService(transferIntent);
+//        }
+
         String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        String currentHour = new SimpleDateFormat("HH-z").format(new Date());
-        File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/logs/" + currentDate + "/" + currentHour + "/");
+        File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/feature/" + currentDate + "/");
         if (!folder.exists()) {
             folder.mkdirs();
         }
 
-        String currentDateFeature = new SimpleDateFormat("yyyy-MM-dd-HH").format(new Date());
-//        File file = new File(folder.getAbsolutePath() + "/" + "Watch-FeatureVector-"+currentDateFeature+".log.csv");
-        File file = new File(folder.getAbsolutePath() + "/" + "Watch-ComputedFeature.log.csv");
+        File file = new File(folder.getAbsolutePath() + "/" + "Watch-ComputedFeatureDay.log.csv");
         if(file.exists()) {
             logger.i("Register transfer result broadcast manager", getApplicationContext());
-
             LocalBroadcastManager.getInstance(this).registerReceiver(mTransferResultReceiver, new IntentFilter("FILE_TRANSFER_RESULT"));
             //start service
             logger.i("Start transfer service for feature file: " + file.getAbsolutePath(), getApplicationContext());
@@ -297,6 +313,7 @@ public class WearableWakefulService extends IntentService {
             transferIntent.putExtra("FILE_PATH", file.getAbsolutePath());
             startService(transferIntent);
         }
+
     }
 
     private void eventLogging() {

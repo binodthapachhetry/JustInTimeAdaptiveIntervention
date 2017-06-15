@@ -37,10 +37,13 @@ import edu.neu.android.wocketslib.mhealthformat.entities.AndroidWearAcceleromete
 public class SensorManagerService extends Service implements SensorEventListener2 {
 
     private Logger logger;
-    private FeatureLogger logger_feature;
+    private Logger logger_feature;
+    private FeatureLogger logger_feature_day;
+
 
     private static final String TAG = "SensorManagerService";
     private static final String TAGF = "ComputedFeature";
+    private static final String TAGFD = "ComputedFeatureDay";
 
     private android.hardware.SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -87,7 +90,10 @@ public class SensorManagerService extends Service implements SensorEventListener
     @Override
     public void onCreate() {
         super.onCreate();
-        logger_feature = new FeatureLogger(TAGF);
+//        logger_feature = new FeatureLogger(TAGF);
+
+        logger_feature_day = new FeatureLogger(TAGFD);
+        logger_feature = new Logger(TAGF);
         logger = new Logger(TAG);
 
 
@@ -166,25 +172,53 @@ public class SensorManagerService extends Service implements SensorEventListener
 
                 if(xReading.size()!=0) {
 
-//                    xReadingLPF = lowPassFilter(xReading);
-//                    yReadingLPF = lowPassFilter(yReading);
-//                    zReadingLPF = lowPassFilter(zReading);
+//                    float meanX = getMean(xReading);
 
+                    float varY = getVariance(yReading);
+                    float varX = getVariance(xReading);
+
+                    // all-activities features
+                    int zeroCrossingZ = calculateZeroCross(zReading);
                     int meanCross = getMeanCrossing(xReading, yReading, zReading);
+                    float madMedianX = calculateMadMed(xReading);
 
-                    float xReadingMean = getMean(xReading);
-                    float zReadingMean = getMean(zReading);
-                    float distXZ = xReadingMean - zReadingMean;
-                    float fluctInAmp = getMaxValue(xReading) - getMinValue(xReading);
-                    float madMedian = getMadMedian(xReading, yReading, zReading);
+                    float madMean = getMadMean(xReading, yReading, zReading);
+//                    float varY = getVariance(yReading);
+//                    float varX = getVariance(xReading);
+
+                    double rmsY = getRMS(yReading);
+                    double rmsZ = getRMS(zReading);
+
+                    float madMedianXYZ = getMadMedian(xReading, yReading, zReading);
+                    // not-moving activities features
+                    float madMedianZ = calculateMadMed(zReading);
+                    int meanCrossX = calculateMeanCross(xReading);
+
+//                    float meanX = getMean(xReading);
+
+//                    int zeroCrossingY = calculateZeroCross(yReading);
+//                    float madMeanX = calculateMadMed(xReading);
+//                    float madMean = getMadMean(xReading, yReading, zReading);
+//
+//                    float fluctInAmp = getMaxValue(xReading) - getMinValue(xReading);
+//                    float xReadingMean = getMean(xReading);
+//                    float zReadingMean = getMean(zReading);
+//                    float distXZ = xReadingMean - zReadingMean;
+
+
+
                     Date firstDate = new Date(timeReading.get(0));
                     Date lastDate = new Date(timeReading.get(timeReading.size()-1));
                     String firstD = df.format(firstDate);
                     String lastD = df.format(lastDate);
 
-                    String row = String.format("%s,%s,%d,%.5f,%d,%.5f,%.5f,%.5f",firstD,lastD,xReading.size(),xReadingMean,meanCross,distXZ,fluctInAmp,madMedian);
+//                    String row = String.format("%s,%s,%d,%.5f,%d,%.5f,%.5f,%.5f",firstD,lastD,xReading.size(),xReadingMean,meanCross,distXZ,fluctInAmp,madMedian);
+                    String row = String.format("%s,%s,%d,%d,%d,%.5f,%.5f,%.5f,%.5f,%.5f,%.5f,%.5f,%.5f,%d",firstD,lastD,xReading.size(),zeroCrossingZ,meanCross,madMedianX,rmsY,madMean,varY,madMedianXYZ,varX,rmsZ,madMedianZ,meanCrossX);
+
                     logger_feature.i(row,mContext);
+                    logger_feature_day.i(row,mContext);
                     logger.i(row, mContext);
+//                    logger.i(String.format("%.5f",meanX),mContext);
 
                 }
 
@@ -272,6 +306,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
         logger.close();
         logger_feature.close();
+        logger_feature_day.close();
     }
 
     private void notifyFlushFailure(){
@@ -281,6 +316,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
         logger.close();
         logger_feature.close();
+        logger_feature_day.close();
     }
 
     private void notifyServiceStop(){
@@ -290,6 +326,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastIntent);
         logger.close();
         logger_feature.close();
+        logger_feature_day.close();
     }
 
     @Override
@@ -453,11 +490,22 @@ public class SensorManagerService extends Service implements SensorEventListener
 
     public float getMean(ArrayList<Float> ar){
         float total = 0;
+        float num = (float) ar.size();
         for (float element : ar) {
             total += element;
         }
-        float average = total / ar.size();
+        float average = total/num;
         return average;
+    }
+
+    public float getVariance(ArrayList<Float> ar){
+        float meanVal = getMean(ar);
+        float num = (float) (ar.size()-1);
+
+        float temp = 0;
+        for(float element :ar)
+            temp += (element-meanVal)*(element-meanVal);
+        return temp/num;
     }
 
     public float getMaxValue(ArrayList<Float> ar) {
@@ -480,11 +528,22 @@ public class SensorManagerService extends Service implements SensorEventListener
         return minValue;
     }
 
+    public double getRMS(ArrayList<Float> ar){
+        int n = ar.size();
+        double rms = 0;
+//        ArrayList<Float> RMS = new ArrayList<Float>();
+        for (int i = 1; i < ar.size(); i++) {
+            rms += ar.get(i) * ar.get(i);
+        }
+        rms/=n;
+        return Math.sqrt(rms);
+    }
+
     public int getMeanCrossing(ArrayList<Float> xAr, ArrayList<Float> yAr, ArrayList<Float> zAr) {
         ArrayList<Float> RMS = new ArrayList<Float>();
 
         for (int i = 1; i < xAr.size(); i++) {
-            float tmp = (float) Math.sqrt(xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i));
+            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i))/3);
             RMS.add(tmp);
         }
         logger.i("RMS size " + Integer.toString(RMS.size()), getApplicationContext());
@@ -493,16 +552,9 @@ public class SensorManagerService extends Service implements SensorEventListener
 
     }
 
-    public int calculateMeanCross(ArrayList<Float> data)
+
+    public int calculateZeroCross(ArrayList<Float> data)
     {
-        float meanVal = getMean(data);
-
-        for (int i = 0; i < data.size(); i++) {
-            float val = data.get(i);
-            data.set(i, (val-meanVal));
-        }
-
-        logger.i("Demeaned data size " + Integer.toString(data.size()), getApplicationContext());
         int numCrossing = 0;
 
         for (int i = 0; i < data.size()-1; i++)
@@ -514,23 +566,81 @@ public class SensorManagerService extends Service implements SensorEventListener
             }
         }
 
-        logger.i("Number of mean crossing is half " + Integer.toString(numCrossing), getApplicationContext());
+        logger.i("Number of zero crossing is half " + Integer.toString(numCrossing), getApplicationContext());
         int numCycles = Math.round(numCrossing);
         return numCycles;
+    }
+
+
+
+
+    public int calculateMeanCross(ArrayList<Float> dataIn)
+    {
+        ArrayList<Float> data = (ArrayList<Float>)dataIn.clone();
+        float meanV = getMean(data);
+
+        for (int i = 0; i < data.size(); i++) {
+            float val = data.get(i);
+            data.set(i, (val-meanV));
+        }
+
+//        logger.i("Demeaned data size " + Integer.toString(data.size()), getApplicationContext());
+        int numCrossing = 0;
+
+        for (int i = 0; i < data.size()-1; i++)
+        {
+            if ((data.get(i) > 0 && data.get(i+1)  <= 0) ||
+                    (data.get(i) < 0 && data.get(i+1) >= 0))
+            {
+                numCrossing++;
+            }
+        }
+
+//        logger.i("Number of mean crossing is half " + Integer.toString(numCrossing), getApplicationContext());
+//        int numCycles = Math.round(numCrossing);
+        return numCrossing;
     }
 
     public float getMadMedian(ArrayList<Float> xAr, ArrayList<Float> yAr, ArrayList<Float> zAr) {
         ArrayList<Float> RMS = new ArrayList<Float>();
 
         for (int i = 0; i < xAr.size(); i++) {
-            float tmp = (float) Math.sqrt(xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i));
+            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i))/3);
             RMS.add(tmp);
         }
         return calculateMadMed(RMS);
     }
 
-    public float calculateMadMed(ArrayList<Float> data)
+    public float getMadMean(ArrayList<Float> xAr, ArrayList<Float> yAr, ArrayList<Float> zAr) {
+        ArrayList<Float> RMS = new ArrayList<Float>();
+
+        for (int i = 0; i < xAr.size(); i++) {
+            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i))/3);
+            RMS.add(tmp);
+        }
+        return calculateMadMean(RMS);
+    }
+
+
+    public float calculateMadMean(ArrayList<Float> dataIn)
     {
+        ArrayList<Float> data = (ArrayList<Float>)dataIn.clone();
+        float meanVal = getMean(data);
+
+        for (int i = 0; i < data.size(); i++) {
+            float val = data.get(i);
+            data.set(i, (Math.abs(val-meanVal)));
+        }
+
+        float finalMadVal = getMean(data);
+
+        return finalMadVal;
+    }
+
+
+    public float calculateMadMed(ArrayList<Float> dataIn)
+    {
+        ArrayList<Float> data = (ArrayList<Float>)dataIn.clone();
         Collections.sort(data);
 
         int n = data.size();

@@ -6,24 +6,31 @@ import android.bluetooth.BluetoothManager;
 import android.content.Intent;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.provider.ContactsContract;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
+import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 
 import com.opencsv.CSVReader;
 
+import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Attribute;
@@ -44,15 +51,107 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private Context mContext;
     private Date dateNow;
     private BluetoothAdapter mBluetoothAdapter;
-    private Classifier mClassifier;
-    private Instances dataUnpredicted;
+    public Classifier allActivitiesClassifier;
+    public Classifier movingClassifier;
+    public Classifier nonMovingClassifier;
+
+    private NavigableMap<Long, Integer> map;
+    private Long lastTimeSpeed;
+    private long thisMilliseconds;
+    private File sFile;
+    private File wfFile;
+    private String arFile;
+    private long lastARwindowStopTime;
+
+    public Instances allActivitiesUnpredicted;
+    public Instances movingUnpredicted;
+    public Instances nonMovingUnpredicted;
+
+
+    private static final long ONE_MINUTE_IN_MILLIS = 60000;//millisecs
+    private float wheelCircumference;
+    private static final float nearStationary = 1.8f;
+    private static final float someWheelMovement = 12f;
+
+    // order of attributes/classes needs to be exactly equal to those used for training
+    final Attribute attribute_zcr_Z = new Attribute("zcr_Z");
+    final Attribute attribute_mcr_XYZ = new Attribute("mcr_XYZ");
+    final Attribute attribute_mad_median_X = new Attribute("mad_median_X");
+    final Attribute attribute_rms_Y = new Attribute("rms_Y");
+    final Attribute attribute_mad_XYZ = new Attribute("mad_XYZ");
+
+    final List<String> allActivitiesclasses = new ArrayList<String>() {
+        {
+            add("11"); // cls nr 1
+            add("12"); // cls nr 2
+            add("13"); // cls nr 3
+        }
+    };
+    final Attribute allActivitiesAttributeClass = new Attribute("class",allActivitiesclasses);
+    ArrayList<Attribute> allActivitiesAttributeList = new ArrayList<Attribute>(3) {
+        {
+            add(attribute_zcr_Z);
+            add(attribute_mcr_XYZ);
+            add(attribute_mad_median_X);
+            add(attribute_rms_Y);
+            add(attribute_mad_XYZ);
+            add(allActivitiesAttributeClass);
+        }
+    };
+
+    // order of attributes/classes needs to be exactly equal to those used for training
+    final Attribute attribute_Var_Y = new Attribute("Var_Y");
+    final Attribute attribute_mad_med_XYZ = new Attribute("mad_med_XYZ");
+    final Attribute attribute_VAR_X = new Attribute("VAR_X");
+    final Attribute attribute_rms_Z = new Attribute("rms_Z");
+
+    final List<String> movingclasses = new ArrayList<String>() {
+        {
+            add("4"); // cls nr 1
+            add("5"); // cls nr 2
+            add("6"); // cls nr 3
+        }
+    };
+    final Attribute movingAttributeClass = new Attribute("Class",movingclasses);
+    ArrayList<Attribute> movingAttributeList = new ArrayList<Attribute>(3) {
+        {
+            add(attribute_Var_Y);
+            add(attribute_mad_med_XYZ);
+            add(attribute_VAR_X);
+            add(attribute_rms_Z);
+            add(movingAttributeClass);
+        }
+    };
+
+    // order of attributes/classes needs to be exactly equal to those used for training
+    final Attribute attribute_mad_median_Z = new Attribute("mad_median_Z");
+    final Attribute attribute_mcr_X = new Attribute("mcr_X");
+
+    final List<String> nonmovingclasses = new ArrayList<String>() {
+        {
+            add("1"); // cls nr 1
+            add("2"); // cls nr 2
+            add("3"); // cls nr 3
+        }
+    };
+    final Attribute nonmovingAttributeClass = new Attribute("class",nonmovingclasses);
+    ArrayList<Attribute> nonmovingAttributeList = new ArrayList<Attribute>(3) {
+        {
+            add(attribute_mad_med_XYZ);
+            add(attribute_mad_median_Z);
+            add(attribute_mcr_X);
+            add(nonmovingAttributeClass);
+        }
+    };
+
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
         Log.i(TAG, "Inside onCreate", mContext);
-
+        Log.i(TAG, "Getting last run of activity recognition service", mContext);
         try {
             doAR();
         } catch (Exception e) {
@@ -77,106 +176,113 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 return;
             }
         }
+//        wheelCircumference = (Integer.valueOf(TEMPLEDataManager.getWheelDiameterCm(mContext))/200)*((float) Math.PI);
+        if(TEMPLEDataManager.getWheelDiameterCm(mContext)!="") {
+            wheelCircumference = ((Integer.valueOf(TEMPLEDataManager.getWheelDiameterCm(mContext)) * ((float) Math.PI))) * 0.0254f;
+        }else{
+            wheelCircumference = 0.0f;
+        }
+        Log.i(TAG, "Wheel circumference:" + Float.toString(wheelCircumference), mContext);
+
 
         Log.i(TAG, "Getting last run of activity recognition service", mContext);
-        long lastARwindowStopTime = DataManager.getLastARwindowStopTime(mContext);
+        lastARwindowStopTime = DataManager.getLastARwindowStopTime(mContext);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
+        Log.i(TAG,"Last AR stop time:" + simpleDateFormat.format(lastARwindowStopTime),mContext);
 
 
-        // based on the end time of the last window decide on a new time window
-        Log.i(TAG, "Getting the watch feature row from feature csv file", mContext);
-        // read csv file using scanner, parse for relevant content(time start, time stop, etc)
         dateNow = new Date();
-        String dataDirectory = DataManager.getDirectoryLogs(mContext);
+        // based on the end time of the last window decide on a new time window
+        Log.i(TAG, "Reading speed file for today", mContext);
+        String featureDirectory = DataManager.getDirectoryFeature(mContext);
         String dayDirectory = new SimpleDateFormat(dayFormat).format(dateNow);
-        String hourDirectory = new SimpleDateFormat(hourFormat).format(dateNow);
-        String csvFile = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Watch-ComputedFeature.log.csv";
+        String speedFile = featureDirectory + "/" + dayDirectory + "/" + "SpeedDay.csv";
+        sFile = new File(speedFile);
 
-        File cFile = new File(csvFile);
+        Log.i(TAG, "Reading watch feature file for today", mContext);
+        String watchFeatureFile = featureDirectory + "/" + dayDirectory + "/" + "Watch-ComputedFeatureDay.log.csv";
+        wfFile = new File(watchFeatureFile);
 
-        if(cFile.exists()) {
+        arFile = DataManager.getDirectoryData(mContext) + "/" + dayDirectory + "/" + DateTime.getCurrentHourWithTimezone()+ "/" + "ActivityRecognitionResult.log.csv";
 
-            // load the model
-            Log.i(TAG, "Loading model", mContext);
-            AssetManager assetManager = mContext.getAssets();
-            String modelPath = "train_model_smartwatch_all_smo_binod.model";
+        Log.i(TAG, "Loading all activities model", mContext);
+        AssetManager assetManager = mContext.getAssets();
+        String allActivitiesModelPath = "all_activities.model";
 
-            try {
-                mClassifier = (Classifier) weka.core.SerializationHelper.read(assetManager.open(modelPath));
+        try {
+            allActivitiesClassifier = (Classifier) weka.core.SerializationHelper.read(assetManager.open(allActivitiesModelPath));
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Log.i(TAG, "Model loaded", mContext);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.i(TAG, "All activities model loaded", mContext);
 
-            // order of attributes/classes needs to be exactly equal to those used for training
-            final Attribute attributeFeatOne = new Attribute("feat_1");
-            final Attribute attributeFeatTwo = new Attribute("feat_2");
-            final List<String> classes = new ArrayList<String>() {
-                {
-                    add("class_1"); // cls nr 1
-                    add("class_2"); // cls nr 2
-                    add("class_3"); // cls nr 3
-                }
-            };
-            final Attribute attributeClass = new Attribute("class",classes);
-            ArrayList<Attribute> attributeList = new ArrayList<Attribute>(3) {
-                {
-                    add(attributeFeatOne);
-                    add(attributeFeatTwo);
-                    add(attributeClass);
-                }
-            };
-            Instances dataUnpredicted = new Instances("test", attributeList, 0);
-            dataUnpredicted.setClassIndex(dataUnpredicted.numAttributes() - 1);
+        allActivitiesUnpredicted = new Instances("test", allActivitiesAttributeList, 0);
+        allActivitiesUnpredicted.setClassIndex(allActivitiesUnpredicted.numAttributes() - 1);
 
-            // read csv
+
+        Log.i(TAG, "Loading moving model", mContext);
+        String movingModelPath = "moving.model";
+        try {
+            movingClassifier = (Classifier) weka.core.SerializationHelper.read(assetManager.open(movingModelPath));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.i(TAG, "Moving model loaded", mContext);
+
+
+
+        movingUnpredicted = new Instances("test", movingAttributeList, 0);
+        movingUnpredicted.setClassIndex(movingUnpredicted.numAttributes() - 1);
+
+        Log.i(TAG, "Loading not moving model", mContext);
+        String nonMovingModelPath = "non_moving.model";
+        try {
+            nonMovingClassifier = (Classifier) weka.core.SerializationHelper.read(assetManager.open(nonMovingModelPath));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.i(TAG, "Non-moving model loaded", mContext);
+
+        nonMovingUnpredicted = new Instances("test", nonmovingAttributeList, 0);
+        nonMovingUnpredicted.setClassIndex(nonMovingUnpredicted.numAttributes() - 1);
+
+
+        if (!wfFile.exists() && !sFile.exists()) {
+            Log.i(TAG, "No speed file or watch feature file for today", mContext);
+            stopSelf();
+        }
+
+        if(wfFile.exists() && !sFile.exists()) {
+
+            doARwatchOnly();
+        }
+
+        if (sFile.exists()) {
+            Log.i(TAG, "Reading speed file into tree map.", mContext);
+            map = new TreeMap<Long, Integer>();
             CSVReader reader = null;
             try {
-                reader = new CSVReader(new FileReader(csvFile));
+                reader = new CSVReader(new FileReader(sFile));
                 String[] line;
                 while ((line = reader.readNext()) != null) {
                     final String[] lineCp = line;
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
-
-                    Date startDate = simpleDateFormat.parse(lineCp[2]);
-                    long startMilliseconds = startDate.getTime();
-
-                    Date stopDate = simpleDateFormat.parse(lineCp[3]);
-                    long stopMilliseconds = stopDate.getTime();
-
-                    if(startMilliseconds>lastARwindowStopTime) {
-                        DenseInstance newInstance = new DenseInstance(dataUnpredicted.numAttributes()) {
-                            {
-                                setValue(attributeFeatOne, Double.parseDouble(lineCp[5]));
-                                setValue(attributeFeatTwo, Double.parseDouble(lineCp[9]));
-                            }
-                        };
-                        newInstance.setDataset(dataUnpredicted);
-                        try {
-                            double result = mClassifier.classifyInstance(newInstance);
-                            String className = classes.get(new Double(result).intValue());
-//                            String[] accEntry = {
-//                                    lineCp[2],
-//                                    lineCp[3],
-//                                    className
-//                            };
-                            String row =String.format("%s,%s,%s",lineCp[2],lineCp[3],className);
-                            Log.i(TAGF,row,mContext);
-//                            String dataDir = DataManager.getDirectoryData(mContext);
-//                            String dayDir = new SimpleDateFormat(dayFormat).format(dateNow);
-//                            String hourDir = new SimpleDateFormat(hourFormat).format(dateNow);
-//                            String arFile = dataDir + "/" + dayDir + "/" + hourDir + "/" + "ActivityRecognitionPrediction.csv";
-//                            CSV.write(accEntry, arFile, true);
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        DataManager.setLastARwindowStopTime(mContext,stopMilliseconds);
-                    }
+                    SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Date thisDate = simpleDateFormatPano.parse(lineCp[0]);
+                    thisMilliseconds = thisDate.getTime();
+                    Integer thisRot = Integer.parseInt(lineCp[1]);
+                    map.put(thisDate.getTime(), thisRot);
                 }
-
+                lastTimeSpeed = thisMilliseconds;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -184,17 +290,106 @@ public class ActivityRecognitionService extends WocketsIntentService {
         }
 
 
+        if (sFile.exists()&& !wfFile.exists()) {
+
+            Log.i(TAG, "Only speed file exists for today", mContext);
+            // need to get last line from the map:DONE
+            // based on that divide into intervals of 60 seconds
+            Long startRot = map.ceilingKey(lastARwindowStopTime);
+            Long stopRot = map.ceilingKey(lastARwindowStopTime+ONE_MINUTE_IN_MILLIS);
+//            int diff = Math.round((lastTimeSpeed - startRot) / ONE_MINUTE_IN_MILLIS);
+            if(startRot==null || stopRot==null){
+                Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
+                stopSelf();
+            }else{
+
+                String predictClass;
+                SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String startTime = simpleDateFormatPano.format(startRot);
+                String stopTime = simpleDateFormatPano.format(stopRot);
+
+                float totalDistance = (map.get(stopRot)-map.get(startRot))*wheelCircumference;
+                Log.i(TAG,"Total distance from panobike between:" + startTime+","+stopTime+" is "+ Float.toString(totalDistance),mContext);
+                if(totalDistance<nearStationary){
+                    predictClass = "stationary";
+                }else if(totalDistance>someWheelMovement){
+                    predictClass = "consistent_wheelchair_movement";
+                }else{
+                    predictClass = "some_wheelchair_movement";
+                }
+                String[] row = {
+                        startTime,
+                        stopTime,
+                        predictClass,
+                        "speed"
+                };
+                CSV.write(row, arFile, true);
+                DataManager.setLastARwindowStopTime(mContext,stopRot);
+
+            }
+
+        }
+
+
+        if(sFile.exists() && wfFile.exists()){
+            Log.i(TAG, "Both speed file and watch feature file present.", mContext);
+            // read csv
+            CSVReader reader = null;
+            try {
+                reader = new CSVReader(new FileReader(wfFile));
+                String[] line;
+                while ((line = reader.readNext()) != null) {
+                    final String[] lineCp = line;
+                    SimpleDateFormat simpleDateFormatMicro = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
+
+                    Date startDate = simpleDateFormatMicro.parse(lineCp[2]);
+                    long startMilliseconds = startDate.getTime();
+
+                    Date stopDate = simpleDateFormatMicro.parse(lineCp[3]);
+                    long stopMilliseconds = stopDate.getTime();
 
 
 
+                    if (startMilliseconds > lastARwindowStopTime) {
+                        Log.i(TAG, lineCp[2]+","+lineCp[3], mContext);
+                        // convert speed csv to dictionary
+                        // check if anything in speed data between startmilli and stopmilli
+                        Long startKey = map.ceilingKey(startMilliseconds);
+                        Long stopKey = map.floorKey(stopMilliseconds);
+                        if(startKey !=null && stopKey!=null){
+                            Integer startRot = map.get(startKey);
+                            Integer stopRot = map.get(stopKey);
 
+                            float totalDistance = (stopRot -startRot)*wheelCircumference;
+                            Log.i(TAG,"Total distance from panobike between:" + lineCp[2]+","+lineCp[3]+" is "+ Integer.toString(startRot)+","+Integer.toString(stopRot)+"="+Float.toString(totalDistance)+" coz "+ Float.toString(wheelCircumference),mContext);
+                            if(totalDistance<nearStationary){
+                                doNonMovingInstance(line,stopMilliseconds);
+                            }else if(totalDistance>someWheelMovement){
+                                doMovingInstance(line,stopMilliseconds);
+                            }else{
+                                String[] row = {
+                                        lineCp[2],
+                                        lineCp[3],
+                                        "some_wheelchair_movement",
+                                        "speed"
+                                };
+                                CSV.write(row, arFile, true);
+                            }
 
+                        }else{
+                            // watch only model
+                            doARwatchOnlyInstance(line,stopMilliseconds);
+                        }
 
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-
+        }
 
     }
-
 
     @Override
     public void onDestroy() {
@@ -202,20 +397,161 @@ public class ActivityRecognitionService extends WocketsIntentService {
         Log.i(TAG, "Inside onDestroy", mContext);
     }
 
+    public void doNonMovingInstance(String[] line, long stop){
+        final String[] lineCp = line;
+        Log.i(TAG,lineCp[11]+","+lineCp[14]+","+lineCp[15], mContext);
 
-//    public float getDistance(){
-//        //grab window of data from speed.csv
-//        //sum distance vector and divide by time diff
-//
-//    }
-//
-//    public float getRMS(){
-//
-//    }
-//
-//    public float getMeanCross(){
-//
-//    }
+
+        DenseInstance newInstanceNM = new DenseInstance(nonMovingUnpredicted.numAttributes()) {
+            {
+                setValue(attribute_mad_med_XYZ, Double.parseDouble(lineCp[11]));
+                setValue(attribute_mad_median_Z, Double.parseDouble(lineCp[14]));
+                setValue(attribute_mcr_X, Double.parseDouble(lineCp[15]));
+            }
+        };
+        newInstanceNM.setDataset(nonMovingUnpredicted);
+        try {
+            double result = nonMovingClassifier.classifyInstance(newInstanceNM);
+            String className = nonmovingclasses.get(new Double(result).intValue());
+
+            String[] row = {
+                    lineCp[2],
+                    lineCp[3],
+                    className,
+                    "stationary"
+            };
+
+            CSV.write(row, arFile, true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        DataManager.setLastARwindowStopTime(mContext,stop);
+    }
+
+    public void doMovingInstance(String[] line, long stop){
+        final String[] lineCp = line;
+        DenseInstance newInstance = new DenseInstance(movingUnpredicted.numAttributes()) {
+            {
+                setValue(attribute_Var_Y, Double.parseDouble(lineCp[10]));
+                setValue(attribute_mad_med_XYZ, Double.parseDouble(lineCp[11]));
+                setValue(attribute_VAR_X, Double.parseDouble(lineCp[12]));
+                setValue(attribute_rms_Z, Double.parseDouble(lineCp[13]));
+
+            }
+        };
+        newInstance.setDataset(movingUnpredicted);
+        try {
+            double result = movingClassifier.classifyInstance(newInstance);
+            String className = movingclasses.get(new Double(result).intValue());
+
+            String[] row = {
+                    lineCp[2],
+                    lineCp[3],
+                    className,
+                    "moving"
+            };
+
+            CSV.write(row, arFile, true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        DataManager.setLastARwindowStopTime(mContext,stop);
+    }
+
+    public void doARwatchOnlyInstance(String[] line, long stop){
+        final String[] lineCp = line;
+        DenseInstance newInstance = new DenseInstance(allActivitiesUnpredicted.numAttributes()) {
+            {
+                setValue(attribute_zcr_Z, Double.parseDouble(lineCp[5]));
+                setValue(attribute_mcr_XYZ, Double.parseDouble(lineCp[6]));
+                setValue(attribute_mad_median_X, Double.parseDouble(lineCp[7]));
+                setValue(attribute_rms_Y, Double.parseDouble(lineCp[8]));
+                setValue(attribute_mad_XYZ, Double.parseDouble(lineCp[9]));
+            }
+        };
+        newInstance.setDataset(allActivitiesUnpredicted);
+        try {
+            double result = allActivitiesClassifier.classifyInstance(newInstance);
+          String className = allActivitiesclasses.get(new Double(result).intValue());
+
+            String[] row = {
+                    lineCp[2],
+                    lineCp[3],
+                    className,
+                    "all_activities"
+            };
+
+            CSV.write(row, arFile, true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        DataManager.setLastARwindowStopTime(mContext,stop);
+    }
+
+    public void doARwatchOnly(){
+        Log.i(TAG, "No speed file, only watch feature file.", mContext);
+        // read csv
+        CSVReader reader = null;
+        try {
+            reader = new CSVReader(new FileReader(wfFile));
+            String[] line;
+            while ((line = reader.readNext()) != null) {
+                final String[] lineS = line;
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
+
+                Date startDate = simpleDateFormat.parse(lineS[2]);
+                long startMilliseconds = startDate.getTime();
+
+                Date stopDate = simpleDateFormat.parse(lineS[3]);
+                long stopMilliseconds = stopDate.getTime();
+
+                if(startMilliseconds>lastARwindowStopTime) {
+                    Log.i(TAG,lineS[2]+","+lineS[3],mContext);
+                    DenseInstance newInstance = new DenseInstance(allActivitiesUnpredicted.numAttributes()) {
+                        {
+                            setValue(attribute_zcr_Z, Double.parseDouble(lineS[5]));
+                            setValue(attribute_mcr_XYZ, Double.parseDouble(lineS[6]));
+                            setValue(attribute_mad_median_X, Double.parseDouble(lineS[7]));
+                            setValue(attribute_rms_Y, Double.parseDouble(lineS[8]));
+                            setValue(attribute_mad_XYZ, Double.parseDouble(lineS[9]));
+
+                        }
+                    };
+                    newInstance.setDataset(allActivitiesUnpredicted);
+                    try {
+                        double result = allActivitiesClassifier.classifyInstance(newInstance);
+                        String className = allActivitiesclasses.get(new Double(result).intValue());
+//                        String className = String.valueOf(result);
+
+
+//                                String row =String.format("%s,%s,%s",lineCp[2],lineCp[3],className);
+                        String[] row = {
+                                lineS[2],
+                                lineS[3],
+                                className,
+                                "all_activities"
+                        };
+                        CSV.write(row, arFile, true);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    DataManager.setLastARwindowStopTime(mContext,stopMilliseconds);
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
 
 

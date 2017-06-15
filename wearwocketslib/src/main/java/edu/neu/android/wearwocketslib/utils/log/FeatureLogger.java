@@ -67,7 +67,9 @@ public class FeatureLogger {
         }
         String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         String currentHour = new SimpleDateFormat("HH-z").format(new Date());
-        File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/logs/" + currentDate + "/" + currentHour + "/");
+//        File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/logs/" + currentDate + "/" + currentHour + "/");
+        File folder = new File("/sdcard/." + Globals.STUDY_NAME + "/feature/" + currentDate + "/");
+
         if (!folder.exists()) {
             folder.mkdirs();
         }

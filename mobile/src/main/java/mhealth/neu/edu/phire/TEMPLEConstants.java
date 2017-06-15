@@ -26,6 +26,8 @@ public class TEMPLEConstants extends WocketsConstants {
     private static final String DIRECTORY_TRANSFER = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/transfer";
 
 
+    private static final String DIRECTORY_FEATURE = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/feature";
+
     private static final String DIRECTORY_WATCH_DATA = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/data-watch";
     private static final String DIRECTORY_WATCH_LOGS = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/logs-watch";
 
@@ -58,6 +60,8 @@ public class TEMPLEConstants extends WocketsConstants {
         DataManager.setDirectorySurveys(DIRECTORY_SURVEYS, mContext);
         DataManager.setDirectoryData(DIRECTORY_DATA, mContext);
         DataManager.setDirectoryTransfer(DIRECTORY_TRANSFER, mContext);
+
+        DataManager.setDirectoryFeature(DIRECTORY_FEATURE,mContext);
 
         DataManager.setDirectoryWatchData(DIRECTORY_WATCH_DATA, mContext);
         DataManager.setDirectoryWatchLogs(DIRECTORY_WATCH_LOGS, mContext);
