@@ -232,7 +232,14 @@
             android:exported="false" />
         <service
             android:name=".services.SendMessageToWatch"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".activities.ParticipantInfoActivity"
+            android:parentActivityName=".activities.SetupActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SetupActivity" />
+        </activity>
     </application>
 
 </manifest>

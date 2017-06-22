@@ -21,8 +21,23 @@
     <string name="scan_for_devices">Scan For Device</string>
     <string name="force_app_crash">Force App Crash</string>
 
-    <string name="connect">Googl API CLIENT</string>
+    <string name="participant">Participant Info</string>
+    <string name="title_activity_participant_info">ParticipantInfo</string>
+
+    <string name="gender">Male</string>
+    <string name="sciLevel">Paraplagia</string>
+    <string name="completeness">Complete</string>
+    <string name="enterInfo">Done</string>
+    <string name="text_weight">Weight (lb):</string>
+    <string name="text_age">Age</string>
+    <string name="text_height_ft">Height(ft):</string>
+    <string name="text_height_in">Height(inch)</string>
+
+    <string name="age">Age:</string>
+    <string name="genderText">Gender:</string>
+    <string name="sciLevelText">Sci Level:</string>
+    <string name="completenessText">Completeness:</string>
+
 
 
 </resources>
-

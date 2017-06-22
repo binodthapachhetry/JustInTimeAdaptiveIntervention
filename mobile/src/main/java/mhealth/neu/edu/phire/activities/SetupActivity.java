@@ -91,24 +91,31 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
         throw new RuntimeException("This is a forced crash");
     }
 
-    @OnClick(R.id.activity_connect_gapicli)
-    public void onClickForGAC(){
-        Log.i(TAG,"Connecting to Google API Client",mContext);
-        if (mGoogleApiClient == null) {
-            Log.i(TAG, "Inside connecting to Location Services API", mContext);
-            mGoogleApiClient = new GoogleApiClient.Builder(mContext)
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .addApi(LocationServices.API)
-                    .build();
-            mGoogleApiClient.connect();
-            Log.i(TAG, "Trying to connect", mContext);
+    @OnClick(R.id.activity_participant_info)
+    public void onClickSelectParticipantInfo(){
+        Log.i(TAG,"Patient info screen",mContext);
+        Study study = DataManager.getStudy(mContext);
+        if (study == null) {
+            Log.e(TAG, "OnClickSelectSelectWheelDiameterCm - No study found", mContext);
+            return;
         }
+        android.util.Log.i(TAG,"inside select sensor");
+        Intent intent = new Intent(this, ParticipantInfoActivity.class);
+        startActivity(intent);
+
+//        if (mGoogleApiClient == null) {
+//            Log.i(TAG, "Inside connecting to Location Services API", mContext);
+//            mGoogleApiClient = new GoogleApiClient.Builder(mContext)
+//                    .addConnectionCallbacks(this)
+//                    .addOnConnectionFailedListener(this)
+//                    .addApi(LocationServices.API)
+//                    .build();
+//            mGoogleApiClient.connect();
+//            Log.i(TAG, "Trying to connect", mContext);
+//        }
 
 
     }
-
-
 
     @OnClick(R.id.activity_select_panobike_sensor)
     public void onClickSelectPanoBikeSensor(){

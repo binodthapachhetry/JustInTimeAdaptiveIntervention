@@ -110,5 +110,82 @@ public class TEMPLEDataManager {
         SharedPrefManager.setString(WATCH_LAST_CONNECTED_TIME, watchLastConnectionTime, mContext);
     }
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String PARTICIPANT_AGE = "PARTICIPANT_AGE";
+
+    public static String getParticipantAge(Context mContext){
+        return SharedPrefManager.getString(PARTICIPANT_AGE , "", mContext);
+    }
+
+    public static void setParticipantAge(Context mContext, String participantAge) {
+        SharedPrefManager.setString(PARTICIPANT_AGE, participantAge, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PARTICIPANT_GENDER = "PARTICIPANT_GENDER";
+
+    public static String getParticipantGender(Context mContext){
+        return SharedPrefManager.getString(PARTICIPANT_GENDER , "", mContext);
+    }
+
+    public static void setParticipantGender(Context mContext, String participantGender) {
+        SharedPrefManager.setString(PARTICIPANT_GENDER, participantGender, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PARTICIPANT_WEIGHT = "PARTICIPANT_WEIGHT";
+
+    public static String getParticipantWeight(Context mContext){
+        return SharedPrefManager.getString(PARTICIPANT_WEIGHT , "", mContext);
+    }
+
+    public static void setParticipantWeight(Context mContext, String participantWeight) {
+        SharedPrefManager.setString(PARTICIPANT_WEIGHT, participantWeight, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PARTICIPANT_HEIGHT_FT = "PARTICIPANT_HEIGHT_FT";
+
+    public static String getParticipantHeightFt(Context mContext){
+        return SharedPrefManager.getString(PARTICIPANT_HEIGHT_FT , "", mContext);
+    }
+
+    public static void setParticipantHeightFt(Context mContext, String participantHeightFt) {
+        SharedPrefManager.setString(PARTICIPANT_HEIGHT_FT, participantHeightFt, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PARTICIPANT_HEIGHT_IN = "PARTICIPANT_HEIGHT_IN";
+
+    public static String getParticipantHeightIn(Context mContext){
+        return SharedPrefManager.getString(PARTICIPANT_HEIGHT_IN , "", mContext);
+    }
+
+    public static void setParticipantHeightIn(Context mContext, String participantHeightIn) {
+        SharedPrefManager.setString(PARTICIPANT_HEIGHT_IN, participantHeightIn, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PARTICIPANT_COMPLETENESS = "PARTICIPANT_COMPLETENESS";
+
+    public static String getParticipantCompleteness(Context mContext){
+        return SharedPrefManager.getString(PARTICIPANT_COMPLETENESS , "", mContext);
+    }
+
+    public static void setParticipantCompleteness(Context mContext, String participantCompleteness) {
+        SharedPrefManager.setString(PARTICIPANT_COMPLETENESS, participantCompleteness, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PARTICIPANT_SCI_LEVEL = "PARTICIPANT_SCI_LEVEL";
+
+    public static String getParticipantSciLevel(Context mContext){
+        return SharedPrefManager.getString(PARTICIPANT_SCI_LEVEL , "", mContext);
+    }
+
+    public static void setParticipantSciLevel(Context mContext, String participantSciLevel) {
+        SharedPrefManager.setString(PARTICIPANT_SCI_LEVEL, participantSciLevel, mContext);
+    }
+
 
 }

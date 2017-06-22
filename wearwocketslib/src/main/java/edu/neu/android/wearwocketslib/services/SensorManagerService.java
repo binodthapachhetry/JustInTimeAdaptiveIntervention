@@ -156,11 +156,11 @@ public class SensorManagerService extends Service implements SensorEventListener
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-            if(intent != null) {
-                logger.i("Inside onStartCommand: " + intent.getAction(), mContext);
-            }else {
-                logger.i("Inside onStartCommand", mContext);
-            }
+        if(intent != null) {
+            logger.i("Inside onStartCommand: " + intent.getAction(), mContext);
+        }else {
+            logger.i("Inside onStartCommand", mContext);
+        }
 //        }
         if (intent != null) {
             if ("FLUSH".equals(intent.getAction())) {
@@ -276,7 +276,7 @@ public class SensorManagerService extends Service implements SensorEventListener
             }
             else if("STOP".equals(intent.getAction())){
                 logger.i("Stop sensor manager service by STOP signal", getApplicationContext());
-                    stopSelf();
+                stopSelf();
             }
         }
         return Service.START_NOT_STICKY;
@@ -531,8 +531,7 @@ public class SensorManagerService extends Service implements SensorEventListener
     public double getRMS(ArrayList<Float> ar){
         int n = ar.size();
         double rms = 0;
-//        ArrayList<Float> RMS = new ArrayList<Float>();
-        for (int i = 1; i < ar.size(); i++) {
+        for (int i = 0; i < ar.size(); i++) {
             rms += ar.get(i) * ar.get(i);
         }
         rms/=n;
@@ -543,7 +542,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         ArrayList<Float> RMS = new ArrayList<Float>();
 
         for (int i = 1; i < xAr.size(); i++) {
-            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i))/3);
+            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i)));
             RMS.add(tmp);
         }
         logger.i("RMS size " + Integer.toString(RMS.size()), getApplicationContext());
@@ -605,7 +604,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         ArrayList<Float> RMS = new ArrayList<Float>();
 
         for (int i = 0; i < xAr.size(); i++) {
-            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i))/3);
+            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i)));
             RMS.add(tmp);
         }
         return calculateMadMed(RMS);
@@ -615,7 +614,7 @@ public class SensorManagerService extends Service implements SensorEventListener
         ArrayList<Float> RMS = new ArrayList<Float>();
 
         for (int i = 0; i < xAr.size(); i++) {
-            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i))/3);
+            float tmp = (float) Math.sqrt((xAr.get(i)*xAr.get(i) + yAr.get(i)*yAr.get(i) + zAr.get(i)*zAr.get(i)));
             RMS.add(tmp);
         }
         return calculateMadMean(RMS);
