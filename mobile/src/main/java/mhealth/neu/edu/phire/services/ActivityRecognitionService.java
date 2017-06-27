@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NavigableMap;
@@ -28,8 +29,10 @@ import edu.neu.mhealth.android.wockets.library.support.CSV;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 
+
 import com.opencsv.CSVReader;
 
+import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
@@ -62,6 +65,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private File wfFile;
     private String arFile;
     private long lastARwindowStopTime;
+
+    private Double partWeightKg;
+    private String sciLevel;
+    private Double partSciLevel;
+    private Double partMETmultiply;
+    private Double participantMETkcal;
+    private HashMap<String,Double> mapMET;
+    private HashMap<String,Double> mapSciLevel;
 
     public Instances allActivitiesUnpredicted;
     public Instances movingUnpredicted;
@@ -191,6 +202,33 @@ public class ActivityRecognitionService extends WocketsIntentService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
         Log.i(TAG,"Last AR stop time:" + simpleDateFormat.format(lastARwindowStopTime),mContext);
 
+        // get participant related info for computing energy expenditure
+        mapMET = new HashMap<String,Double>();
+        mapMET.put("1",1d);
+        mapMET.put("2",3d);
+        mapMET.put("3",1.6d);
+        mapMET.put("4",3.5d);
+        mapMET.put("5",1d);
+        mapMET.put("6",4.8d);
+        mapMET.put("7",3.2d);
+        mapMET.put("11",1d);
+        mapMET.put("12",3.5d);
+        mapMET.put("13",3.2d);
+
+        mapSciLevel = new HashMap<String,Double>();
+        mapSciLevel.put("paraplagia",2.52d);
+        mapSciLevel.put("tetraplagia",2.77d);
+
+        if(TEMPLEDataManager.getParticipantWeight(mContext)!="" && TEMPLEDataManager.getParticipantSciLevel(mContext)!=""){
+            partWeightKg = (Double.parseDouble(TEMPLEDataManager.getParticipantWeight(mContext))* TEMPLEConstants.LB_KG_CONVERT)/TEMPLEConstants.MET_DIVIDE;
+            partSciLevel = mapSciLevel.get(TEMPLEDataManager.getParticipantSciLevel(mContext));
+            partMETmultiply = partWeightKg*partSciLevel;
+        }else{
+            Log.i(TAG,"Patient information to calculate energy expenditure not found",mContext);
+            partMETmultiply = 0d;
+        }
+
+        // this is end for participant related info for computing energy expenditure
 
         dateNow = new Date();
         // based on the end time of the last window decide on a new time window
@@ -263,7 +301,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         }
 
         if(wfFile.exists() && !sFile.exists()) {
-
+            Log.i(TAG, "No speed file only watch file present.", mContext);
             doARwatchOnly();
         }
 
@@ -312,15 +350,20 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 Log.i(TAG,"Total distance from panobike between:" + startTime+","+stopTime+" is "+ Float.toString(totalDistance),mContext);
                 if(totalDistance<nearStationary){
                     predictClass = "stationary";
+                    participantMETkcal = partSciLevel*partWeightKg*mapMET.get("11");
+
                 }else if(totalDistance>someWheelMovement){
                     predictClass = "consistent_wheelchair_movement";
+                    participantMETkcal = partSciLevel*partWeightKg*mapMET.get("12");
                 }else{
                     predictClass = "some_wheelchair_movement";
+                    participantMETkcal = partSciLevel*partWeightKg*mapMET.get("13");
                 }
                 String[] row = {
                         startTime,
                         stopTime,
                         predictClass,
+                        String.valueOf(participantMETkcal),
                         "speed"
                 };
                 CSV.write(row, arFile, true);
@@ -367,10 +410,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
                             }else if(totalDistance>someWheelMovement){
                                 doMovingInstance(line,stopMilliseconds);
                             }else{
+                                participantMETkcal = partSciLevel*partWeightKg*mapMET.get("13");
+
                                 String[] row = {
                                         lineCp[2],
                                         lineCp[3],
                                         "some_wheelchair_movement",
+                                        String.valueOf(participantMETkcal),
                                         "speed"
                                 };
                                 CSV.write(row, arFile, true);
@@ -413,14 +459,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
         try {
             double result = nonMovingClassifier.classifyInstance(newInstanceNM);
             String className = nonmovingclasses.get(new Double(result).intValue());
-
+            participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
             String[] row = {
                     lineCp[2],
                     lineCp[3],
                     className,
+                    String.valueOf(participantMETkcal),
                     "stationary"
             };
-
             CSV.write(row, arFile, true);
 
         } catch (Exception e) {
@@ -444,14 +490,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
         try {
             double result = movingClassifier.classifyInstance(newInstance);
             String className = movingclasses.get(new Double(result).intValue());
-
+            participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
             String[] row = {
                     lineCp[2],
                     lineCp[3],
                     className,
+                    String.valueOf(participantMETkcal),
                     "moving"
             };
-
             CSV.write(row, arFile, true);
 
         } catch (Exception e) {
@@ -475,11 +521,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
         try {
             double result = allActivitiesClassifier.classifyInstance(newInstance);
           String className = allActivitiesclasses.get(new Double(result).intValue());
+            participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
 
             String[] row = {
                     lineCp[2],
                     lineCp[3],
                     className,
+                    String.valueOf(participantMETkcal),
                     "all_activities"
             };
 
@@ -524,14 +572,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     try {
                         double result = allActivitiesClassifier.classifyInstance(newInstance);
                         String className = allActivitiesclasses.get(new Double(result).intValue());
-//                        String className = String.valueOf(result);
+                        participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
 
-
-//                                String row =String.format("%s,%s,%s",lineCp[2],lineCp[3],className);
                         String[] row = {
                                 lineS[2],
                                 lineS[3],
                                 className,
+                                String.valueOf(participantMETkcal),
                                 "all_activities"
                         };
                         CSV.write(row, arFile, true);

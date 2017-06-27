@@ -1,6 +1,7 @@
 package edu.neu.android.wearwocketslib;
 
 import java.io.File;
+import java.util.HashMap;
 
 import edu.neu.android.wearwocketslib.core.repeatedwakefulservice.WakefulServiceArbitrator;
 import edu.neu.android.wocketslib.mhealthformat.mHealthFormat;
@@ -32,7 +33,8 @@ public class Globals {
     public static boolean IS_MHEALTH_EXTERNAL = true;
 
     public static final String LAST_HEART_RATE_TIMESTAMP = "LAST_HEART_RATE_TIMESTAMP";
-    public static int HEART_RATE_DELAY_MS = 5 * 60 * 1000;
+    public static final int HEART_RATE_DELAY_MS = 5 * 60 * 1000;
+
 
     public static void init(){
         mHealthFormat.init(STUDY_NAME, IS_MHEALTH_EXTERNAL);

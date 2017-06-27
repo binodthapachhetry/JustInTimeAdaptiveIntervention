@@ -46,6 +46,9 @@ public class TEMPLEConstants extends WocketsConstants {
 
     public static final String CSC_SERVICE_UUID = "00001816-0000-1000-8000-00805f9b34fb";
 
+    public static final double LB_KG_CONVERT = 0.453592d;
+    public static final double MET_DIVIDE = 200d;
+
 
 //    public static final String KEY_SALIVA_WAKING_DEMO = "KEY_SALIVA_WAKING_DEMO";
 //	public static final String KEY_SALIVA_WAKING = "KEY_SALIVA_WAKING";
