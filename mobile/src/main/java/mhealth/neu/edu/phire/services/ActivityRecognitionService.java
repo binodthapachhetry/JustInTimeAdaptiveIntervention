@@ -357,8 +357,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     participantMETkcal = partSciLevel*partWeightKg*mapMET.get("12");
                 }else{
                     predictClass = "some_wheelchair_movement";
-                    participantMETkcal = partSciLevel*partWeightKg*mapMET.get("13");
+                    participantMETkcal = partMETmultiply*mapMET.get("13");
                 }
+                Log.i(TAG, "Activity detected:"+predictClass, mContext);
+                Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
+
                 String[] row = {
                         startTime,
                         stopTime,
@@ -410,7 +413,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
                             }else if(totalDistance>someWheelMovement){
                                 doMovingInstance(line,stopMilliseconds);
                             }else{
-                                participantMETkcal = partSciLevel*partWeightKg*mapMET.get("13");
+                                Log.i(TAG, "Activity detected:13", mContext);
+                                participantMETkcal = partMETmultiply*mapMET.get("13");
+                                Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
 
                                 String[] row = {
                                         lineCp[2],
@@ -459,7 +464,10 @@ public class ActivityRecognitionService extends WocketsIntentService {
         try {
             double result = nonMovingClassifier.classifyInstance(newInstanceNM);
             String className = nonmovingclasses.get(new Double(result).intValue());
-            participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
+            Log.i(TAG, "Activity detected:"+className, mContext);
+            participantMETkcal = partMETmultiply*mapMET.get(className);
+            Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
+
             String[] row = {
                     lineCp[2],
                     lineCp[3],
@@ -490,7 +498,10 @@ public class ActivityRecognitionService extends WocketsIntentService {
         try {
             double result = movingClassifier.classifyInstance(newInstance);
             String className = movingclasses.get(new Double(result).intValue());
-            participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
+            Log.i(TAG, "Activity detected:"+className, mContext);
+            participantMETkcal = partMETmultiply*mapMET.get(className);
+            Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
+
             String[] row = {
                     lineCp[2],
                     lineCp[3],
@@ -521,7 +532,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
         try {
             double result = allActivitiesClassifier.classifyInstance(newInstance);
           String className = allActivitiesclasses.get(new Double(result).intValue());
-            participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
+            Log.i(TAG, "Activity detected:"+className, mContext);
+            participantMETkcal = partMETmultiply*mapMET.get(className);
+            Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
 
             String[] row = {
                     lineCp[2],
@@ -572,7 +585,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     try {
                         double result = allActivitiesClassifier.classifyInstance(newInstance);
                         String className = allActivitiesclasses.get(new Double(result).intValue());
-                        participantMETkcal = partSciLevel*partWeightKg*mapMET.get(className);
+                        Log.i(TAG, "Activity detected:"+className, mContext);
+                        participantMETkcal = partMETmultiply*mapMET.get(className);
+                        Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
 
                         String[] row = {
                                 lineS[2],
@@ -597,10 +612,6 @@ public class ActivityRecognitionService extends WocketsIntentService {
         }
 
     }
-
-
-
-
 
 
 }
