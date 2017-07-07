@@ -81,7 +81,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
     private static final long ONE_MINUTE_IN_MILLIS = 60000;//millisecs
     private float wheelCircumference;
-    private static final float nearStationary = 1.8f;
+    private static final float nearStationary = 3f;
     private static final float someWheelMovement = 12f;
 
     // order of attributes/classes needs to be exactly equal to those used for training
@@ -113,7 +113,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
     // order of attributes/classes needs to be exactly equal to those used for training
     final Attribute attribute_Var_Y = new Attribute("Var_Y");
     final Attribute attribute_mad_med_XYZ = new Attribute("mad_med_XYZ");
-    final Attribute attribute_VAR_X = new Attribute("VAR_X");
+    final Attribute attribute_VAR_X = new Attribute("Var_X");
     final Attribute attribute_rms_Z = new Attribute("rms_Z");
 
     final List<String> movingclasses = new ArrayList<String>() {
@@ -123,7 +123,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
             add("6"); // cls nr 3
         }
     };
-    final Attribute movingAttributeClass = new Attribute("Class",movingclasses);
+    final Attribute movingAttributeClass = new Attribute("class",movingclasses);
     ArrayList<Attribute> movingAttributeList = new ArrayList<Attribute>(3) {
         {
             add(attribute_Var_Y);
@@ -135,6 +135,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
     };
 
     // order of attributes/classes needs to be exactly equal to those used for training
+    final Attribute attribute_mad_median_XYZ_nm = new Attribute("mad_median_XYZ");
     final Attribute attribute_mad_median_Z = new Attribute("mad_median_Z");
     final Attribute attribute_mcr_X = new Attribute("mcr_X");
 
@@ -148,7 +149,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
     final Attribute nonmovingAttributeClass = new Attribute("class",nonmovingclasses);
     ArrayList<Attribute> nonmovingAttributeList = new ArrayList<Attribute>(3) {
         {
-            add(attribute_mad_med_XYZ);
+            add(attribute_mad_median_XYZ_nm);
             add(attribute_mad_median_Z);
             add(attribute_mcr_X);
             add(nonmovingAttributeClass);
@@ -327,7 +328,6 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
         }
 
-
         if (sFile.exists()&& !wfFile.exists()) {
 
             Log.i(TAG, "Only speed file exists for today", mContext);
@@ -336,11 +336,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
             Long startRot = map.ceilingKey(lastARwindowStopTime);
             Long stopRot = map.ceilingKey(lastARwindowStopTime+ONE_MINUTE_IN_MILLIS);
 //            int diff = Math.round((lastTimeSpeed - startRot) / ONE_MINUTE_IN_MILLIS);
-            if(startRot==null || stopRot==null){
+            if(startRot==null || stopRot==null) {
                 Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
                 stopSelf();
+            } else if(stopRot.compareTo(startRot) <0){
+                    Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
+                    stopSelf();
             }else{
-
                 String predictClass;
                 String predictSubClass;
                 SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -352,12 +354,12 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 if(totalDistance<nearStationary){
                     predictClass = "11";
                     predictSubClass = "11";
-                    participantMETkcal = partSciLevel*partWeightKg*mapMET.get("11");
+                    participantMETkcal = partMETmultiply*mapMET.get("11");
 
                 }else if(totalDistance>someWheelMovement){
                     predictClass = "12";
                     predictSubClass = "12";
-                    participantMETkcal = partSciLevel*partWeightKg*mapMET.get("12");
+                    participantMETkcal = partMETmultiply*mapMET.get("12");
                 }else{
                     predictClass = "13";
                     predictSubClass = "13";
@@ -411,7 +413,12 @@ public class ActivityRecognitionService extends WocketsIntentService {
                             Integer startRot = map.get(startKey);
                             Integer stopRot = map.get(stopKey);
 
-                            float totalDistance = (stopRot -startRot)*wheelCircumference;
+                            float totalDistance;
+                            if(stopRot.compareTo(startRot) <0){
+                                totalDistance = 0f;
+                            }else {
+                                totalDistance = (stopRot - startRot) * wheelCircumference;
+                            }
                             Log.i(TAG,"Total distance from panobike between:" + lineCp[2]+","+lineCp[3]+" is "+ Integer.toString(startRot)+","+Integer.toString(stopRot)+"="+Float.toString(totalDistance)+" coz "+ Float.toString(wheelCircumference),mContext);
                             if(totalDistance<nearStationary){
                                 doNonMovingInstance(line,stopMilliseconds,totalDistance);
@@ -460,18 +467,20 @@ public class ActivityRecognitionService extends WocketsIntentService {
     public void doNonMovingInstance(String[] line, long stop, double dist){
         final String[] lineCp = line;
         Log.i(TAG,lineCp[11]+","+lineCp[14]+","+lineCp[15], mContext);
-
-
         DenseInstance newInstanceNM = new DenseInstance(nonMovingUnpredicted.numAttributes()) {
             {
-                setValue(attribute_mad_med_XYZ, Double.parseDouble(lineCp[11]));
+                setValue(attribute_mad_median_XYZ_nm, Double.parseDouble(lineCp[11]));
                 setValue(attribute_mad_median_Z, Double.parseDouble(lineCp[14]));
                 setValue(attribute_mcr_X, Double.parseDouble(lineCp[15]));
             }
         };
         newInstanceNM.setDataset(nonMovingUnpredicted);
+//        double[] tmp = newInstanceNM.toDoubleArray();
+//        Log.i(TAG,String.valueOf(tmp.length),mContext);
+//        Log.i(TAG,String.valueOf(tmp[0])+","+String.valueOf(tmp[1])+","+String.valueOf(tmp[2]),mContext);
         try {
             double result = nonMovingClassifier.classifyInstance(newInstanceNM);
+            Log.i(TAG,String.valueOf(result),mContext);
             String className = nonmovingclasses.get(new Double(result).intValue());
             Log.i(TAG, "Activity detected:"+className, mContext);
             participantMETkcal = partMETmultiply*mapMET.get(className);
@@ -494,27 +503,35 @@ public class ActivityRecognitionService extends WocketsIntentService {
     }
 
     public void doMovingInstance(String[] line, long stop, double dist){
-        final String[] lineCp = line;
-        DenseInstance newInstance = new DenseInstance(movingUnpredicted.numAttributes()) {
+        final String[] lineCpd = line;
+        Log.i(TAG,lineCpd[10]+","+lineCpd[11]+","+lineCpd[12]+","+lineCpd[13], mContext);
+        DenseInstance newInstanceM = new DenseInstance(movingUnpredicted.numAttributes()) {
             {
-                setValue(attribute_Var_Y, Double.parseDouble(lineCp[10]));
-                setValue(attribute_mad_med_XYZ, Double.parseDouble(lineCp[11]));
-                setValue(attribute_VAR_X, Double.parseDouble(lineCp[12]));
-                setValue(attribute_rms_Z, Double.parseDouble(lineCp[13]));
+                setValue(attribute_Var_Y, Double.parseDouble(lineCpd[10]));
+                setValue(attribute_mad_med_XYZ, Double.parseDouble(lineCpd[11]));
+                setValue(attribute_VAR_X, Double.parseDouble(lineCpd[12]));
+                setValue(attribute_rms_Z, Double.parseDouble(lineCpd[13]));
 
             }
         };
-        newInstance.setDataset(movingUnpredicted);
+        newInstanceM.setDataset(movingUnpredicted);
+
+        Log.i(TAG,String.valueOf(newInstanceM.value(0))+","+String.valueOf(newInstanceM.value(1))+","+String.valueOf(newInstanceM.value(2))+","+String.valueOf(newInstanceM.value(3)),mContext);
+
+        double[] tmp = newInstanceM.toDoubleArray();
+        Log.i(TAG,String.valueOf(tmp.length),mContext);
+        Log.i(TAG,String.valueOf(tmp[0])+","+String.valueOf(tmp[1])+","+String.valueOf(tmp[2])+","+String.valueOf(tmp[3]),mContext);
         try {
-            double result = movingClassifier.classifyInstance(newInstance);
+            double result = movingClassifier.classifyInstance(newInstanceM);
+            Log.i(TAG,String.valueOf(result),mContext);
             String className = movingclasses.get(new Double(result).intValue());
             Log.i(TAG, "Activity detected:"+className, mContext);
             participantMETkcal = partMETmultiply*mapMET.get(className);
             Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
 
             String[] row = {
-                    lineCp[2],
-                    lineCp[3],
+                    lineCpd[2],
+                    lineCpd[3],
                     "12",
                     className,
                     String.valueOf(dist),
@@ -590,6 +607,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
                 if(startMilliseconds>lastARwindowStopTime) {
                     Log.i(TAG,lineS[2]+","+lineS[3],mContext);
+                    Log.i(TAG,line[5]+","+line[6]+","+line[7]+","+line[8]+","+line[9], mContext);
                     DenseInstance newInstance = new DenseInstance(allActivitiesUnpredicted.numAttributes()) {
                         {
                             setValue(attribute_zcr_Z, Double.parseDouble(lineS[5]));
@@ -601,6 +619,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
                         }
                     };
                     newInstance.setDataset(allActivitiesUnpredicted);
+//                    double[] tmp = newInstance.toDoubleArray();
+//                    Log.i(TAG,String.valueOf(tmp.length),mContext);
+//                    Log.i(TAG,String.valueOf(tmp[0])+","+String.valueOf(tmp[1])+","+String.valueOf(tmp[2])+","+String.valueOf(tmp[3])+","+String.valueOf(tmp[4]),mContext);
                     try {
                         double result = allActivitiesClassifier.classifyInstance(newInstance);
                         String className = allActivitiesclasses.get(new Double(result).intValue());
