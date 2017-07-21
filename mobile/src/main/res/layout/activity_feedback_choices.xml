@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10">
+
+    <Button
+        android:id="@+id/activity_current_info"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/CurrentInfo"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/activity_week_info_ee"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WeekInfoEE"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/activity_week_info_distance"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WeekInfoDistance"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/activity_notext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"/>
+
+    <Button
+        android:id="@+id/feedback_choice_done"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Done"
+        android:textAllCaps="false"/>
+
+
+
+
+</LinearLayout>

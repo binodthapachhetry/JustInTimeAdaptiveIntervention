@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_energy_plot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="10dp"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    tools:context="mhealth.neu.edu.phire.activities.EnergyPlot"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/EEplotTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/EEtitle"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.github.mikephil.charting.charts.CombinedChart
+        android:layout_width="match_parent"
+        android:layout_height="359dp"
+        android:id="@+id/ee_barchart"
+        android:textStyle="bold"
+        android:layout_below="@+id/EEplotTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.58">
+    </com.github.mikephil.charting.charts.CombinedChart>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Done"
+        android:id="@+id/eeWeeklyDone"/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/selectEEgoal"-->
+        <!--android:layout_width="365dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/EEgoalSelect"-->
+        <!--android:gravity="left"-->
+        <!--android:textSize="15sp"-->
+        <!--android:paddingTop="15dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/selectedEEgoal"-->
+        <!--android:layout_width="365dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="15sp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <!--<NumberPicker android:id="@+id/eeGoalPicker"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scaleX="0.5"-->
+        <!--android:scaleY="0.5"-->
+        <!--android:layout_weight="2"-->
+        <!--android:descendantFocusability="blocksDescendants"-->
+        <!--android:isScrollContainer="false" />-->
+
+</LinearLayout>

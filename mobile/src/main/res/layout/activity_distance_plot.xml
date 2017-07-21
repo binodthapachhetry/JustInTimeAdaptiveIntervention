@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_energy_plot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="10dp"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    tools:context="mhealth.neu.edu.phire.activities.DistancePlot"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/DistancePlotTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/DistanceTitle"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.github.mikephil.charting.charts.CombinedChart
+        android:layout_width="match_parent"
+        android:layout_height="359dp"
+        android:id="@+id/distance_barchart"
+        android:textStyle="bold"
+        android:layout_below="@+id/DistancePlotTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.58">
+    </com.github.mikephil.charting.charts.CombinedChart>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Done"
+        android:id="@+id/distanceWeeklyDone"/>
+
+
+</LinearLayout>

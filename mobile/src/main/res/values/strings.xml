@@ -38,6 +38,25 @@
     <string name="sciLevelText">Sci Level:</string>
     <string name="completenessText">Completeness:</string>
 
+    <string name="EEprofile">Check Energy Expenditure / Distance traveled</string>
+    <string name="EEtitle">Weekly Energy Expenditure (kCal) profile</string>
+
+    <string name="DistanceProfile">Check Distance traveled</string>
+    <string name="DistanceTitle">Weekly Distance travelled (miles) profile</string>
+
+    <string name="EEgoalSelect"> Change daily EE goal from </string>
+    <string name="DistanceGoalSelect"> Change daily distance goal from </string>
+
+    <string name="Done">Done</string>
+
+    <string name="CurrentInfo">Check EE and distance</string>
+
+    <string name="WeekInfoEE">Weekly EE profile</string>
+    <string name="WeekInfoDistance">Weekly distance profile</string>
+
+    <string name="currentEEtitle">Energy Expenditure (kCal)</string>
+    <string name="currentDistTitle">Distance Travelled (miles)</string>
+
 
 
 </resources>

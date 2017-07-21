@@ -14,6 +14,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -206,6 +208,15 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
                         DataManager.setStartDate(mContext, startTime);
                         ToastManager.showShortToast(mContext, "Start Date set as " + DateTime.getTimestampString(startTime));
                         Log.i(TAG, "Start Date set as " + DateTime.getTimestampString(startTime), mContext);
+
+                        Date endDate = new Date(startTime);
+                        Calendar myCal = Calendar.getInstance();
+                        myCal.setTime(endDate);
+                        myCal.add(Calendar.MONTH, +3);
+                        long endT = myCal.getTime().getTime();
+                        DataManager.setEndDate(mContext,endT);
+                        Log.i(TAG, "End Date set as " + DateTime.getTimestampString(endT), mContext);
+
                     }
                 },
                 DateTime.getYear(millis),

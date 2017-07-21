@@ -3,6 +3,7 @@ package mhealth.neu.edu.phire.data;
 import android.content.Context;
 
 import edu.neu.mhealth.android.wockets.library.managers.SharedPrefManager;
+import edu.neu.mhealth.android.wockets.library.support.DateTime;
 
 /**
  * @author Dharam Maniar
@@ -185,6 +186,75 @@ public class TEMPLEDataManager {
 
     public static void setParticipantSciLevel(Context mContext, String participantSciLevel) {
         SharedPrefManager.setString(PARTICIPANT_SCI_LEVEL, participantSciLevel, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String ENERGY_EXPENDITURE_CALCULATION_LAST_RUN = "ENERGY_EXPENDITURE_CALCULATION_LAST_RUN";
+
+    public static long getEECalculationLastRun(Context context) {
+        return SharedPrefManager.getLong(ENERGY_EXPENDITURE_CALCULATION_LAST_RUN, 0L, context);
+    }
+
+    public static void setEECalculationLastRun(Context context) {
+        SharedPrefManager.setLong(ENERGY_EXPENDITURE_CALCULATION_LAST_RUN, DateTime.getCurrentTimeInMillis(), context);
+    }
+
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String ENERGY_EXPENDITURE_KCAL = "ENERGY_EXPENDITURE_KCAL";
+
+    public static String getEEKcal(Context mContext){
+        return SharedPrefManager.getString(ENERGY_EXPENDITURE_KCAL , "", mContext);
+    }
+
+    public static void setEEKcal(Context mContext, String energyExpenditureKCal) {
+        SharedPrefManager.setString(ENERGY_EXPENDITURE_KCAL, energyExpenditureKCal, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String GOAL_ENERGY_EXPENDITURE_KCAL = "GOAL_ENERGY_EXPENDITURE_KCAL";
+
+    public static String getGoalEEKcal(Context mContext){
+        return SharedPrefManager.getString(GOAL_ENERGY_EXPENDITURE_KCAL , "", mContext);
+    }
+
+    public static void setGoalEEKcal(Context mContext, String goalEnergyExpenditureKCal) {
+        SharedPrefManager.setString(GOAL_ENERGY_EXPENDITURE_KCAL, goalEnergyExpenditureKCal, mContext);
+    }
+
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String DISTANCE_TRAVELLED_METER = "DISTANCE_TRAVELLED_METER";
+
+    public static String getDistanceTravelledMeter(Context mContext){
+        return SharedPrefManager.getString(DISTANCE_TRAVELLED_METER , "", mContext);
+    }
+
+    public static void setDistanceTravelledMeter(Context mContext, String distanceTravelledMeter) {
+        SharedPrefManager.setString(DISTANCE_TRAVELLED_METER, distanceTravelledMeter, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String GOAL_DISTANCE_TRAVELLED_MILES = "GOAL_DISTANCE_TRAVELLED_MILES";
+
+    public static String getGoaldistanceTravelledMiles(Context mContext){
+        return SharedPrefManager.getString(GOAL_DISTANCE_TRAVELLED_MILES , "", mContext);
+    }
+
+    public static void setGoaldistanceTravelledMiles(Context mContext, String goalDistanceTravelledMiles) {
+        SharedPrefManager.setString(GOAL_DISTANCE_TRAVELLED_MILES, goalDistanceTravelledMiles, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String FILEBASE_CLEANING_LAST_RUN = "FILEBASE_CLEANING_LAST_RUN ";
+
+    public static long getFilebaseCleaningLastRun(Context context) {
+        return SharedPrefManager.getLong(FILEBASE_CLEANING_LAST_RUN, 0, context);
+    }
+
+    public static void setFilebaseCleaningLastRun(Context context) {
+        SharedPrefManager.setLong(FILEBASE_CLEANING_LAST_RUN, DateTime.getCurrentTimeInMillis(), context);
     }
 
 

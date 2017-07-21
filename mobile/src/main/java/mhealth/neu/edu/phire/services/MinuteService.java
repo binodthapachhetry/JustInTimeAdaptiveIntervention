@@ -251,6 +251,9 @@ public class MinuteService extends WocketsIntentService {
         Log.i(TAG, "Starting WatchUploadManagerService", mContext);
         startService(new Intent(this, WatchUploadManagerService.class));
 
+        Log.i(TAG, "Starting FilebaseDeletingService", mContext);
+        startService(new Intent(this,FilebaseCleaningService.class));
+
     }
 
     private void notifyStudyFinished() {

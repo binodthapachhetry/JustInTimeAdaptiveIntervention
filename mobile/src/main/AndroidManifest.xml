@@ -234,12 +234,37 @@
             android:name=".services.SendMessageToWatch"
             android:exported="false" />
 
-        <activity android:name=".activities.ParticipantInfoActivity"
+        <activity
+            android:name=".activities.ParticipantInfoActivity"
             android:parentActivityName=".activities.SetupActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.SetupActivity" />
         </activity>
+        <activity
+            android:name=".activities.EnergyPlot"
+            android:screenOrientation="portrait" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".activities.FeedbackChoices"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.DistancePlot"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CurrentEEdistance"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".services.FilebaseCleaningService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

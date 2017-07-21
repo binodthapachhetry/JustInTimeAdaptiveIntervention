@@ -276,7 +276,6 @@ public class DataManager {
     public static void setMinuteServiceLastRun(Context context) {
         SharedPrefManager.setLong(MINUTE_SERVICE_LAST_RUN, DateTime.getCurrentTimeInMillis(), context);
     }
-
     //--------------------------------------------------------------------------------------------//
 
     private static final String BACKUP_MINUTE_SERVICE_LAST_RUN = "BACKUP_MINUTE_SERVICE_LAST_RUN";

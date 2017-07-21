@@ -53,7 +53,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
 
     }
 
-    public void addListenerOnButtonClick(){
+    private void addListenerOnButtonClick(){
 
         // text boxes
         ageCurrent = (EditText) findViewById(R.id.ageCurrent);

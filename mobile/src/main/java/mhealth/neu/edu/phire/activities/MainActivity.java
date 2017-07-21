@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.neu.mhealth.android.wockets.library.activities.WocketsActivity;
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
+import edu.neu.mhealth.android.wockets.library.database.entities.study.Study;
 import edu.neu.mhealth.android.wockets.library.managers.BuildManager;
 import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
@@ -144,6 +145,19 @@ public class MainActivity extends WocketsActivity {
         backgroundImageClick = 1;
         startActivity(new Intent(this, SetupActivity.class));
     }
+
+    @OnClick(R.id.activity_ee_plot)
+    public void onClickEnergyExpenditure(View view) {
+        Log.i(TAG,"Clicked EE screen",mContext);
+        Study study = DataManager.getStudy(mContext);
+        if (study == null) {
+            Log.e(TAG, "onClickEnergyExpenditure - No study found", mContext);
+            return;
+        }
+        Intent intent = new Intent(this, FeedbackChoices.class);
+        startActivity(intent);
+    }
+
 
 }
 

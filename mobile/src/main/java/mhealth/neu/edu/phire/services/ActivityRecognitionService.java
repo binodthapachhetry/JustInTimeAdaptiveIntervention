@@ -14,10 +14,12 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
@@ -44,6 +46,8 @@ import weka.core.converters.ConverterUtils;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.estimators.Estimator;
 
+import edu.neu.mhealth.android.wockets.library.support.DateTime;
+
 
 public class ActivityRecognitionService extends WocketsIntentService {
 
@@ -64,6 +68,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private File sFile;
     private File wfFile;
     private String arFile;
+    private String arFileDay;
     private long lastARwindowStopTime;
 
     private Double partWeightKg;
@@ -83,6 +88,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private float wheelCircumference;
     private static final float nearStationary = 3f;
     private static final float someWheelMovement = 12f;
+
+    private long eeCalcLastRun;
+    private String eeKcal;
+    private String distanceMeter;
+
+    private int dayOfMonth;
+    private int dayOfMonthEEcalcLastRun;
 
     // order of attributes/classes needs to be exactly equal to those used for training
     final Attribute attribute_zcr_Z = new Attribute("zcr_Z");
@@ -203,6 +215,35 @@ public class ActivityRecognitionService extends WocketsIntentService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
         Log.i(TAG,"Last AR stop time:" + simpleDateFormat.format(lastARwindowStopTime),mContext);
 
+        eeCalcLastRun = DataManager.getLastARwindowStopTime(mContext);
+        eeKcal = TEMPLEDataManager.getEEKcal(mContext);
+        Log.i(TAG,"Last recorded Energy Expenditure in kCal = " + eeKcal,mContext);
+
+        distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
+        if(distanceMeter.startsWith("-")){
+            distanceMeter = "0";
+        }
+        Log.i(TAG,"Last recorded distance travelled in meter = " + distanceMeter,mContext);
+
+        if(eeCalcLastRun!=0){
+            Date dateEEcalcLastRun = new Date();
+            dateEEcalcLastRun.setTime(eeCalcLastRun);
+            Calendar calEEcalcLastRun = Calendar.getInstance();
+            calEEcalcLastRun.setTime(dateEEcalcLastRun);
+            int dayOfMonthEEcalcLastRun = calEEcalcLastRun.get(Calendar.DAY_OF_MONTH);
+
+            Date dateCurrent = new Date();
+            dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
+            Calendar calCurrent = Calendar.getInstance();
+            calCurrent.setTime(dateCurrent);
+            int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
+
+            if(dayOfMonthCurrent>dayOfMonthEEcalcLastRun){
+                TEMPLEDataManager.setEEKcal(mContext,"0");
+                TEMPLEDataManager.setDistanceTravelledMeter(mContext,"0");
+            }
+        }
+
         // get participant related info for computing energy expenditure
         mapMET = new HashMap<String,Double>();
         mapMET.put("1",1d);
@@ -217,8 +258,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
         mapMET.put("13",3.2d);
 
         mapSciLevel = new HashMap<String,Double>();
-        mapSciLevel.put("paraplagia",2.52d);
-        mapSciLevel.put("tetraplagia",2.77d);
+        mapSciLevel.put("paraplagia",2.77d);
+        mapSciLevel.put("tetraplagia",2.52d);
 
         if(TEMPLEDataManager.getParticipantWeight(mContext)!="" && TEMPLEDataManager.getParticipantSciLevel(mContext)!=""){
             partWeightKg = (Double.parseDouble(TEMPLEDataManager.getParticipantWeight(mContext))* TEMPLEConstants.LB_KG_CONVERT)/TEMPLEConstants.MET_DIVIDE;
@@ -244,6 +285,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         wfFile = new File(watchFeatureFile);
 
         arFile = DataManager.getDirectoryData(mContext) + "/" + dayDirectory + "/" + DateTime.getCurrentHourWithTimezone()+ "/" + "ActivityRecognitionResult.log.csv";
+        arFileDay = DataManager.getDirectoryFeature(mContext) + "/" + dayDirectory + "/" + "ActivityRecognitionResult.log.csv";
 
         Log.i(TAG, "Loading all activities model", mContext);
         AssetManager assetManager = mContext.getAssets();
@@ -368,15 +410,21 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 Log.i(TAG, "Activity detected:"+predictClass, mContext);
                 Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
 
+                TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcal) + participantMETkcal));
+                TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+totalDistance));
+
+//                TEMPLEDataManager.setEECalculationLastRun(mContext);
+
                 String[] row = {
                         startTime,
                         stopTime,
                         predictClass,
                         predictSubClass,
-                        String.valueOf(totalDistance),
-                        String.valueOf(participantMETkcal)
+                        String.valueOf(Float.valueOf(distanceMeter)+totalDistance),
+                        String.valueOf(Double.valueOf(eeKcal) + participantMETkcal)
                 };
                 CSV.write(row, arFile, true);
+                CSV.write(row,arFileDay,true);
                 DataManager.setLastARwindowStopTime(mContext,stopRot);
 
             }
@@ -401,12 +449,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     Date stopDate = simpleDateFormatMicro.parse(lineCp[3]);
                     long stopMilliseconds = stopDate.getTime();
 
-
-
                     if (startMilliseconds > lastARwindowStopTime) {
                         Log.i(TAG, lineCp[2]+","+lineCp[3], mContext);
                         // convert speed csv to dictionary
                         // check if anything in speed data between startmilli and stopmilli
+                        String eeKcalTmp = TEMPLEDataManager.getEEKcal(mContext);
                         Long startKey = map.ceilingKey(startMilliseconds);
                         Long stopKey = map.floorKey(stopMilliseconds);
                         if(startKey !=null && stopKey!=null){
@@ -421,30 +468,33 @@ public class ActivityRecognitionService extends WocketsIntentService {
                             }
                             Log.i(TAG,"Total distance from panobike between:" + lineCp[2]+","+lineCp[3]+" is "+ Integer.toString(startRot)+","+Integer.toString(stopRot)+"="+Float.toString(totalDistance)+" coz "+ Float.toString(wheelCircumference),mContext);
                             if(totalDistance<nearStationary){
-                                doNonMovingInstance(line,stopMilliseconds,totalDistance);
+                                doNonMovingInstance(line,stopMilliseconds,totalDistance,eeKcalTmp);
                             }else if(totalDistance>someWheelMovement){
-                                doMovingInstance(line,stopMilliseconds,totalDistance);
+                                doMovingInstance(line,stopMilliseconds,totalDistance,eeKcalTmp);
                             }else{
                                 Log.i(TAG, "Activity detected:13", mContext);
                                 participantMETkcal = partMETmultiply*mapMET.get("13");
                                 Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
+                                TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcalTmp) + participantMETkcal));
+                                TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+totalDistance));
 
                                 String[] row = {
                                         lineCp[2],
                                         lineCp[3],
                                         "13",
                                         "13",
-                                        String.valueOf(totalDistance),
-                                        String.valueOf(participantMETkcal),
+                                        String.valueOf(Float.valueOf(distanceMeter)+totalDistance),
+                                        String.valueOf(Double.valueOf(eeKcalTmp) + participantMETkcal),
                                 };
                                 CSV.write(row, arFile, true);
+                                CSV.write(row,arFileDay,true);
                                 DataManager.setLastARwindowStopTime(mContext,stopMilliseconds);
 
                             }
 
                         }else{
                             // watch only model
-                            doARwatchOnlyInstance(line,stopMilliseconds);
+                            doARwatchOnlyInstance(line,stopMilliseconds,eeKcalTmp);
                         }
 
                     }
@@ -464,7 +514,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         Log.i(TAG, "Inside onDestroy", mContext);
     }
 
-    public void doNonMovingInstance(String[] line, long stop, double dist){
+    public void doNonMovingInstance(String[] line, long stop, double dist, String eeKCalIn){
         final String[] lineCp = line;
         Log.i(TAG,lineCp[11]+","+lineCp[14]+","+lineCp[15], mContext);
         DenseInstance newInstanceNM = new DenseInstance(nonMovingUnpredicted.numAttributes()) {
@@ -484,17 +534,22 @@ public class ActivityRecognitionService extends WocketsIntentService {
             String className = nonmovingclasses.get(new Double(result).intValue());
             Log.i(TAG, "Activity detected:"+className, mContext);
             participantMETkcal = partMETmultiply*mapMET.get(className);
+            Log.i(TAG, "Energy expenditure in kCal="+eeKCalIn, mContext);
             Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
+            Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal), mContext);
+            TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal));
+            TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+dist));
 
             String[] row = {
                     lineCp[2],
                     lineCp[3],
                     "11",
                     className,
-                    String.valueOf(dist),
-                    String.valueOf(participantMETkcal),
+                    String.valueOf(Float.valueOf(distanceMeter)+dist),
+                    String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal),
             };
             CSV.write(row, arFile, true);
+            CSV.write(row,arFileDay,true);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -502,7 +557,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         DataManager.setLastARwindowStopTime(mContext,stop);
     }
 
-    public void doMovingInstance(String[] line, long stop, double dist){
+    public void doMovingInstance(String[] line, long stop, double dist, String eeKcalIn){
         final String[] lineCpd = line;
         Log.i(TAG,lineCpd[10]+","+lineCpd[11]+","+lineCpd[12]+","+lineCpd[13], mContext);
         DenseInstance newInstanceM = new DenseInstance(movingUnpredicted.numAttributes()) {
@@ -528,16 +583,19 @@ public class ActivityRecognitionService extends WocketsIntentService {
             Log.i(TAG, "Activity detected:"+className, mContext);
             participantMETkcal = partMETmultiply*mapMET.get(className);
             Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
+            TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal));
+            TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+dist));
 
             String[] row = {
                     lineCpd[2],
                     lineCpd[3],
                     "12",
                     className,
-                    String.valueOf(dist),
-                    String.valueOf(participantMETkcal),
+                    String.valueOf(Float.valueOf(distanceMeter)+dist),
+                    String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal),
             };
             CSV.write(row, arFile, true);
+            CSV.write(row,arFileDay,true);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -545,7 +603,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         DataManager.setLastARwindowStopTime(mContext,stop);
     }
 
-    public void doARwatchOnlyInstance(String[] line, long stop){
+    public void doARwatchOnlyInstance(String[] line, long stop, String eeKcalTm){
         final String[] lineCp = line;
         DenseInstance newInstance = new DenseInstance(allActivitiesUnpredicted.numAttributes()) {
             {
@@ -563,23 +621,25 @@ public class ActivityRecognitionService extends WocketsIntentService {
             Log.i(TAG, "Activity detected:"+className, mContext);
 
             if(className.equals("11")){
-                doNonMovingInstance(lineCp,stop,-1d);
+                doNonMovingInstance(lineCp,stop,0d,eeKcalTm);
             }else if(className.equals("12")){
-                doMovingInstance(lineCp,stop,-1d);
+                doMovingInstance(lineCp,stop,0d,eeKcalTm);
             }else if(className.equals("13")) {
                 participantMETkcal = partMETmultiply*mapMET.get(className);
                 Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
-
+                TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcalTm) + participantMETkcal));
                 String[] row = {
                         lineCp[2],
                         lineCp[3],
                         "13",
                         "13",
-                        String.valueOf(-1d),
-                        String.valueOf(participantMETkcal),
+                        distanceMeter,
+                        String.valueOf(Double.valueOf(eeKcalTm) + participantMETkcal),
                 };
 
                 CSV.write(row, arFile, true);
+                CSV.write(row,arFileDay,true);
+
             }
 
         } catch (Exception e) {
@@ -608,6 +668,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 if(startMilliseconds>lastARwindowStopTime) {
                     Log.i(TAG,lineS[2]+","+lineS[3],mContext);
                     Log.i(TAG,line[5]+","+line[6]+","+line[7]+","+line[8]+","+line[9], mContext);
+                    String eeKcalT = TEMPLEDataManager.getEEKcal(mContext);
+                    Log.i(TAG, "Retrieved last energy expenditure="+eeKcalT, mContext);
                     DenseInstance newInstance = new DenseInstance(allActivitiesUnpredicted.numAttributes()) {
                         {
                             setValue(attribute_zcr_Z, Double.parseDouble(lineS[5]));
@@ -628,42 +690,29 @@ public class ActivityRecognitionService extends WocketsIntentService {
                         Log.i(TAG, "Activity detected:"+className, mContext);
 
                         if(className.equals("11")){
-                            doNonMovingInstance(lineS,stopMilliseconds,-1d);
+                            doNonMovingInstance(lineS,stopMilliseconds,0d,eeKcalT);
                         }else if(className.equals("12")){
-                            doMovingInstance(lineS,stopMilliseconds,-1d);
+                            doMovingInstance(lineS,stopMilliseconds,0d,eeKcalT);
                         }else if(className.equals("13")) {
                             participantMETkcal = partMETmultiply*mapMET.get(className);
                             Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
-
+                            TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcalT) + participantMETkcal));
                             String[] row = {
                                     lineS[2],
                                     lineS[3],
                                     "13",
                                     "13",
-                                    String.valueOf(-1d),
-                                    String.valueOf(participantMETkcal),
+                                    distanceMeter,
+                                    String.valueOf(Double.valueOf(eeKcalT) + participantMETkcal),
                             };
 
                             CSV.write(row, arFile, true);
+                            CSV.write(row,arFileDay,true);
                             DataManager.setLastARwindowStopTime(mContext,stopMilliseconds);
                         }
-
-//                        participantMETkcal = partMETmultiply*mapMET.get(className);
-//                        Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
-//
-//                        String[] row = {
-//                                lineS[2],
-//                                lineS[3],
-//                                className,
-//                                String.valueOf(participantMETkcal),
-//                                "all_activities"
-//                        };
-//                        CSV.write(row, arFile, true);
-
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-//                    DataManager.setLastARwindowStopTime(mContext,stopMilliseconds);
                 }
             }
 

@@ -8,8 +8,8 @@ android {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 38
-        versionName "1.37"
+        versionCode 39
+        versionName "1.38"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -33,4 +33,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile files('libs/weka.jar')
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
+    compile 'com.google.android.gms:play-services-appindexing:9.6.1'
 }
