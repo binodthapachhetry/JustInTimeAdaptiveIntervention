@@ -58,5 +58,7 @@
     <string name="currentDistTitle">Distance Travelled (miles)</string>
 
 
+    <string name="feedback">Participant Feedback</string>
+
 
 </resources>

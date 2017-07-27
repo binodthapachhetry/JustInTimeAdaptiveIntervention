@@ -18,6 +18,7 @@ public class Globals {
         edu.neu.android.wearwocketslib.Globals.IS_GYROSCOPE_LOGGING_ENABLED = false;
         edu.neu.android.wearwocketslib.Globals.IS_MAGNETIC_FIELD_LOGGING_ENABLED = false;
         edu.neu.android.wearwocketslib.Globals.IS_BATTERY_LOGGING_ENABLED = true;
+        edu.neu.android.wearwocketslib.Globals.IS_STORAGE_LOGGING_ENABLED = true;
         edu.neu.android.wearwocketslib.Globals.IS_MHEALTH_EXTERNAL = true;
         edu.neu.android.wearwocketslib.Globals.init();
     }

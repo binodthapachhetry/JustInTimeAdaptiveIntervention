@@ -14,7 +14,7 @@ import java.lang.Override;
 public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbinder {
   protected T target;
 
-  private View view2131624233;
+  private View view2131624247;
 
   public LoginActivity_ViewBinding(final T target, Finder finder, Object source) {
     this.target = target;
@@ -23,7 +23,7 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
     target.email = finder.findRequiredViewAsType(source, R.id.wockets_activity_login_email, "field 'email'", EditText.class);
     target.password = finder.findRequiredViewAsType(source, R.id.wockets_activity_login_password, "field 'password'", EditText.class);
     view = finder.findRequiredView(source, R.id.wockets_activity_login_login, "method 'onClickLogin'");
-    view2131624233 = view;
+    view2131624247 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -40,8 +40,8 @@ public class LoginActivity_ViewBinding<T extends LoginActivity> implements Unbin
     target.email = null;
     target.password = null;
 
-    view2131624233.setOnClickListener(null);
-    view2131624233 = null;
+    view2131624247.setOnClickListener(null);
+    view2131624247 = null;
 
     this.target = null;
   }

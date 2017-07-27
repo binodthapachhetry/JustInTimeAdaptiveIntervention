@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
-        targetSdkVersion 24
-        versionCode 39
-        versionName "1.38"
+        targetSdkVersion 25
+        versionCode 40
+        versionName "1.39"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -30,7 +30,9 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.google.android.gms:play-services-wearable:9.6.1'
-    compile 'com.android.support:appcompat-v7:24.2.1'
+//    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:appcompat-v7:25.0.0'
+
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile files('libs/weka.jar')
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'

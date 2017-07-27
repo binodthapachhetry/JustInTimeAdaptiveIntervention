@@ -14,10 +14,10 @@ import android.support.annotation.StringRes;
 public final class R2 {
   public static final class array {
     @ArrayRes
-    public static final int cast_expanded_controller_default_control_buttons = 0x7f0c0000;
+    public static final int cast_expanded_controller_default_control_buttons = 0x7f0d0000;
 
     @ArrayRes
-    public static final int cast_mini_controller_default_control_buttons = 0x7f0c0001;
+    public static final int cast_mini_controller_default_control_buttons = 0x7f0d0001;
   }
 
   public static final class attr {
@@ -1325,427 +1325,436 @@ public final class R2 {
 
   public static final class color {
     @ColorRes
-    public static final int abc_background_cache_hint_selector_material_dark = 0x7f0d0073;
+    public static final int abc_background_cache_hint_selector_material_dark = 0x7f0c0074;
 
     @ColorRes
-    public static final int abc_background_cache_hint_selector_material_light = 0x7f0d0074;
+    public static final int abc_background_cache_hint_selector_material_light = 0x7f0c0075;
 
     @ColorRes
-    public static final int abc_btn_colored_borderless_text_material = 0x7f0d0075;
+    public static final int abc_btn_colored_borderless_text_material = 0x7f0c0076;
 
     @ColorRes
-    public static final int abc_color_highlight_material = 0x7f0d0076;
+    public static final int abc_color_highlight_material = 0x7f0c0077;
 
     @ColorRes
-    public static final int abc_input_method_navigation_guard = 0x7f0d0000;
+    public static final int abc_hint_foreground_material_dark = 0x7f0c0078;
 
     @ColorRes
-    public static final int abc_primary_text_disable_only_material_dark = 0x7f0d0077;
+    public static final int abc_hint_foreground_material_light = 0x7f0c0079;
 
     @ColorRes
-    public static final int abc_primary_text_disable_only_material_light = 0x7f0d0078;
+    public static final int abc_input_method_navigation_guard = 0x7f0c0001;
 
     @ColorRes
-    public static final int abc_primary_text_material_dark = 0x7f0d0079;
+    public static final int abc_primary_text_disable_only_material_dark = 0x7f0c007a;
 
     @ColorRes
-    public static final int abc_primary_text_material_light = 0x7f0d007a;
+    public static final int abc_primary_text_disable_only_material_light = 0x7f0c007b;
 
     @ColorRes
-    public static final int abc_search_url_text = 0x7f0d007b;
+    public static final int abc_primary_text_material_dark = 0x7f0c007c;
 
     @ColorRes
-    public static final int abc_search_url_text_normal = 0x7f0d0001;
+    public static final int abc_primary_text_material_light = 0x7f0c007d;
 
     @ColorRes
-    public static final int abc_search_url_text_pressed = 0x7f0d0002;
+    public static final int abc_search_url_text = 0x7f0c007e;
 
     @ColorRes
-    public static final int abc_search_url_text_selected = 0x7f0d0003;
+    public static final int abc_search_url_text_normal = 0x7f0c0002;
 
     @ColorRes
-    public static final int abc_secondary_text_material_dark = 0x7f0d007c;
+    public static final int abc_search_url_text_pressed = 0x7f0c0003;
 
     @ColorRes
-    public static final int abc_secondary_text_material_light = 0x7f0d007d;
+    public static final int abc_search_url_text_selected = 0x7f0c0004;
 
     @ColorRes
-    public static final int abc_tint_btn_checkable = 0x7f0d007e;
+    public static final int abc_secondary_text_material_dark = 0x7f0c007f;
 
     @ColorRes
-    public static final int abc_tint_default = 0x7f0d007f;
+    public static final int abc_secondary_text_material_light = 0x7f0c0080;
 
     @ColorRes
-    public static final int abc_tint_edittext = 0x7f0d0080;
+    public static final int abc_tint_btn_checkable = 0x7f0c0081;
 
     @ColorRes
-    public static final int abc_tint_seek_thumb = 0x7f0d0081;
+    public static final int abc_tint_default = 0x7f0c0082;
 
     @ColorRes
-    public static final int abc_tint_spinner = 0x7f0d0082;
+    public static final int abc_tint_edittext = 0x7f0c0083;
 
     @ColorRes
-    public static final int abc_tint_switch_thumb = 0x7f0d0083;
+    public static final int abc_tint_seek_thumb = 0x7f0c0084;
 
     @ColorRes
-    public static final int abc_tint_switch_track = 0x7f0d0084;
+    public static final int abc_tint_spinner = 0x7f0c0085;
 
     @ColorRes
-    public static final int accent = 0x7f0d0004;
+    public static final int abc_tint_switch_thumb = 0x7f0c0086;
 
     @ColorRes
-    public static final int accent_material_dark = 0x7f0d0005;
+    public static final int abc_tint_switch_track = 0x7f0c0087;
 
     @ColorRes
-    public static final int accent_material_light = 0x7f0d0006;
+    public static final int accent = 0x7f0c0005;
 
     @ColorRes
-    public static final int background_floating_material_dark = 0x7f0d0007;
+    public static final int accent_material_dark = 0x7f0c0006;
 
     @ColorRes
-    public static final int background_floating_material_light = 0x7f0d0008;
+    public static final int accent_material_light = 0x7f0c0007;
 
     @ColorRes
-    public static final int background_material_dark = 0x7f0d0009;
+    public static final int background_floating_material_dark = 0x7f0c0008;
 
     @ColorRes
-    public static final int background_material_light = 0x7f0d000a;
+    public static final int background_floating_material_light = 0x7f0c0009;
 
     @ColorRes
-    public static final int bright_foreground_disabled_material_dark = 0x7f0d000b;
+    public static final int background_material_dark = 0x7f0c000a;
 
     @ColorRes
-    public static final int bright_foreground_disabled_material_light = 0x7f0d000c;
+    public static final int background_material_light = 0x7f0c000b;
 
     @ColorRes
-    public static final int bright_foreground_inverse_material_dark = 0x7f0d000d;
+    public static final int bright_foreground_disabled_material_dark = 0x7f0c000c;
 
     @ColorRes
-    public static final int bright_foreground_inverse_material_light = 0x7f0d000e;
+    public static final int bright_foreground_disabled_material_light = 0x7f0c000d;
 
     @ColorRes
-    public static final int bright_foreground_material_dark = 0x7f0d000f;
+    public static final int bright_foreground_inverse_material_dark = 0x7f0c000e;
 
     @ColorRes
-    public static final int bright_foreground_material_light = 0x7f0d0010;
+    public static final int bright_foreground_inverse_material_light = 0x7f0c000f;
 
     @ColorRes
-    public static final int button_material_dark = 0x7f0d0011;
+    public static final int bright_foreground_material_dark = 0x7f0c0010;
 
     @ColorRes
-    public static final int button_material_light = 0x7f0d0012;
+    public static final int bright_foreground_material_light = 0x7f0c0011;
 
     @ColorRes
-    public static final int cast_expanded_controller_ad_container_white_stripe_color = 0x7f0d0013;
+    public static final int button_material_dark = 0x7f0c0012;
 
     @ColorRes
-    public static final int cast_expanded_controller_ad_label_background_color = 0x7f0d0014;
+    public static final int button_material_light = 0x7f0c0013;
 
     @ColorRes
-    public static final int cast_expanded_controller_background_color = 0x7f0d0015;
+    public static final int cast_expanded_controller_ad_container_white_stripe_color = 0x7f0c0014;
 
     @ColorRes
-    public static final int cast_expanded_controller_progress_text_color = 0x7f0d0016;
+    public static final int cast_expanded_controller_ad_label_background_color = 0x7f0c0015;
 
     @ColorRes
-    public static final int cast_expanded_controller_seek_bar_progress_background_tint_color = 0x7f0d0017;
+    public static final int cast_expanded_controller_background_color = 0x7f0c0016;
 
     @ColorRes
-    public static final int cast_expanded_controller_text_color = 0x7f0d0018;
+    public static final int cast_expanded_controller_progress_text_color = 0x7f0c0017;
 
     @ColorRes
-    public static final int cast_intro_overlay_background_color = 0x7f0d0019;
+    public static final int cast_expanded_controller_seek_bar_progress_background_tint_color = 0x7f0c0018;
 
     @ColorRes
-    public static final int cast_intro_overlay_button_background_color = 0x7f0d001a;
+    public static final int cast_expanded_controller_text_color = 0x7f0c0019;
 
     @ColorRes
-    public static final int cast_libraries_material_featurehighlight_outer_highlight_default_color = 0x7f0d001b;
+    public static final int cast_intro_overlay_background_color = 0x7f0c001a;
 
     @ColorRes
-    public static final int cast_libraries_material_featurehighlight_text_body_color = 0x7f0d001c;
+    public static final int cast_intro_overlay_button_background_color = 0x7f0c001b;
 
     @ColorRes
-    public static final int cast_libraries_material_featurehighlight_text_header_color = 0x7f0d001d;
+    public static final int cast_libraries_material_featurehighlight_outer_highlight_default_color = 0x7f0c001c;
 
     @ColorRes
-    public static final int cast_mini_controller_disabled_button_drawable_tint_color = 0x7f0d001e;
+    public static final int cast_libraries_material_featurehighlight_text_body_color = 0x7f0c001d;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_dark = 0x7f0d0085;
+    public static final int cast_libraries_material_featurehighlight_text_header_color = 0x7f0c001e;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_dark_default = 0x7f0d001f;
+    public static final int cast_mini_controller_disabled_button_drawable_tint_color = 0x7f0c001f;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_dark_disabled = 0x7f0d0020;
+    public static final int common_google_signin_btn_text_dark = 0x7f0c0088;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_dark_focused = 0x7f0d0021;
+    public static final int common_google_signin_btn_text_dark_default = 0x7f0c0020;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_dark_pressed = 0x7f0d0022;
+    public static final int common_google_signin_btn_text_dark_disabled = 0x7f0c0021;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_light = 0x7f0d0086;
+    public static final int common_google_signin_btn_text_dark_focused = 0x7f0c0022;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_light_default = 0x7f0d0023;
+    public static final int common_google_signin_btn_text_dark_pressed = 0x7f0c0023;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_light_disabled = 0x7f0d0024;
+    public static final int common_google_signin_btn_text_light = 0x7f0c0089;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_light_focused = 0x7f0d0025;
+    public static final int common_google_signin_btn_text_light_default = 0x7f0c0024;
 
     @ColorRes
-    public static final int common_google_signin_btn_text_light_pressed = 0x7f0d0026;
+    public static final int common_google_signin_btn_text_light_disabled = 0x7f0c0025;
 
     @ColorRes
-    public static final int design_error = 0x7f0d0087;
+    public static final int common_google_signin_btn_text_light_focused = 0x7f0c0026;
 
     @ColorRes
-    public static final int design_fab_shadow_end_color = 0x7f0d0027;
+    public static final int common_google_signin_btn_text_light_pressed = 0x7f0c0027;
 
     @ColorRes
-    public static final int design_fab_shadow_mid_color = 0x7f0d0028;
+    public static final int design_error = 0x7f0c008a;
 
     @ColorRes
-    public static final int design_fab_shadow_start_color = 0x7f0d0029;
+    public static final int design_fab_shadow_end_color = 0x7f0c0028;
 
     @ColorRes
-    public static final int design_fab_stroke_end_inner_color = 0x7f0d002a;
+    public static final int design_fab_shadow_mid_color = 0x7f0c0029;
 
     @ColorRes
-    public static final int design_fab_stroke_end_outer_color = 0x7f0d002b;
+    public static final int design_fab_shadow_start_color = 0x7f0c002a;
 
     @ColorRes
-    public static final int design_fab_stroke_top_inner_color = 0x7f0d002c;
+    public static final int design_fab_stroke_end_inner_color = 0x7f0c002b;
 
     @ColorRes
-    public static final int design_fab_stroke_top_outer_color = 0x7f0d002d;
+    public static final int design_fab_stroke_end_outer_color = 0x7f0c002c;
 
     @ColorRes
-    public static final int design_snackbar_background_color = 0x7f0d002e;
+    public static final int design_fab_stroke_top_inner_color = 0x7f0c002d;
 
     @ColorRes
-    public static final int design_textinput_error_color_dark = 0x7f0d002f;
+    public static final int design_fab_stroke_top_outer_color = 0x7f0c002e;
 
     @ColorRes
-    public static final int design_textinput_error_color_light = 0x7f0d0030;
+    public static final int design_snackbar_background_color = 0x7f0c002f;
 
     @ColorRes
-    public static final int design_tint_password_toggle = 0x7f0d0088;
+    public static final int design_textinput_error_color_dark = 0x7f0c0030;
 
     @ColorRes
-    public static final int dim_foreground_disabled_material_dark = 0x7f0d0031;
+    public static final int design_textinput_error_color_light = 0x7f0c0031;
 
     @ColorRes
-    public static final int dim_foreground_disabled_material_light = 0x7f0d0032;
+    public static final int design_tint_password_toggle = 0x7f0c008b;
 
     @ColorRes
-    public static final int dim_foreground_material_dark = 0x7f0d0033;
+    public static final int dim_foreground_disabled_material_dark = 0x7f0c0032;
 
     @ColorRes
-    public static final int dim_foreground_material_light = 0x7f0d0034;
+    public static final int dim_foreground_disabled_material_light = 0x7f0c0033;
 
     @ColorRes
-    public static final int divider = 0x7f0d0035;
+    public static final int dim_foreground_material_dark = 0x7f0c0034;
 
     @ColorRes
-    public static final int foreground_material_dark = 0x7f0d0036;
+    public static final int dim_foreground_material_light = 0x7f0c0035;
 
     @ColorRes
-    public static final int foreground_material_light = 0x7f0d0037;
+    public static final int divider = 0x7f0c0036;
 
     @ColorRes
-    public static final int highlighted_text_material_dark = 0x7f0d0038;
+    public static final int foreground_material_dark = 0x7f0c0037;
 
     @ColorRes
-    public static final int highlighted_text_material_light = 0x7f0d0039;
+    public static final int foreground_material_light = 0x7f0c0038;
 
     @ColorRes
-    public static final int hint_foreground_material_dark = 0x7f0d003a;
+    public static final int highlighted_text_material_dark = 0x7f0c0039;
 
     @ColorRes
-    public static final int hint_foreground_material_light = 0x7f0d003b;
+    public static final int highlighted_text_material_light = 0x7f0c003a;
 
     @ColorRes
-    public static final int icons = 0x7f0d003c;
+    public static final int icons = 0x7f0c003b;
 
     @ColorRes
-    public static final int material_blue_grey_800 = 0x7f0d003d;
+    public static final int material_blue_grey_800 = 0x7f0c003c;
 
     @ColorRes
-    public static final int material_blue_grey_900 = 0x7f0d003e;
+    public static final int material_blue_grey_900 = 0x7f0c003d;
 
     @ColorRes
-    public static final int material_blue_grey_950 = 0x7f0d003f;
+    public static final int material_blue_grey_950 = 0x7f0c003e;
 
     @ColorRes
-    public static final int material_deep_teal_200 = 0x7f0d0040;
+    public static final int material_deep_teal_200 = 0x7f0c003f;
 
     @ColorRes
-    public static final int material_deep_teal_500 = 0x7f0d0041;
+    public static final int material_deep_teal_500 = 0x7f0c0040;
 
     @ColorRes
-    public static final int material_grey_100 = 0x7f0d0042;
+    public static final int material_grey_100 = 0x7f0c0041;
 
     @ColorRes
-    public static final int material_grey_300 = 0x7f0d0043;
+    public static final int material_grey_300 = 0x7f0c0042;
 
     @ColorRes
-    public static final int material_grey_50 = 0x7f0d0044;
+    public static final int material_grey_50 = 0x7f0c0043;
 
     @ColorRes
-    public static final int material_grey_600 = 0x7f0d0045;
+    public static final int material_grey_600 = 0x7f0c0044;
 
     @ColorRes
-    public static final int material_grey_800 = 0x7f0d0046;
+    public static final int material_grey_800 = 0x7f0c0045;
 
     @ColorRes
-    public static final int material_grey_850 = 0x7f0d0047;
+    public static final int material_grey_850 = 0x7f0c0046;
 
     @ColorRes
-    public static final int material_grey_900 = 0x7f0d0048;
+    public static final int material_grey_900 = 0x7f0c0047;
 
     @ColorRes
-    public static final int place_autocomplete_prediction_primary_text = 0x7f0d0049;
+    public static final int notification_action_color_filter = 0x7f0c0000;
 
     @ColorRes
-    public static final int place_autocomplete_prediction_primary_text_highlight = 0x7f0d004a;
+    public static final int notification_icon_bg_color = 0x7f0c0048;
 
     @ColorRes
-    public static final int place_autocomplete_prediction_secondary_text = 0x7f0d004b;
+    public static final int notification_material_background_media_default_color = 0x7f0c0049;
 
     @ColorRes
-    public static final int place_autocomplete_search_hint = 0x7f0d004c;
+    public static final int place_autocomplete_prediction_primary_text = 0x7f0c004a;
 
     @ColorRes
-    public static final int place_autocomplete_search_text = 0x7f0d004d;
+    public static final int place_autocomplete_prediction_primary_text_highlight = 0x7f0c004b;
 
     @ColorRes
-    public static final int place_autocomplete_separator = 0x7f0d004e;
+    public static final int place_autocomplete_prediction_secondary_text = 0x7f0c004c;
 
     @ColorRes
-    public static final int primary = 0x7f0d004f;
+    public static final int place_autocomplete_search_hint = 0x7f0c004d;
 
     @ColorRes
-    public static final int primary_dark = 0x7f0d0050;
+    public static final int place_autocomplete_search_text = 0x7f0c004e;
 
     @ColorRes
-    public static final int primary_dark_material_dark = 0x7f0d0051;
+    public static final int place_autocomplete_separator = 0x7f0c004f;
 
     @ColorRes
-    public static final int primary_dark_material_light = 0x7f0d0052;
+    public static final int primary = 0x7f0c0050;
 
     @ColorRes
-    public static final int primary_light = 0x7f0d0053;
+    public static final int primary_dark = 0x7f0c0051;
 
     @ColorRes
-    public static final int primary_material_dark = 0x7f0d0054;
+    public static final int primary_dark_material_dark = 0x7f0c0052;
 
     @ColorRes
-    public static final int primary_material_light = 0x7f0d0055;
+    public static final int primary_dark_material_light = 0x7f0c0053;
 
     @ColorRes
-    public static final int primary_text = 0x7f0d0056;
+    public static final int primary_light = 0x7f0c0054;
 
     @ColorRes
-    public static final int primary_text_default_material_dark = 0x7f0d0057;
+    public static final int primary_material_dark = 0x7f0c0055;
 
     @ColorRes
-    public static final int primary_text_default_material_light = 0x7f0d0058;
+    public static final int primary_material_light = 0x7f0c0056;
 
     @ColorRes
-    public static final int primary_text_disabled_material_dark = 0x7f0d0059;
+    public static final int primary_text = 0x7f0c0057;
 
     @ColorRes
-    public static final int primary_text_disabled_material_light = 0x7f0d005a;
+    public static final int primary_text_default_material_dark = 0x7f0c0058;
 
     @ColorRes
-    public static final int ripple_material_dark = 0x7f0d005b;
+    public static final int primary_text_default_material_light = 0x7f0c0059;
 
     @ColorRes
-    public static final int ripple_material_light = 0x7f0d005c;
+    public static final int primary_text_disabled_material_dark = 0x7f0c005a;
 
     @ColorRes
-    public static final int secondary_text = 0x7f0d005d;
+    public static final int primary_text_disabled_material_light = 0x7f0c005b;
 
     @ColorRes
-    public static final int secondary_text_default_material_dark = 0x7f0d005e;
+    public static final int ripple_material_dark = 0x7f0c005c;
 
     @ColorRes
-    public static final int secondary_text_default_material_light = 0x7f0d005f;
+    public static final int ripple_material_light = 0x7f0c005d;
 
     @ColorRes
-    public static final int secondary_text_disabled_material_dark = 0x7f0d0060;
+    public static final int secondary_text = 0x7f0c005e;
 
     @ColorRes
-    public static final int secondary_text_disabled_material_light = 0x7f0d0061;
+    public static final int secondary_text_default_material_dark = 0x7f0c005f;
 
     @ColorRes
-    public static final int switch_thumb_disabled_material_dark = 0x7f0d0062;
+    public static final int secondary_text_default_material_light = 0x7f0c0060;
 
     @ColorRes
-    public static final int switch_thumb_disabled_material_light = 0x7f0d0063;
+    public static final int secondary_text_disabled_material_dark = 0x7f0c0061;
 
     @ColorRes
-    public static final int switch_thumb_material_dark = 0x7f0d0089;
+    public static final int secondary_text_disabled_material_light = 0x7f0c0062;
 
     @ColorRes
-    public static final int switch_thumb_material_light = 0x7f0d008a;
+    public static final int switch_thumb_disabled_material_dark = 0x7f0c0063;
 
     @ColorRes
-    public static final int switch_thumb_normal_material_dark = 0x7f0d0064;
+    public static final int switch_thumb_disabled_material_light = 0x7f0c0064;
 
     @ColorRes
-    public static final int switch_thumb_normal_material_light = 0x7f0d0065;
+    public static final int switch_thumb_material_dark = 0x7f0c008c;
 
     @ColorRes
-    public static final int wallet_bright_foreground_disabled_holo_light = 0x7f0d0066;
+    public static final int switch_thumb_material_light = 0x7f0c008d;
 
     @ColorRes
-    public static final int wallet_bright_foreground_holo_dark = 0x7f0d0067;
+    public static final int switch_thumb_normal_material_dark = 0x7f0c0065;
 
     @ColorRes
-    public static final int wallet_bright_foreground_holo_light = 0x7f0d0068;
+    public static final int switch_thumb_normal_material_light = 0x7f0c0066;
 
     @ColorRes
-    public static final int wallet_dim_foreground_disabled_holo_dark = 0x7f0d0069;
+    public static final int wallet_bright_foreground_disabled_holo_light = 0x7f0c0067;
 
     @ColorRes
-    public static final int wallet_dim_foreground_holo_dark = 0x7f0d006a;
+    public static final int wallet_bright_foreground_holo_dark = 0x7f0c0068;
 
     @ColorRes
-    public static final int wallet_dim_foreground_inverse_disabled_holo_dark = 0x7f0d006b;
+    public static final int wallet_bright_foreground_holo_light = 0x7f0c0069;
 
     @ColorRes
-    public static final int wallet_dim_foreground_inverse_holo_dark = 0x7f0d006c;
+    public static final int wallet_dim_foreground_disabled_holo_dark = 0x7f0c006a;
 
     @ColorRes
-    public static final int wallet_highlighted_text_holo_dark = 0x7f0d006d;
+    public static final int wallet_dim_foreground_holo_dark = 0x7f0c006b;
 
     @ColorRes
-    public static final int wallet_highlighted_text_holo_light = 0x7f0d006e;
+    public static final int wallet_dim_foreground_inverse_disabled_holo_dark = 0x7f0c006c;
 
     @ColorRes
-    public static final int wallet_hint_foreground_holo_dark = 0x7f0d006f;
+    public static final int wallet_dim_foreground_inverse_holo_dark = 0x7f0c006d;
 
     @ColorRes
-    public static final int wallet_hint_foreground_holo_light = 0x7f0d0070;
+    public static final int wallet_highlighted_text_holo_dark = 0x7f0c006e;
 
     @ColorRes
-    public static final int wallet_holo_blue_light = 0x7f0d0071;
+    public static final int wallet_highlighted_text_holo_light = 0x7f0c006f;
 
     @ColorRes
-    public static final int wallet_link_text_light = 0x7f0d0072;
+    public static final int wallet_hint_foreground_holo_dark = 0x7f0c0070;
 
     @ColorRes
-    public static final int wallet_primary_text_holo_light = 0x7f0d008b;
+    public static final int wallet_hint_foreground_holo_light = 0x7f0c0071;
 
     @ColorRes
-    public static final int wallet_secondary_text_holo_dark = 0x7f0d008c;
+    public static final int wallet_holo_blue_light = 0x7f0c0072;
+
+    @ColorRes
+    public static final int wallet_link_text_light = 0x7f0c0073;
+
+    @ColorRes
+    public static final int wallet_primary_text_holo_light = 0x7f0c008e;
+
+    @ColorRes
+    public static final int wallet_secondary_text_holo_dark = 0x7f0c008f;
   }
 
   public static final class dimen {
@@ -1765,70 +1774,70 @@ public final class R2 {
     public static final int abc_action_bar_default_padding_start_material = 0x7f080016;
 
     @DimenRes
-    public static final int abc_action_bar_elevation_material = 0x7f080022;
+    public static final int abc_action_bar_elevation_material = 0x7f080026;
 
     @DimenRes
-    public static final int abc_action_bar_icon_vertical_padding_material = 0x7f080023;
+    public static final int abc_action_bar_icon_vertical_padding_material = 0x7f080027;
 
     @DimenRes
-    public static final int abc_action_bar_overflow_padding_end_material = 0x7f080024;
+    public static final int abc_action_bar_overflow_padding_end_material = 0x7f080028;
 
     @DimenRes
-    public static final int abc_action_bar_overflow_padding_start_material = 0x7f080025;
+    public static final int abc_action_bar_overflow_padding_start_material = 0x7f080029;
 
     @DimenRes
     public static final int abc_action_bar_progress_bar_size = 0x7f080002;
 
     @DimenRes
-    public static final int abc_action_bar_stacked_max_height = 0x7f080026;
+    public static final int abc_action_bar_stacked_max_height = 0x7f08002a;
 
     @DimenRes
-    public static final int abc_action_bar_stacked_tab_max_width = 0x7f080027;
+    public static final int abc_action_bar_stacked_tab_max_width = 0x7f08002b;
 
     @DimenRes
-    public static final int abc_action_bar_subtitle_bottom_margin_material = 0x7f080028;
+    public static final int abc_action_bar_subtitle_bottom_margin_material = 0x7f08002c;
 
     @DimenRes
-    public static final int abc_action_bar_subtitle_top_margin_material = 0x7f080029;
+    public static final int abc_action_bar_subtitle_top_margin_material = 0x7f08002d;
 
     @DimenRes
-    public static final int abc_action_button_min_height_material = 0x7f08002a;
+    public static final int abc_action_button_min_height_material = 0x7f08002e;
 
     @DimenRes
-    public static final int abc_action_button_min_width_material = 0x7f08002b;
+    public static final int abc_action_button_min_width_material = 0x7f08002f;
 
     @DimenRes
-    public static final int abc_action_button_min_width_overflow_material = 0x7f08002c;
+    public static final int abc_action_button_min_width_overflow_material = 0x7f080030;
 
     @DimenRes
     public static final int abc_alert_dialog_button_bar_height = 0x7f080000;
 
     @DimenRes
-    public static final int abc_button_inset_horizontal_material = 0x7f08002d;
+    public static final int abc_button_inset_horizontal_material = 0x7f080031;
 
     @DimenRes
-    public static final int abc_button_inset_vertical_material = 0x7f08002e;
+    public static final int abc_button_inset_vertical_material = 0x7f080032;
 
     @DimenRes
-    public static final int abc_button_padding_horizontal_material = 0x7f08002f;
+    public static final int abc_button_padding_horizontal_material = 0x7f080033;
 
     @DimenRes
-    public static final int abc_button_padding_vertical_material = 0x7f080030;
+    public static final int abc_button_padding_vertical_material = 0x7f080034;
 
     @DimenRes
-    public static final int abc_cascading_menus_min_smallest_width = 0x7f080031;
+    public static final int abc_cascading_menus_min_smallest_width = 0x7f080035;
 
     @DimenRes
     public static final int abc_config_prefDialogWidth = 0x7f08000c;
 
     @DimenRes
-    public static final int abc_control_corner_material = 0x7f080032;
+    public static final int abc_control_corner_material = 0x7f080036;
 
     @DimenRes
-    public static final int abc_control_inset_material = 0x7f080033;
+    public static final int abc_control_inset_material = 0x7f080037;
 
     @DimenRes
-    public static final int abc_control_padding_material = 0x7f080034;
+    public static final int abc_control_padding_material = 0x7f080038;
 
     @DimenRes
     public static final int abc_dialog_fixed_height_major = 0x7f08000d;
@@ -1843,7 +1852,7 @@ public final class R2 {
     public static final int abc_dialog_fixed_width_minor = 0x7f080010;
 
     @DimenRes
-    public static final int abc_dialog_list_padding_vertical_material = 0x7f080035;
+    public static final int abc_dialog_list_padding_vertical_material = 0x7f080039;
 
     @DimenRes
     public static final int abc_dialog_min_width_major = 0x7f080011;
@@ -1852,124 +1861,124 @@ public final class R2 {
     public static final int abc_dialog_min_width_minor = 0x7f080012;
 
     @DimenRes
-    public static final int abc_dialog_padding_material = 0x7f080036;
+    public static final int abc_dialog_padding_material = 0x7f08003a;
 
     @DimenRes
-    public static final int abc_dialog_padding_top_material = 0x7f080037;
+    public static final int abc_dialog_padding_top_material = 0x7f08003b;
 
     @DimenRes
-    public static final int abc_disabled_alpha_material_dark = 0x7f080038;
+    public static final int abc_disabled_alpha_material_dark = 0x7f08003c;
 
     @DimenRes
-    public static final int abc_disabled_alpha_material_light = 0x7f080039;
+    public static final int abc_disabled_alpha_material_light = 0x7f08003d;
 
     @DimenRes
-    public static final int abc_dropdownitem_icon_width = 0x7f08003a;
+    public static final int abc_dropdownitem_icon_width = 0x7f08003e;
 
     @DimenRes
-    public static final int abc_dropdownitem_text_padding_left = 0x7f08003b;
+    public static final int abc_dropdownitem_text_padding_left = 0x7f08003f;
 
     @DimenRes
-    public static final int abc_dropdownitem_text_padding_right = 0x7f08003c;
+    public static final int abc_dropdownitem_text_padding_right = 0x7f080040;
 
     @DimenRes
-    public static final int abc_edit_text_inset_bottom_material = 0x7f08003d;
+    public static final int abc_edit_text_inset_bottom_material = 0x7f080041;
 
     @DimenRes
-    public static final int abc_edit_text_inset_horizontal_material = 0x7f08003e;
+    public static final int abc_edit_text_inset_horizontal_material = 0x7f080042;
 
     @DimenRes
-    public static final int abc_edit_text_inset_top_material = 0x7f08003f;
+    public static final int abc_edit_text_inset_top_material = 0x7f080043;
 
     @DimenRes
-    public static final int abc_floating_window_z = 0x7f080040;
+    public static final int abc_floating_window_z = 0x7f080044;
 
     @DimenRes
-    public static final int abc_list_item_padding_horizontal_material = 0x7f080041;
+    public static final int abc_list_item_padding_horizontal_material = 0x7f080045;
 
     @DimenRes
-    public static final int abc_panel_menu_list_width = 0x7f080042;
+    public static final int abc_panel_menu_list_width = 0x7f080046;
 
     @DimenRes
-    public static final int abc_progress_bar_height_material = 0x7f080043;
+    public static final int abc_progress_bar_height_material = 0x7f080047;
 
     @DimenRes
-    public static final int abc_search_view_preferred_height = 0x7f080044;
+    public static final int abc_search_view_preferred_height = 0x7f080048;
 
     @DimenRes
-    public static final int abc_search_view_preferred_width = 0x7f080045;
+    public static final int abc_search_view_preferred_width = 0x7f080049;
 
     @DimenRes
-    public static final int abc_seekbar_track_background_height_material = 0x7f080046;
+    public static final int abc_seekbar_track_background_height_material = 0x7f08004a;
 
     @DimenRes
-    public static final int abc_seekbar_track_progress_height_material = 0x7f080047;
+    public static final int abc_seekbar_track_progress_height_material = 0x7f08004b;
 
     @DimenRes
-    public static final int abc_select_dialog_padding_start_material = 0x7f080048;
+    public static final int abc_select_dialog_padding_start_material = 0x7f08004c;
 
     @DimenRes
-    public static final int abc_switch_padding = 0x7f080021;
+    public static final int abc_switch_padding = 0x7f080022;
 
     @DimenRes
-    public static final int abc_text_size_body_1_material = 0x7f080049;
+    public static final int abc_text_size_body_1_material = 0x7f08004d;
 
     @DimenRes
-    public static final int abc_text_size_body_2_material = 0x7f08004a;
+    public static final int abc_text_size_body_2_material = 0x7f08004e;
 
     @DimenRes
-    public static final int abc_text_size_button_material = 0x7f08004b;
+    public static final int abc_text_size_button_material = 0x7f08004f;
 
     @DimenRes
-    public static final int abc_text_size_caption_material = 0x7f08004c;
+    public static final int abc_text_size_caption_material = 0x7f080050;
 
     @DimenRes
-    public static final int abc_text_size_display_1_material = 0x7f08004d;
+    public static final int abc_text_size_display_1_material = 0x7f080051;
 
     @DimenRes
-    public static final int abc_text_size_display_2_material = 0x7f08004e;
+    public static final int abc_text_size_display_2_material = 0x7f080052;
 
     @DimenRes
-    public static final int abc_text_size_display_3_material = 0x7f08004f;
+    public static final int abc_text_size_display_3_material = 0x7f080053;
 
     @DimenRes
-    public static final int abc_text_size_display_4_material = 0x7f080050;
+    public static final int abc_text_size_display_4_material = 0x7f080054;
 
     @DimenRes
-    public static final int abc_text_size_headline_material = 0x7f080051;
+    public static final int abc_text_size_headline_material = 0x7f080055;
 
     @DimenRes
-    public static final int abc_text_size_large_material = 0x7f080052;
+    public static final int abc_text_size_large_material = 0x7f080056;
 
     @DimenRes
-    public static final int abc_text_size_medium_material = 0x7f080053;
+    public static final int abc_text_size_medium_material = 0x7f080057;
 
     @DimenRes
-    public static final int abc_text_size_menu_header_material = 0x7f080054;
+    public static final int abc_text_size_menu_header_material = 0x7f080058;
 
     @DimenRes
-    public static final int abc_text_size_menu_material = 0x7f080055;
+    public static final int abc_text_size_menu_material = 0x7f080059;
 
     @DimenRes
-    public static final int abc_text_size_small_material = 0x7f080056;
+    public static final int abc_text_size_small_material = 0x7f08005a;
 
     @DimenRes
-    public static final int abc_text_size_subhead_material = 0x7f080057;
+    public static final int abc_text_size_subhead_material = 0x7f08005b;
 
     @DimenRes
     public static final int abc_text_size_subtitle_material_toolbar = 0x7f080003;
 
     @DimenRes
-    public static final int abc_text_size_title_material = 0x7f080058;
+    public static final int abc_text_size_title_material = 0x7f08005c;
 
     @DimenRes
     public static final int abc_text_size_title_material_toolbar = 0x7f080004;
 
     @DimenRes
-    public static final int activity_horizontal_margin = 0x7f080059;
+    public static final int activity_horizontal_margin = 0x7f08005d;
 
     @DimenRes
-    public static final int activity_vertical_margin = 0x7f08005a;
+    public static final int activity_vertical_margin = 0x7f08005e;
 
     @DimenRes
     public static final int cast_expanded_controller_ad_in_progress_label_layout_height = 0x7f080005;
@@ -1978,10 +1987,10 @@ public final class R2 {
     public static final int cast_expanded_controller_ad_in_progress_label_layout_width = 0x7f080006;
 
     @DimenRes
-    public static final int cast_expanded_controller_control_button_margin = 0x7f08005b;
+    public static final int cast_expanded_controller_control_button_margin = 0x7f08005f;
 
     @DimenRes
-    public static final int cast_expanded_controller_control_toolbar_min_height = 0x7f08005c;
+    public static final int cast_expanded_controller_control_toolbar_min_height = 0x7f080060;
 
     @DimenRes
     public static final int cast_expanded_controller_margin_between_seek_bar_and_control_buttons = 0x7f080007;
@@ -1990,133 +1999,136 @@ public final class R2 {
     public static final int cast_expanded_controller_margin_between_status_text_and_seek_bar = 0x7f080008;
 
     @DimenRes
-    public static final int cast_intro_overlay_button_margin_bottom = 0x7f08005d;
+    public static final int cast_intro_overlay_button_margin_bottom = 0x7f080061;
 
     @DimenRes
-    public static final int cast_intro_overlay_focus_radius = 0x7f08005e;
+    public static final int cast_intro_overlay_focus_radius = 0x7f080062;
 
     @DimenRes
-    public static final int cast_intro_overlay_title_margin_top = 0x7f08005f;
+    public static final int cast_intro_overlay_title_margin_top = 0x7f080063;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_center_horizontal_offset = 0x7f080060;
+    public static final int cast_libraries_material_featurehighlight_center_horizontal_offset = 0x7f080064;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_center_threshold = 0x7f080061;
+    public static final int cast_libraries_material_featurehighlight_center_threshold = 0x7f080065;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_inner_margin = 0x7f080062;
+    public static final int cast_libraries_material_featurehighlight_inner_margin = 0x7f080066;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_inner_radius = 0x7f080063;
+    public static final int cast_libraries_material_featurehighlight_inner_radius = 0x7f080067;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_outer_padding = 0x7f080064;
+    public static final int cast_libraries_material_featurehighlight_outer_padding = 0x7f080068;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_body_size = 0x7f080065;
+    public static final int cast_libraries_material_featurehighlight_text_body_size = 0x7f080069;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_header_size = 0x7f080066;
+    public static final int cast_libraries_material_featurehighlight_text_header_size = 0x7f08006a;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_horizontal_margin = 0x7f080067;
+    public static final int cast_libraries_material_featurehighlight_text_horizontal_margin = 0x7f08006b;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_horizontal_offset = 0x7f080068;
+    public static final int cast_libraries_material_featurehighlight_text_horizontal_offset = 0x7f08006c;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_max_width = 0x7f080069;
+    public static final int cast_libraries_material_featurehighlight_text_max_width = 0x7f08006d;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_vertical_space = 0x7f08006a;
+    public static final int cast_libraries_material_featurehighlight_text_vertical_space = 0x7f08006e;
 
     @DimenRes
-    public static final int cast_mini_controller_control_button_margin = 0x7f08006b;
+    public static final int cast_mini_controller_control_button_margin = 0x7f08006f;
 
     @DimenRes
-    public static final int cast_mini_controller_font_size_line1 = 0x7f08006c;
+    public static final int cast_mini_controller_font_size_line1 = 0x7f080070;
 
     @DimenRes
-    public static final int cast_mini_controller_font_size_line2 = 0x7f08006d;
+    public static final int cast_mini_controller_font_size_line2 = 0x7f080071;
 
     @DimenRes
-    public static final int cast_mini_controller_icon_height = 0x7f08006e;
+    public static final int cast_mini_controller_icon_height = 0x7f080072;
 
     @DimenRes
-    public static final int cast_mini_controller_icon_width = 0x7f08006f;
+    public static final int cast_mini_controller_icon_width = 0x7f080073;
 
     @DimenRes
-    public static final int cast_notification_image_size = 0x7f080070;
+    public static final int cast_notification_image_size = 0x7f080074;
 
     @DimenRes
-    public static final int cast_tracks_chooser_dialog_no_message_text_size = 0x7f080071;
+    public static final int cast_tracks_chooser_dialog_no_message_text_size = 0x7f080075;
 
     @DimenRes
-    public static final int cast_tracks_chooser_dialog_row_text_size = 0x7f080072;
+    public static final int cast_tracks_chooser_dialog_row_text_size = 0x7f080076;
 
     @DimenRes
-    public static final int design_appbar_elevation = 0x7f080073;
+    public static final int design_appbar_elevation = 0x7f080077;
 
     @DimenRes
-    public static final int design_bottom_navigation_active_item_max_width = 0x7f080074;
+    public static final int design_bottom_navigation_active_item_max_width = 0x7f080078;
 
     @DimenRes
-    public static final int design_bottom_navigation_active_text_size = 0x7f080075;
+    public static final int design_bottom_navigation_active_text_size = 0x7f080079;
 
     @DimenRes
-    public static final int design_bottom_navigation_height = 0x7f080076;
+    public static final int design_bottom_navigation_height = 0x7f08007a;
 
     @DimenRes
-    public static final int design_bottom_navigation_item_max_width = 0x7f080077;
+    public static final int design_bottom_navigation_item_max_width = 0x7f08007b;
 
     @DimenRes
-    public static final int design_bottom_navigation_margin = 0x7f080078;
+    public static final int design_bottom_navigation_item_min_width = 0x7f08007c;
 
     @DimenRes
-    public static final int design_bottom_navigation_text_size = 0x7f080079;
+    public static final int design_bottom_navigation_margin = 0x7f08007d;
 
     @DimenRes
-    public static final int design_bottom_sheet_modal_elevation = 0x7f08007a;
+    public static final int design_bottom_navigation_text_size = 0x7f08007e;
 
     @DimenRes
-    public static final int design_bottom_sheet_peek_height_min = 0x7f08007b;
+    public static final int design_bottom_sheet_modal_elevation = 0x7f08007f;
 
     @DimenRes
-    public static final int design_fab_border_width = 0x7f08007c;
+    public static final int design_bottom_sheet_peek_height_min = 0x7f080080;
 
     @DimenRes
-    public static final int design_fab_elevation = 0x7f08007d;
+    public static final int design_fab_border_width = 0x7f080081;
 
     @DimenRes
-    public static final int design_fab_image_size = 0x7f08007e;
+    public static final int design_fab_elevation = 0x7f080082;
 
     @DimenRes
-    public static final int design_fab_size_mini = 0x7f08007f;
+    public static final int design_fab_image_size = 0x7f080083;
 
     @DimenRes
-    public static final int design_fab_size_normal = 0x7f080080;
+    public static final int design_fab_size_mini = 0x7f080084;
 
     @DimenRes
-    public static final int design_fab_translation_z_pressed = 0x7f080081;
+    public static final int design_fab_size_normal = 0x7f080085;
 
     @DimenRes
-    public static final int design_navigation_elevation = 0x7f080082;
+    public static final int design_fab_translation_z_pressed = 0x7f080086;
 
     @DimenRes
-    public static final int design_navigation_icon_padding = 0x7f080083;
+    public static final int design_navigation_elevation = 0x7f080087;
 
     @DimenRes
-    public static final int design_navigation_icon_size = 0x7f080084;
+    public static final int design_navigation_icon_padding = 0x7f080088;
+
+    @DimenRes
+    public static final int design_navigation_icon_size = 0x7f080089;
 
     @DimenRes
     public static final int design_navigation_max_width = 0x7f080017;
 
     @DimenRes
-    public static final int design_navigation_padding_bottom = 0x7f080085;
+    public static final int design_navigation_padding_bottom = 0x7f08008a;
 
     @DimenRes
-    public static final int design_navigation_separator_vertical_padding = 0x7f080086;
+    public static final int design_navigation_separator_vertical_padding = 0x7f08008b;
 
     @DimenRes
     public static final int design_snackbar_action_inline_max_width = 0x7f080018;
@@ -2125,7 +2137,7 @@ public final class R2 {
     public static final int design_snackbar_background_corner_radius = 0x7f080019;
 
     @DimenRes
-    public static final int design_snackbar_elevation = 0x7f080087;
+    public static final int design_snackbar_elevation = 0x7f08008c;
 
     @DimenRes
     public static final int design_snackbar_extra_spacing_horizontal = 0x7f08001a;
@@ -2137,55 +2149,67 @@ public final class R2 {
     public static final int design_snackbar_min_width = 0x7f08001c;
 
     @DimenRes
-    public static final int design_snackbar_padding_horizontal = 0x7f080088;
+    public static final int design_snackbar_padding_horizontal = 0x7f08008d;
 
     @DimenRes
-    public static final int design_snackbar_padding_vertical = 0x7f080089;
+    public static final int design_snackbar_padding_vertical = 0x7f08008e;
 
     @DimenRes
     public static final int design_snackbar_padding_vertical_2lines = 0x7f08001d;
 
     @DimenRes
-    public static final int design_snackbar_text_size = 0x7f08008a;
+    public static final int design_snackbar_text_size = 0x7f08008f;
 
     @DimenRes
-    public static final int design_tab_max_width = 0x7f08008b;
+    public static final int design_tab_max_width = 0x7f080090;
 
     @DimenRes
     public static final int design_tab_scrollable_min_width = 0x7f08001e;
 
     @DimenRes
-    public static final int design_tab_text_size = 0x7f08008c;
+    public static final int design_tab_text_size = 0x7f080091;
 
     @DimenRes
-    public static final int design_tab_text_size_2line = 0x7f08008d;
+    public static final int design_tab_text_size_2line = 0x7f080092;
 
     @DimenRes
-    public static final int disabled_alpha_material_dark = 0x7f08008e;
+    public static final int disabled_alpha_material_dark = 0x7f080093;
 
     @DimenRes
-    public static final int disabled_alpha_material_light = 0x7f08008f;
+    public static final int disabled_alpha_material_light = 0x7f080094;
 
     @DimenRes
-    public static final int fab_margin = 0x7f080090;
+    public static final int fab_margin = 0x7f080095;
 
     @DimenRes
-    public static final int highlight_alpha_material_colored = 0x7f080091;
+    public static final int highlight_alpha_material_colored = 0x7f080096;
 
     @DimenRes
-    public static final int highlight_alpha_material_dark = 0x7f080092;
+    public static final int highlight_alpha_material_dark = 0x7f080097;
 
     @DimenRes
-    public static final int highlight_alpha_material_light = 0x7f080093;
+    public static final int highlight_alpha_material_light = 0x7f080098;
 
     @DimenRes
-    public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f080094;
+    public static final int hint_alpha_material_dark = 0x7f080099;
 
     @DimenRes
-    public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f080095;
+    public static final int hint_alpha_material_light = 0x7f08009a;
 
     @DimenRes
-    public static final int item_touch_helper_swipe_escape_velocity = 0x7f080096;
+    public static final int hint_pressed_alpha_material_dark = 0x7f08009b;
+
+    @DimenRes
+    public static final int hint_pressed_alpha_material_light = 0x7f08009c;
+
+    @DimenRes
+    public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f08009d;
+
+    @DimenRes
+    public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f08009e;
+
+    @DimenRes
+    public static final int item_touch_helper_swipe_escape_velocity = 0x7f08009f;
 
     @DimenRes
     public static final int mr_controller_volume_group_list_item_height = 0x7f080009;
@@ -2197,7 +2221,7 @@ public final class R2 {
     public static final int mr_controller_volume_group_list_max_height = 0x7f08000b;
 
     @DimenRes
-    public static final int mr_controller_volume_group_list_padding_top = 0x7f080097;
+    public static final int mr_controller_volume_group_list_padding_top = 0x7f0800a0;
 
     @DimenRes
     public static final int mr_dialog_fixed_width_major = 0x7f08001f;
@@ -2206,49 +2230,85 @@ public final class R2 {
     public static final int mr_dialog_fixed_width_minor = 0x7f080020;
 
     @DimenRes
-    public static final int nav_header_height = 0x7f080098;
+    public static final int nav_header_height = 0x7f0800a1;
 
     @DimenRes
-    public static final int nav_header_vertical_spacing = 0x7f080099;
+    public static final int nav_header_vertical_spacing = 0x7f0800a2;
 
     @DimenRes
-    public static final int notification_large_icon_height = 0x7f08009a;
+    public static final int notification_action_icon_size = 0x7f0800a3;
 
     @DimenRes
-    public static final int notification_large_icon_width = 0x7f08009b;
+    public static final int notification_action_text_size = 0x7f0800a4;
 
     @DimenRes
-    public static final int notification_subtext_size = 0x7f08009c;
+    public static final int notification_big_circle_margin = 0x7f0800a5;
 
     @DimenRes
-    public static final int place_autocomplete_button_padding = 0x7f08009d;
+    public static final int notification_content_margin_start = 0x7f080023;
 
     @DimenRes
-    public static final int place_autocomplete_powered_by_google_height = 0x7f08009e;
+    public static final int notification_large_icon_height = 0x7f0800a6;
 
     @DimenRes
-    public static final int place_autocomplete_powered_by_google_start = 0x7f08009f;
+    public static final int notification_large_icon_width = 0x7f0800a7;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_height = 0x7f0800a0;
+    public static final int notification_main_column_padding_top = 0x7f080024;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_horizontal_margin = 0x7f0800a1;
+    public static final int notification_media_narrow_margin = 0x7f080025;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_primary_text = 0x7f0800a2;
+    public static final int notification_right_icon_size = 0x7f0800a8;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_secondary_text = 0x7f0800a3;
+    public static final int notification_right_side_padding_top = 0x7f080021;
 
     @DimenRes
-    public static final int place_autocomplete_progress_horizontal_margin = 0x7f0800a4;
+    public static final int notification_small_icon_background_padding = 0x7f0800a9;
 
     @DimenRes
-    public static final int place_autocomplete_progress_size = 0x7f0800a5;
+    public static final int notification_small_icon_size_as_large = 0x7f0800aa;
 
     @DimenRes
-    public static final int place_autocomplete_separator_start = 0x7f0800a6;
+    public static final int notification_subtext_size = 0x7f0800ab;
+
+    @DimenRes
+    public static final int notification_top_pad = 0x7f0800ac;
+
+    @DimenRes
+    public static final int notification_top_pad_large_text = 0x7f0800ad;
+
+    @DimenRes
+    public static final int place_autocomplete_button_padding = 0x7f0800ae;
+
+    @DimenRes
+    public static final int place_autocomplete_powered_by_google_height = 0x7f0800af;
+
+    @DimenRes
+    public static final int place_autocomplete_powered_by_google_start = 0x7f0800b0;
+
+    @DimenRes
+    public static final int place_autocomplete_prediction_height = 0x7f0800b1;
+
+    @DimenRes
+    public static final int place_autocomplete_prediction_horizontal_margin = 0x7f0800b2;
+
+    @DimenRes
+    public static final int place_autocomplete_prediction_primary_text = 0x7f0800b3;
+
+    @DimenRes
+    public static final int place_autocomplete_prediction_secondary_text = 0x7f0800b4;
+
+    @DimenRes
+    public static final int place_autocomplete_progress_horizontal_margin = 0x7f0800b5;
+
+    @DimenRes
+    public static final int place_autocomplete_progress_size = 0x7f0800b6;
+
+    @DimenRes
+    public static final int place_autocomplete_separator_start = 0x7f0800b7;
   }
 
   public static final class drawable {
@@ -2715,711 +2775,753 @@ public final class R2 {
     public static final int common_ic_googleplayservices = 0x7f020099;
 
     @DrawableRes
-    public static final int design_fab_background = 0x7f02009a;
+    public static final int design_bottom_navigation_item_background = 0x7f02009a;
 
     @DrawableRes
-    public static final int design_ic_visibility = 0x7f02009b;
+    public static final int design_fab_background = 0x7f02009b;
 
     @DrawableRes
-    public static final int design_snackbar_background = 0x7f02009c;
+    public static final int design_ic_visibility = 0x7f02009c;
 
     @DrawableRes
-    public static final int ema_background = 0x7f02009d;
+    public static final int design_snackbar_background = 0x7f02009d;
 
     @DrawableRes
-    public static final int ic_audiotrack = 0x7f02009e;
+    public static final int ema_background = 0x7f02009e;
 
     @DrawableRes
-    public static final int ic_audiotrack_light = 0x7f02009f;
+    public static final int ic_audiotrack = 0x7f02009f;
 
     @DrawableRes
-    public static final int ic_cast_dark = 0x7f0200a0;
+    public static final int ic_audiotrack_light = 0x7f0200a0;
 
     @DrawableRes
-    public static final int ic_cast_disabled_light = 0x7f0200a1;
+    public static final int ic_cast_dark = 0x7f0200a1;
 
     @DrawableRes
-    public static final int ic_cast_grey = 0x7f0200a2;
+    public static final int ic_cast_disabled_light = 0x7f0200a2;
 
     @DrawableRes
-    public static final int ic_cast_light = 0x7f0200a3;
+    public static final int ic_cast_grey = 0x7f0200a3;
 
     @DrawableRes
-    public static final int ic_cast_off_light = 0x7f0200a4;
+    public static final int ic_cast_light = 0x7f0200a4;
 
     @DrawableRes
-    public static final int ic_cast_white = 0x7f0200a5;
+    public static final int ic_cast_off_light = 0x7f0200a5;
 
     @DrawableRes
-    public static final int ic_close_dark = 0x7f0200a6;
+    public static final int ic_cast_white = 0x7f0200a6;
 
     @DrawableRes
-    public static final int ic_close_light = 0x7f0200a7;
+    public static final int ic_close_dark = 0x7f0200a7;
 
     @DrawableRes
-    public static final int ic_collapse = 0x7f0200a8;
+    public static final int ic_close_light = 0x7f0200a8;
 
     @DrawableRes
-    public static final int ic_collapse_00000 = 0x7f0200a9;
+    public static final int ic_collapse = 0x7f0200a9;
 
     @DrawableRes
-    public static final int ic_collapse_00001 = 0x7f0200aa;
+    public static final int ic_collapse_00000 = 0x7f0200aa;
 
     @DrawableRes
-    public static final int ic_collapse_00002 = 0x7f0200ab;
+    public static final int ic_collapse_00001 = 0x7f0200ab;
 
     @DrawableRes
-    public static final int ic_collapse_00003 = 0x7f0200ac;
+    public static final int ic_collapse_00002 = 0x7f0200ac;
 
     @DrawableRes
-    public static final int ic_collapse_00004 = 0x7f0200ad;
+    public static final int ic_collapse_00003 = 0x7f0200ad;
 
     @DrawableRes
-    public static final int ic_collapse_00005 = 0x7f0200ae;
+    public static final int ic_collapse_00004 = 0x7f0200ae;
 
     @DrawableRes
-    public static final int ic_collapse_00006 = 0x7f0200af;
+    public static final int ic_collapse_00005 = 0x7f0200af;
 
     @DrawableRes
-    public static final int ic_collapse_00007 = 0x7f0200b0;
+    public static final int ic_collapse_00006 = 0x7f0200b0;
 
     @DrawableRes
-    public static final int ic_collapse_00008 = 0x7f0200b1;
+    public static final int ic_collapse_00007 = 0x7f0200b1;
 
     @DrawableRes
-    public static final int ic_collapse_00009 = 0x7f0200b2;
+    public static final int ic_collapse_00008 = 0x7f0200b2;
 
     @DrawableRes
-    public static final int ic_collapse_00010 = 0x7f0200b3;
+    public static final int ic_collapse_00009 = 0x7f0200b3;
 
     @DrawableRes
-    public static final int ic_collapse_00011 = 0x7f0200b4;
+    public static final int ic_collapse_00010 = 0x7f0200b4;
 
     @DrawableRes
-    public static final int ic_collapse_00012 = 0x7f0200b5;
+    public static final int ic_collapse_00011 = 0x7f0200b5;
 
     @DrawableRes
-    public static final int ic_collapse_00013 = 0x7f0200b6;
+    public static final int ic_collapse_00012 = 0x7f0200b6;
 
     @DrawableRes
-    public static final int ic_collapse_00014 = 0x7f0200b7;
+    public static final int ic_collapse_00013 = 0x7f0200b7;
 
     @DrawableRes
-    public static final int ic_collapse_00015 = 0x7f0200b8;
+    public static final int ic_collapse_00014 = 0x7f0200b8;
 
     @DrawableRes
-    public static final int ic_expand = 0x7f0200b9;
+    public static final int ic_collapse_00015 = 0x7f0200b9;
 
     @DrawableRes
-    public static final int ic_expand_00000 = 0x7f0200ba;
+    public static final int ic_expand = 0x7f0200ba;
 
     @DrawableRes
-    public static final int ic_expand_00001 = 0x7f0200bb;
+    public static final int ic_expand_00000 = 0x7f0200bb;
 
     @DrawableRes
-    public static final int ic_expand_00002 = 0x7f0200bc;
+    public static final int ic_expand_00001 = 0x7f0200bc;
 
     @DrawableRes
-    public static final int ic_expand_00003 = 0x7f0200bd;
+    public static final int ic_expand_00002 = 0x7f0200bd;
 
     @DrawableRes
-    public static final int ic_expand_00004 = 0x7f0200be;
+    public static final int ic_expand_00003 = 0x7f0200be;
 
     @DrawableRes
-    public static final int ic_expand_00005 = 0x7f0200bf;
+    public static final int ic_expand_00004 = 0x7f0200bf;
 
     @DrawableRes
-    public static final int ic_expand_00006 = 0x7f0200c0;
+    public static final int ic_expand_00005 = 0x7f0200c0;
 
     @DrawableRes
-    public static final int ic_expand_00007 = 0x7f0200c1;
+    public static final int ic_expand_00006 = 0x7f0200c1;
 
     @DrawableRes
-    public static final int ic_expand_00008 = 0x7f0200c2;
+    public static final int ic_expand_00007 = 0x7f0200c2;
 
     @DrawableRes
-    public static final int ic_expand_00009 = 0x7f0200c3;
+    public static final int ic_expand_00008 = 0x7f0200c3;
 
     @DrawableRes
-    public static final int ic_expand_00010 = 0x7f0200c4;
+    public static final int ic_expand_00009 = 0x7f0200c4;
 
     @DrawableRes
-    public static final int ic_expand_00011 = 0x7f0200c5;
+    public static final int ic_expand_00010 = 0x7f0200c5;
 
     @DrawableRes
-    public static final int ic_expand_00012 = 0x7f0200c6;
+    public static final int ic_expand_00011 = 0x7f0200c6;
 
     @DrawableRes
-    public static final int ic_expand_00013 = 0x7f0200c7;
+    public static final int ic_expand_00012 = 0x7f0200c7;
 
     @DrawableRes
-    public static final int ic_expand_00014 = 0x7f0200c8;
+    public static final int ic_expand_00013 = 0x7f0200c8;
 
     @DrawableRes
-    public static final int ic_expand_00015 = 0x7f0200c9;
+    public static final int ic_expand_00014 = 0x7f0200c9;
 
     @DrawableRes
-    public static final int ic_media_pause = 0x7f0200ca;
+    public static final int ic_expand_00015 = 0x7f0200ca;
 
     @DrawableRes
-    public static final int ic_media_play = 0x7f0200cb;
+    public static final int ic_media_pause = 0x7f0200cb;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_00_dark = 0x7f0200cc;
+    public static final int ic_media_play = 0x7f0200cc;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_00_light = 0x7f0200cd;
+    public static final int ic_media_route_connecting_00_dark = 0x7f0200cd;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_01_dark = 0x7f0200ce;
+    public static final int ic_media_route_connecting_00_light = 0x7f0200ce;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_01_light = 0x7f0200cf;
+    public static final int ic_media_route_connecting_01_dark = 0x7f0200cf;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_02_dark = 0x7f0200d0;
+    public static final int ic_media_route_connecting_01_light = 0x7f0200d0;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_02_light = 0x7f0200d1;
+    public static final int ic_media_route_connecting_02_dark = 0x7f0200d1;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_03_dark = 0x7f0200d2;
+    public static final int ic_media_route_connecting_02_light = 0x7f0200d2;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_03_light = 0x7f0200d3;
+    public static final int ic_media_route_connecting_03_dark = 0x7f0200d3;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_04_dark = 0x7f0200d4;
+    public static final int ic_media_route_connecting_03_light = 0x7f0200d4;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_04_light = 0x7f0200d5;
+    public static final int ic_media_route_connecting_04_dark = 0x7f0200d5;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_05_dark = 0x7f0200d6;
+    public static final int ic_media_route_connecting_04_light = 0x7f0200d6;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_05_light = 0x7f0200d7;
+    public static final int ic_media_route_connecting_05_dark = 0x7f0200d7;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_06_dark = 0x7f0200d8;
+    public static final int ic_media_route_connecting_05_light = 0x7f0200d8;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_06_light = 0x7f0200d9;
+    public static final int ic_media_route_connecting_06_dark = 0x7f0200d9;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_07_dark = 0x7f0200da;
+    public static final int ic_media_route_connecting_06_light = 0x7f0200da;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_07_light = 0x7f0200db;
+    public static final int ic_media_route_connecting_07_dark = 0x7f0200db;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_08_dark = 0x7f0200dc;
+    public static final int ic_media_route_connecting_07_light = 0x7f0200dc;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_08_light = 0x7f0200dd;
+    public static final int ic_media_route_connecting_08_dark = 0x7f0200dd;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_09_dark = 0x7f0200de;
+    public static final int ic_media_route_connecting_08_light = 0x7f0200de;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_09_light = 0x7f0200df;
+    public static final int ic_media_route_connecting_09_dark = 0x7f0200df;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_10_dark = 0x7f0200e0;
+    public static final int ic_media_route_connecting_09_light = 0x7f0200e0;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_10_light = 0x7f0200e1;
+    public static final int ic_media_route_connecting_10_dark = 0x7f0200e1;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_11_dark = 0x7f0200e2;
+    public static final int ic_media_route_connecting_10_light = 0x7f0200e2;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_11_light = 0x7f0200e3;
+    public static final int ic_media_route_connecting_11_dark = 0x7f0200e3;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_12_dark = 0x7f0200e4;
+    public static final int ic_media_route_connecting_11_light = 0x7f0200e4;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_12_light = 0x7f0200e5;
+    public static final int ic_media_route_connecting_12_dark = 0x7f0200e5;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_13_dark = 0x7f0200e6;
+    public static final int ic_media_route_connecting_12_light = 0x7f0200e6;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_13_light = 0x7f0200e7;
+    public static final int ic_media_route_connecting_13_dark = 0x7f0200e7;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_14_dark = 0x7f0200e8;
+    public static final int ic_media_route_connecting_13_light = 0x7f0200e8;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_14_light = 0x7f0200e9;
+    public static final int ic_media_route_connecting_14_dark = 0x7f0200e9;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_15_dark = 0x7f0200ea;
+    public static final int ic_media_route_connecting_14_light = 0x7f0200ea;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_15_light = 0x7f0200eb;
+    public static final int ic_media_route_connecting_15_dark = 0x7f0200eb;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_16_dark = 0x7f0200ec;
+    public static final int ic_media_route_connecting_15_light = 0x7f0200ec;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_16_light = 0x7f0200ed;
+    public static final int ic_media_route_connecting_16_dark = 0x7f0200ed;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_17_dark = 0x7f0200ee;
+    public static final int ic_media_route_connecting_16_light = 0x7f0200ee;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_17_light = 0x7f0200ef;
+    public static final int ic_media_route_connecting_17_dark = 0x7f0200ef;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_18_dark = 0x7f0200f0;
+    public static final int ic_media_route_connecting_17_light = 0x7f0200f0;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_18_light = 0x7f0200f1;
+    public static final int ic_media_route_connecting_18_dark = 0x7f0200f1;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_19_dark = 0x7f0200f2;
+    public static final int ic_media_route_connecting_18_light = 0x7f0200f2;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_19_light = 0x7f0200f3;
+    public static final int ic_media_route_connecting_19_dark = 0x7f0200f3;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_20_dark = 0x7f0200f4;
+    public static final int ic_media_route_connecting_19_light = 0x7f0200f4;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_20_light = 0x7f0200f5;
+    public static final int ic_media_route_connecting_20_dark = 0x7f0200f5;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_21_dark = 0x7f0200f6;
+    public static final int ic_media_route_connecting_20_light = 0x7f0200f6;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_21_light = 0x7f0200f7;
+    public static final int ic_media_route_connecting_21_dark = 0x7f0200f7;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_22_dark = 0x7f0200f8;
+    public static final int ic_media_route_connecting_21_light = 0x7f0200f8;
 
     @DrawableRes
-    public static final int ic_media_route_connecting_22_light = 0x7f0200f9;
+    public static final int ic_media_route_connecting_22_dark = 0x7f0200f9;
 
     @DrawableRes
-    public static final int ic_media_route_disabled_mono_dark = 0x7f0200fa;
+    public static final int ic_media_route_connecting_22_light = 0x7f0200fa;
 
     @DrawableRes
-    public static final int ic_media_route_off_mono_dark = 0x7f0200fb;
+    public static final int ic_media_route_disabled_mono_dark = 0x7f0200fb;
 
     @DrawableRes
-    public static final int ic_media_route_on_00_dark = 0x7f0200fc;
+    public static final int ic_media_route_off_mono_dark = 0x7f0200fc;
 
     @DrawableRes
-    public static final int ic_media_route_on_00_light = 0x7f0200fd;
+    public static final int ic_media_route_on_00_dark = 0x7f0200fd;
 
     @DrawableRes
-    public static final int ic_media_route_on_01_dark = 0x7f0200fe;
+    public static final int ic_media_route_on_00_light = 0x7f0200fe;
 
     @DrawableRes
-    public static final int ic_media_route_on_01_light = 0x7f0200ff;
+    public static final int ic_media_route_on_01_dark = 0x7f0200ff;
 
     @DrawableRes
-    public static final int ic_media_route_on_02_dark = 0x7f020100;
+    public static final int ic_media_route_on_01_light = 0x7f020100;
 
     @DrawableRes
-    public static final int ic_media_route_on_02_light = 0x7f020101;
+    public static final int ic_media_route_on_02_dark = 0x7f020101;
 
     @DrawableRes
-    public static final int ic_media_route_on_03_dark = 0x7f020102;
+    public static final int ic_media_route_on_02_light = 0x7f020102;
 
     @DrawableRes
-    public static final int ic_media_route_on_03_light = 0x7f020103;
+    public static final int ic_media_route_on_03_dark = 0x7f020103;
 
     @DrawableRes
-    public static final int ic_media_route_on_04_dark = 0x7f020104;
+    public static final int ic_media_route_on_03_light = 0x7f020104;
 
     @DrawableRes
-    public static final int ic_media_route_on_04_light = 0x7f020105;
+    public static final int ic_media_route_on_04_dark = 0x7f020105;
 
     @DrawableRes
-    public static final int ic_media_route_on_05_dark = 0x7f020106;
+    public static final int ic_media_route_on_04_light = 0x7f020106;
 
     @DrawableRes
-    public static final int ic_media_route_on_05_light = 0x7f020107;
+    public static final int ic_media_route_on_05_dark = 0x7f020107;
 
     @DrawableRes
-    public static final int ic_media_route_on_06_dark = 0x7f020108;
+    public static final int ic_media_route_on_05_light = 0x7f020108;
 
     @DrawableRes
-    public static final int ic_media_route_on_06_light = 0x7f020109;
+    public static final int ic_media_route_on_06_dark = 0x7f020109;
 
     @DrawableRes
-    public static final int ic_media_route_on_07_dark = 0x7f02010a;
+    public static final int ic_media_route_on_06_light = 0x7f02010a;
 
     @DrawableRes
-    public static final int ic_media_route_on_07_light = 0x7f02010b;
+    public static final int ic_media_route_on_07_dark = 0x7f02010b;
 
     @DrawableRes
-    public static final int ic_media_route_on_08_dark = 0x7f02010c;
+    public static final int ic_media_route_on_07_light = 0x7f02010c;
 
     @DrawableRes
-    public static final int ic_media_route_on_08_light = 0x7f02010d;
+    public static final int ic_media_route_on_08_dark = 0x7f02010d;
 
     @DrawableRes
-    public static final int ic_media_route_on_09_dark = 0x7f02010e;
+    public static final int ic_media_route_on_08_light = 0x7f02010e;
 
     @DrawableRes
-    public static final int ic_media_route_on_09_light = 0x7f02010f;
+    public static final int ic_media_route_on_09_dark = 0x7f02010f;
 
     @DrawableRes
-    public static final int ic_media_route_on_10_dark = 0x7f020110;
+    public static final int ic_media_route_on_09_light = 0x7f020110;
 
     @DrawableRes
-    public static final int ic_media_route_on_10_light = 0x7f020111;
+    public static final int ic_media_route_on_10_dark = 0x7f020111;
 
     @DrawableRes
-    public static final int ic_media_route_on_11_dark = 0x7f020112;
+    public static final int ic_media_route_on_10_light = 0x7f020112;
 
     @DrawableRes
-    public static final int ic_media_route_on_11_light = 0x7f020113;
+    public static final int ic_media_route_on_11_dark = 0x7f020113;
 
     @DrawableRes
-    public static final int ic_media_route_on_12_dark = 0x7f020114;
+    public static final int ic_media_route_on_11_light = 0x7f020114;
 
     @DrawableRes
-    public static final int ic_media_route_on_12_light = 0x7f020115;
+    public static final int ic_media_route_on_12_dark = 0x7f020115;
 
     @DrawableRes
-    public static final int ic_media_route_on_13_dark = 0x7f020116;
+    public static final int ic_media_route_on_12_light = 0x7f020116;
 
     @DrawableRes
-    public static final int ic_media_route_on_13_light = 0x7f020117;
+    public static final int ic_media_route_on_13_dark = 0x7f020117;
 
     @DrawableRes
-    public static final int ic_media_route_on_14_dark = 0x7f020118;
+    public static final int ic_media_route_on_13_light = 0x7f020118;
 
     @DrawableRes
-    public static final int ic_media_route_on_14_light = 0x7f020119;
+    public static final int ic_media_route_on_14_dark = 0x7f020119;
 
     @DrawableRes
-    public static final int ic_media_route_on_15_dark = 0x7f02011a;
+    public static final int ic_media_route_on_14_light = 0x7f02011a;
 
     @DrawableRes
-    public static final int ic_media_route_on_15_light = 0x7f02011b;
+    public static final int ic_media_route_on_15_dark = 0x7f02011b;
 
     @DrawableRes
-    public static final int ic_media_route_on_16_dark = 0x7f02011c;
+    public static final int ic_media_route_on_15_light = 0x7f02011c;
 
     @DrawableRes
-    public static final int ic_media_route_on_16_light = 0x7f02011d;
+    public static final int ic_media_route_on_16_dark = 0x7f02011d;
 
     @DrawableRes
-    public static final int ic_media_route_on_17_dark = 0x7f02011e;
+    public static final int ic_media_route_on_16_light = 0x7f02011e;
 
     @DrawableRes
-    public static final int ic_media_route_on_17_light = 0x7f02011f;
+    public static final int ic_media_route_on_17_dark = 0x7f02011f;
 
     @DrawableRes
-    public static final int ic_media_route_on_18_dark = 0x7f020120;
+    public static final int ic_media_route_on_17_light = 0x7f020120;
 
     @DrawableRes
-    public static final int ic_media_route_on_18_light = 0x7f020121;
+    public static final int ic_media_route_on_18_dark = 0x7f020121;
 
     @DrawableRes
-    public static final int ic_media_route_on_19_dark = 0x7f020122;
+    public static final int ic_media_route_on_18_light = 0x7f020122;
 
     @DrawableRes
-    public static final int ic_media_route_on_19_light = 0x7f020123;
+    public static final int ic_media_route_on_19_dark = 0x7f020123;
 
     @DrawableRes
-    public static final int ic_media_route_on_20_dark = 0x7f020124;
+    public static final int ic_media_route_on_19_light = 0x7f020124;
 
     @DrawableRes
-    public static final int ic_media_route_on_20_light = 0x7f020125;
+    public static final int ic_media_route_on_20_dark = 0x7f020125;
 
     @DrawableRes
-    public static final int ic_media_route_on_21_dark = 0x7f020126;
+    public static final int ic_media_route_on_20_light = 0x7f020126;
 
     @DrawableRes
-    public static final int ic_media_route_on_21_light = 0x7f020127;
+    public static final int ic_media_route_on_21_dark = 0x7f020127;
 
     @DrawableRes
-    public static final int ic_media_route_on_22_dark = 0x7f020128;
+    public static final int ic_media_route_on_21_light = 0x7f020128;
 
     @DrawableRes
-    public static final int ic_media_route_on_22_light = 0x7f020129;
+    public static final int ic_media_route_on_22_dark = 0x7f020129;
 
     @DrawableRes
-    public static final int ic_media_route_on_light = 0x7f02012a;
+    public static final int ic_media_route_on_22_light = 0x7f02012a;
 
     @DrawableRes
-    public static final int ic_pause_dark = 0x7f02012b;
+    public static final int ic_media_route_on_light = 0x7f02012b;
 
     @DrawableRes
-    public static final int ic_pause_light = 0x7f02012c;
+    public static final int ic_pause_dark = 0x7f02012c;
 
     @DrawableRes
-    public static final int ic_play_dark = 0x7f02012d;
+    public static final int ic_pause_light = 0x7f02012d;
 
     @DrawableRes
-    public static final int ic_play_light = 0x7f02012e;
+    public static final int ic_play_dark = 0x7f02012e;
 
     @DrawableRes
-    public static final int ic_plusone_medium_off_client = 0x7f02012f;
+    public static final int ic_play_light = 0x7f02012f;
 
     @DrawableRes
-    public static final int ic_plusone_small_off_client = 0x7f020130;
+    public static final int ic_plusone_medium_off_client = 0x7f020130;
 
     @DrawableRes
-    public static final int ic_plusone_standard_off_client = 0x7f020131;
+    public static final int ic_plusone_small_off_client = 0x7f020131;
 
     @DrawableRes
-    public static final int ic_plusone_tall_off_client = 0x7f020132;
+    public static final int ic_plusone_standard_off_client = 0x7f020132;
 
     @DrawableRes
-    public static final int ic_speaker_dark = 0x7f020133;
+    public static final int ic_plusone_tall_off_client = 0x7f020133;
 
     @DrawableRes
-    public static final int ic_speaker_group_dark = 0x7f020134;
+    public static final int ic_speaker_dark = 0x7f020134;
 
     @DrawableRes
-    public static final int ic_speaker_group_light = 0x7f020135;
+    public static final int ic_speaker_group_dark = 0x7f020135;
 
     @DrawableRes
-    public static final int ic_speaker_light = 0x7f020136;
+    public static final int ic_speaker_group_light = 0x7f020136;
 
     @DrawableRes
-    public static final int ic_sync_black_24dp = 0x7f020137;
+    public static final int ic_speaker_light = 0x7f020137;
 
     @DrawableRes
-    public static final int ic_tv_dark = 0x7f020138;
+    public static final int ic_sync_black_24dp = 0x7f020138;
 
     @DrawableRes
-    public static final int ic_tv_light = 0x7f020139;
+    public static final int ic_tv_dark = 0x7f020139;
 
     @DrawableRes
-    public static final int logo = 0x7f02013a;
+    public static final int ic_tv_light = 0x7f02013a;
 
     @DrawableRes
-    public static final int mr_dialog_material_background_dark = 0x7f02013b;
+    public static final int logo = 0x7f02013b;
 
     @DrawableRes
-    public static final int mr_dialog_material_background_light = 0x7f02013c;
+    public static final int mr_dialog_material_background_dark = 0x7f02013c;
 
     @DrawableRes
-    public static final int mr_ic_audiotrack_light = 0x7f02013d;
+    public static final int mr_dialog_material_background_light = 0x7f02013d;
 
     @DrawableRes
-    public static final int mr_ic_cast_dark = 0x7f02013e;
+    public static final int mr_ic_audiotrack_light = 0x7f02013e;
 
     @DrawableRes
-    public static final int mr_ic_cast_light = 0x7f02013f;
+    public static final int mr_ic_cast_dark = 0x7f02013f;
 
     @DrawableRes
-    public static final int mr_ic_close_dark = 0x7f020140;
+    public static final int mr_ic_cast_light = 0x7f020140;
 
     @DrawableRes
-    public static final int mr_ic_close_light = 0x7f020141;
+    public static final int mr_ic_close_dark = 0x7f020141;
 
     @DrawableRes
-    public static final int mr_ic_media_route_connecting_dark = 0x7f020142;
+    public static final int mr_ic_close_light = 0x7f020142;
 
     @DrawableRes
-    public static final int mr_ic_media_route_connecting_light = 0x7f020143;
+    public static final int mr_ic_media_route_connecting_dark = 0x7f020143;
 
     @DrawableRes
-    public static final int mr_ic_media_route_mono_dark = 0x7f020144;
+    public static final int mr_ic_media_route_connecting_light = 0x7f020144;
 
     @DrawableRes
-    public static final int mr_ic_media_route_mono_light = 0x7f020145;
+    public static final int mr_ic_media_route_mono_dark = 0x7f020145;
 
     @DrawableRes
-    public static final int mr_ic_media_route_on_dark = 0x7f020146;
+    public static final int mr_ic_media_route_mono_light = 0x7f020146;
 
     @DrawableRes
-    public static final int mr_ic_media_route_on_light = 0x7f020147;
+    public static final int mr_ic_media_route_on_dark = 0x7f020147;
 
     @DrawableRes
-    public static final int mr_ic_pause_dark = 0x7f020148;
+    public static final int mr_ic_media_route_on_light = 0x7f020148;
 
     @DrawableRes
-    public static final int mr_ic_pause_light = 0x7f020149;
+    public static final int mr_ic_pause_dark = 0x7f020149;
 
     @DrawableRes
-    public static final int mr_ic_play_dark = 0x7f02014a;
+    public static final int mr_ic_pause_light = 0x7f02014a;
 
     @DrawableRes
-    public static final int mr_ic_play_light = 0x7f02014b;
+    public static final int mr_ic_play_dark = 0x7f02014b;
 
     @DrawableRes
-    public static final int navigation_empty_icon = 0x7f02014c;
+    public static final int mr_ic_play_light = 0x7f02014c;
 
     @DrawableRes
-    public static final int notification_template_icon_bg = 0x7f02017a;
+    public static final int navigation_empty_icon = 0x7f02014d;
 
     @DrawableRes
-    public static final int places_ic_clear = 0x7f02014d;
+    public static final int notification_action_background = 0x7f02014e;
 
     @DrawableRes
-    public static final int places_ic_search = 0x7f02014e;
+    public static final int notification_bg = 0x7f02014f;
 
     @DrawableRes
-    public static final int powered_by_google_dark = 0x7f02014f;
+    public static final int notification_bg_low = 0x7f020150;
 
     @DrawableRes
-    public static final int powered_by_google_light = 0x7f020150;
+    public static final int notification_bg_low_normal = 0x7f020151;
 
     @DrawableRes
-    public static final int quantum_ic_art_track_grey600_48 = 0x7f020151;
+    public static final int notification_bg_low_pressed = 0x7f020152;
 
     @DrawableRes
-    public static final int quantum_ic_bigtop_updates_white_24 = 0x7f020152;
+    public static final int notification_bg_normal = 0x7f020153;
 
     @DrawableRes
-    public static final int quantum_ic_cast_connected_white_24 = 0x7f020153;
+    public static final int notification_bg_normal_pressed = 0x7f020154;
 
     @DrawableRes
-    public static final int quantum_ic_cast_white_36 = 0x7f020154;
+    public static final int notification_icon_background = 0x7f020155;
 
     @DrawableRes
-    public static final int quantum_ic_clear_white_24 = 0x7f020155;
+    public static final int notification_template_icon_bg = 0x7f020185;
 
     @DrawableRes
-    public static final int quantum_ic_closed_caption_grey600_36 = 0x7f020156;
+    public static final int notification_template_icon_low_bg = 0x7f020186;
 
     @DrawableRes
-    public static final int quantum_ic_closed_caption_white_36 = 0x7f020157;
+    public static final int notification_tile_bg = 0x7f020156;
 
     @DrawableRes
-    public static final int quantum_ic_forward_10_white_24 = 0x7f020158;
+    public static final int notify_panel_notification_icon_bg = 0x7f020157;
 
     @DrawableRes
-    public static final int quantum_ic_forward_30_grey600_36 = 0x7f020159;
+    public static final int places_ic_clear = 0x7f020158;
 
     @DrawableRes
-    public static final int quantum_ic_forward_30_white_24 = 0x7f02015a;
+    public static final int places_ic_search = 0x7f020159;
 
     @DrawableRes
-    public static final int quantum_ic_forward_30_white_36 = 0x7f02015b;
+    public static final int powered_by_google_dark = 0x7f02015a;
 
     @DrawableRes
-    public static final int quantum_ic_keyboard_arrow_down_white_36 = 0x7f02015c;
+    public static final int powered_by_google_light = 0x7f02015b;
 
     @DrawableRes
-    public static final int quantum_ic_pause_circle_filled_grey600_36 = 0x7f02015d;
+    public static final int quantum_ic_art_track_grey600_48 = 0x7f02015c;
 
     @DrawableRes
-    public static final int quantum_ic_pause_circle_filled_white_36 = 0x7f02015e;
+    public static final int quantum_ic_bigtop_updates_white_24 = 0x7f02015d;
 
     @DrawableRes
-    public static final int quantum_ic_pause_grey600_36 = 0x7f02015f;
+    public static final int quantum_ic_cast_connected_white_24 = 0x7f02015e;
 
     @DrawableRes
-    public static final int quantum_ic_pause_grey600_48 = 0x7f020160;
+    public static final int quantum_ic_cast_white_36 = 0x7f02015f;
 
     @DrawableRes
-    public static final int quantum_ic_pause_white_24 = 0x7f020161;
+    public static final int quantum_ic_clear_white_24 = 0x7f020160;
 
     @DrawableRes
-    public static final int quantum_ic_play_arrow_grey600_36 = 0x7f020162;
+    public static final int quantum_ic_closed_caption_grey600_36 = 0x7f020161;
 
     @DrawableRes
-    public static final int quantum_ic_play_arrow_grey600_48 = 0x7f020163;
+    public static final int quantum_ic_closed_caption_white_36 = 0x7f020162;
 
     @DrawableRes
-    public static final int quantum_ic_play_arrow_white_24 = 0x7f020164;
+    public static final int quantum_ic_forward_10_white_24 = 0x7f020163;
 
     @DrawableRes
-    public static final int quantum_ic_play_circle_filled_grey600_36 = 0x7f020165;
+    public static final int quantum_ic_forward_30_grey600_36 = 0x7f020164;
 
     @DrawableRes
-    public static final int quantum_ic_play_circle_filled_white_36 = 0x7f020166;
+    public static final int quantum_ic_forward_30_white_24 = 0x7f020165;
 
     @DrawableRes
-    public static final int quantum_ic_refresh_white_24 = 0x7f020167;
+    public static final int quantum_ic_forward_30_white_36 = 0x7f020166;
 
     @DrawableRes
-    public static final int quantum_ic_replay_10_white_24 = 0x7f020168;
+    public static final int quantum_ic_keyboard_arrow_down_white_36 = 0x7f020167;
 
     @DrawableRes
-    public static final int quantum_ic_replay_30_grey600_36 = 0x7f020169;
+    public static final int quantum_ic_pause_circle_filled_grey600_36 = 0x7f020168;
 
     @DrawableRes
-    public static final int quantum_ic_replay_30_white_24 = 0x7f02016a;
+    public static final int quantum_ic_pause_circle_filled_white_36 = 0x7f020169;
 
     @DrawableRes
-    public static final int quantum_ic_replay_30_white_36 = 0x7f02016b;
+    public static final int quantum_ic_pause_grey600_36 = 0x7f02016a;
 
     @DrawableRes
-    public static final int quantum_ic_replay_white_24 = 0x7f02016c;
+    public static final int quantum_ic_pause_grey600_48 = 0x7f02016b;
 
     @DrawableRes
-    public static final int quantum_ic_skip_next_grey600_36 = 0x7f02016d;
+    public static final int quantum_ic_pause_white_24 = 0x7f02016c;
 
     @DrawableRes
-    public static final int quantum_ic_skip_next_white_24 = 0x7f02016e;
+    public static final int quantum_ic_play_arrow_grey600_36 = 0x7f02016d;
 
     @DrawableRes
-    public static final int quantum_ic_skip_next_white_36 = 0x7f02016f;
+    public static final int quantum_ic_play_arrow_grey600_48 = 0x7f02016e;
 
     @DrawableRes
-    public static final int quantum_ic_skip_previous_grey600_36 = 0x7f020170;
+    public static final int quantum_ic_play_arrow_white_24 = 0x7f02016f;
 
     @DrawableRes
-    public static final int quantum_ic_skip_previous_white_24 = 0x7f020171;
+    public static final int quantum_ic_play_circle_filled_grey600_36 = 0x7f020170;
 
     @DrawableRes
-    public static final int quantum_ic_skip_previous_white_36 = 0x7f020172;
+    public static final int quantum_ic_play_circle_filled_white_36 = 0x7f020171;
 
     @DrawableRes
-    public static final int quantum_ic_stop_grey600_36 = 0x7f020173;
+    public static final int quantum_ic_refresh_white_24 = 0x7f020172;
 
     @DrawableRes
-    public static final int quantum_ic_stop_grey600_48 = 0x7f020174;
+    public static final int quantum_ic_replay_10_white_24 = 0x7f020173;
 
     @DrawableRes
-    public static final int quantum_ic_stop_white_24 = 0x7f020175;
+    public static final int quantum_ic_replay_30_grey600_36 = 0x7f020174;
 
     @DrawableRes
-    public static final int quantum_ic_volume_off_grey600_36 = 0x7f020176;
+    public static final int quantum_ic_replay_30_white_24 = 0x7f020175;
 
     @DrawableRes
-    public static final int quantum_ic_volume_off_white_36 = 0x7f020177;
+    public static final int quantum_ic_replay_30_white_36 = 0x7f020176;
 
     @DrawableRes
-    public static final int quantum_ic_volume_up_grey600_36 = 0x7f020178;
+    public static final int quantum_ic_replay_white_24 = 0x7f020177;
 
     @DrawableRes
-    public static final int quantum_ic_volume_up_white_36 = 0x7f020179;
+    public static final int quantum_ic_skip_next_grey600_36 = 0x7f020178;
+
+    @DrawableRes
+    public static final int quantum_ic_skip_next_white_24 = 0x7f020179;
+
+    @DrawableRes
+    public static final int quantum_ic_skip_next_white_36 = 0x7f02017a;
+
+    @DrawableRes
+    public static final int quantum_ic_skip_previous_grey600_36 = 0x7f02017b;
+
+    @DrawableRes
+    public static final int quantum_ic_skip_previous_white_24 = 0x7f02017c;
+
+    @DrawableRes
+    public static final int quantum_ic_skip_previous_white_36 = 0x7f02017d;
+
+    @DrawableRes
+    public static final int quantum_ic_stop_grey600_36 = 0x7f02017e;
+
+    @DrawableRes
+    public static final int quantum_ic_stop_grey600_48 = 0x7f02017f;
+
+    @DrawableRes
+    public static final int quantum_ic_stop_white_24 = 0x7f020180;
+
+    @DrawableRes
+    public static final int quantum_ic_volume_off_grey600_36 = 0x7f020181;
+
+    @DrawableRes
+    public static final int quantum_ic_volume_off_white_36 = 0x7f020182;
+
+    @DrawableRes
+    public static final int quantum_ic_volume_up_grey600_36 = 0x7f020183;
+
+    @DrawableRes
+    public static final int quantum_ic_volume_up_white_36 = 0x7f020184;
   }
 
   public static final class id {
     @IdRes
-    public static final int action0 = 0x7f0e00fd;
+    public static final int action0 = 0x7f0e0104;
 
     @IdRes
-    public static final int action_bar = 0x7f0e00a8;
+    public static final int action_bar = 0x7f0e00aa;
 
     @IdRes
     public static final int action_bar_activity_content = 0x7f0e0000;
 
     @IdRes
-    public static final int action_bar_container = 0x7f0e00a7;
+    public static final int action_bar_container = 0x7f0e00a9;
 
     @IdRes
-    public static final int action_bar_root = 0x7f0e00a3;
+    public static final int action_bar_root = 0x7f0e00a5;
 
     @IdRes
     public static final int action_bar_spinner = 0x7f0e0001;
 
     @IdRes
-    public static final int action_bar_subtitle = 0x7f0e0088;
+    public static final int action_bar_subtitle = 0x7f0e008a;
 
     @IdRes
-    public static final int action_bar_title = 0x7f0e0087;
+    public static final int action_bar_title = 0x7f0e0089;
 
     @IdRes
-    public static final int action_context_bar = 0x7f0e00a9;
+    public static final int action_container = 0x7f0e0101;
 
     @IdRes
-    public static final int action_divider = 0x7f0e0101;
+    public static final int action_context_bar = 0x7f0e00ab;
+
+    @IdRes
+    public static final int action_divider = 0x7f0e0108;
+
+    @IdRes
+    public static final int action_image = 0x7f0e0102;
 
     @IdRes
     public static final int action_menu_divider = 0x7f0e0002;
@@ -3428,115 +3530,121 @@ public final class R2 {
     public static final int action_menu_presenter = 0x7f0e0003;
 
     @IdRes
-    public static final int action_mode_bar = 0x7f0e00a5;
+    public static final int action_mode_bar = 0x7f0e00a7;
 
     @IdRes
-    public static final int action_mode_bar_stub = 0x7f0e00a4;
+    public static final int action_mode_bar_stub = 0x7f0e00a6;
 
     @IdRes
-    public static final int action_mode_close_button = 0x7f0e0089;
+    public static final int action_mode_close_button = 0x7f0e008b;
 
     @IdRes
-    public static final int activity_chooser_view_content = 0x7f0e008a;
+    public static final int action_text = 0x7f0e0103;
 
     @IdRes
-    public static final int ad_container = 0x7f0e00bc;
+    public static final int actions = 0x7f0e0110;
 
     @IdRes
-    public static final int ad_in_progress_label = 0x7f0e00be;
+    public static final int activity_chooser_view_content = 0x7f0e008c;
 
     @IdRes
-    public static final int ad_label = 0x7f0e00bd;
+    public static final int ad_container = 0x7f0e00be;
 
     @IdRes
-    public static final int add = 0x7f0e0028;
+    public static final int ad_in_progress_label = 0x7f0e00c0;
 
     @IdRes
-    public static final int adjust_height = 0x7f0e0054;
+    public static final int ad_label = 0x7f0e00bf;
 
     @IdRes
-    public static final int adjust_width = 0x7f0e0055;
+    public static final int add = 0x7f0e002a;
 
     @IdRes
-    public static final int alertTitle = 0x7f0e0096;
+    public static final int adjust_height = 0x7f0e0056;
 
     @IdRes
-    public static final int all = 0x7f0e0040;
+    public static final int adjust_width = 0x7f0e0057;
 
     @IdRes
-    public static final int always = 0x7f0e0059;
+    public static final int alertTitle = 0x7f0e0098;
 
     @IdRes
-    public static final int android_pay = 0x7f0e0086;
+    public static final int all = 0x7f0e0042;
 
     @IdRes
-    public static final int android_pay_dark = 0x7f0e007d;
+    public static final int always = 0x7f0e005b;
 
     @IdRes
-    public static final int android_pay_light = 0x7f0e007e;
+    public static final int android_pay = 0x7f0e0088;
 
     @IdRes
-    public static final int android_pay_light_with_border = 0x7f0e007f;
+    public static final int android_pay_dark = 0x7f0e007f;
 
     @IdRes
-    public static final int audio_empty_message = 0x7f0e00d8;
+    public static final int android_pay_light = 0x7f0e0080;
 
     @IdRes
-    public static final int audio_list_view = 0x7f0e00d6;
+    public static final int android_pay_light_with_border = 0x7f0e0081;
 
     @IdRes
-    public static final int auto = 0x7f0e002f;
+    public static final int audio_empty_message = 0x7f0e00da;
 
     @IdRes
-    public static final int background_image_view = 0x7f0e00b8;
+    public static final int audio_list_view = 0x7f0e00d8;
 
     @IdRes
-    public static final int background_place_holder_image_view = 0x7f0e00bb;
+    public static final int auto = 0x7f0e0031;
 
     @IdRes
-    public static final int beginning = 0x7f0e0052;
+    public static final int background_image_view = 0x7f0e00ba;
 
     @IdRes
-    public static final int book_now = 0x7f0e0076;
+    public static final int background_place_holder_image_view = 0x7f0e00bd;
 
     @IdRes
-    public static final int bottom = 0x7f0e0030;
+    public static final int beginning = 0x7f0e0054;
 
     @IdRes
-    public static final int button = 0x7f0e00cd;
+    public static final int book_now = 0x7f0e0078;
 
     @IdRes
-    public static final int buttonPanel = 0x7f0e0091;
+    public static final int bottom = 0x7f0e0032;
 
     @IdRes
-    public static final int button_0 = 0x7f0e00c7;
+    public static final int button = 0x7f0e00cf;
 
     @IdRes
-    public static final int button_1 = 0x7f0e00c8;
+    public static final int buttonPanel = 0x7f0e0093;
 
     @IdRes
-    public static final int button_2 = 0x7f0e00ca;
+    public static final int button_0 = 0x7f0e00c9;
 
     @IdRes
-    public static final int button_3 = 0x7f0e00cb;
+    public static final int button_1 = 0x7f0e00ca;
 
     @IdRes
-    public static final int button_play_pause_toggle = 0x7f0e00c9;
+    public static final int button_2 = 0x7f0e00cc;
 
     @IdRes
-    public static final int buyButton = 0x7f0e0073;
+    public static final int button_3 = 0x7f0e00cd;
 
     @IdRes
-    public static final int buy_now = 0x7f0e0077;
+    public static final int button_play_pause_toggle = 0x7f0e00cb;
 
     @IdRes
-    public static final int buy_with = 0x7f0e0078;
+    public static final int buyButton = 0x7f0e0075;
 
     @IdRes
-    public static final int buy_with_google = 0x7f0e0079;
+    public static final int buy_now = 0x7f0e0079;
 
     @IdRes
-    public static final int cancel_action = 0x7f0e00fe;
+    public static final int buy_with = 0x7f0e007a;
+
+    @IdRes
+    public static final int buy_with_google = 0x7f0e007b;
+
+    @IdRes
+    public static final int cancel_action = 0x7f0e0105;
 
     @IdRes
     public static final int cast_button_type_closed_caption = 0x7f0e0004;
@@ -3578,400 +3686,415 @@ public final class R2 {
     public static final int cast_notification_id = 0x7f0e0010;
 
     @IdRes
-    public static final int center = 0x7f0e0031;
+    public static final int center = 0x7f0e0033;
 
     @IdRes
-    public static final int center_horizontal = 0x7f0e0032;
+    public static final int center_horizontal = 0x7f0e0034;
 
     @IdRes
-    public static final int center_vertical = 0x7f0e0033;
+    public static final int center_vertical = 0x7f0e0035;
 
     @IdRes
-    public static final int checkbox = 0x7f0e009f;
+    public static final int checkbox = 0x7f0e00a1;
 
     @IdRes
-    public static final int chronometer = 0x7f0e0104;
+    public static final int chronometer = 0x7f0e010d;
 
     @IdRes
-    public static final int classic = 0x7f0e0080;
+    public static final int classic = 0x7f0e0082;
 
     @IdRes
-    public static final int clip_horizontal = 0x7f0e003c;
+    public static final int clip_horizontal = 0x7f0e003e;
 
     @IdRes
-    public static final int clip_vertical = 0x7f0e003d;
+    public static final int clip_vertical = 0x7f0e003f;
 
     @IdRes
-    public static final int collapseActionView = 0x7f0e005a;
+    public static final int collapseActionView = 0x7f0e005c;
 
     @IdRes
-    public static final int contact = 0x7f0e004f;
+    public static final int contact = 0x7f0e0051;
 
     @IdRes
-    public static final int container_all = 0x7f0e00ce;
+    public static final int container_all = 0x7f0e00d0;
 
     @IdRes
-    public static final int container_current = 0x7f0e00cf;
+    public static final int container_current = 0x7f0e00d1;
 
     @IdRes
-    public static final int contentPanel = 0x7f0e0097;
+    public static final int contentPanel = 0x7f0e0099;
 
     @IdRes
-    public static final int controllers = 0x7f0e00ba;
+    public static final int controllers = 0x7f0e00bc;
 
     @IdRes
     public static final int crash_reporting_present = 0x7f0e0011;
 
     @IdRes
-    public static final int custom = 0x7f0e009d;
+    public static final int custom = 0x7f0e009f;
 
     @IdRes
-    public static final int customPanel = 0x7f0e009c;
+    public static final int customPanel = 0x7f0e009e;
 
     @IdRes
-    public static final int dark = 0x7f0e0042;
+    public static final int dark = 0x7f0e0044;
 
     @IdRes
-    public static final int decor_content_parent = 0x7f0e00a6;
+    public static final int decor_content_parent = 0x7f0e00a8;
 
     @IdRes
-    public static final int default_activity_button = 0x7f0e008d;
+    public static final int default_activity_button = 0x7f0e008f;
 
     @IdRes
-    public static final int demote_common_words = 0x7f0e0062;
+    public static final int demote_common_words = 0x7f0e0064;
 
     @IdRes
-    public static final int demote_rfc822_hostnames = 0x7f0e0063;
+    public static final int demote_rfc822_hostnames = 0x7f0e0065;
 
     @IdRes
-    public static final int design_bottom_sheet = 0x7f0e00db;
+    public static final int design_bottom_sheet = 0x7f0e00df;
 
     @IdRes
-    public static final int design_menu_item_action_area = 0x7f0e00e2;
+    public static final int design_menu_item_action_area = 0x7f0e00e6;
 
     @IdRes
-    public static final int design_menu_item_action_area_stub = 0x7f0e00e1;
+    public static final int design_menu_item_action_area_stub = 0x7f0e00e5;
 
     @IdRes
-    public static final int design_menu_item_text = 0x7f0e00e0;
+    public static final int design_menu_item_text = 0x7f0e00e4;
 
     @IdRes
-    public static final int design_navigation_view = 0x7f0e00df;
+    public static final int design_navigation_view = 0x7f0e00e3;
 
     @IdRes
-    public static final int disableHome = 0x7f0e001c;
+    public static final int disableHome = 0x7f0e001e;
 
     @IdRes
-    public static final int donate_with = 0x7f0e007a;
+    public static final int donate_with = 0x7f0e007c;
 
     @IdRes
-    public static final int donate_with_google = 0x7f0e007b;
+    public static final int donate_with_google = 0x7f0e007d;
 
     @IdRes
-    public static final int edit_query = 0x7f0e00aa;
+    public static final int edit_query = 0x7f0e00ac;
 
     @IdRes
-    public static final int email = 0x7f0e0050;
+    public static final int email = 0x7f0e0052;
 
     @IdRes
-    public static final int end = 0x7f0e0034;
+    public static final int end = 0x7f0e0036;
 
     @IdRes
-    public static final int end_padder = 0x7f0e0107;
+    public static final int end_padder = 0x7f0e0115;
 
     @IdRes
-    public static final int end_text = 0x7f0e00c3;
+    public static final int end_text = 0x7f0e00c5;
 
     @IdRes
-    public static final int enterAlways = 0x7f0e0023;
+    public static final int enterAlways = 0x7f0e0025;
 
     @IdRes
-    public static final int enterAlwaysCollapsed = 0x7f0e0024;
+    public static final int enterAlwaysCollapsed = 0x7f0e0026;
 
     @IdRes
-    public static final int exitUntilCollapsed = 0x7f0e0025;
+    public static final int exitUntilCollapsed = 0x7f0e0027;
 
     @IdRes
-    public static final int expand_activities_button = 0x7f0e008b;
+    public static final int expand_activities_button = 0x7f0e008d;
 
     @IdRes
-    public static final int expanded_controller_layout = 0x7f0e00b7;
+    public static final int expanded_controller_layout = 0x7f0e00b9;
 
     @IdRes
-    public static final int expanded_menu = 0x7f0e009e;
+    public static final int expanded_menu = 0x7f0e00a0;
 
     @IdRes
-    public static final int fill = 0x7f0e003e;
+    public static final int fill = 0x7f0e0040;
 
     @IdRes
-    public static final int fill_horizontal = 0x7f0e003f;
+    public static final int fill_horizontal = 0x7f0e0041;
 
     @IdRes
-    public static final int fill_vertical = 0x7f0e0035;
+    public static final int fill_vertical = 0x7f0e0037;
 
     @IdRes
-    public static final int fixed = 0x7f0e006b;
+    public static final int fixed = 0x7f0e006d;
 
     @IdRes
-    public static final int google_wallet_classic = 0x7f0e0081;
+    public static final int google_wallet_classic = 0x7f0e0083;
 
     @IdRes
-    public static final int google_wallet_grayscale = 0x7f0e0082;
+    public static final int google_wallet_grayscale = 0x7f0e0084;
 
     @IdRes
-    public static final int google_wallet_monochrome = 0x7f0e0083;
+    public static final int google_wallet_monochrome = 0x7f0e0085;
 
     @IdRes
-    public static final int grayscale = 0x7f0e0084;
+    public static final int grayscale = 0x7f0e0086;
 
     @IdRes
-    public static final int holo_dark = 0x7f0e006d;
+    public static final int holo_dark = 0x7f0e006f;
 
     @IdRes
-    public static final int holo_light = 0x7f0e006e;
+    public static final int holo_light = 0x7f0e0070;
 
     @IdRes
     public static final int home = 0x7f0e0012;
 
     @IdRes
-    public static final int homeAsUp = 0x7f0e001d;
+    public static final int homeAsUp = 0x7f0e001f;
 
     @IdRes
-    public static final int html = 0x7f0e005e;
+    public static final int html = 0x7f0e0060;
 
     @IdRes
-    public static final int hybrid = 0x7f0e0056;
+    public static final int hybrid = 0x7f0e0058;
 
     @IdRes
-    public static final int icon = 0x7f0e008f;
+    public static final int icon = 0x7f0e0091;
 
     @IdRes
-    public static final int icon_only = 0x7f0e0068;
+    public static final int icon_group = 0x7f0e0111;
 
     @IdRes
-    public static final int icon_uri = 0x7f0e0045;
+    public static final int icon_only = 0x7f0e006a;
 
     @IdRes
-    public static final int icon_view = 0x7f0e00d0;
+    public static final int icon_uri = 0x7f0e0047;
 
     @IdRes
-    public static final int ifRoom = 0x7f0e005b;
+    public static final int icon_view = 0x7f0e00d2;
 
     @IdRes
-    public static final int image = 0x7f0e008c;
+    public static final int ifRoom = 0x7f0e005d;
 
     @IdRes
-    public static final int index_entity_types = 0x7f0e0064;
+    public static final int image = 0x7f0e008e;
 
     @IdRes
-    public static final int info = 0x7f0e0106;
+    public static final int index_entity_types = 0x7f0e0066;
 
     @IdRes
-    public static final int instant_message = 0x7f0e0051;
+    public static final int info = 0x7f0e010e;
 
     @IdRes
-    public static final int intent_action = 0x7f0e0046;
+    public static final int instant_message = 0x7f0e0053;
 
     @IdRes
-    public static final int intent_activity = 0x7f0e0047;
+    public static final int intent_action = 0x7f0e0048;
 
     @IdRes
-    public static final int intent_data = 0x7f0e0048;
+    public static final int intent_activity = 0x7f0e0049;
 
     @IdRes
-    public static final int intent_data_id = 0x7f0e0049;
+    public static final int intent_data = 0x7f0e004a;
 
     @IdRes
-    public static final int intent_extra_data = 0x7f0e004a;
+    public static final int intent_data_id = 0x7f0e004b;
+
+    @IdRes
+    public static final int intent_extra_data = 0x7f0e004c;
 
     @IdRes
     public static final int item_touch_helper_previous_elevation = 0x7f0e0013;
 
     @IdRes
-    public static final int large_icon_uri = 0x7f0e004b;
+    public static final int largeLabel = 0x7f0e00dd;
 
     @IdRes
-    public static final int left = 0x7f0e0036;
+    public static final int large_icon_uri = 0x7f0e004d;
 
     @IdRes
-    public static final int light = 0x7f0e0043;
+    public static final int left = 0x7f0e0038;
 
     @IdRes
-    public static final int line1 = 0x7f0e0102;
+    public static final int light = 0x7f0e0045;
 
     @IdRes
-    public static final int line3 = 0x7f0e0105;
+    public static final int line1 = 0x7f0e0113;
 
     @IdRes
-    public static final int listMode = 0x7f0e0019;
+    public static final int line3 = 0x7f0e0114;
 
     @IdRes
-    public static final int list_item = 0x7f0e008e;
+    public static final int listMode = 0x7f0e001b;
 
     @IdRes
-    public static final int live_stream_indicator = 0x7f0e00c4;
+    public static final int list_item = 0x7f0e0090;
 
     @IdRes
-    public static final int live_stream_seek_bar = 0x7f0e00c6;
+    public static final int live_stream_indicator = 0x7f0e00c6;
 
     @IdRes
-    public static final int loading_indicator = 0x7f0e00bf;
+    public static final int live_stream_seek_bar = 0x7f0e00c8;
 
     @IdRes
-    public static final int logo_only = 0x7f0e007c;
+    public static final int loading_indicator = 0x7f0e00c1;
 
     @IdRes
-    public static final int match_global_nicknames = 0x7f0e0065;
+    public static final int logo_only = 0x7f0e007e;
 
     @IdRes
-    public static final int match_parent = 0x7f0e0075;
+    public static final int match_global_nicknames = 0x7f0e0067;
 
     @IdRes
-    public static final int media_actions = 0x7f0e0100;
+    public static final int match_parent = 0x7f0e0077;
 
     @IdRes
-    public static final int middle = 0x7f0e0053;
+    public static final int media_actions = 0x7f0e0107;
 
     @IdRes
-    public static final int mini = 0x7f0e0044;
+    public static final int middle = 0x7f0e0055;
 
     @IdRes
-    public static final int monochrome = 0x7f0e0085;
+    public static final int mini = 0x7f0e0046;
 
     @IdRes
-    public static final int mr_art = 0x7f0e00ef;
+    public static final int monochrome = 0x7f0e0087;
 
     @IdRes
-    public static final int mr_chooser_list = 0x7f0e00e4;
+    public static final int mr_art = 0x7f0e00f3;
 
     @IdRes
-    public static final int mr_chooser_route_desc = 0x7f0e00e7;
+    public static final int mr_chooser_list = 0x7f0e00e8;
 
     @IdRes
-    public static final int mr_chooser_route_icon = 0x7f0e00e5;
+    public static final int mr_chooser_route_desc = 0x7f0e00eb;
 
     @IdRes
-    public static final int mr_chooser_route_name = 0x7f0e00e6;
+    public static final int mr_chooser_route_icon = 0x7f0e00e9;
 
     @IdRes
-    public static final int mr_close = 0x7f0e00ec;
+    public static final int mr_chooser_route_name = 0x7f0e00ea;
 
     @IdRes
-    public static final int mr_control_divider = 0x7f0e00f2;
+    public static final int mr_close = 0x7f0e00f0;
 
     @IdRes
-    public static final int mr_control_play_pause = 0x7f0e00f8;
+    public static final int mr_control_divider = 0x7f0e00f6;
 
     @IdRes
-    public static final int mr_control_subtitle = 0x7f0e00fb;
+    public static final int mr_control_play_pause = 0x7f0e00fc;
 
     @IdRes
-    public static final int mr_control_title = 0x7f0e00fa;
+    public static final int mr_control_subtitle = 0x7f0e00ff;
 
     @IdRes
-    public static final int mr_control_title_container = 0x7f0e00f9;
+    public static final int mr_control_title = 0x7f0e00fe;
 
     @IdRes
-    public static final int mr_custom_control = 0x7f0e00ed;
+    public static final int mr_control_title_container = 0x7f0e00fd;
 
     @IdRes
-    public static final int mr_default_control = 0x7f0e00ee;
+    public static final int mr_custom_control = 0x7f0e00f1;
 
     @IdRes
-    public static final int mr_dialog_area = 0x7f0e00e9;
+    public static final int mr_default_control = 0x7f0e00f2;
 
     @IdRes
-    public static final int mr_expandable_area = 0x7f0e00e8;
+    public static final int mr_dialog_area = 0x7f0e00ed;
 
     @IdRes
-    public static final int mr_group_expand_collapse = 0x7f0e00fc;
+    public static final int mr_expandable_area = 0x7f0e00ec;
 
     @IdRes
-    public static final int mr_media_main_control = 0x7f0e00f0;
+    public static final int mr_group_expand_collapse = 0x7f0e0100;
 
     @IdRes
-    public static final int mr_name = 0x7f0e00eb;
+    public static final int mr_media_main_control = 0x7f0e00f4;
 
     @IdRes
-    public static final int mr_playback_control = 0x7f0e00f1;
+    public static final int mr_name = 0x7f0e00ef;
 
     @IdRes
-    public static final int mr_title_bar = 0x7f0e00ea;
+    public static final int mr_playback_control = 0x7f0e00f5;
 
     @IdRes
-    public static final int mr_volume_control = 0x7f0e00f3;
+    public static final int mr_title_bar = 0x7f0e00ee;
 
     @IdRes
-    public static final int mr_volume_group_list = 0x7f0e00f4;
+    public static final int mr_volume_control = 0x7f0e00f7;
 
     @IdRes
-    public static final int mr_volume_item_icon = 0x7f0e00f6;
+    public static final int mr_volume_group_list = 0x7f0e00f8;
 
     @IdRes
-    public static final int mr_volume_slider = 0x7f0e00f7;
+    public static final int mr_volume_item_icon = 0x7f0e00fa;
 
     @IdRes
-    public static final int multiply = 0x7f0e0029;
+    public static final int mr_volume_slider = 0x7f0e00fb;
 
     @IdRes
-    public static final int navigation_header_container = 0x7f0e00de;
+    public static final int multiply = 0x7f0e002b;
 
     @IdRes
-    public static final int never = 0x7f0e005c;
+    public static final int navigation_header_container = 0x7f0e00e2;
 
     @IdRes
-    public static final int none = 0x7f0e001e;
+    public static final int never = 0x7f0e005e;
 
     @IdRes
-    public static final int normal = 0x7f0e001a;
+    public static final int none = 0x7f0e0020;
 
     @IdRes
-    public static final int omnibox_title_section = 0x7f0e0066;
+    public static final int normal = 0x7f0e001c;
 
     @IdRes
-    public static final int omnibox_url_section = 0x7f0e0067;
+    public static final int notification_background = 0x7f0e010f;
 
     @IdRes
-    public static final int parallax = 0x7f0e003a;
+    public static final int notification_main_column = 0x7f0e010a;
 
     @IdRes
-    public static final int parentPanel = 0x7f0e0093;
+    public static final int notification_main_column_container = 0x7f0e0109;
 
     @IdRes
-    public static final int pin = 0x7f0e003b;
+    public static final int omnibox_title_section = 0x7f0e0068;
 
     @IdRes
-    public static final int place_autocomplete_clear_button = 0x7f0e010a;
+    public static final int omnibox_url_section = 0x7f0e0069;
 
     @IdRes
-    public static final int place_autocomplete_powered_by_google = 0x7f0e010c;
+    public static final int parallax = 0x7f0e003c;
 
     @IdRes
-    public static final int place_autocomplete_prediction_primary_text = 0x7f0e010e;
+    public static final int parentPanel = 0x7f0e0095;
 
     @IdRes
-    public static final int place_autocomplete_prediction_secondary_text = 0x7f0e010f;
+    public static final int pin = 0x7f0e003d;
 
     @IdRes
-    public static final int place_autocomplete_progress = 0x7f0e010d;
+    public static final int place_autocomplete_clear_button = 0x7f0e0118;
 
     @IdRes
-    public static final int place_autocomplete_search_button = 0x7f0e0108;
+    public static final int place_autocomplete_powered_by_google = 0x7f0e011a;
 
     @IdRes
-    public static final int place_autocomplete_search_input = 0x7f0e0109;
+    public static final int place_autocomplete_prediction_primary_text = 0x7f0e011c;
 
     @IdRes
-    public static final int place_autocomplete_separator = 0x7f0e010b;
+    public static final int place_autocomplete_prediction_secondary_text = 0x7f0e011d;
 
     @IdRes
-    public static final int plain = 0x7f0e005f;
+    public static final int place_autocomplete_progress = 0x7f0e011b;
 
     @IdRes
-    public static final int production = 0x7f0e006f;
+    public static final int place_autocomplete_search_button = 0x7f0e0116;
 
     @IdRes
-    public static final int progressBar = 0x7f0e00d3;
+    public static final int place_autocomplete_search_input = 0x7f0e0117;
+
+    @IdRes
+    public static final int place_autocomplete_separator = 0x7f0e0119;
+
+    @IdRes
+    public static final int plain = 0x7f0e0061;
+
+    @IdRes
+    public static final int production = 0x7f0e0071;
+
+    @IdRes
+    public static final int progressBar = 0x7f0e00d5;
 
     @IdRes
     public static final int progress_circular = 0x7f0e0014;
@@ -3980,310 +4103,325 @@ public final class R2 {
     public static final int progress_horizontal = 0x7f0e0015;
 
     @IdRes
-    public static final int radio = 0x7f0e00a1;
+    public static final int radio = 0x7f0e00a3;
 
     @IdRes
-    public static final int rfc822 = 0x7f0e0060;
+    public static final int rfc822 = 0x7f0e0062;
 
     @IdRes
-    public static final int right = 0x7f0e0037;
+    public static final int right = 0x7f0e0039;
 
     @IdRes
-    public static final int sandbox = 0x7f0e0070;
+    public static final int right_icon = 0x7f0e0112;
 
     @IdRes
-    public static final int satellite = 0x7f0e0057;
+    public static final int right_side = 0x7f0e010b;
 
     @IdRes
-    public static final int screen = 0x7f0e002a;
+    public static final int sandbox = 0x7f0e0072;
 
     @IdRes
-    public static final int scroll = 0x7f0e0026;
+    public static final int satellite = 0x7f0e0059;
 
     @IdRes
-    public static final int scrollIndicatorDown = 0x7f0e009b;
+    public static final int screen = 0x7f0e002c;
 
     @IdRes
-    public static final int scrollIndicatorUp = 0x7f0e0098;
+    public static final int scroll = 0x7f0e0028;
 
     @IdRes
-    public static final int scrollView = 0x7f0e0099;
+    public static final int scrollIndicatorDown = 0x7f0e009d;
 
     @IdRes
-    public static final int scrollable = 0x7f0e006c;
+    public static final int scrollIndicatorUp = 0x7f0e009a;
 
     @IdRes
-    public static final int search_badge = 0x7f0e00ac;
+    public static final int scrollView = 0x7f0e009b;
 
     @IdRes
-    public static final int search_bar = 0x7f0e00ab;
+    public static final int scrollable = 0x7f0e006e;
 
     @IdRes
-    public static final int search_button = 0x7f0e00ad;
+    public static final int search_badge = 0x7f0e00ae;
 
     @IdRes
-    public static final int search_close_btn = 0x7f0e00b2;
+    public static final int search_bar = 0x7f0e00ad;
 
     @IdRes
-    public static final int search_edit_frame = 0x7f0e00ae;
+    public static final int search_button = 0x7f0e00af;
 
     @IdRes
-    public static final int search_go_btn = 0x7f0e00b4;
+    public static final int search_close_btn = 0x7f0e00b4;
 
     @IdRes
-    public static final int search_mag_icon = 0x7f0e00af;
+    public static final int search_edit_frame = 0x7f0e00b0;
 
     @IdRes
-    public static final int search_plate = 0x7f0e00b0;
+    public static final int search_go_btn = 0x7f0e00b6;
 
     @IdRes
-    public static final int search_src_text = 0x7f0e00b1;
+    public static final int search_mag_icon = 0x7f0e00b1;
 
     @IdRes
-    public static final int search_voice_btn = 0x7f0e00b5;
+    public static final int search_plate = 0x7f0e00b2;
 
     @IdRes
-    public static final int seek_bar = 0x7f0e00c5;
+    public static final int search_src_text = 0x7f0e00b3;
 
     @IdRes
-    public static final int seek_bar_controls = 0x7f0e00c1;
+    public static final int search_voice_btn = 0x7f0e00b7;
 
     @IdRes
-    public static final int select_dialog_listview = 0x7f0e00b6;
+    public static final int seek_bar = 0x7f0e00c7;
 
     @IdRes
-    public static final int selectionDetails = 0x7f0e0074;
+    public static final int seek_bar_controls = 0x7f0e00c3;
 
     @IdRes
-    public static final int shortcut = 0x7f0e00a0;
+    public static final int select_dialog_listview = 0x7f0e00b8;
 
     @IdRes
-    public static final int showCustom = 0x7f0e001f;
+    public static final int selectionDetails = 0x7f0e0076;
 
     @IdRes
-    public static final int showHome = 0x7f0e0020;
+    public static final int shortcut = 0x7f0e00a2;
 
     @IdRes
-    public static final int showTitle = 0x7f0e0021;
+    public static final int showCustom = 0x7f0e0021;
 
     @IdRes
-    public static final int slide = 0x7f0e0041;
+    public static final int showHome = 0x7f0e0022;
 
     @IdRes
-    public static final int snackbar_action = 0x7f0e00dd;
+    public static final int showTitle = 0x7f0e0023;
 
     @IdRes
-    public static final int snackbar_text = 0x7f0e00dc;
+    public static final int slide = 0x7f0e0043;
 
     @IdRes
-    public static final int snap = 0x7f0e0027;
+    public static final int smallLabel = 0x7f0e00dc;
 
     @IdRes
-    public static final int spacer = 0x7f0e0092;
+    public static final int snackbar_action = 0x7f0e00e1;
+
+    @IdRes
+    public static final int snackbar_text = 0x7f0e00e0;
+
+    @IdRes
+    public static final int snap = 0x7f0e0029;
+
+    @IdRes
+    public static final int spacer = 0x7f0e0094;
 
     @IdRes
     public static final int split_action_bar = 0x7f0e0016;
 
     @IdRes
-    public static final int src_atop = 0x7f0e002b;
+    public static final int src_atop = 0x7f0e002d;
 
     @IdRes
-    public static final int src_in = 0x7f0e002c;
+    public static final int src_in = 0x7f0e002e;
 
     @IdRes
-    public static final int src_over = 0x7f0e002d;
+    public static final int src_over = 0x7f0e002f;
 
     @IdRes
-    public static final int standard = 0x7f0e0069;
+    public static final int standard = 0x7f0e006b;
 
     @IdRes
-    public static final int start = 0x7f0e0038;
+    public static final int start = 0x7f0e003a;
 
     @IdRes
-    public static final int start_text = 0x7f0e00c2;
+    public static final int start_text = 0x7f0e00c4;
 
     @IdRes
-    public static final int status_bar_latest_event_content = 0x7f0e00ff;
+    public static final int status_bar_latest_event_content = 0x7f0e0106;
 
     @IdRes
-    public static final int status_text = 0x7f0e00c0;
+    public static final int status_text = 0x7f0e00c2;
 
     @IdRes
-    public static final int strict_sandbox = 0x7f0e0071;
+    public static final int strict_sandbox = 0x7f0e0073;
 
     @IdRes
-    public static final int submenuarrow = 0x7f0e00a2;
+    public static final int submenuarrow = 0x7f0e00a4;
 
     @IdRes
-    public static final int submit_area = 0x7f0e00b3;
+    public static final int submit_area = 0x7f0e00b5;
 
     @IdRes
-    public static final int subtitle_view = 0x7f0e00d2;
+    public static final int subtitle_view = 0x7f0e00d4;
 
     @IdRes
-    public static final int tabMode = 0x7f0e001b;
+    public static final int tabMode = 0x7f0e001d;
 
     @IdRes
-    public static final int tab_host = 0x7f0e00d4;
+    public static final int tab_host = 0x7f0e00d6;
 
     @IdRes
-    public static final int terrain = 0x7f0e0058;
+    public static final int terrain = 0x7f0e005a;
 
     @IdRes
-    public static final int test = 0x7f0e0072;
+    public static final int test = 0x7f0e0074;
 
     @IdRes
-    public static final int text = 0x7f0e00d9;
+    public static final int text = 0x7f0e00db;
 
     @IdRes
-    public static final int text1 = 0x7f0e004c;
+    public static final int text1 = 0x7f0e004e;
 
     @IdRes
-    public static final int text2 = 0x7f0e004d;
+    public static final int text2 = 0x7f0e004f;
 
     @IdRes
-    public static final int textSpacerNoButtons = 0x7f0e009a;
+    public static final int textSpacerNoButtons = 0x7f0e009c;
 
     @IdRes
-    public static final int textTitle = 0x7f0e00cc;
+    public static final int textTitle = 0x7f0e00ce;
 
     @IdRes
-    public static final int text_empty_message = 0x7f0e00d7;
+    public static final int text_empty_message = 0x7f0e00d9;
 
     @IdRes
-    public static final int text_input_password_toggle = 0x7f0e00e3;
+    public static final int text_input_password_toggle = 0x7f0e00e7;
 
     @IdRes
-    public static final int text_list_view = 0x7f0e00d5;
+    public static final int text_list_view = 0x7f0e00d7;
 
     @IdRes
-    public static final int thing_proto = 0x7f0e004e;
+    public static final int thing_proto = 0x7f0e0050;
 
     @IdRes
-    public static final int time = 0x7f0e0103;
+    public static final int time = 0x7f0e010c;
 
     @IdRes
-    public static final int title = 0x7f0e0090;
+    public static final int title = 0x7f0e0092;
 
     @IdRes
-    public static final int title_template = 0x7f0e0095;
+    public static final int title_template = 0x7f0e0097;
 
     @IdRes
-    public static final int title_view = 0x7f0e00d1;
+    public static final int title_view = 0x7f0e00d3;
 
     @IdRes
-    public static final int toolbar = 0x7f0e00b9;
+    public static final int toolbar = 0x7f0e00bb;
 
     @IdRes
-    public static final int top = 0x7f0e0039;
+    public static final int top = 0x7f0e003b;
 
     @IdRes
-    public static final int topPanel = 0x7f0e0094;
+    public static final int topPanel = 0x7f0e0096;
 
     @IdRes
-    public static final int touch_outside = 0x7f0e00da;
+    public static final int touch_outside = 0x7f0e00de;
 
     @IdRes
-    public static final int up = 0x7f0e0017;
+    public static final int transition_current_scene = 0x7f0e0017;
 
     @IdRes
-    public static final int url = 0x7f0e0061;
+    public static final int transition_scene_layoutid_cache = 0x7f0e0018;
 
     @IdRes
-    public static final int useLogo = 0x7f0e0022;
+    public static final int up = 0x7f0e0019;
 
     @IdRes
-    public static final int view_offset_helper = 0x7f0e0018;
+    public static final int url = 0x7f0e0063;
 
     @IdRes
-    public static final int volume_item_container = 0x7f0e00f5;
+    public static final int useLogo = 0x7f0e0024;
 
     @IdRes
-    public static final int wide = 0x7f0e006a;
+    public static final int view_offset_helper = 0x7f0e001a;
 
     @IdRes
-    public static final int withText = 0x7f0e005d;
+    public static final int volume_item_container = 0x7f0e00f9;
 
     @IdRes
-    public static final int wockets_activity_ema_message_button_back = 0x7f0e0111;
+    public static final int wide = 0x7f0e006c;
 
     @IdRes
-    public static final int wockets_activity_ema_message_button_next = 0x7f0e0112;
+    public static final int withText = 0x7f0e005f;
 
     @IdRes
-    public static final int wockets_activity_ema_message_text_message = 0x7f0e0110;
+    public static final int wockets_activity_ema_message_button_back = 0x7f0e011f;
 
     @IdRes
-    public static final int wockets_activity_ema_multi_choice_button_back = 0x7f0e0115;
+    public static final int wockets_activity_ema_message_button_next = 0x7f0e0120;
 
     @IdRes
-    public static final int wockets_activity_ema_multi_choice_button_next = 0x7f0e0116;
+    public static final int wockets_activity_ema_message_text_message = 0x7f0e011e;
 
     @IdRes
-    public static final int wockets_activity_ema_multi_choice_checkbox_group = 0x7f0e0114;
+    public static final int wockets_activity_ema_multi_choice_button_back = 0x7f0e0123;
 
     @IdRes
-    public static final int wockets_activity_ema_multi_choice_text_question = 0x7f0e0113;
+    public static final int wockets_activity_ema_multi_choice_button_next = 0x7f0e0124;
 
     @IdRes
-    public static final int wockets_activity_ema_number_picker_button_back = 0x7f0e0119;
+    public static final int wockets_activity_ema_multi_choice_checkbox_group = 0x7f0e0122;
 
     @IdRes
-    public static final int wockets_activity_ema_number_picker_button_next = 0x7f0e011a;
+    public static final int wockets_activity_ema_multi_choice_text_question = 0x7f0e0121;
 
     @IdRes
-    public static final int wockets_activity_ema_number_picker_number_picker = 0x7f0e0118;
+    public static final int wockets_activity_ema_number_picker_button_back = 0x7f0e0127;
 
     @IdRes
-    public static final int wockets_activity_ema_number_picker_text_question = 0x7f0e0117;
+    public static final int wockets_activity_ema_number_picker_button_next = 0x7f0e0128;
 
     @IdRes
-    public static final int wockets_activity_ema_single_choice_button_back = 0x7f0e011d;
+    public static final int wockets_activity_ema_number_picker_number_picker = 0x7f0e0126;
 
     @IdRes
-    public static final int wockets_activity_ema_single_choice_button_next = 0x7f0e011e;
+    public static final int wockets_activity_ema_number_picker_text_question = 0x7f0e0125;
 
     @IdRes
-    public static final int wockets_activity_ema_single_choice_radio_group = 0x7f0e011c;
+    public static final int wockets_activity_ema_single_choice_button_back = 0x7f0e012b;
 
     @IdRes
-    public static final int wockets_activity_ema_single_choice_text_question = 0x7f0e011b;
+    public static final int wockets_activity_ema_single_choice_button_next = 0x7f0e012c;
 
     @IdRes
-    public static final int wockets_activity_ema_textinput_button_back = 0x7f0e0121;
+    public static final int wockets_activity_ema_single_choice_radio_group = 0x7f0e012a;
 
     @IdRes
-    public static final int wockets_activity_ema_textinput_button_next = 0x7f0e0122;
+    public static final int wockets_activity_ema_single_choice_text_question = 0x7f0e0129;
 
     @IdRes
-    public static final int wockets_activity_ema_textinput_text_question = 0x7f0e011f;
+    public static final int wockets_activity_ema_textinput_button_back = 0x7f0e012f;
 
     @IdRes
-    public static final int wockets_activity_ema_textinput_textinput = 0x7f0e0120;
+    public static final int wockets_activity_ema_textinput_button_next = 0x7f0e0130;
 
     @IdRes
-    public static final int wockets_activity_ema_time_picker_button_back = 0x7f0e0125;
+    public static final int wockets_activity_ema_textinput_text_question = 0x7f0e012d;
 
     @IdRes
-    public static final int wockets_activity_ema_time_picker_button_next = 0x7f0e0126;
+    public static final int wockets_activity_ema_textinput_textinput = 0x7f0e012e;
 
     @IdRes
-    public static final int wockets_activity_ema_time_picker_text_question = 0x7f0e0123;
+    public static final int wockets_activity_ema_time_picker_button_back = 0x7f0e0133;
 
     @IdRes
-    public static final int wockets_activity_ema_time_picker_time_picker = 0x7f0e0124;
+    public static final int wockets_activity_ema_time_picker_button_next = 0x7f0e0134;
 
     @IdRes
-    public static final int wockets_activity_login_email = 0x7f0e0127;
+    public static final int wockets_activity_ema_time_picker_text_question = 0x7f0e0131;
 
     @IdRes
-    public static final int wockets_activity_login_login = 0x7f0e0129;
+    public static final int wockets_activity_ema_time_picker_time_picker = 0x7f0e0132;
 
     @IdRes
-    public static final int wockets_activity_login_password = 0x7f0e0128;
+    public static final int wockets_activity_login_email = 0x7f0e0135;
 
     @IdRes
-    public static final int wrap_content = 0x7f0e002e;
+    public static final int wockets_activity_login_login = 0x7f0e0137;
+
+    @IdRes
+    public static final int wockets_activity_login_password = 0x7f0e0136;
+
+    @IdRes
+    public static final int wrap_content = 0x7f0e0030;
   }
 
   public static final class integer {

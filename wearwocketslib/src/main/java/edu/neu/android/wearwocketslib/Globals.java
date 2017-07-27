@@ -30,6 +30,8 @@ public class Globals {
     public static boolean IS_HEART_RATE_LOGGING_ENABLED = false;
     public static boolean IS_GYROSCOPE_LOGGING_ENABLED = false;
     public static boolean IS_BATTERY_LOGGING_ENABLED = false;
+    public static boolean IS_STORAGE_LOGGING_ENABLED = false;
+
     public static boolean IS_MHEALTH_EXTERNAL = true;
 
     public static final String LAST_HEART_RATE_TIMESTAMP = "LAST_HEART_RATE_TIMESTAMP";

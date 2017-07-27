@@ -16,9 +16,9 @@ import java.lang.Override;
 public class EMAMultiChoiceActivity_ViewBinding<T extends EMAMultiChoiceActivity> implements Unbinder {
   protected T target;
 
-  private View view2131624213;
+  private View view2131624227;
 
-  private View view2131624214;
+  private View view2131624228;
 
   public EMAMultiChoiceActivity_ViewBinding(final T target, Finder finder, Object source) {
     this.target = target;
@@ -28,7 +28,7 @@ public class EMAMultiChoiceActivity_ViewBinding<T extends EMAMultiChoiceActivity
     target.linearLayout = finder.findRequiredViewAsType(source, R.id.wockets_activity_ema_multi_choice_checkbox_group, "field 'linearLayout'", LinearLayout.class);
     view = finder.findRequiredView(source, R.id.wockets_activity_ema_multi_choice_button_back, "field 'backButton' and method 'onClickBackButton'");
     target.backButton = finder.castView(view, R.id.wockets_activity_ema_multi_choice_button_back, "field 'backButton'", Button.class);
-    view2131624213 = view;
+    view2131624227 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -37,7 +37,7 @@ public class EMAMultiChoiceActivity_ViewBinding<T extends EMAMultiChoiceActivity
     });
     view = finder.findRequiredView(source, R.id.wockets_activity_ema_multi_choice_button_next, "field 'nextButton' and method 'onClickNextButton'");
     target.nextButton = finder.castView(view, R.id.wockets_activity_ema_multi_choice_button_next, "field 'nextButton'", Button.class);
-    view2131624214 = view;
+    view2131624228 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,10 +56,10 @@ public class EMAMultiChoiceActivity_ViewBinding<T extends EMAMultiChoiceActivity
     target.backButton = null;
     target.nextButton = null;
 
-    view2131624213.setOnClickListener(null);
-    view2131624213 = null;
-    view2131624214.setOnClickListener(null);
-    view2131624214 = null;
+    view2131624227.setOnClickListener(null);
+    view2131624227 = null;
+    view2131624228.setOnClickListener(null);
+    view2131624228 = null;
 
     this.target = null;
   }

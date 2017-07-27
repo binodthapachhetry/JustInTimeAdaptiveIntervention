@@ -327,6 +327,11 @@ public class WearableWakefulService extends IntentService {
                 batteryEvent.writeTomHealthCsv(true);
             }
         }
+
+//        if(Globals.IS_STORAGE_LOGGING_ENABLED){
+//            logger.i("Write storage event", getApplicationContext());
+//        }
+
     }
 
     private void setStopTimerForSensorManagerService() {

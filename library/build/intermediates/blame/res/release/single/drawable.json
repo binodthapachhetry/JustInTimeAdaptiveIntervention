@@ -1,7 +1,7 @@
 [
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_list_selector_background_transition_holo_light.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/ic_expand.xml",
@@ -13,7 +13,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ratingbar_small_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ratingbar_small_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ratingbar_small_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_mini_controller_forward30.xml",
@@ -21,7 +21,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ratingbar_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ratingbar_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ratingbar_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_expanded_controller_stop.xml",
@@ -29,7 +29,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_list_selector_background_transition_holo_dark.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_notification_pause.xml",
@@ -37,7 +37,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_btn_radio_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_radio_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_btn_radio_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/mr_ic_play_dark.xml",
@@ -57,11 +57,15 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_voice_search_api_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_voice_search_api_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_voice_search_api_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/mr_ic_play_light.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable/mr_ic_play_light.xml"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/notification_icon_background.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/notification_icon_background.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_expanded_controller_actionbar_bg_gradient_light.xml",
@@ -69,7 +73,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ratingbar_indicator_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ratingbar_indicator_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_expanded_controller_play.xml",
@@ -81,11 +85,11 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_clear_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_clear_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_clear_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/mr_ic_cast_dark.xml",
@@ -101,23 +105,27 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_spinner_textfield_background_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_go_search_api_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_go_search_api_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_go_search_api_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/mr_ic_media_route_mono_dark.xml",
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable/mr_ic_media_route_mono_dark.xml"
     },
     {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/notification_tile_bg.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/notification_tile_bg.xml"
+    },
+    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/design_fab_background.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_fab_background.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/drawable/design_fab_background.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_seekbar_thumb_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_seekbar_thumb_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_notification_forward30.xml",
@@ -145,7 +153,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_btn_default_mtrl_shape.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_default_mtrl_shape.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_skip_ad_label_border.xml",
@@ -173,11 +181,11 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_menu_overflow_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_menu_overflow_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_menu_overflow_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_tab_indicator_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_tab_indicator_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_tab_indicator_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_notification_skip_prev.xml",
@@ -189,7 +197,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_btn_check_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_check_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_btn_check_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_mini_controller_stop_large.xml",
@@ -201,7 +209,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_list_selector_holo_light.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_holo_light.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_mini_controller_closed_caption.xml",
@@ -217,7 +225,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/design_ic_visibility.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_ic_visibility.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/drawable/design_ic_visibility.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_notification_disconnect.xml",
@@ -225,7 +233,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_item_background_holo_light.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_item_background_holo_light.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_item_background_holo_light.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/mr_ic_media_route_on_dark.xml",
@@ -233,7 +241,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_vector_test.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_vector_test.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_vector_test.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_notification_stop_live_stream.xml",
@@ -265,15 +273,15 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_cab_background_top_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_cab_background_top_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_cab_background_top_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_search_api_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_search_api_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_search_api_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_list_selector_holo_dark.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_list_selector_holo_dark.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_expanded_controller_skip_previous.xml",
@@ -281,7 +289,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_text_cursor_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_text_cursor_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_text_cursor_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_notification_small_icon.xml",
@@ -296,16 +304,24 @@
         "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable/mr_ic_close_light.xml"
     },
     {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/notification_bg_low.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/notification_bg_low.xml"
+    },
+    {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_seekbar_track_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_seekbar_track_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_seekbar_track_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/navigation_empty_icon.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/navigation_empty_icon.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/drawable/navigation_empty_icon.xml"
+    },
+    {
+        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/notification_bg.xml",
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/notification_bg.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_dialog_material_background.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_dialog_material_background.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_dialog_material_background.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_mini_controller_skip_next.xml",
@@ -313,15 +329,15 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_switch_thumb_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_switch_thumb_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_switch_thumb_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_cab_background_internal_bg.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_cab_background_internal_bg.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_textfield_search_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_textfield_search_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_textfield_search_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_notification_rewind.xml",
@@ -333,11 +349,11 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_item_background_holo_dark.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_item_background_holo_dark.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_seekbar_tick_mark_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_seekbar_tick_mark_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_seekbar_tick_mark_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/common_google_signin_btn_text_light.xml",
@@ -361,11 +377,11 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_ic_ab_back_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_ic_ab_back_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/design_snackbar_background.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/design_snackbar_background.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/drawable/design_snackbar_background.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/mr_dialog_material_background_dark.xml",
@@ -381,7 +397,7 @@
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/abc_btn_borderless_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/drawable/abc_btn_borderless_material.xml"
+        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_btn_borderless_material.xml"
     },
     {
         "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/drawable/cast_ic_mini_controller_skip_prev.xml",
