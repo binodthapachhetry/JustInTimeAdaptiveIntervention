@@ -1,4 +1,4 @@
-package edu.neu.mhealth.android.wockets.library.services;
+package mhealth.neu.edu.phire.services;
 
 import android.app.IntentService;
 import android.content.Context;
@@ -18,9 +18,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.ZipEntry;
@@ -45,7 +48,7 @@ import edu.neu.android.wocketslib.mhealthformat.utils.ByteUtils;
  */
 public class UploadManagerService extends IntentService {
 
-    private static final String TAG = "UploadManagerService";
+    private static final String TAG = "PhireUploadManagerService";
 
     private Context mContext;
 
@@ -62,7 +65,7 @@ public class UploadManagerService extends IntentService {
 //    }
 
     public UploadManagerService(){
-        super("UploadManagerService");
+        super("PhireUploadManagerService");
     }
 
     @Override
@@ -74,12 +77,12 @@ public class UploadManagerService extends IntentService {
 
     }
 
-    class UploadHandler implements Runnable {
+    class PhireUploadHandler implements Runnable {
         final String pathToUpload;
         final Context rContext;
 
 
-        public UploadHandler(String pathToUpload, Context rContext) {
+        public PhireUploadHandler(String pathToUpload, Context rContext) {
             this.pathToUpload = pathToUpload;
             this.rContext = rContext;
         }
@@ -90,12 +93,12 @@ public class UploadManagerService extends IntentService {
     }
 
 
-    class ZipHandler implements Runnable {
+    class PhireZipHandler implements Runnable {
         final String pathToZip;
         final Context rContext;
 
 
-        public ZipHandler(String pathToZip, Context rContext) {
+        public PhireZipHandler(String pathToZip, Context rContext) {
             this.pathToZip = pathToZip;
             this.rContext = rContext;
         }
@@ -167,15 +170,6 @@ public class UploadManagerService extends IntentService {
             return;
         }
 
-
-//        try {
-//            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-//        } catch (InterruptedException e) {
-//            ...
-//        }
-
-
-
         executor = Executors.newSingleThreadExecutor();
         // stuff related to phone
         // Upload required log files
@@ -229,19 +223,33 @@ public class UploadManagerService extends IntentService {
 
     private void processLogs(File logDate) {
         Log.i(TAG, "Processing Logs for Date - " + logDate.getAbsolutePath(), mContext);
+
+
         if (logDate.getName().contains("zip")) {
             Log.d(TAG, "Logs already zipped for date - " + logDate.getAbsolutePath());
             return;
         }
+
         if (logDate.listFiles() == null) {
             Log.e(TAG, "No hourly files present. This should usually not happen", mContext);
             return;
         }
+
+        Date log_date = DateTime.getDate(logDate.getName());
+        Date current_date = Calendar.getInstance().getTime();
+        if (log_date.compareTo(current_date)>0){
+            Log.e(TAG, " Deleting log date as it is in future for : " + logDate.getName(), mContext);
+            logDate.delete();
+        }
+
+
         for (File hourDirectory : logDate.listFiles()) {
+
             if (hourDirectory.getName().contains("zip")) {
                 Log.d(TAG, hourDirectory.getAbsolutePath() + " - Already zipped");
                 continue;
             }
+
             if (!isStudyFinished && hourDirectory.getName().equals(DateTime.getCurrentHourWithTimezone())) {
                 Log.d(TAG, hourDirectory.getAbsolutePath() + " - Still writing");
                 continue;
@@ -259,6 +267,30 @@ public class UploadManagerService extends IntentService {
             if(hourDirectory.isFile()){
                 Log.d(TAG, "File instead of folder. Deleting: " + hourDirectory.getAbsolutePath());
                 hourDirectory.delete();
+                    continue;
+            }
+
+            int current_hour = DateTime.getCurrentHour();
+            String[] name_split = hourDirectory.getName().split("-");
+
+            if(name_split!=null){
+                if (name_split.length > 1) {
+                    Log.e(TAG, "Log hour folder name to be considered: " + hourDirectory.getName(), mContext);
+                    int log_hour = Integer.parseInt(name_split[0]);
+                    if (log_hour > current_hour) {
+                        Log.e(TAG, "Log hour is in future for : " + hourDirectory.getName(), mContext);
+                        hourDirectory.delete();
+                        continue;
+                    }else{
+                        Log.e(TAG, "Log hour is within scope for : " + hourDirectory.getName(), mContext);
+
+                    }
+                }else{
+                    Log.e(TAG, "Log hour folder name NOT to be considered: " + hourDirectory.getName(), mContext);
+                    continue;
+                }
+            } else {
+                Log.e(TAG, "Log hour folder name NOT to be considered: " + hourDirectory.getName(), mContext);
                 continue;
             }
 
@@ -375,7 +407,7 @@ public class UploadManagerService extends IntentService {
 //            ZipTask task = new ZipTask(mContext);
 //            task.execute(hourDirectory.getAbsolutePath());
 
-            Runnable zipHandler = new ZipHandler(hourDirectory.getAbsolutePath(), mContext);
+            Runnable zipHandler = new PhireZipHandler(hourDirectory.getAbsolutePath(), mContext);
             executor.execute(zipHandler);
         }
 
@@ -434,7 +466,7 @@ public class UploadManagerService extends IntentService {
                     }
 
                     Log.i(TAG, "Calling UploadManager.uploadFile on - " + logHour.getAbsolutePath(), mContext);
-                    Runnable uploadHandler = new UploadHandler(logHour.getAbsolutePath(), mContext);
+                    Runnable uploadHandler = new PhireUploadHandler(logHour.getAbsolutePath(), mContext);
                     executor.execute(uploadHandler);
 //                    UploadManager.uploadFile(logHour.getAbsolutePath(), mContext);
                 }
@@ -450,7 +482,7 @@ public class UploadManagerService extends IntentService {
 
                 Log.i(TAG, "Calling UploadManager.uploadFile on - " + logDate.getAbsolutePath(), mContext);
 
-                Runnable uploadHandler = new UploadHandler(logDate.getAbsolutePath(), mContext);
+                Runnable uploadHandler = new PhireUploadHandler(logDate.getAbsolutePath(), mContext);
                 executor.execute(uploadHandler);
 //                UploadManager.uploadFile(logDate.getAbsolutePath(), mContext);
             }
@@ -569,7 +601,7 @@ public class UploadManagerService extends IntentService {
                     }
 
                     Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataHour.getAbsolutePath(), mContext);
-                    Runnable uploadHandler = new UploadHandler(dataHour.getAbsolutePath(), mContext);
+                    Runnable uploadHandler = new PhireUploadHandler(dataHour.getAbsolutePath(), mContext);
                     executor.execute(uploadHandler);
 
 //                    UploadManager.uploadFile(dataHour.getAbsolutePath(), mContext);
@@ -585,7 +617,7 @@ public class UploadManagerService extends IntentService {
                 }
 
                 Log.i(TAG, "Calling UploadManager.uploadFile on - " + dataDate.getAbsolutePath(), mContext);
-                Runnable uploadHandler = new UploadHandler(dataDate.getAbsolutePath(), mContext);
+                Runnable uploadHandler = new PhireUploadHandler(dataDate.getAbsolutePath(), mContext);
                 executor.execute(uploadHandler);
 
 //                UploadManager.uploadFile(dataDate.getAbsolutePath(), mContext);

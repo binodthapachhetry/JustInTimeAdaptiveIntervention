@@ -60,5 +60,15 @@
 
     <string name="feedback">Participant Feedback</string>
 
+    <string name="needfordistance">Distance from:</string>
+    <string name="needfordatatransfer">Transfer data:</string>
+
+    <string name="speed">Speed</string>
+    <string name="wifi">WiFi</string>
+
+
+
+
+
 
 </resources>

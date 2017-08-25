@@ -23,6 +23,7 @@ import edu.neu.mhealth.android.wockets.library.database.entities.study.Question;
 import edu.neu.mhealth.android.wockets.library.database.entities.study.Survey;
 import edu.neu.mhealth.android.wockets.library.ema.EMAMessageActivity;
 import edu.neu.mhealth.android.wockets.library.ema.EMAMultiChoiceActivity;
+import edu.neu.mhealth.android.wockets.library.ema.EMANumberPickerActivity;
 import edu.neu.mhealth.android.wockets.library.ema.EMASingleChoiceActivity;
 import edu.neu.mhealth.android.wockets.library.ema.EMATimePickerActivity;
 import edu.neu.mhealth.android.wockets.library.ema.SurveyManager;
@@ -38,6 +39,7 @@ import edu.neu.mhealth.android.wockets.library.support.Log;
 import edu.neu.mhealth.android.wockets.library.support.ObjectMapper;
 import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.R;
+import mhealth.neu.edu.phire.activities.PHIREEMASingleChoiceActivity;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 //import edu.neu.mhealth.android.wockets.match.saliva.SalivaSurveyManager;
 //
@@ -72,6 +74,7 @@ public class SurveyService extends WocketsService {
     private long promptTime;
     private long promptStartTime;
 
+    private boolean isMother;
     private boolean isDemoSurvey;
     private boolean isPostponeSurvey;
 
@@ -99,9 +102,23 @@ public class SurveyService extends WocketsService {
 
         Log.i(TAG, "Inside onCreate, got survey", mContext);
 
-        boolean isMother = true;
+        isMother = true;
         if ("Child".equals(survey.surveyName)) {
             isMother = false;
+        }
+
+//        boolean isPain = false;
+//        boolean isFatigue = false;
+//        boolean isShoulderPain = false;
+
+        if("Pain".equals(survey.surveyName)){
+            isMother = false;
+        }
+        if("Fatigue".equals(survey.surveyName)){
+            isMother = false;
+        }
+        if("ShoulderPain".equals(survey.surveyName)){
+            isMother= false;
         }
 
 //        if (promptKey.contains("KEY_SALIVA")) {
@@ -309,7 +326,14 @@ public class SurveyService extends WocketsService {
                 promptMessage(question);
                 break;
             case WocketsConstants.EMA_QUESTION_TYPE_SINGLE_CHOICE:
-                promptSingleChoiceQuestion(question);
+                if(isMother) {
+                    promptSingleChoiceQuestion(question);
+                }else{
+                    promptSingleChoiceQuestionRadioHorz(question);
+                }
+                break;
+            case WocketsConstants.EMA_QUESTION_TYPE_NUMBER_PICKER:
+                promptNumberPickerQuestion(question);
                 break;
             case WocketsConstants.EMA_QUESTION_TYPE_MULTI_CHOICE:
                 promptMultiChoiceQuestion(question);
@@ -323,6 +347,8 @@ public class SurveyService extends WocketsService {
                 break;
         }
     }
+
+
 
     private boolean isAnswerSelected(String answer) {
         if(questionAnswerMap.size() == 0) {
@@ -355,6 +381,25 @@ public class SurveyService extends WocketsService {
         startActivity(messageIntent);
     }
 
+    private void promptNumberPickerQuestion(Question question) {
+        Log.i(TAG, "Prompting Number Picker Question", mContext);
+        if (!isDemoSurvey) {
+            SurveyManager.writeSurveyQuestion(mContext, promptKey, question.key);
+        }
+        String answer = "";
+        if (questionAnswerMap.containsKey(question)) {
+            answer = questionAnswerMap.get(question);
+        }
+        questionAnswerMap.remove(question);
+        Intent numberPickerQuestionIntent = new Intent(this, EMANumberPickerActivity.class);
+        numberPickerQuestionIntent.putExtra("questionJson", ObjectMapper.serialize(question));
+        numberPickerQuestionIntent.putExtra("answerString", answer);
+        numberPickerQuestionIntent.putExtra("isFirstPromptOfTheDay", DataManager.isFirstPromptForDay(mContext, DateTime.getDate()));
+        numberPickerQuestionIntent.putExtra("isDemoSurvey", isDemoSurvey);
+        numberPickerQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(numberPickerQuestionIntent);
+    }
+
     private void promptSingleChoiceQuestion(Question question) {
         Log.i(TAG, "Prompting Single Choice Question", mContext);
         if (!isDemoSurvey) {
@@ -373,6 +418,26 @@ public class SurveyService extends WocketsService {
         singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         startActivity(singleChoiceQuestionIntent);
     }
+
+    private void promptSingleChoiceQuestionRadioHorz(Question question) {
+        Log.i(TAG, "Prompting Single Choice Question Radio Group Horz", mContext);
+        if (!isDemoSurvey) {
+            SurveyManager.writeSurveyQuestion(mContext, promptKey, question.key);
+        }
+        String answer = "";
+        if (questionAnswerMap.containsKey(question)) {
+            answer = questionAnswerMap.get(question);
+        }
+        questionAnswerMap.remove(question);
+        Intent singleChoiceQuestionIntent = new Intent(this, PHIREEMASingleChoiceActivity.class);
+        singleChoiceQuestionIntent.putExtra("questionJson", ObjectMapper.serialize(question));
+        singleChoiceQuestionIntent.putExtra("answerString", answer);
+        singleChoiceQuestionIntent.putExtra("isFirstPromptOfTheDay", DataManager.isFirstPromptForDay(mContext, DateTime.getDate()));
+//        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        singleChoiceQuestionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        startActivity(singleChoiceQuestionIntent);
+    }
+
 
     private void promptMultiChoiceQuestion(Question question) {
         Log.i(TAG, "Prompting Multi Choice Question", mContext);

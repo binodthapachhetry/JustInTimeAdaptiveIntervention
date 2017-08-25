@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.neu.mhealth.android.wockets.library">
 
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -47,7 +47,7 @@
         <!-- Services -->
         <service android:name=".services.LocationManagerService" />
         <service android:name=".services.UploadManagerService" />
-        <!--<service android:name=".services.AccelerationManagerService" />-->
+        <!-- <service android:name=".services.AccelerationManagerService" /> -->
 
     </application>
 

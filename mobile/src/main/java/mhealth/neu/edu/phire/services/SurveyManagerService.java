@@ -73,8 +73,8 @@ public class SurveyManagerService extends IntentService {
             Log.i(TAG,"Not in main thread",mContext);
         }
 
-        Survey survey = SurveyManager.getSelectedSurvey(mContext);
-        if (survey == null) {
+        List<Survey> surveys = SurveyManager.getSelectedSurveys(mContext);
+        if (surveys.isEmpty()) {
             return;
         }
 
@@ -91,7 +91,12 @@ public class SurveyManagerService extends IntentService {
         }
 
         // Schedule prompts for today
-        SurveyScheduleManager.scheduleSurveysForToday(survey, mContext);
+        for(Survey survey : surveys){
+            SurveyScheduleManager.scheduleSurveysForToday(survey, mContext);
+        }
+
+//        // Schedule prompts for today
+//        SurveyScheduleManager.scheduleSurveysForToday(survey, mContext);
 
         int sleepHour = Integer.parseInt(DataManager.getSleepTime(mContext, TEMPLEConstants.DEFAULT_SLEEP_TIME).split(":")[0]);
         int sleepMinute = Integer.parseInt(DataManager.getSleepTime(mContext, TEMPLEConstants.DEFAULT_SLEEP_TIME).split(":")[1]);
@@ -99,9 +104,15 @@ public class SurveyManagerService extends IntentService {
         int wakeMinute = Integer.parseInt(DataManager.getWakeTime(mContext, TEMPLEConstants.DEFAULT_WAKE_TIME).split(":")[1]);
 
         // Prompt survey if time
-        if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
-            startService(new Intent(getApplicationContext(), SurveyService.class));
+        for(Survey survey : surveys){
+            if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
+                startService(new Intent(getApplicationContext(), SurveyService.class));
+            }
         }
+
+//        if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
+//            startService(new Intent(getApplicationContext(), SurveyService.class));
+//        }
 
 //        // Schedule saliva for today
 //        scheduleSalivaSurveysForToday(survey);

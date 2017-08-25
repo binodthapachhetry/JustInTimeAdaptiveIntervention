@@ -13,6 +13,7 @@
         android:label="Tests for edu.neu.mhealth.android.wockets.library.test"
         android:targetPackage="edu.neu.mhealth.android.wockets.library.test" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required permission for App measurement to run. -->
     <uses-permission android:name="android.permission.INTERNET" />

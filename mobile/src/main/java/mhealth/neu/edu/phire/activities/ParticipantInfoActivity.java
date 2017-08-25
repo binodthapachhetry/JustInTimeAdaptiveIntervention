@@ -14,6 +14,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 
+import edu.neu.mhealth.android.wockets.library.support.Log;
+
 import mhealth.neu.edu.phire.R;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 
@@ -24,10 +26,14 @@ public class ParticipantInfoActivity extends AppCompatActivity {
     private CheckBox gender;
     private CheckBox sciLevel;
     private CheckBox completeness;
+    private CheckBox dataTranfer;
+    private CheckBox distanceCalc;
+
     private NumberPicker weight;
     private NumberPicker age;
     private NumberPicker heightFt;
     private NumberPicker heightIn;
+
     private EditText ageCurrent;
     private EditText weightCurrent;
     private EditText genderCurrent;
@@ -35,6 +41,8 @@ public class ParticipantInfoActivity extends AppCompatActivity {
     private EditText heightInCurrent;
     private EditText sciLevelCurrent;
     private EditText completeCurrent;
+    private EditText data;
+    private EditText distance;
 
     private String partAge;
     private String partWeight;
@@ -43,6 +51,10 @@ public class ParticipantInfoActivity extends AppCompatActivity {
     private String partHeightIn;
     private String partSciLevel;
     private String partCompleteness;
+    private Boolean onlyWifi;
+    private String useForDistance;
+
+    private static final String TAG = "ParticipantInfoActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +62,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_participant_info2);
         mContext = getApplicationContext();
         addListenerOnButtonClick();
+        Log.i(TAG, "Inside onCreate", mContext);
 
     }
 
@@ -105,7 +118,66 @@ public class ParticipantInfoActivity extends AppCompatActivity {
             sciLevelCurrent.setText(partSciLevel);
         }
 
+        data = (EditText) findViewById(R.id.transferDataAlways);
+        data.setEnabled(false);
+        onlyWifi = TEMPLEDataManager.onlyWifi(mContext);
+        if(onlyWifi){
+            data.setText("Wifi");
+        }else{
+            data.setText("Both");
+        }
+
+
+        distance = (EditText) findViewById(R.id.distanceCalcUsed);
+        distance.setEnabled(false);
+        useForDistance = TEMPLEDataManager.getDistanceCalculation(mContext);
+        distance.setText(useForDistance);
+
+
         // checkboxes
+        distanceCalc = (CheckBox) findViewById(R.id.needspeed);
+        if(useForDistance.equals("Speed")){
+            distanceCalc.setChecked(true);
+        }
+        distanceCalc.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox) v).isChecked()) {
+                    distance.setText("Speed");
+                    TEMPLEDataManager.setDistanceCalculation(mContext,"Speed");
+                    Log.i(TAG, "Distance calculation measure set to Speed", mContext);
+                }else{
+                    distance.setText("Cadence");
+                    TEMPLEDataManager.setDistanceCalculation(mContext,"Cadence");
+                    Log.i(TAG, "Distance calculation measure set to Cadence", mContext);
+
+                }
+            }
+        });
+
+        dataTranfer = (CheckBox) findViewById(R.id.transferdata);
+        if(onlyWifi){
+            dataTranfer.setChecked(true);
+        }
+        dataTranfer.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox) v).isChecked()) {
+                    data.setText("Wifi");
+                    TEMPLEDataManager.setOnlyWifi(mContext,true);
+                    Log.i(TAG, "Data transfer set to wifi", mContext);
+                }else{
+                    data.setText("Both");
+                    TEMPLEDataManager.setOnlyWifi(mContext,false);
+                    Log.i(TAG, "Data transfer set to both wifi and cellular network", mContext);
+
+                }
+            }
+        });
+
+
         gender = (CheckBox) findViewById(R.id.gender);
         if(partGender!=null){
             if(partGender.equals("male")){
@@ -119,9 +191,11 @@ public class ParticipantInfoActivity extends AppCompatActivity {
                 if (((CheckBox) v).isChecked()) {
                     genderCurrent.setText("male");
                     TEMPLEDataManager.setParticipantGender(mContext,"male");
+                    Log.i(TAG, "Gender set to male", mContext);
                 }else{
                     genderCurrent.setText("female");
                     TEMPLEDataManager.setParticipantGender(mContext,"female");
+                    Log.i(TAG, "Gender set to female", mContext);
                 }
             }
         });
@@ -138,9 +212,11 @@ public class ParticipantInfoActivity extends AppCompatActivity {
                 if (((CheckBox) v).isChecked()) {
                     sciLevelCurrent.setText("paraplagia");
                     TEMPLEDataManager.setParticipantSciLevel(mContext,"paraplagia");
+                    Log.i(TAG, "Sci level set to paraplagia", mContext);
                 }else{
                     sciLevelCurrent.setText("tetraplagia");
                     TEMPLEDataManager.setParticipantSciLevel(mContext,"tetraplagia");
+                    Log.i(TAG, "Sci level set to tetraplagia", mContext);
                 }
             }
         });
@@ -157,9 +233,11 @@ public class ParticipantInfoActivity extends AppCompatActivity {
                 if (((CheckBox) v).isChecked()) {
                     completeCurrent.setText("complete");
                     TEMPLEDataManager.setParticipantCompleteness(mContext,"complete");
+                    Log.i(TAG, "Completeness set to complete", mContext);
                 }else{
                     completeCurrent.setText("incomplete");
                     TEMPLEDataManager.setParticipantCompleteness(mContext,"incomplete");
+                    Log.i(TAG, "Completeness set to incomplete", mContext);
                 }
             }
         });
@@ -168,6 +246,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
         weight = (NumberPicker) findViewById(R.id.weightPicker);
         weight.setMaxValue(300);
         weight.setMinValue(50);
+        weight.setValue(175);
         weight.setWrapSelectorWheel(true);
         if(partWeight!=null && partWeight!=""){
             weight.setValue(Integer.parseInt(partWeight));
@@ -179,6 +258,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
             public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
                 weightCurrent.setText(String.valueOf(newval));
                 TEMPLEDataManager.setParticipantWeight(mContext,String.valueOf(newval));
+                Log.i(TAG, "Weight(in lbs) set to:"+String.valueOf(newval), mContext);
 
             }
         });
@@ -186,6 +266,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
         age = (NumberPicker) findViewById(R.id.agePickerFinal);
         age.setMaxValue(100);
         age.setMinValue(20);
+        age.setValue(35);
         age.setWrapSelectorWheel(true);
         if(partAge!=null && partAge!=""){
             age.setValue(Integer.parseInt(partAge));
@@ -197,6 +278,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
             public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
                 ageCurrent.setText(String.valueOf(newval));
                 TEMPLEDataManager.setParticipantAge(mContext,String.valueOf(newval));
+                Log.i(TAG, "Age set to:"+String.valueOf(newval), mContext);
             }
         });
 
@@ -204,6 +286,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
         heightFt = (NumberPicker) findViewById(R.id.heightFtPicker);
         heightFt.setMaxValue(10);
         heightFt.setMinValue(3);
+        heightFt.setValue(5);
         heightFt.setWrapSelectorWheel(true);
         if(partHeightFt!=null && partHeightFt!=""){
             heightFt.setValue(Integer.parseInt(partHeightFt));
@@ -215,12 +298,14 @@ public class ParticipantInfoActivity extends AppCompatActivity {
             public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
                 heightFtCurrent.setText(String.valueOf(newval));
                 TEMPLEDataManager.setParticipantHeightFt(mContext,String.valueOf(newval));
+                Log.i(TAG, "Height(ft) set to:"+String.valueOf(newval), mContext);
             }
         });
 
         heightIn = (NumberPicker) findViewById(R.id.heightIncPicker);
         heightIn.setMaxValue(12);
         heightIn.setMinValue(0);
+        heightIn.setValue(4);
         heightIn.setWrapSelectorWheel(true);
         if(partHeightIn!=null && partHeightIn!=""){
             heightIn.setValue(Integer.parseInt(partHeightIn));
@@ -232,6 +317,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
             public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
                 heightInCurrent.setText(String.valueOf(newval));
                 TEMPLEDataManager.setParticipantHeightIn(mContext,String.valueOf(newval));
+                Log.i(TAG, "Height(inch) set to:"+String.valueOf(newval), mContext);
 
             }
         });

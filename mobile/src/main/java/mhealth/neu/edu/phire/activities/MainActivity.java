@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -121,9 +122,16 @@ public class MainActivity extends WocketsActivity {
 
         if (DataManager.getEndDate(mContext) == 0) {
             long endTime = DateTime.getTimeInMillis(TEMPLEConstants.END_HOUR, TEMPLEConstants.END_MINUTE);
+            Date endDate = new Date(endTime);
+
             // https://bitbucket.org/mhealthresearchgroup/wockets-android/issues/127/show-start-and-end-date-on-screen
-            endTime = endTime + DateTime.DAYS_8_IN_MILLIS;
-            DataManager.setEndDate(mContext, endTime);
+            Calendar threeMonthsAhead = Calendar.getInstance();
+            threeMonthsAhead.setTime(endDate);
+            threeMonthsAhead.add(Calendar.MONTH, +4);
+            DataManager.setEndDate(mContext, threeMonthsAhead.getTime().getTime());
+
+//            endTime = endTime + DateTime.DAYS_8_IN_MILLIS;
+//            DataManager.setEndDate(mContext, endTime);
             ToastManager.showShortToast(mContext, "End Time set as " + DateTime.getTimestampString(endTime));
             Log.i(TAG, "End Time set as " + DateTime.getTimestampString(endTime), mContext);
         }

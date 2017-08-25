@@ -138,7 +138,9 @@ public class LocationManagerService extends IntentService implements GoogleApiCl
                     String.valueOf(mLastLocation.getAccuracy())
 //                    mLastLocation.getProvider()
             };
-            CSV.writeAndZip(gpsEntry, gpsFile, true, mContext);
+//            CSV.writeAndZip(gpsEntry, gpsFile, true, mContext);
+            CSV.write(gpsEntry, gpsFile, true);
+
         }
 
 

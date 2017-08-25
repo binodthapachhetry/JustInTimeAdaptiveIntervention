@@ -81,7 +81,7 @@
                 <action android:name="android.intent.action.LOCALE_CHANGED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <!--<action android:name="android.intent.action.NEW_OUTGOING_CALL" />-->
                 <action android:name="android.intent.action.PACKAGES_SUSPENDED" />
                 <action android:name="android.intent.action.PACKAGES_UNSUSPENDED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />

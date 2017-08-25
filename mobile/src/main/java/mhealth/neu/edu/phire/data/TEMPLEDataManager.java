@@ -126,7 +126,7 @@ public class TEMPLEDataManager {
     private static final String PARTICIPANT_GENDER = "PARTICIPANT_GENDER";
 
     public static String getParticipantGender(Context mContext){
-        return SharedPrefManager.getString(PARTICIPANT_GENDER , "", mContext);
+        return SharedPrefManager.getString(PARTICIPANT_GENDER , "male", mContext);
     }
 
     public static void setParticipantGender(Context mContext, String participantGender) {
@@ -137,7 +137,7 @@ public class TEMPLEDataManager {
     private static final String PARTICIPANT_WEIGHT = "PARTICIPANT_WEIGHT";
 
     public static String getParticipantWeight(Context mContext){
-        return SharedPrefManager.getString(PARTICIPANT_WEIGHT , "", mContext);
+        return SharedPrefManager.getString(PARTICIPANT_WEIGHT , "175", mContext);
     }
 
     public static void setParticipantWeight(Context mContext, String participantWeight) {
@@ -148,7 +148,7 @@ public class TEMPLEDataManager {
     private static final String PARTICIPANT_HEIGHT_FT = "PARTICIPANT_HEIGHT_FT";
 
     public static String getParticipantHeightFt(Context mContext){
-        return SharedPrefManager.getString(PARTICIPANT_HEIGHT_FT , "", mContext);
+        return SharedPrefManager.getString(PARTICIPANT_HEIGHT_FT , "5", mContext);
     }
 
     public static void setParticipantHeightFt(Context mContext, String participantHeightFt) {
@@ -159,7 +159,7 @@ public class TEMPLEDataManager {
     private static final String PARTICIPANT_HEIGHT_IN = "PARTICIPANT_HEIGHT_IN";
 
     public static String getParticipantHeightIn(Context mContext){
-        return SharedPrefManager.getString(PARTICIPANT_HEIGHT_IN , "", mContext);
+        return SharedPrefManager.getString(PARTICIPANT_HEIGHT_IN , "7", mContext);
     }
 
     public static void setParticipantHeightIn(Context mContext, String participantHeightIn) {
@@ -170,7 +170,7 @@ public class TEMPLEDataManager {
     private static final String PARTICIPANT_COMPLETENESS = "PARTICIPANT_COMPLETENESS";
 
     public static String getParticipantCompleteness(Context mContext){
-        return SharedPrefManager.getString(PARTICIPANT_COMPLETENESS , "", mContext);
+        return SharedPrefManager.getString(PARTICIPANT_COMPLETENESS , "complete", mContext);
     }
 
     public static void setParticipantCompleteness(Context mContext, String participantCompleteness) {
@@ -181,12 +181,35 @@ public class TEMPLEDataManager {
     private static final String PARTICIPANT_SCI_LEVEL = "PARTICIPANT_SCI_LEVEL";
 
     public static String getParticipantSciLevel(Context mContext){
-        return SharedPrefManager.getString(PARTICIPANT_SCI_LEVEL , "", mContext);
+        return SharedPrefManager.getString(PARTICIPANT_SCI_LEVEL , "paraplagia", mContext);
     }
 
     public static void setParticipantSciLevel(Context mContext, String participantSciLevel) {
         SharedPrefManager.setString(PARTICIPANT_SCI_LEVEL, participantSciLevel, mContext);
     }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String DISTANCE_CALCULATION = "DISTANCE_CALCULATION";
+
+    public static String getDistanceCalculation(Context mContext){
+        return SharedPrefManager.getString(DISTANCE_CALCULATION , "Speed", mContext);
+    }
+
+    public static void setDistanceCalculation(Context mContext, String distanceCalculation) {
+        SharedPrefManager.setString(DISTANCE_CALCULATION, distanceCalculation, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String DATA_TRANSFER = "DATA_TRANSFER";
+
+    public static boolean onlyWifi(Context mContext){
+        return SharedPrefManager.getBoolean(DATA_TRANSFER , false, mContext);
+    }
+
+    public static void setOnlyWifi(Context mContext, Boolean wifi) {
+        SharedPrefManager.setBoolean(DATA_TRANSFER, wifi, mContext);
+    }
+
 
     //--------------------------------------------------------------------------------------------//
 
@@ -205,7 +228,7 @@ public class TEMPLEDataManager {
     private static final String ENERGY_EXPENDITURE_KCAL = "ENERGY_EXPENDITURE_KCAL";
 
     public static String getEEKcal(Context mContext){
-        return SharedPrefManager.getString(ENERGY_EXPENDITURE_KCAL , "", mContext);
+        return SharedPrefManager.getString(ENERGY_EXPENDITURE_KCAL , "0", mContext);
     }
 
     public static void setEEKcal(Context mContext, String energyExpenditureKCal) {
@@ -216,7 +239,7 @@ public class TEMPLEDataManager {
     private static final String GOAL_ENERGY_EXPENDITURE_KCAL = "GOAL_ENERGY_EXPENDITURE_KCAL";
 
     public static String getGoalEEKcal(Context mContext){
-        return SharedPrefManager.getString(GOAL_ENERGY_EXPENDITURE_KCAL , "", mContext);
+        return SharedPrefManager.getString(GOAL_ENERGY_EXPENDITURE_KCAL , "0", mContext);
     }
 
     public static void setGoalEEKcal(Context mContext, String goalEnergyExpenditureKCal) {
@@ -228,7 +251,7 @@ public class TEMPLEDataManager {
     private static final String DISTANCE_TRAVELLED_METER = "DISTANCE_TRAVELLED_METER";
 
     public static String getDistanceTravelledMeter(Context mContext){
-        return SharedPrefManager.getString(DISTANCE_TRAVELLED_METER , "", mContext);
+        return SharedPrefManager.getString(DISTANCE_TRAVELLED_METER , "0", mContext);
     }
 
     public static void setDistanceTravelledMeter(Context mContext, String distanceTravelledMeter) {

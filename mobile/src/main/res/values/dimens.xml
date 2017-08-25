@@ -8,6 +8,9 @@
     <dimen name="view_text_size_diameter">20dp</dimen>
     <dimen name="view_text_size_participant">15dp</dimen>
 
+    <dimen name="view_text_size_p_info">12dp</dimen>
+
+
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="EEplot">350dp</dimen>

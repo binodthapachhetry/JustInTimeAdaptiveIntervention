@@ -1774,70 +1774,70 @@ public final class R2 {
     public static final int abc_action_bar_default_padding_start_material = 0x7f080016;
 
     @DimenRes
-    public static final int abc_action_bar_elevation_material = 0x7f080026;
+    public static final int abc_action_bar_elevation_material = 0x7f080027;
 
     @DimenRes
-    public static final int abc_action_bar_icon_vertical_padding_material = 0x7f080027;
+    public static final int abc_action_bar_icon_vertical_padding_material = 0x7f080028;
 
     @DimenRes
-    public static final int abc_action_bar_overflow_padding_end_material = 0x7f080028;
+    public static final int abc_action_bar_overflow_padding_end_material = 0x7f080029;
 
     @DimenRes
-    public static final int abc_action_bar_overflow_padding_start_material = 0x7f080029;
+    public static final int abc_action_bar_overflow_padding_start_material = 0x7f08002a;
 
     @DimenRes
     public static final int abc_action_bar_progress_bar_size = 0x7f080002;
 
     @DimenRes
-    public static final int abc_action_bar_stacked_max_height = 0x7f08002a;
+    public static final int abc_action_bar_stacked_max_height = 0x7f08002b;
 
     @DimenRes
-    public static final int abc_action_bar_stacked_tab_max_width = 0x7f08002b;
+    public static final int abc_action_bar_stacked_tab_max_width = 0x7f08002c;
 
     @DimenRes
-    public static final int abc_action_bar_subtitle_bottom_margin_material = 0x7f08002c;
+    public static final int abc_action_bar_subtitle_bottom_margin_material = 0x7f08002d;
 
     @DimenRes
-    public static final int abc_action_bar_subtitle_top_margin_material = 0x7f08002d;
+    public static final int abc_action_bar_subtitle_top_margin_material = 0x7f08002e;
 
     @DimenRes
-    public static final int abc_action_button_min_height_material = 0x7f08002e;
+    public static final int abc_action_button_min_height_material = 0x7f08002f;
 
     @DimenRes
-    public static final int abc_action_button_min_width_material = 0x7f08002f;
+    public static final int abc_action_button_min_width_material = 0x7f080030;
 
     @DimenRes
-    public static final int abc_action_button_min_width_overflow_material = 0x7f080030;
+    public static final int abc_action_button_min_width_overflow_material = 0x7f080031;
 
     @DimenRes
     public static final int abc_alert_dialog_button_bar_height = 0x7f080000;
 
     @DimenRes
-    public static final int abc_button_inset_horizontal_material = 0x7f080031;
+    public static final int abc_button_inset_horizontal_material = 0x7f080032;
 
     @DimenRes
-    public static final int abc_button_inset_vertical_material = 0x7f080032;
+    public static final int abc_button_inset_vertical_material = 0x7f080033;
 
     @DimenRes
-    public static final int abc_button_padding_horizontal_material = 0x7f080033;
+    public static final int abc_button_padding_horizontal_material = 0x7f080034;
 
     @DimenRes
-    public static final int abc_button_padding_vertical_material = 0x7f080034;
+    public static final int abc_button_padding_vertical_material = 0x7f080035;
 
     @DimenRes
-    public static final int abc_cascading_menus_min_smallest_width = 0x7f080035;
+    public static final int abc_cascading_menus_min_smallest_width = 0x7f080036;
 
     @DimenRes
     public static final int abc_config_prefDialogWidth = 0x7f08000c;
 
     @DimenRes
-    public static final int abc_control_corner_material = 0x7f080036;
+    public static final int abc_control_corner_material = 0x7f080037;
 
     @DimenRes
-    public static final int abc_control_inset_material = 0x7f080037;
+    public static final int abc_control_inset_material = 0x7f080038;
 
     @DimenRes
-    public static final int abc_control_padding_material = 0x7f080038;
+    public static final int abc_control_padding_material = 0x7f080039;
 
     @DimenRes
     public static final int abc_dialog_fixed_height_major = 0x7f08000d;
@@ -1852,7 +1852,7 @@ public final class R2 {
     public static final int abc_dialog_fixed_width_minor = 0x7f080010;
 
     @DimenRes
-    public static final int abc_dialog_list_padding_vertical_material = 0x7f080039;
+    public static final int abc_dialog_list_padding_vertical_material = 0x7f08003a;
 
     @DimenRes
     public static final int abc_dialog_min_width_major = 0x7f080011;
@@ -1861,121 +1861,121 @@ public final class R2 {
     public static final int abc_dialog_min_width_minor = 0x7f080012;
 
     @DimenRes
-    public static final int abc_dialog_padding_material = 0x7f08003a;
+    public static final int abc_dialog_padding_material = 0x7f08003b;
 
     @DimenRes
-    public static final int abc_dialog_padding_top_material = 0x7f08003b;
+    public static final int abc_dialog_padding_top_material = 0x7f08003c;
 
     @DimenRes
-    public static final int abc_disabled_alpha_material_dark = 0x7f08003c;
+    public static final int abc_disabled_alpha_material_dark = 0x7f08003d;
 
     @DimenRes
-    public static final int abc_disabled_alpha_material_light = 0x7f08003d;
+    public static final int abc_disabled_alpha_material_light = 0x7f08003e;
 
     @DimenRes
-    public static final int abc_dropdownitem_icon_width = 0x7f08003e;
+    public static final int abc_dropdownitem_icon_width = 0x7f08003f;
 
     @DimenRes
-    public static final int abc_dropdownitem_text_padding_left = 0x7f08003f;
+    public static final int abc_dropdownitem_text_padding_left = 0x7f080040;
 
     @DimenRes
-    public static final int abc_dropdownitem_text_padding_right = 0x7f080040;
+    public static final int abc_dropdownitem_text_padding_right = 0x7f080041;
 
     @DimenRes
-    public static final int abc_edit_text_inset_bottom_material = 0x7f080041;
+    public static final int abc_edit_text_inset_bottom_material = 0x7f080042;
 
     @DimenRes
-    public static final int abc_edit_text_inset_horizontal_material = 0x7f080042;
+    public static final int abc_edit_text_inset_horizontal_material = 0x7f080043;
 
     @DimenRes
-    public static final int abc_edit_text_inset_top_material = 0x7f080043;
+    public static final int abc_edit_text_inset_top_material = 0x7f080044;
 
     @DimenRes
-    public static final int abc_floating_window_z = 0x7f080044;
+    public static final int abc_floating_window_z = 0x7f080045;
 
     @DimenRes
-    public static final int abc_list_item_padding_horizontal_material = 0x7f080045;
+    public static final int abc_list_item_padding_horizontal_material = 0x7f080046;
 
     @DimenRes
-    public static final int abc_panel_menu_list_width = 0x7f080046;
+    public static final int abc_panel_menu_list_width = 0x7f080047;
 
     @DimenRes
-    public static final int abc_progress_bar_height_material = 0x7f080047;
+    public static final int abc_progress_bar_height_material = 0x7f080048;
 
     @DimenRes
-    public static final int abc_search_view_preferred_height = 0x7f080048;
+    public static final int abc_search_view_preferred_height = 0x7f080049;
 
     @DimenRes
-    public static final int abc_search_view_preferred_width = 0x7f080049;
+    public static final int abc_search_view_preferred_width = 0x7f08004a;
 
     @DimenRes
-    public static final int abc_seekbar_track_background_height_material = 0x7f08004a;
+    public static final int abc_seekbar_track_background_height_material = 0x7f08004b;
 
     @DimenRes
-    public static final int abc_seekbar_track_progress_height_material = 0x7f08004b;
+    public static final int abc_seekbar_track_progress_height_material = 0x7f08004c;
 
     @DimenRes
-    public static final int abc_select_dialog_padding_start_material = 0x7f08004c;
+    public static final int abc_select_dialog_padding_start_material = 0x7f08004d;
 
     @DimenRes
     public static final int abc_switch_padding = 0x7f080022;
 
     @DimenRes
-    public static final int abc_text_size_body_1_material = 0x7f08004d;
+    public static final int abc_text_size_body_1_material = 0x7f08004e;
 
     @DimenRes
-    public static final int abc_text_size_body_2_material = 0x7f08004e;
+    public static final int abc_text_size_body_2_material = 0x7f08004f;
 
     @DimenRes
-    public static final int abc_text_size_button_material = 0x7f08004f;
+    public static final int abc_text_size_button_material = 0x7f080050;
 
     @DimenRes
-    public static final int abc_text_size_caption_material = 0x7f080050;
+    public static final int abc_text_size_caption_material = 0x7f080051;
 
     @DimenRes
-    public static final int abc_text_size_display_1_material = 0x7f080051;
+    public static final int abc_text_size_display_1_material = 0x7f080052;
 
     @DimenRes
-    public static final int abc_text_size_display_2_material = 0x7f080052;
+    public static final int abc_text_size_display_2_material = 0x7f080053;
 
     @DimenRes
-    public static final int abc_text_size_display_3_material = 0x7f080053;
+    public static final int abc_text_size_display_3_material = 0x7f080054;
 
     @DimenRes
-    public static final int abc_text_size_display_4_material = 0x7f080054;
+    public static final int abc_text_size_display_4_material = 0x7f080055;
 
     @DimenRes
-    public static final int abc_text_size_headline_material = 0x7f080055;
+    public static final int abc_text_size_headline_material = 0x7f080056;
 
     @DimenRes
-    public static final int abc_text_size_large_material = 0x7f080056;
+    public static final int abc_text_size_large_material = 0x7f080057;
 
     @DimenRes
-    public static final int abc_text_size_medium_material = 0x7f080057;
+    public static final int abc_text_size_medium_material = 0x7f080058;
 
     @DimenRes
-    public static final int abc_text_size_menu_header_material = 0x7f080058;
+    public static final int abc_text_size_menu_header_material = 0x7f080059;
 
     @DimenRes
-    public static final int abc_text_size_menu_material = 0x7f080059;
+    public static final int abc_text_size_menu_material = 0x7f08005a;
 
     @DimenRes
-    public static final int abc_text_size_small_material = 0x7f08005a;
+    public static final int abc_text_size_small_material = 0x7f08005b;
 
     @DimenRes
-    public static final int abc_text_size_subhead_material = 0x7f08005b;
+    public static final int abc_text_size_subhead_material = 0x7f08005c;
 
     @DimenRes
     public static final int abc_text_size_subtitle_material_toolbar = 0x7f080003;
 
     @DimenRes
-    public static final int abc_text_size_title_material = 0x7f08005c;
+    public static final int abc_text_size_title_material = 0x7f08005d;
 
     @DimenRes
     public static final int abc_text_size_title_material_toolbar = 0x7f080004;
 
     @DimenRes
-    public static final int activity_horizontal_margin = 0x7f08005d;
+    public static final int activity_horizontal_margin = 0x7f080026;
 
     @DimenRes
     public static final int activity_vertical_margin = 0x7f08005e;

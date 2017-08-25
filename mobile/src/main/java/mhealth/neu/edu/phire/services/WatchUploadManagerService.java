@@ -34,6 +34,7 @@ import edu.neu.mhealth.android.wockets.library.support.Zipper;
 import edu.neu.android.wocketslib.mhealthformat.entities.AndroidWearAccelerometerRaw;
 import edu.neu.android.wocketslib.mhealthformat.utils.ByteUtils;
 
+import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 import mhealth.neu.edu.phire.support.MyConversionReceiver;
 
 
@@ -49,6 +50,8 @@ public class WatchUploadManagerService extends IntentService {
     private boolean isStudyFinished;
     private boolean isZipTransferFinished;
     private ExecutorService executor;
+
+    private boolean onlyWifi;
 
     public WatchUploadManagerService(){
         super("WatchUploadManagerService");
@@ -206,6 +209,15 @@ public class WatchUploadManagerService extends IntentService {
         if (!ConnectivityManager.isInternetConnected(mContext)) {
             Log.i(TAG, "Internet is not connected. Not trying to upload files.", mContext);
             return;
+        }
+
+        onlyWifi = TEMPLEDataManager.onlyWifi(mContext);
+        if(onlyWifi){
+            Log.i(TAG, "Data is only supposed to be transferred via wifi", mContext);
+            if(!ConnectivityManager.isWifiConnected(mContext)){
+                Log.i(TAG, "Device is not connected to a wifi network.", mContext);
+                return;
+            }
         }
 
         executor = Executors.newSingleThreadExecutor();

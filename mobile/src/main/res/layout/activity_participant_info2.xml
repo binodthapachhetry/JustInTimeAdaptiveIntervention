@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_weight="15"
         >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/age"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     />
                 <EditText
                     android:id="@+id/ageCurrent"
@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/genderText"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     />
                 <EditText
                     android:id="@+id/genderCurrent"
@@ -57,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_weight"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     />
                 <EditText
                     android:id="@+id/weightCurrent"
@@ -69,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_height_ft"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     />
                 <EditText
                     android:id="@+id/heightFtCurrent"
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sciLevelText"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     />
                 <EditText
                     android:id="@+id/sciLevelCurrent"
@@ -108,10 +108,44 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/completenessText"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     />
                 <EditText
                     android:id="@+id/completenessCurrent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:id="@+id/text_distanceCalc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/needfordistance"
+                    android:textSize="@dimen/view_text_size_p_info"
+                    />
+                <EditText
+                    android:id="@+id/distanceCalcUsed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:id="@+id/text_dataTransfer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/needfordatatransfer"
+                    android:textSize="@dimen/view_text_size_p_info"
+                    />
+                <EditText
+                    android:id="@+id/transferDataAlways"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -143,7 +177,7 @@
                     android:id="@+id/text_height_ft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     android:text="@string/text_height_ft"
                     android:layout_weight="1"
                     />
@@ -153,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:scaleX="0.7"
                     android:scaleY="0.7"
-                    android:layout_weight="3"/>
+                    android:layout_weight="2"/>
 
 
             </LinearLayout>
@@ -168,7 +202,7 @@
                     android:id="@+id/text_height_in"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     android:text="@string/text_height_in"
                     android:layout_weight="1"
                     />
@@ -177,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:scaleX="0.7"
                     android:scaleY="0.7"
-                    android:layout_weight="3"/>
+                    android:layout_weight="2"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -202,7 +236,7 @@
                     android:id="@+id/text_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     android:text="@string/text_weight"
                     android:layout_weight="1"
                     />
@@ -212,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:scaleX="0.7"
                     android:scaleY="0.7"
-                    android:layout_weight="3"/>
+                    android:layout_weight="2"/>
 
 
             </LinearLayout>
@@ -228,7 +262,7 @@
                     android:id="@+id/text_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/view_text_size_participant"
+                    android:textSize="@dimen/view_text_size_p_info"
                     android:text="@string/text_age"
                     android:layout_weight="1"
                     />
@@ -238,7 +272,7 @@
                     android:layout_height="wrap_content"
                     android:scaleX="0.7"
                     android:scaleY="0.7"
-                    android:layout_weight="3"/>
+                    android:layout_weight="2"/>
 
             </LinearLayout>
 
@@ -277,6 +311,33 @@
                 android:layout_alignParentTop="true"
                 android:text="@string/completeness"
                 android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+
+            <CheckBox
+                android:id="@+id/needspeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/speed"
+                android:layout_weight="1"/>
+
+            <CheckBox
+                android:id="@+id/transferdata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="@string/wifi"
+                android:layout_weight="1"/>
+
 
         </LinearLayout>
 

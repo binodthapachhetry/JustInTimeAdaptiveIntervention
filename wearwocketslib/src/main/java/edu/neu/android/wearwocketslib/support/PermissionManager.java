@@ -39,7 +39,7 @@ public class PermissionManager {
         permissions.add(Manifest.permission.BROADCAST_STICKY);
         permissions.add(Manifest.permission.INTERNET);
         permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-        permissions.add(Manifest.permission.READ_PHONE_STATE);
+//        permissions.add(Manifest.permission.READ_PHONE_STATE);
         permissions.add(Manifest.permission.RECEIVE_BOOT_COMPLETED);
         permissions.add(Manifest.permission.VIBRATE);
         permissions.add(Manifest.permission.WAKE_LOCK);
