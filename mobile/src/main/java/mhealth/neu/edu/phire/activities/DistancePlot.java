@@ -344,17 +344,18 @@ public class DistancePlot extends AppCompatActivity {
         ArrayList<Entry> line = new ArrayList<>();
 
 
-        line .add(new Entry(goalDistanceMile,0));
-        line .add(new Entry(goalDistanceMile,1));
-        line .add(new Entry(goalDistanceMile,2));
-        line .add(new Entry(goalDistanceMile,3));
-        line .add(new Entry(goalDistanceMile,4));
-        line .add(new Entry(goalDistanceMile,5));
-        line .add(new Entry(goalDistanceMile,6));
+        line.add(new Entry(goalDistanceMile,0));
+        line.add(new Entry(goalDistanceMile,1));
+        line.add(new Entry(goalDistanceMile,2));
+        line.add(new Entry(goalDistanceMile,3));
+        line.add(new Entry(goalDistanceMile,4));
+        line.add(new Entry(goalDistanceMile,5));
+        line.add(new Entry(goalDistanceMile,6));
 
 
         LineDataSet lineDataSet = new LineDataSet(line,"Goal");
         lineDataSet.setColor(Color.BLACK);
+        lineDataSet.setDrawCircles(false);
         LineData lineData = new LineData(theDates,lineDataSet);
         lineData.setDrawValues(false);
 
@@ -372,6 +373,10 @@ public class DistancePlot extends AppCompatActivity {
         combinedChart.getAxisRight().setDrawGridLines(false);
         combinedChart.getAxisLeft().setDrawGridLines(false);
         combinedChart.getLegend().setPosition(Legend.LegendPosition.BELOW_CHART_RIGHT);
+
+        combinedChart.getAxisLeft().setTextSize(10f);
+        combinedChart.getXAxis().setTextSize(10F);
+
 
 
         goBack = (Button) findViewById(R.id.distanceWeeklyDone);

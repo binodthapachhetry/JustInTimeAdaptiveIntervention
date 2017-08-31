@@ -149,6 +149,7 @@ public class CurrentEEdistance extends AppCompatActivity {
 
         LineDataSet lineDataSet = new LineDataSet(line, "Goal");
         lineDataSet.setColor(Color.BLACK);
+        lineDataSet.setCircleColor(R.color.colorGreen);
         LineData lineData = new LineData(theDates, lineDataSet);
         lineData.setDrawValues(false);
 
@@ -165,6 +166,10 @@ public class CurrentEEdistance extends AppCompatActivity {
         combinedChartEE.getAxisRight().setDrawGridLines(false);
         combinedChartEE.getAxisLeft().setDrawGridLines(false);
         combinedChartEE.getLegend().setPosition(Legend.LegendPosition.BELOW_CHART_RIGHT);
+        combinedChartEE.getAxisLeft().setTextSize(10f);
+        combinedChartEE.getXAxis().setTextSize(10F);
+
+
 
 
         // Distance current and goal
@@ -222,6 +227,9 @@ public class CurrentEEdistance extends AppCompatActivity {
 
         LineDataSet lineDataSetDist = new LineDataSet(lineDist, "Goal");
         lineDataSetDist.setColor(Color.BLACK);
+        lineDataSetDist.setCircleColor(R.color.colorGreen);
+
+
         LineData lineDataDist = new LineData(theDatesDist, lineDataSetDist);
         lineDataDist.setDrawValues(false);
 
@@ -238,75 +246,81 @@ public class CurrentEEdistance extends AppCompatActivity {
         combinedChartDist.getAxisRight().setDrawGridLines(false);
         combinedChartDist.getAxisLeft().setDrawGridLines(false);
         combinedChartDist.getLegend().setPosition(Legend.LegendPosition.BELOW_CHART_RIGHT);
+        combinedChartDist.getAxisLeft().setTextSize(10f);
+        combinedChartEE.getXAxis().setTextSize(10F);
 
-        // set text for goals
-        goalEE.setText(actualGoalEEkCal + " kCal");
-        goalDist.setText(actualGoalDistMile + " mile");
 
-        // set number picker for EE goal
-        numberPickerEE.setMaxValue(30);
-        numberPickerEE.setMinValue(0);
 
-        int minValue = 1000;
-        int maxValue = 4000;
-        int step = 100;
 
-        int count = (maxValue - minValue) / step;
-        final String[] numberValues = new String[count + 1];
 
-        for (int i = 0; i < numberValues.length; i++) {
-            numberValues[i] = String.valueOf(minValue + i * step);
-        }
-
-        numberPickerEE.setDisplayedValues(numberValues);
-        numberPickerEE.setOnValueChangedListener(new NumberPicker.
-                OnValueChangeListener() {
-
-            @Override
-            public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
-                goalEE.setText(String.valueOf(numberValues[newval]) + " kCal");
-                TEMPLEDataManager.setGoalEEKcal(mContext, String.valueOf(numberValues[newval]));
-            }
-        });
-
-        // set number picker for EE goal
-        numberPickerDist.setMaxValue(29);
-        numberPickerDist.setMinValue(0);
-
-        double minValueDist = 0d;
-        double maxValueDist = 3d;
-        double stepDist = 0.2d;
-
-        final String[] numberValuesDist = new String[16];
-
-        for (int i = 0; i < numberValuesDist.length; i++) {
-            numberValuesDist[i] = String.valueOf(Math.round((minValueDist + i * stepDist) * 10.0) / 10.0);
-        }
-
-        double minValueDist1 = 3d;
-        double maxValueDist1 = 10d;
-        double stepDist1 = 0.5d;
-
-        final String[] numberValuesDist1 = new String[14];
-
-        for (int i = 1; i < numberValuesDist1.length + 1; i++) {
-            numberValuesDist1[i - 1] = String.valueOf(minValueDist1 + i * stepDist1);
-        }
-
-        final String[] numberV = (String[]) ArrayUtils.addAll(numberValuesDist, numberValuesDist1);
-
-        for (int i = 0; i < numberV.length; i++) {
-            Log.i(TAG, String.valueOf(numberV[i]), mContext);
-        }
-        numberPickerDist.setDisplayedValues(numberV);
-        numberPickerDist.setOnValueChangedListener(new NumberPicker.
-                OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
-                goalDist.setText(String.valueOf(numberV[newval]) + " mile");
-                TEMPLEDataManager.setGoaldistanceTravelledMiles(mContext, String.valueOf(numberV[newval]));
-            }
-        });
+//        // set text for goals
+//        goalEE.setText(actualGoalEEkCal + " kCal");
+//        goalDist.setText(actualGoalDistMile + " mile");
+//
+//        // set number picker for EE goal
+//        numberPickerEE.setMaxValue(30);
+//        numberPickerEE.setMinValue(0);
+//
+//        int minValue = 1000;
+//        int maxValue = 4000;
+//        int step = 100;
+//
+//        int count = (maxValue - minValue) / step;
+//        final String[] numberValues = new String[count + 1];
+//
+//        for (int i = 0; i < numberValues.length; i++) {
+//            numberValues[i] = String.valueOf(minValue + i * step);
+//        }
+//
+//        numberPickerEE.setDisplayedValues(numberValues);
+//        numberPickerEE.setOnValueChangedListener(new NumberPicker.
+//                OnValueChangeListener() {
+//
+//            @Override
+//            public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
+//                goalEE.setText(String.valueOf(numberValues[newval]) + " kCal");
+//                TEMPLEDataManager.setGoalEEKcal(mContext, String.valueOf(numberValues[newval]));
+//            }
+//        });
+//
+//        // set number picker for EE goal
+//        numberPickerDist.setMaxValue(29);
+//        numberPickerDist.setMinValue(0);
+//
+//        double minValueDist = 0d;
+//        double maxValueDist = 3d;
+//        double stepDist = 0.2d;
+//
+//        final String[] numberValuesDist = new String[16];
+//
+//        for (int i = 0; i < numberValuesDist.length; i++) {
+//            numberValuesDist[i] = String.valueOf(Math.round((minValueDist + i * stepDist) * 10.0) / 10.0);
+//        }
+//
+//        double minValueDist1 = 3d;
+//        double maxValueDist1 = 10d;
+//        double stepDist1 = 0.5d;
+//
+//        final String[] numberValuesDist1 = new String[14];
+//
+//        for (int i = 1; i < numberValuesDist1.length + 1; i++) {
+//            numberValuesDist1[i - 1] = String.valueOf(minValueDist1 + i * stepDist1);
+//        }
+//
+//        final String[] numberV = (String[]) ArrayUtils.addAll(numberValuesDist, numberValuesDist1);
+//
+//        for (int i = 0; i < numberV.length; i++) {
+//            Log.i(TAG, String.valueOf(numberV[i]), mContext);
+//        }
+//        numberPickerDist.setDisplayedValues(numberV);
+//        numberPickerDist.setOnValueChangedListener(new NumberPicker.
+//                OnValueChangeListener() {
+//            @Override
+//            public void onValueChange(NumberPicker numberPicker, int oldval, int newval) {
+//                goalDist.setText(String.valueOf(numberV[newval]) + " mile");
+//                TEMPLEDataManager.setGoaldistanceTravelledMiles(mContext, String.valueOf(numberV[newval]));
+//            }
+//        });
 
         // done button
         doneButton.setOnClickListener(new View.OnClickListener() {

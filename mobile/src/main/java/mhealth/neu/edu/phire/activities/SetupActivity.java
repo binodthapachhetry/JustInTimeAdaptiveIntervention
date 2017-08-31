@@ -98,11 +98,25 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
         Log.i(TAG,"Patient info screen",mContext);
         Study study = DataManager.getStudy(mContext);
         if (study == null) {
-            Log.e(TAG, "OnClickSelectSelectWheelDiameterCm - No study found", mContext);
+            Log.e(TAG, "onClickSelectParticipantInfo- No study found", mContext);
             return;
         }
         android.util.Log.i(TAG,"inside select sensor");
         Intent intent = new Intent(this, ParticipantInfoActivity.class);
+        startActivity(intent);
+
+    }
+
+    @OnClick(R.id.activity_select_dailygoal)
+    public void onClickSelectDailyGoal(){
+        Log.i(TAG,"Select daily goal screen",mContext);
+        Study study = DataManager.getStudy(mContext);
+        if (study == null) {
+            Log.e(TAG, "onClickSelectDailyGoal - No study found", mContext);
+            return;
+        }
+        android.util.Log.i(TAG,"inside select daily goal");
+        Intent intent = new Intent(this, SelectDailyGoal.class);
         startActivity(intent);
 
     }

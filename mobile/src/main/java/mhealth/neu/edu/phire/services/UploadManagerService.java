@@ -137,7 +137,7 @@ public class UploadManagerService extends IntentService {
 
         if (!isStudyFinished && lastRunTime != 0) {
             long currentTime = DateTime.getCurrentTimeInMillis();
-            if (currentTime > lastRunTime && currentTime < lastRunTime + DateTime.HOURS_1_IN_MILLIS) {
+            if (currentTime > lastRunTime && currentTime < lastRunTime + DateTime.MINUTES_5_IN_MILLIS) {
                 Log.i(TAG, "UploadManagerService executed within the last 1 hour - " + DateTime.getTimestampString(lastRunTime), mContext);
                 return;
             }
@@ -237,9 +237,24 @@ public class UploadManagerService extends IntentService {
 
         Date log_date = DateTime.getDate(logDate.getName());
         Date current_date = Calendar.getInstance().getTime();
+        Log.i(TAG,"Reference log date: " +log_date.toString(), mContext);
+        Log.i(TAG,"Current log date: " +current_date.toString(), mContext);
+
         if (log_date.compareTo(current_date)>0){
             Log.e(TAG, " Deleting log date as it is in future for : " + logDate.getName(), mContext);
+            String[]entries = logDate.list();
+            for(String s: entries){
+                File currentFold = new File(logDate.getPath(),s);
+                String[] entriesInside = currentFold.list();
+                for(String sIn: entriesInside){
+                    File currentFileIn = new File(currentFold.getPath(),sIn);
+                    currentFileIn.delete();
+                }
+
+                currentFold.delete();
+            }
             logDate.delete();
+            return;
         }
 
 
@@ -273,26 +288,26 @@ public class UploadManagerService extends IntentService {
             int current_hour = DateTime.getCurrentHour();
             String[] name_split = hourDirectory.getName().split("-");
 
-            if(name_split!=null){
-                if (name_split.length > 1) {
-                    Log.e(TAG, "Log hour folder name to be considered: " + hourDirectory.getName(), mContext);
-                    int log_hour = Integer.parseInt(name_split[0]);
-                    if (log_hour > current_hour) {
-                        Log.e(TAG, "Log hour is in future for : " + hourDirectory.getName(), mContext);
-                        hourDirectory.delete();
-                        continue;
-                    }else{
-                        Log.e(TAG, "Log hour is within scope for : " + hourDirectory.getName(), mContext);
-
-                    }
-                }else{
-                    Log.e(TAG, "Log hour folder name NOT to be considered: " + hourDirectory.getName(), mContext);
-                    continue;
-                }
-            } else {
-                Log.e(TAG, "Log hour folder name NOT to be considered: " + hourDirectory.getName(), mContext);
-                continue;
-            }
+//            if(name_split!=null){
+//                if (name_split.length > 1) {
+//                    Log.e(TAG, "Log hour folder name to be considered: " + hourDirectory.getName(), mContext);
+//                    int log_hour = Integer.parseInt(name_split[0]);
+//                    if (log_hour > current_hour) {
+//                        Log.e(TAG, "Log hour is in future for : " + hourDirectory.getName(), mContext);
+//                        hourDirectory.delete();
+//                        continue;
+//                    }else{
+//                        Log.e(TAG, "Log hour is within scope for : " + hourDirectory.getName(), mContext);
+//
+//                    }
+//                }else{
+//                    Log.e(TAG, "Log hour folder name NOT to be considered: " + hourDirectory.getName(), mContext);
+//                    continue;
+//                }
+//            } else {
+//                Log.e(TAG, "Log hour folder name NOT to be considered: " + hourDirectory.getName(), mContext);
+//                continue;
+//            }
 
             Log.i(TAG, "Processing Logs for hour - " + hourDirectory.getAbsolutePath(), mContext);
             Zipper.zipFolderWithEncryption(hourDirectory.getAbsolutePath(), mContext);

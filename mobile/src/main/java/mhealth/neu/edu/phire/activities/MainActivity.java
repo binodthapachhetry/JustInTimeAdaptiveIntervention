@@ -154,17 +154,17 @@ public class MainActivity extends WocketsActivity {
         startActivity(new Intent(this, SetupActivity.class));
     }
 
-//    @OnClick(R.id.activity_ee_plot)
-//    public void onClickEnergyExpenditure(View view) {
-//        Log.i(TAG,"Clicked EE screen",mContext);
-//        Study study = DataManager.getStudy(mContext);
-//        if (study == null) {
-//            Log.e(TAG, "onClickEnergyExpenditure - No study found", mContext);
-//            return;
-//        }
-//        Intent intent = new Intent(this, FeedbackChoices.class);
-//        startActivity(intent);
-//    }
+    @OnClick(R.id.activity_ee_plot)
+    public void onClickEnergyExpenditure(View view) {
+        Log.i(TAG,"Clicked EE screen",mContext);
+        Study study = DataManager.getStudy(mContext);
+        if (study == null) {
+            Log.e(TAG, "onClickEnergyExpenditure - No study found", mContext);
+            return;
+        }
+        Intent intent = new Intent(this, FeedbackChoices.class);
+        startActivity(intent);
+    }
 
 
 }

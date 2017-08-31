@@ -39,10 +39,10 @@
     <string name="completenessText">Completeness:</string>
 
     <string name="EEprofile">Check Energy Expenditure / Distance traveled</string>
-    <string name="EEtitle">Weekly Energy Expenditure (kCal) profile</string>
+    <string name="EEtitle">Weekly Energy Expenditure (kCal)</string>
 
     <string name="DistanceProfile">Check Distance traveled</string>
-    <string name="DistanceTitle">Weekly Distance travelled (miles) profile</string>
+    <string name="DistanceTitle">Weekly Distance travelled (miles)</string>
 
     <string name="EEgoalSelect"> Change daily EE goal from </string>
     <string name="DistanceGoalSelect"> Change daily distance goal from </string>
@@ -66,9 +66,7 @@
     <string name="speed">Speed</string>
     <string name="wifi">WiFi</string>
 
-
-
-
+    <string name="SelectDailyGoal">Select Daily Goal</string>
 
 
 </resources>

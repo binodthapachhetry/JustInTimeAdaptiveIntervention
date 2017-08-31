@@ -24,6 +24,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.opencsv.CSVReader;
+import com.github.mikephil.charting.components.LimitLine;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -350,18 +351,18 @@ public class EnergyPlot extends AppCompatActivity {
 
 
         ArrayList<Entry> line = new ArrayList<>();
-        line .add(new Entry(goalEEkCal,0));
-        line .add(new Entry(goalEEkCal,1));
-        line .add(new Entry(goalEEkCal,2));
-        line .add(new Entry(goalEEkCal,3));
-        line .add(new Entry(goalEEkCal,4));
-        line .add(new Entry(goalEEkCal,5));
-        line .add(new Entry(goalEEkCal,6));
+        line.add(new Entry(goalEEkCal,0));
+        line.add(new Entry(goalEEkCal,1));
+        line.add(new Entry(goalEEkCal,2));
+        line.add(new Entry(goalEEkCal,3));
+        line.add(new Entry(goalEEkCal,4));
+        line.add(new Entry(goalEEkCal,5));
+        line.add(new Entry(goalEEkCal,6));
 
 
         LineDataSet lineDataSet = new LineDataSet(line,"Goal");
         lineDataSet.setColor(Color.BLACK);
-//        lineDataSet.setDrawFilled(true);
+        lineDataSet.setDrawCircles(false);
         LineData lineData = new LineData(theDates,lineDataSet);
         lineData.setDrawValues(false);
 
@@ -379,6 +380,17 @@ public class EnergyPlot extends AppCompatActivity {
         combinedChart.getAxisRight().setDrawGridLines(false);
         combinedChart.getAxisLeft().setDrawGridLines(false);
         combinedChart.getLegend().setPosition(Legend.LegendPosition.BELOW_CHART_RIGHT);
+
+        combinedChart.getAxisLeft().setTextSize(10f);
+        combinedChart.getXAxis().setTextSize(10F);
+
+//        LimitLine upper_limit = new LimitLine(goalEEkCal, "Goal");
+//        upper_limit.setLineWidth(4f);
+//        upper_limit.enableDashedLine(10f, 10f, 0f);
+//        upper_limit.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+//        upper_limit.setTextSize(10f);
+//        combinedChart.getAxisLeft().addLimitLine(upper_limit);
+
 
 
         goBack = (Button) findViewById(R.id.eeWeeklyDone);

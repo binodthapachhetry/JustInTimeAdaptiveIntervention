@@ -270,7 +270,9 @@
 
         <service
             android:name=".services.UploadManagerService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".activities.SelectDailyGoal"></activity>
     </application>
 
 </manifest>

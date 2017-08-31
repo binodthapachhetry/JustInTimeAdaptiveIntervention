@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:text="@string/DistanceTitle"
         android:gravity="center"
-        android:textSize="15sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 

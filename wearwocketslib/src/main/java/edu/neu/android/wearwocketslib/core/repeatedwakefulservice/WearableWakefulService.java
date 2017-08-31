@@ -190,6 +190,7 @@ public class WearableWakefulService extends IntentService {
     @Override
     public void onCreate() {
         mContext = getApplicationContext();
+        logger = new Logger(TAG);
         logger.i("On Create Wakeful Service", getApplicationContext());
         startServiceTime = System.currentTimeMillis();
         Globals.init();
@@ -200,12 +201,14 @@ public class WearableWakefulService extends IntentService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        logger = new Logger(TAG);
         logger.i("On Start Wakeful Service", getApplicationContext());
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        logger = new Logger(TAG);
         logger.i("On Handle Intent thread of Wakeful Service", getApplicationContext());
         isRunning = true;
         incomingIntent = intent;
@@ -920,7 +923,7 @@ public class WearableWakefulService extends IntentService {
         super.onDestroy();
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mTransferResultReceiver);
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mFlushResultReceiver);
-//        logger.close();
+        logger.close();
     }
 
     private boolean decodeBinarySensorFile(byte[] b, String path, String fileName){
