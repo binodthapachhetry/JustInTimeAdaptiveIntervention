@@ -1,8 +1,12 @@
 package mhealth.neu.edu.phire.services;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.CountDownTimer;
 import android.os.PowerManager;
 import android.support.v4.content.WakefulBroadcastReceiver;
@@ -15,7 +19,10 @@ import edu.neu.mhealth.android.wockets.library.services.WocketsService;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 import mhealth.neu.edu.phire.R;
+import mhealth.neu.edu.phire.activities.FeedbackChoices;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 //import edu.neu.mhealth.android.wockets.match.data.MATCHDataManager;
 
 /**
@@ -52,13 +59,22 @@ public class AlwaysOnService extends WocketsService {
 //        long currentTime = DateTime.getCurrentTimeInMillis();
 //        long endTime = DataManager.getEndDate(mContext);
 
+        Intent myIntent = new Intent(mContext, FeedbackChoices.class);
+        PendingIntent pIntent = PendingIntent.getActivity(
+                mContext,
+                0,
+                myIntent,
+                FLAG_ACTIVITY_NEW_TASK);
 
 
             startForeground(
                     NotificationManager.NOTIFICATION_ID_MINUTE_SERVICE,
-                    NotificationManager.getAlwaysOnServiceNotification(
-                            mContext,
+//                    NotificationManager.getAlwaysOnServiceNotification(
+                    getAlwaysOnServiceNotification(
+
+                                    mContext,
                             R.mipmap.ic_launcher,
+                            pIntent,
                             "Prompted: " + emaSurveysPrompted +
                                     ", Completed: " + emaSurveysCompleted +
                                     ", Missed: " + emaSurveysMissed
@@ -127,5 +143,17 @@ public class AlwaysOnService extends WocketsService {
         Log.i(TAG, "Inside onDestroy", mContext);
         unregisterReceiver(broadcastReceiver);
         releaseWakeLock();
+    }
+
+    private static Notification getAlwaysOnServiceNotification(Context context, int notificationIcon, PendingIntent pIntent,String text) {
+        Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
+                notificationIcon);
+        return new Notification.Builder(context)
+                .setContentTitle(DataManager.getStudyName(context))
+                .setContentText(text)
+                .setContentIntent(pIntent)
+                .setSmallIcon(notificationIcon)
+                .setLargeIcon(icon)
+                .build();
     }
 }

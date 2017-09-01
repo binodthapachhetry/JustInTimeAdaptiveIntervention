@@ -252,11 +252,9 @@ public class UploadManagerService extends IntentService {
                         hourDirectory.delete();
                     }
                 }
-
-            } else {
-                logDate.delete();
-                return;
             }
+            logDate.delete();
+            return;
         }
 
         for (File hourDirectory : logDate.listFiles()) {

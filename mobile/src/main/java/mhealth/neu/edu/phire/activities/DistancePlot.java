@@ -67,6 +67,7 @@ public class DistancePlot extends AppCompatActivity {
         if (actualGoalDistanceMile == null || actualGoalDistanceMile == "") {
             actualGoalDistanceMile = "0";
         }
+        Log.i(TAG, "Inside", mContext);
         Log.i(TAG, "Goal distance = " + actualGoalDistanceMile, mContext);
         try {
             addListenerOnButtonClick();
@@ -117,7 +118,7 @@ public class DistancePlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
-            Log.i(TAG,distanceMeter,mContext);
+            Log.i(TAG,"Distance day 1:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
             }
@@ -153,7 +154,7 @@ public class DistancePlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
-            Log.i(TAG,distanceMeter,mContext);
+            Log.i(TAG,"Distance day 2:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
             }
@@ -187,7 +188,7 @@ public class DistancePlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
-            Log.i(TAG,distanceMeter,mContext);
+            Log.i(TAG,"Distance day 3:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
             }
@@ -220,7 +221,7 @@ public class DistancePlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
-            Log.i(TAG,distanceMeter,mContext);
+            Log.i(TAG,"Distance day 4:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
             }
@@ -253,7 +254,7 @@ public class DistancePlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
-            Log.i(TAG,distanceMeter,mContext);
+            Log.i(TAG,"Distance day 5:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
             }
@@ -286,7 +287,7 @@ public class DistancePlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
-            Log.i(TAG,distanceMeter,mContext);
+            Log.i(TAG,"Distance day 6:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
             }
@@ -321,7 +322,7 @@ public class DistancePlot extends AppCompatActivity {
             }
             String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
 
-            Log.i(TAG,distanceMeter,mContext);
+            Log.i(TAG,"Distance day 7:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
             }

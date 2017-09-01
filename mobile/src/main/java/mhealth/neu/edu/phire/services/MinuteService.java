@@ -1,12 +1,18 @@
 package mhealth.neu.edu.phire.services;
 
 import android.app.IntentService;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
+import android.support.v4.app.NotificationCompat;
 
 import com.google.android.gms.location.ActivityRecognition;
 
@@ -31,8 +37,12 @@ import edu.neu.android.wocketslib.sensormonitor.BluetoothSensorService;
 
 import mhealth.neu.edu.phire.R;
 import mhealth.neu.edu.phire.TEMPLEConstants;
+import mhealth.neu.edu.phire.activities.CurrentEEdistance;
+import mhealth.neu.edu.phire.activities.FeedbackChoices;
 import mhealth.neu.edu.phire.support.Util;
 import mhealth.neu.edu.phire.services.AccelerationManagerService;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 /**
  * @author Binod Thapa Chhetry
@@ -40,6 +50,8 @@ import mhealth.neu.edu.phire.services.AccelerationManagerService;
 public class MinuteService extends WocketsIntentService {
 
     public final static String TAG = "MinuteService";
+
+    private static final int NOTIFICATION_ID_MINUTE_SERVICE = 34001;
 
     private Context mContext;
 
@@ -64,10 +76,10 @@ public class MinuteService extends WocketsIntentService {
 
     private void initialize() {
 //        mContext = getApplicationContext();
-        if (Looper.myLooper() == Looper.getMainLooper()){
-            Log.i(TAG,"In main thread",mContext);
-        }else{
-            Log.i(TAG,"Not in main thread",mContext);
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            Log.i(TAG, "In main thread", mContext);
+        } else {
+            Log.i(TAG, "Not in main thread", mContext);
         }
 
         boolean isStudyFinished = DataManager.isStudyFinished(mContext);
@@ -83,7 +95,7 @@ public class MinuteService extends WocketsIntentService {
         Log.i(TAG, "Minute Service Alarm was set by - " + minuteServiceAlarmSetter, mContext);
 
         long minuteServiceLastRun = DataManager.getMinuteServiceLastRun(mContext);
-        int timeSincePreviousRun = (int)(DateTime.getCurrentTimeInMillis() - minuteServiceLastRun)/1000;
+        int timeSincePreviousRun = (int) (DateTime.getCurrentTimeInMillis() - minuteServiceLastRun) / 1000;
         Log.i(TAG, "Time since previous run - " + timeSincePreviousRun, mContext);
 
         if (timeSincePreviousRun > 0 && timeSincePreviousRun < 50) {
@@ -138,7 +150,7 @@ public class MinuteService extends WocketsIntentService {
         }
 
         int prevMemoryFree = DataManager.getMemoryFree(mContext);
-        int memoryFree = (MemoryManager.getAvailableMemory(mContext) * 100)/ MemoryManager.getTotalMemory(mContext);
+        int memoryFree = (MemoryManager.getAvailableMemory(mContext) * 100) / MemoryManager.getTotalMemory(mContext);
         if (memoryFree != prevMemoryFree) {
             DatabaseManager.writeNote(mContext, DatabaseManager.MEMORY_FREE, memoryFree);
             DataManager.setMemoryFree(mContext, memoryFree);
@@ -251,7 +263,7 @@ public class MinuteService extends WocketsIntentService {
         startService(new Intent(this, WatchUploadManagerService.class));
 
         Log.i(TAG, "Starting FilebaseDeletingService", mContext);
-        startService(new Intent(this,FilebaseCleaningService.class));
+        startService(new Intent(this, FilebaseCleaningService.class));
 
     }
 
@@ -277,9 +289,19 @@ public class MinuteService extends WocketsIntentService {
         int emaSurveysPrompted = DataManager.getEMASurveyPromptedCountForDate(mContext, DateTime.getDate());
         int emaSurveysCompleted = DataManager.getEMASurveyCompletedCountForDate(mContext, DateTime.getDate());
         int emaSurveysMissed = emaSurveysPrompted - emaSurveysCompleted;
-        NotificationManager.showMinuteServiceNotification(
+
+        Intent myIntent = new Intent(mContext, CurrentEEdistance.class);
+        PendingIntent pIntent = PendingIntent.getActivity(
+                mContext,
+                0,
+                myIntent,
+                Intent.FLAG_ACTIVITY_NEW_TASK);
+
+//        NotificationManager.showMinuteServiceNotification(
+        showMinuteServiceNotification(
                 mContext,
                 TEMPLEConstants.STUDY_NAME,
+                pIntent,
                 "Prompted: " + emaSurveysPrompted +
                         ", Completed: " + emaSurveysCompleted +
                         ", Missed: " + emaSurveysMissed,
@@ -287,7 +309,7 @@ public class MinuteService extends WocketsIntentService {
         );
     }
 
-    private void notifyUserStudyEnded(long eTime){
+    private void notifyUserStudyEnded(long eTime) {
         NotificationManager.showMinuteServiceNotification(
                 mContext,
                 TEMPLEConstants.STUDY_NAME,
@@ -301,5 +323,33 @@ public class MinuteService extends WocketsIntentService {
     public void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "Inside onDestroy", mContext);
+    }
+
+    private static Notification getAlwaysOnServiceNotification(Context context, int notificationIcon, PendingIntent pIntent, String text) {
+        Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
+                notificationIcon);
+        return new Notification.Builder(context)
+                .setContentTitle(DataManager.getStudyName(context))
+                .setContentText(text)
+                .setSmallIcon(notificationIcon)
+                .setLargeIcon(icon)
+                .build();
+    }
+
+    public static void showMinuteServiceNotification(Context mContext, String title, PendingIntent pendingIntent, String text, int notificationIcon) {
+        Bitmap icon = BitmapFactory.decodeResource(mContext.getResources(),
+                notificationIcon);
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(mContext)
+                        .setSmallIcon(notificationIcon)
+                        .setLargeIcon(icon)
+                        .setContentIntent(pendingIntent)
+                        .setContentTitle(title)
+                        .setContentText(text)
+                        .setAutoCancel(true);
+
+        android.app.NotificationManager mNotificationManager =
+                (android.app.NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(NOTIFICATION_ID_MINUTE_SERVICE, mBuilder.build());
     }
 }

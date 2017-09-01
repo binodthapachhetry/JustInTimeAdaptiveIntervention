@@ -70,8 +70,14 @@ public class FeedbackChoices extends AppCompatActivity {
             Log.e(TAG, "onFeedbackChoiceDoneSelected - No study found", mContext);
             return;
         }
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+
+        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+        homeIntent.addCategory( Intent.CATEGORY_HOME );
+        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(homeIntent);
+//        this.finish();
 
     }
 

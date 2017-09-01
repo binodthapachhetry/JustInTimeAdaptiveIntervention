@@ -74,6 +74,7 @@ public class EnergyPlot extends AppCompatActivity {
         if(actualGoalEEkCal==null|| actualGoalEEkCal==""){
             actualGoalEEkCal = "0";
         }
+        Log.i(TAG,"Inside",mContext);
         Log.i(TAG,"Goal EE = "+ actualGoalEEkCal,mContext);
         try {
             addListenerOnButtonClick();
@@ -131,7 +132,7 @@ public class EnergyPlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,eekCal,mContext);
+            Log.i(TAG,"Energy expenditure day 1:"+ eekCal,mContext);
             barEntries.add(new BarEntry(Float.valueOf(eekCal),0));
 
             int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
@@ -168,7 +169,7 @@ public class EnergyPlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,eekCal,mContext);
+            Log.i(TAG,"Energy expenditure day 2:"+ eekCal,mContext);
             barEntries.add(new BarEntry(Float.valueOf(eekCal),1));
 
             int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
@@ -202,7 +203,7 @@ public class EnergyPlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,eekCal,mContext);
+            Log.i(TAG,"Energy expenditure day 3:"+ eekCal,mContext);
             barEntries.add(new BarEntry(Float.valueOf(eekCal),2));
             int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
 //            if(retval < 0) {
@@ -234,7 +235,7 @@ public class EnergyPlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,eekCal,mContext);
+            Log.i(TAG,"Energy expenditure day 4:"+ eekCal,mContext);
             barEntries.add(new BarEntry(Float.valueOf(eekCal),3));
             int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
 //            if(retval < 0) {
@@ -266,7 +267,7 @@ public class EnergyPlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,eekCal,mContext);
+            Log.i(TAG,"Energy expenditure day 5:"+ eekCal,mContext);
             barEntries.add(new BarEntry(Float.valueOf(eekCal),4));
             int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
 //            if(retval < 0) {
@@ -298,7 +299,7 @@ public class EnergyPlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,eekCal,mContext);
+            Log.i(TAG,"Energy expenditure day 6:"+ eekCal,mContext);
             barEntries.add(new BarEntry(Float.valueOf(eekCal),5));
             int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
 //            if(retval < 0) {
@@ -331,7 +332,7 @@ public class EnergyPlot extends AppCompatActivity {
                 lastLine = sCurrentLine;
             }
             String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,eekCal,mContext);
+            Log.i(TAG,"Energy expenditure day 7:"+ eekCal,mContext);
             barEntries.add(new BarEntry(Float.valueOf(eekCal),6));
             int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
 //            if(retval < 0) {

@@ -73,6 +73,7 @@ public class CurrentEEdistance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_eedistance);
         mContext = getApplicationContext();
+        Log.i(TAG,"Inside",mContext);
         try {
             addListenerOnButtonClick();
         } catch (IOException e) {
@@ -91,6 +92,7 @@ public class CurrentEEdistance extends AppCompatActivity {
 
         // EE current and goal
         eeKcal = TEMPLEDataManager.getEEKcal(mContext);
+        Log.i(TAG,"Energy expenditure in kCal:"+eeKcal,mContext);
         actualGoalEEkCal = TEMPLEDataManager.getGoalEEKcal(mContext);
         if (actualGoalEEkCal == null || actualGoalEEkCal == "") {
             actualGoalEEkCal = "0";
@@ -104,29 +106,6 @@ public class CurrentEEdistance extends AppCompatActivity {
         int[] colors = {Color.rgb(100, 149, 237)};
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         ArrayList<String> theDates = new ArrayList<>();
-
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String featureDirectory = DataManager.getDirectoryFeature(mContext);
-//        Date dateCurrent = new Date();
-//        dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
-//        Calendar calCurrent = Calendar.getInstance();
-//        calCurrent.setTime(dateCurrent);
-//        String firstDate = sdf.format(calCurrent.getTime());
-//        String firstFile = featureDirectory + "/" + firstDate + "/" + "ActivityRecognitionResult.log.csv";
-//        File file = new File(firstFile);
-//        if (!file.exists()) {
-//            barEntries.add(new BarEntry(0f, 0));
-//        } else {
-            // read the last line of the file to get total ee kcal
-//            FileReader logReader = new FileReader(file);
-//            BufferedReader br = new BufferedReader(logReader);
-//            String lastLine = "";
-//            String sCurrentLine;
-//            while ((sCurrentLine = br.readLine()) != null) {
-//                lastLine = sCurrentLine;
-//            }
-//            String eekCal = lastLine.split(",")[5].split("\\.")[0];
-//            Log.i(TAG, eekCal, mContext);
 
             barEntries.add(new BarEntry(Float.valueOf(eeKcal), 0));
 
@@ -188,25 +167,11 @@ public class CurrentEEdistance extends AppCompatActivity {
         ArrayList<BarEntry> barEntriesDist = new ArrayList<>();
         ArrayList<String> theDatesDist = new ArrayList<>();
 
-//        if (!file.exists()) {
-//            barEntries.add(new BarEntry(0f, 0));
-//        } else {
-//            // read the last line of the file to get total ee kcal
-//            FileReader logReader = new FileReader(file);
-//            BufferedReader br = new BufferedReader(logReader);
-//            String lastLine = "";
-//            String sCurrentLine;
-//            while ((sCurrentLine = br.readLine()) != null) {
-//                lastLine = sCurrentLine;
-//            }
-//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
-//            Log.i(TAG,distanceMeter,mContext);
-//            if(distanceMeter.equals("-1")){
-//                distanceMeter = "0";
-//            }
 
-            distMile = Float.valueOf(distMeter)*METER_TO_MILE;
-            barEntries.add(new BarEntry(distMile,0));
+
+        distMile = Float.valueOf(distMeter)*METER_TO_MILE;
+        Log.i(TAG,"Distance travelled in miles:"+Float.toString(distMile),mContext);
+            barEntriesDist.add(new BarEntry(distMile,0));
 
             if(distMile>Float.valueOf(actualGoalDistMile)) {
                 colors[0] = Color.rgb(34,139,54);
