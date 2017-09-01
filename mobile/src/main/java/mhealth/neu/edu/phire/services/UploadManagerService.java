@@ -137,7 +137,7 @@ public class UploadManagerService extends IntentService {
 
         if (!isStudyFinished && lastRunTime != 0) {
             long currentTime = DateTime.getCurrentTimeInMillis();
-            if (currentTime > lastRunTime && currentTime < lastRunTime + DateTime.MINUTES_5_IN_MILLIS) {
+            if (currentTime > lastRunTime && currentTime < lastRunTime + DateTime.HOURS_1_IN_MILLIS) {
                 Log.i(TAG, "UploadManagerService executed within the last 1 hour - " + DateTime.getTimestampString(lastRunTime), mContext);
                 return;
             }
@@ -240,23 +240,24 @@ public class UploadManagerService extends IntentService {
         Log.i(TAG,"Reference log date: " +log_date.toString(), mContext);
         Log.i(TAG,"Current log date: " +current_date.toString(), mContext);
 
-        if (log_date.compareTo(current_date)>0){
+        if (log_date.compareTo(current_date)>0) {
             Log.e(TAG, " Deleting log date as it is in future for : " + logDate.getName(), mContext);
-            String[]entries = logDate.list();
-            for(String s: entries){
-                File currentFold = new File(logDate.getPath(),s);
-                String[] entriesInside = currentFold.list();
-                for(String sIn: entriesInside){
-                    File currentFileIn = new File(currentFold.getPath(),sIn);
-                    currentFileIn.delete();
+            if (logDate.listFiles() != null) {
+                for (File hourDirectory : logDate.listFiles()) {
+                    if (hourDirectory.listFiles() != null) {
+                        for (File indFile : hourDirectory.listFiles()) {
+                            indFile.delete();
+                        }
+                    } else {
+                        hourDirectory.delete();
+                    }
                 }
 
-                currentFold.delete();
+            } else {
+                logDate.delete();
+                return;
             }
-            logDate.delete();
-            return;
         }
-
 
         for (File hourDirectory : logDate.listFiles()) {
 
@@ -285,8 +286,8 @@ public class UploadManagerService extends IntentService {
                     continue;
             }
 
-            int current_hour = DateTime.getCurrentHour();
-            String[] name_split = hourDirectory.getName().split("-");
+//            int current_hour = DateTime.getCurrentHour();
+//            String[] name_split = hourDirectory.getName().split("-");
 
 //            if(name_split!=null){
 //                if (name_split.length > 1) {
