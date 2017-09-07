@@ -254,7 +254,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
             if(dayOfMonthCurrent>dayOfMonthEEcalcLastRun){
                 TEMPLEDataManager.setEEKcal(mContext,"0");
-                TEMPLEDataManager.setDistanceTravelledMeter(mContext,"0");
+//                TEMPLEDataManager.setDistanceTravelledMeter(mContext,"0");
             }
         }
 
@@ -438,7 +438,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
 
                 TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcal) + participantMETkcal));
-                TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+totalDistance));
+//                TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+totalDistance));
 
 //                TEMPLEDataManager.setEECalculationLastRun(mContext);
 
@@ -447,7 +447,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
                         stopTime,
                         predictClass,
                         predictSubClass,
-                        String.valueOf(Float.valueOf(distanceMeter)+totalDistance),
+//                        String.valueOf(Float.valueOf(distanceMeter)+totalDistance),
+                        String.valueOf(totalDistance),
+
                         String.valueOf(Double.valueOf(eeKcal) + participantMETkcal)
                 };
                 CSV.write(row, arFile, true);
@@ -515,8 +517,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                     participantMETkcal = partMETmultiply * mapMET.get("13");
                                     Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                     TEMPLEDataManager.setEEKcal(mContext, String.valueOf(Double.valueOf(eeKcalTmp) + participantMETkcal));
-                                    distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
-                                    TEMPLEDataManager.setDistanceTravelledMeter(mContext, String.valueOf(Float.valueOf(distanceMeter) + totalDistance));
+//                                    distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
+//                                    TEMPLEDataManager.setDistanceTravelledMeter(mContext, String.valueOf(Float.valueOf(distanceMeter) + totalDistance));
 
                                     String[] row = {
 //                                            lineCp[2],
@@ -525,7 +527,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                             dateFormatToConvert.format(stopDate),
                                             "13",
                                             "13",
-                                            String.valueOf(Float.valueOf(distanceMeter) + totalDistance),
+//                                            String.valueOf(Float.valueOf(distanceMeter) + totalDistance),
+                                            String.valueOf(totalDistance),
+
                                             String.valueOf(Double.valueOf(eeKcalTmp) + participantMETkcal),
                                     };
                                     CSV.write(row, arFile, true);
@@ -581,8 +585,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
             Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
             Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal), mContext);
             TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal));
-            distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
-            TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+dist));
+//            distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
+//            TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+dist));
 
             String[] row = {
 //                    lineCp[2],
@@ -591,7 +595,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     dateFormatToConvert.format(dateFormatConvertFromWatch.parse(lineCp[3])),
                     "11",
                     className,
-                    String.valueOf(Float.valueOf(distanceMeter)+dist),
+//                    String.valueOf(Float.valueOf(distanceMeter)+dist),
+                    String.valueOf(dist),
                     String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal),
             };
             CSV.write(row, arFile, true);
@@ -631,7 +636,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
             Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
             TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal));
             distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
-            TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+dist));
+//            TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(Float.valueOf(distanceMeter)+dist));
 
             String[] row = {
 //                    lineCpd[2],
@@ -640,7 +645,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     dateFormatToConvert.format(dateFormatConvertFromWatch.parse(lineCpd[3])),
                     "12",
                     className,
-                    String.valueOf(Float.valueOf(distanceMeter)+dist),
+//                    String.valueOf(Float.valueOf(distanceMeter)+dist),
+                    String.valueOf(dist),
                     String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal),
             };
             CSV.write(row, arFile, true);
@@ -677,7 +683,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 participantMETkcal = partMETmultiply*mapMET.get(className);
                 Log.i(TAG, "Energy expenditure in kCal="+String.valueOf(participantMETkcal), mContext);
                 TEMPLEDataManager.setEEKcal(mContext,String.valueOf(Double.valueOf(eeKcalTm) + participantMETkcal));
-                distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
+//                distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
                 String[] row = {
 //                        lineCp[2],
 //                        lineCp[3],
@@ -685,7 +691,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                         dateFormatToConvert.format(dateFormatConvertFromWatch.parse(lineCp[3])),
                         "13",
                         "13",
-                        distanceMeter,
+                        "0",
                         String.valueOf(Double.valueOf(eeKcalTm) + participantMETkcal),
                 };
 
@@ -757,7 +763,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                 participantMETkcal = partMETmultiply * mapMET.get(className);
                                 Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                 TEMPLEDataManager.setEEKcal(mContext, String.valueOf(Double.valueOf(eeKcalT) + participantMETkcal));
-                                distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
+//                                distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
                                 String[] row = {
 //                                        lineS[2],
 //                                        lineS[3],
@@ -765,7 +771,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                         dateFormatToConvert.format(stopDate),
                                         "13",
                                         "13",
-                                        distanceMeter,
+                                        "0",
                                         String.valueOf(Double.valueOf(eeKcalT) + participantMETkcal),
                                 };
 

@@ -241,18 +241,21 @@ public class MinuteService extends WocketsIntentService {
         Log.i(TAG, "Sending message to watch to trigger alarm", mContext);
         startService(new Intent(this, SendMessageToWatch.class));
 
+        Log.i(TAG,"Updating distance travelled",mContext);
+        startService(new Intent(this,DistanceCalculationService.class));
+
         Log.i(TAG, "Starting ActivityRecognition", mContext);
         startService(new Intent(this, ActivityRecognitionService.class));
-//
+
         Log.i(TAG, "Logging Acceleration", mContext);
         startService(new Intent(this, AccelerationManagerService.class));
 
         Log.i(TAG, "Starting SurveyManagerService", mContext);
         startService(new Intent(this, SurveyManagerService.class));
-//
+
         Log.i(TAG, "Starting PanobikeSensorService", mContext);
         startService(new Intent(this, PanobikeSensorService.class));
-//
+
         Log.i(TAG, "Logging Location", mContext);
         startService(new Intent(this, LocationManagerService.class));
 

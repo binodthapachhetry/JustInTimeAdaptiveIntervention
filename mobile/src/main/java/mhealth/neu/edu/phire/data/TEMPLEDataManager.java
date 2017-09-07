@@ -101,6 +101,18 @@ public class TEMPLEDataManager {
     }
 
     //--------------------------------------------------------------------------------------------//
+
+    private static final String LAST_DISTANCE_CALC_TIME = "LAST_DISTANCE_CALC_TIME";
+
+    public static long getLastDistanceCalcTime(Context context) {
+        return SharedPrefManager.getLong(LAST_DISTANCE_CALC_TIME, -1, context);
+    }
+
+    public static void setLastDistanceCalcTime(Context context, long stopTime) {
+        SharedPrefManager.setLong(LAST_DISTANCE_CALC_TIME, stopTime, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
     private static final String WATCH_LAST_CONNECTED_TIME = "WATCH_LAST_CONNECTED_TIME";
 
     public static String getWatchLastConnectionTime(Context mContext){
@@ -279,6 +291,8 @@ public class TEMPLEDataManager {
     public static void setFilebaseCleaningLastRun(Context context) {
         SharedPrefManager.setLong(FILEBASE_CLEANING_LAST_RUN, DateTime.getCurrentTimeInMillis(), context);
     }
+
+
 
 
 }

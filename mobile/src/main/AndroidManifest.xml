@@ -272,7 +272,11 @@
             android:name=".services.UploadManagerService"
             android:exported="false" />
 
-        <activity android:name=".activities.SelectDailyGoal"></activity>
+        <activity android:name=".activities.SelectDailyGoal" />
+
+        <service
+            android:name=".services.DistanceCalculationService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

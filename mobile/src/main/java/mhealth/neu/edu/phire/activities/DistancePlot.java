@@ -77,7 +77,7 @@ public class DistancePlot extends AppCompatActivity {
     }
 
     private void addListenerOnButtonClick() throws IOException {
-        goalDistanceMile = Float.valueOf(actualGoalDistanceMile) * 1.2f;
+        goalDistanceMile = Float.valueOf(actualGoalDistanceMile) * 1.0f;
 
         int[] colors = {Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237)};
         text = (TextView) findViewById(R.id.DistancePlotTitle);
@@ -102,7 +102,7 @@ public class DistancePlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, -6);
         String firstDate = sdf.format(calCurrent.getTime());
-        String firstFile = featureDirectory + "/" + firstDate + "/" + "ActivityRecognitionResult.log.csv";
+        String firstFile = featureDirectory + "/" + firstDate + "/" + "DistanceTravelledInMiles.log.csv";
         File first = new File(firstFile);
         if (!first.exists()) {
             // set total for the day to be zero
@@ -117,7 +117,8 @@ public class DistancePlot extends AppCompatActivity {
             {
                 lastLine = sCurrentLine;
             }
-            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+            String distanceMeter = lastLine.split(",")[1].split("\\.")[0].substring(1);
             Log.i(TAG,"Distance day 1:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
@@ -137,7 +138,7 @@ public class DistancePlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String secondDate = sdf.format(calCurrent.getTime());
-        String secondFile = featureDirectory + "/" + secondDate + "/" + "ActivityRecognitionResult.log.csv";
+        String secondFile = featureDirectory + "/" + secondDate + "/" + "DistanceTravelledInMiles.log.csv";
         File second = new File(secondFile);
         if (!second.exists()) {
             // set total for the day to be zero
@@ -153,7 +154,9 @@ public class DistancePlot extends AppCompatActivity {
             {
                 lastLine = sCurrentLine;
             }
-            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+            String distanceMeter = lastLine.split(",")[1].split("\\.")[0].substring(1);
+
             Log.i(TAG,"Distance day 2:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
@@ -172,7 +175,7 @@ public class DistancePlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String thirdDate = sdf.format(calCurrent.getTime());
-        String thirdFile = featureDirectory + "/" + thirdDate + "/" + "ActivityRecognitionResult.log.csv";
+        String thirdFile = featureDirectory + "/" + thirdDate + "/" + "DistanceTravelledInMiles.log.csv";
         File third = new File(thirdFile);
         if (!third.exists()) {
             // set total for the day to be zero
@@ -187,7 +190,9 @@ public class DistancePlot extends AppCompatActivity {
             {
                 lastLine = sCurrentLine;
             }
-            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+            String distanceMeter = lastLine.split(",")[1].split("\\.")[0].substring(1);
+
             Log.i(TAG,"Distance day 3:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
@@ -205,7 +210,7 @@ public class DistancePlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String fourthDate = sdf.format(calCurrent.getTime());
-        String fourthFile = featureDirectory + "/" + fourthDate + "/" + "ActivityRecognitionResult.log.csv";
+        String fourthFile = featureDirectory + "/" + fourthDate + "/" + "DistanceTravelledInMiles.log.csv";
         File fourth = new File(fourthFile);
         if (!fourth.exists()) {
             // set total for the day to be zero
@@ -220,7 +225,9 @@ public class DistancePlot extends AppCompatActivity {
             {
                 lastLine = sCurrentLine;
             }
-            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+            String distanceMeter = lastLine.split(",")[1].split("\\.")[0].substring(1);
+
             Log.i(TAG,"Distance day 4:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
@@ -238,7 +245,7 @@ public class DistancePlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String fifthDate = sdf.format(calCurrent.getTime());
-        String fifthFile = featureDirectory + "/" + fifthDate + "/" + "ActivityRecognitionResult.log.csv";
+        String fifthFile = featureDirectory + "/" + fifthDate + "/" + "DistanceTravelledInMiles.log.csv";
         File fifth = new File(fifthFile);
         if (!fifth.exists()) {
             // set total for the day to be zero
@@ -253,7 +260,9 @@ public class DistancePlot extends AppCompatActivity {
             {
                 lastLine = sCurrentLine;
             }
-            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+            String distanceMeter = lastLine.split(",")[1].split("\\.")[0].substring(1);
+
             Log.i(TAG,"Distance day 5:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
@@ -271,7 +280,7 @@ public class DistancePlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String sixthDate = sdf.format(calCurrent.getTime());
-        String sixthFile = featureDirectory + "/" + sixthDate + "/" + "ActivityRecognitionResult.log.csv";
+        String sixthFile = featureDirectory + "/" + sixthDate + "/" + "DistanceTravelledInMiles.log.csv";
         File sixth = new File(sixthFile);
         if (!sixth.exists()) {
             // set total for the day to be zero
@@ -286,7 +295,9 @@ public class DistancePlot extends AppCompatActivity {
             {
                 lastLine = sCurrentLine;
             }
-            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+            String distanceMeter = lastLine.split(",")[1].split("\\.")[0].substring(1);
+
             Log.i(TAG,"Distance day 6:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){
                 distanceMeter = "0";
@@ -304,7 +315,7 @@ public class DistancePlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String currentDate = sdf.format(calCurrent.getTime());
-        String currentFile = featureDirectory + "/" + currentDate + "/" + "ActivityRecognitionResult.log.csv";
+        String currentFile = featureDirectory + "/" + currentDate + "/" + "DistanceTravelledInMiles.log.csv";
         File current = new File(currentFile);
         if (!current.exists()) {
             // set total for the day to be zero
@@ -320,7 +331,8 @@ public class DistancePlot extends AppCompatActivity {
             {
                 lastLine = sCurrentLine;
             }
-            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+//            String distanceMeter = lastLine.split(",")[4].split("\\.")[0].substring(1);
+            String distanceMeter = lastLine.split(",")[1].split("\\.")[0].substring(1);
 
             Log.i(TAG,"Distance day 7:"+distanceMeter,mContext);
             if(distanceMeter.equals("-1")){

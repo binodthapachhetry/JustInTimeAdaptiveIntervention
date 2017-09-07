@@ -87,7 +87,7 @@ public class EnergyPlot extends AppCompatActivity {
 
 
         float halfEEgoal = Float.valueOf(actualGoalEEkCal)/2f;
-        goalEEkCal = Float.valueOf(actualGoalEEkCal) * 1.2f;
+        goalEEkCal = Float.valueOf(actualGoalEEkCal) * 1.0f;
 
         int[] colors = {Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237),Color.rgb(100,149,237)};
         text = (TextView) findViewById(R.id.EEplotTitle);

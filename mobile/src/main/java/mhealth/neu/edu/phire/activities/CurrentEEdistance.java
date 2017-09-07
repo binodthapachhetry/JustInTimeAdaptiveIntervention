@@ -97,7 +97,9 @@ public class CurrentEEdistance extends AppCompatActivity {
         if (actualGoalEEkCal == null || actualGoalEEkCal == "") {
             actualGoalEEkCal = "0";
         }
-        goalEEkCal = Float.valueOf(actualGoalEEkCal) * 1.2f;
+        goalEEkCal = Float.valueOf(actualGoalEEkCal) * 1.0f;
+        Log.i(TAG,"Goal Energy expenditure kCal:"+Float.toString(goalEEkCal),mContext);
+
         if (eeKcal == null || eeKcal == "") {
             eeKcal = "0";
         }
@@ -157,7 +159,9 @@ public class CurrentEEdistance extends AppCompatActivity {
         if (actualGoalDistMile == null || actualGoalDistMile == "") {
             actualGoalDistMile = "0";
         }
-        goalDistMile = Float.valueOf(actualGoalDistMile) * METER_TO_MILE;
+        goalDistMile = Float.valueOf(actualGoalDistMile) * 1.0f;
+        Log.i(TAG,"Goal distance miles:"+Float.toString(goalDistMile),mContext);
+
         if (distMeter == null || distMeter == "") {
             distMeter = "0";
         }
@@ -173,9 +177,11 @@ public class CurrentEEdistance extends AppCompatActivity {
         Log.i(TAG,"Distance travelled in miles:"+Float.toString(distMile),mContext);
             barEntriesDist.add(new BarEntry(distMile,0));
 
-            if(distMile>Float.valueOf(actualGoalDistMile)) {
-                colors[0] = Color.rgb(34,139,54);
-            }
+//            if(distMile>Float.valueOf(actualGoalDistMile)) {
+            if(distMile>goalDistMile) {
+                    colors[0] = Color.rgb(34,139,54);
+                }
+//            }
 
 
 //        }
@@ -187,7 +193,9 @@ public class CurrentEEdistance extends AppCompatActivity {
         BarData barDataDist = new BarData(theDatesDist, barDataSetDist);
 
         ArrayList<Entry> lineDist = new ArrayList<>();
-        lineDist.add(new Entry(Float.valueOf(actualGoalDistMile),0));
+//        lineDist.add(new Entry(Float.valueOf(actualGoalDistMile),0));
+        lineDist.add(new Entry(goalDistMile,0));
+
 
 
         LineDataSet lineDataSetDist = new LineDataSet(lineDist, "Goal");
