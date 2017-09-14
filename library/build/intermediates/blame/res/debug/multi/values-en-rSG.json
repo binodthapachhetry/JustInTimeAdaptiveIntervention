@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rSG/values-en-rSG.xml",
+        "outputFile": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/res/values-en-rSG/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\8371053da66dfdb9c0f6d552ad715fc2e84c0fbc\\output\\res\\values-en-rSG\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

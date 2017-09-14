@@ -1,14 +1,14 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim-v21/design_bottom_sheet_slide_in.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim-v21/design_bottom_sheet_slide_out.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_appbar_state_list_animator.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\anim-v21\\design_appbar_state_list_animator.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/anim-v21/design_appbar_state_list_animator.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim-v21/design_appbar_state_list_animator.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
     }
 ]

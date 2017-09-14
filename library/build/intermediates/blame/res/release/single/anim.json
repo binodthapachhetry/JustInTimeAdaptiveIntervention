@@ -1,74 +1,74 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_fab_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_fab_out.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\trans_right_in.xml",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\anim\\trans_right_in.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_grow_fade_in_from_bottom.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\trans_left_out.xml",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\anim\\trans_left_out.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_fade_in.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_fade_out.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\anim\\design_fab_in.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/trans_right_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/anim/trans_right_out.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_fab_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_fab_in.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\trans_left_in.xml",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\anim\\trans_left_in.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_popup_enter.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\anim\\design_snackbar_out.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/trans_left_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/anim/trans_left_out.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/trans_right_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/anim/trans_right_in.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_snackbar_out.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_snackbar_out.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_out_bottom.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/design_snackbar_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/anim/design_snackbar_in.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_popup_exit.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\anim\\design_fab_out.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_in_top.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\trans_right_out.xml",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\anim\\trans_right_out.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_in_bottom.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/trans_left_in.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/anim/trans_left_in.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/anim/abc_slide_out_top.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\anim\\design_snackbar_in.xml"
     }
 ]

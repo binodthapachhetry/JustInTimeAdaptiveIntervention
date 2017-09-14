@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v22/values-v22.xml",
+        "outputFile": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v22\\values-v22.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 125
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-v22/values-v22.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 212
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-v22/values-v22.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -50,7 +50,7 @@
                     "endOffset": 548
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-v22/values-v22.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -71,7 +71,7 @@
                     "endOffset": 896
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-v22/values-v22.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,

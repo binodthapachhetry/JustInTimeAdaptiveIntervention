@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-gl/values-gl.xml",
+        "outputFile": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-gl\\values-gl.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 180
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 276
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 366
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 488
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 574
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 690
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 807
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 931
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 1034
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1138
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1217
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1312
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1410
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1518
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1596
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 1732
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\28f444a442d26e5f3cfba067b2cafa9b482b9fcc\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1872
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\28f444a442d26e5f3cfba067b2cafa9b482b9fcc\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 1971
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\28f444a442d26e5f3cfba067b2cafa9b482b9fcc\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 2047
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -372,7 +372,7 @@
                     "endOffset": 2126
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -391,7 +391,7 @@
                     "endOffset": 2206
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -410,7 +410,7 @@
                     "endOffset": 2302
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -429,7 +429,7 @@
                     "endOffset": 2401
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -448,7 +448,7 @@
                     "endOffset": 2505
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 24,
                         "startColumn": 4,
@@ -467,7 +467,7 @@
                     "endOffset": 2611
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 25,
                         "startColumn": 4,
@@ -486,7 +486,7 @@
                     "endOffset": 2717
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -505,7 +505,7 @@
                     "endOffset": 2791
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 27,
                         "startColumn": 4,
@@ -524,7 +524,7 @@
                     "endOffset": 2896
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 28,
                         "startColumn": 4,
@@ -543,7 +543,7 @@
                     "endOffset": 2993
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 29,
                         "startColumn": 4,
@@ -562,7 +562,7 @@
                     "endOffset": 3094
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
@@ -581,7 +581,7 @@
                     "endOffset": 3238
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 31,
                         "startColumn": 4,
@@ -600,7 +600,7 @@
                     "endOffset": 3382
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -619,7 +619,7 @@
                     "endOffset": 3525
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 33,
                         "startColumn": 4,
@@ -638,7 +638,7 @@
                     "endOffset": 3620
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 34,
                         "startColumn": 4,
@@ -657,7 +657,7 @@
                     "endOffset": 3716
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 35,
                         "startColumn": 4,
@@ -676,7 +676,7 @@
                     "endOffset": 3822
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 36,
                         "startColumn": 4,
@@ -695,7 +695,7 @@
                     "endOffset": 3906
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 37,
                         "startColumn": 4,
@@ -714,7 +714,7 @@
                     "endOffset": 4014
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -733,7 +733,7 @@
                     "endOffset": 4209
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -752,7 +752,7 @@
                     "endOffset": 4340
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -771,7 +771,7 @@
                     "endOffset": 4450
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -790,7 +790,7 @@
                     "endOffset": 4671
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -809,7 +809,7 @@
                     "endOffset": 4892
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -828,7 +828,7 @@
                     "endOffset": 5026
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -847,7 +847,7 @@
                     "endOffset": 5164
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -866,7 +866,7 @@
                     "endOffset": 5416
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\8e2770d43b98eacfa920423f937a2cc281601842\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -885,7 +885,7 @@
                     "endOffset": 5683
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -904,7 +904,7 @@
                     "endOffset": 5810
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -923,7 +923,7 @@
                     "endOffset": 5921
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -942,7 +942,7 @@
                     "endOffset": 6121
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -961,7 +961,7 @@
                     "endOffset": 6258
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -980,7 +980,7 @@
                     "endOffset": 6482
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -999,7 +999,7 @@
                     "endOffset": 6623
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -1018,7 +1018,7 @@
                     "endOffset": 6805
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -1037,7 +1037,7 @@
                     "endOffset": 6902
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -1056,7 +1056,7 @@
                     "endOffset": 7001
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -1075,7 +1075,7 @@
                     "endOffset": 7115
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -1094,7 +1094,7 @@
                     "endOffset": 7219
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\51ae075f51b9be8534f259689f1b6f84d8ac4e2b\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1113,7 +1113,7 @@
                     "endOffset": 7315
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\51ae075f51b9be8534f259689f1b6f84d8ac4e2b\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1132,7 +1132,7 @@
                     "endOffset": 7422
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/res/values-gl/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\8371053da66dfdb9c0f6d552ad715fc2e84c0fbc\\output\\res\\values-gl\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

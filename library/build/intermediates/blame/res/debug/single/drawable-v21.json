@@ -1,22 +1,22 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/drawable-v21/design_bottom_navigation_item_background.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-v21/abc_edit_text_material.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-v21/notification_action_background.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-v21/abc_btn_colored_material.xml"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
     }
 ]

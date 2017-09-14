@@ -39,6 +39,7 @@ import mhealth.neu.edu.phire.R;
 import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.activities.CurrentEEdistance;
 import mhealth.neu.edu.phire.activities.FeedbackChoices;
+import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 import mhealth.neu.edu.phire.support.Util;
 import mhealth.neu.edu.phire.services.AccelerationManagerService;
 
@@ -293,23 +294,50 @@ public class MinuteService extends WocketsIntentService {
         int emaSurveysCompleted = DataManager.getEMASurveyCompletedCountForDate(mContext, DateTime.getDate());
         int emaSurveysMissed = emaSurveysPrompted - emaSurveysCompleted;
 
-        Intent myIntent = new Intent(mContext, CurrentEEdistance.class);
-        PendingIntent pIntent = PendingIntent.getActivity(
-                mContext,
-                0,
-                myIntent,
-                Intent.FLAG_ACTIVITY_NEW_TASK);
+        if(TEMPLEDataManager.getSecondPhaseActive(mContext)){
+            Intent myIntent = new Intent(mContext, CurrentEEdistance.class);
+            PendingIntent pIntent = PendingIntent.getActivity(
+                    mContext,
+                    0,
+                    myIntent,
+                    Intent.FLAG_ACTIVITY_NEW_TASK);
+            showMinuteServiceNotification(
+                    mContext,
+                    TEMPLEConstants.STUDY_NAME,
+                    pIntent,
+                    "Prompted: " + emaSurveysPrompted +
+                            ", Completed: " + emaSurveysCompleted +
+                            ", Missed: " + emaSurveysMissed,
+                    R.mipmap.ic_launcher
+            );
+        }else{
+            NotificationManager.showMinuteServiceNotification(
+                            mContext,
+                            TEMPLEConstants.STUDY_NAME,
+                            "Prompted: " + emaSurveysPrompted +
+                                    ", Completed: " + emaSurveysCompleted +
+                                    ", Missed: " + emaSurveysMissed,
+                            R.mipmap.ic_launcher
+                    );
+        }
 
-//        NotificationManager.showMinuteServiceNotification(
-        showMinuteServiceNotification(
-                mContext,
-                TEMPLEConstants.STUDY_NAME,
-                pIntent,
-                "Prompted: " + emaSurveysPrompted +
-                        ", Completed: " + emaSurveysCompleted +
-                        ", Missed: " + emaSurveysMissed,
-                R.mipmap.ic_launcher
-        );
+//        Intent myIntent = new Intent(mContext, CurrentEEdistance.class);
+//        PendingIntent pIntent = PendingIntent.getActivity(
+//                mContext,
+//                0,
+//                myIntent,
+//                Intent.FLAG_ACTIVITY_NEW_TASK);
+//
+////        NotificationManager.showMinuteServiceNotification(
+//        showMinuteServiceNotification(
+//                mContext,
+//                TEMPLEConstants.STUDY_NAME,
+//                pIntent,
+//                "Prompted: " + emaSurveysPrompted +
+//                        ", Completed: " + emaSurveysCompleted +
+//                        ", Missed: " + emaSurveysMissed,
+//                R.mipmap.ic_launcher
+//        );
     }
 
     private void notifyUserStudyEnded(long eTime) {

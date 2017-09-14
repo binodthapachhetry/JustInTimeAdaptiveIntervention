@@ -90,6 +90,18 @@ public class TEMPLEDataManager {
     }
 
     //--------------------------------------------------------------------------------------------//
+    private static final String PHASE_TWO_ACTIVE = "PHASE_TWO_ACTIVE";
+
+    public static boolean getSecondPhaseActive(Context mContext){
+        return SharedPrefManager.getBoolean(PHASE_TWO_ACTIVE , false, mContext);
+    }
+
+    public static void setSecondPhaseActive(Context mContext, boolean phasetwoactive) {
+        SharedPrefManager.setBoolean(PHASE_TWO_ACTIVE, phasetwoactive, mContext);
+    }
+
+
+    //--------------------------------------------------------------------------------------------//
     private static final String PANOBIKE_LAST_CONNECTED_TIME = "PANOBIKE_LAST_CONNECTED_TIME";
 
     public static String getPanoBikeLastConnectionTime(Context mContext){

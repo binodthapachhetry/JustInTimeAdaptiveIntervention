@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+        "outputFile": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 120
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 184
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 255
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 323
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 415
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-land/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-land\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 506
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-land/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-land\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 605
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-land/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-land\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 700
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/values-land/values.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-land\\values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 775
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 853
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 928
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -221,7 +221,7 @@
                     "endOffset": 1110
                 },
                 "from": {
-                    "file": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.android.support/design/25.0.0/res/values-land/values-land.xml",
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\a04c6d2181dd099377d4739eda4a673f129917a3\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

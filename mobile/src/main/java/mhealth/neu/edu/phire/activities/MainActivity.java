@@ -2,12 +2,17 @@ package mhealth.neu.edu.phire.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -38,10 +43,16 @@ import edu.neu.android.wocketslib.utils.SharedPrefs;
 public class MainActivity extends WocketsActivity {
 
     private static final String TAG = "MainActivity";
+    private static final String PASSWORD_PHASETWO = "passive";
+    private static final String PASSWORD_PHASETHREE = "intervene";
+
     public static final String watchTimeFormat = "yyyy-MM-dd HH:mm:ss";
 
     private Context mContext;
     private Activity mActivity;
+
+    @BindView(R.id.activate_phase_second)
+    Button activateStageTwo;
 
     @BindView(R.id.activity_main_app_version)
     TextView appVersionTextView;
@@ -75,6 +86,9 @@ public class MainActivity extends WocketsActivity {
 
     private int backgroundImageClick = 1;
 
+    private String secondPhase_Text = "";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +109,10 @@ public class MainActivity extends WocketsActivity {
             appVersionTextView.setText("App Version: " + version);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Cannot get version info", e, mContext);
+        }
+
+        if(TEMPLEDataManager.getSecondPhaseActive(mContext)){
+            activateStageTwo.setEnabled(false);
         }
 
         String dateString = new SimpleDateFormat(watchTimeFormat).format(new Date(SharedPrefs.getLong("LAST_WATCH_IN_CONNECTION_TIME",0, mContext)));
@@ -166,6 +184,42 @@ public class MainActivity extends WocketsActivity {
 //        startActivity(intent);
 //    }
 
+    @OnClick(R.id.activate_phase_second)
+    public void onClickActivatePhaseTwo(View view) {
+        Log.i(TAG,"Clicked to activate phase two",mContext);
+        Study study = DataManager.getStudy(mContext);
+        if (study == null) {
+            Log.e(TAG, "onClickActivatePhaseTwo - No study found", mContext);
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter password to unlock phase II:");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                secondPhase_Text = input.getText().toString();
+                if(secondPhase_Text.equals(PASSWORD_PHASETWO)){
+                    TEMPLEDataManager.setSecondPhaseActive(mContext,true);
+                }else{
+                    ToastManager.showShortToast(mContext, "Wrong password. Try again.");
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
 
 }
 

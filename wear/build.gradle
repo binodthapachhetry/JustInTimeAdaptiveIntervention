@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion '26'
     defaultConfig {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 47
-        versionName "1.46"
+        versionCode 48
+        versionName "1.47"
         multiDexEnabled  true
     }
     buildTypes {

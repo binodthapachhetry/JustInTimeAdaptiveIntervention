@@ -1,26 +1,26 @@
 [
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio4.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio4.mp3"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\raw\\gtm_analytics",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\7beb243d55582737113825ab4c49849d30f30457\\output\\res\\raw\\gtm_analytics"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/gtm_analytics",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/res/raw/gtm_analytics"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\raw\\audio5.wav",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\raw\\audio5.wav"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio1.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio1.mp3"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\raw\\audio2.mp3",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\raw\\audio2.mp3"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio5.wav",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio5.wav"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\raw\\audio4.mp3",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\raw\\audio4.mp3"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio2.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio2.mp3"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\raw\\audio1.mp3",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\raw\\audio1.mp3"
     },
     {
-        "merged": "/Users/jarvis/AndroidStudioProjects/phire/library/build/intermediates/res/merged/release/raw/audio3.mp3",
-        "source": "/Users/jarvis/AndroidStudioProjects/phire/library/src/main/res/raw/audio3.mp3"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\raw\\audio3.mp3",
+        "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\src\\main\\res\\raw\\audio3.mp3"
     }
 ]
