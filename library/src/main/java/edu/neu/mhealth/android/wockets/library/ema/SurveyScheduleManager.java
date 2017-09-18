@@ -44,6 +44,15 @@ public class SurveyScheduleManager {
                     long randomTime = startTime + (long)(Math.random() * diff);
                     Log.i(TAG, "Survey " + promptTime.key + " scheduled for " + DateTime.getTimestampString(randomTime), mContext);
                     DataManager.setSurveyScheduleTimeForDateByKey(mContext, promptTime.key, DateTime.getDate(), randomTime);
+                }else{
+                    Log.i(TAG, "Setting schedule for non-random survey", mContext);
+                    long startTime = DateTime.getTimeInMillis(DataManager.getWeeklySurveyStartHour(mContext),DataManager.getWeeklySurveyStartMinute(mContext));
+                    long endTime = DateTime.getTimeInMillis(DataManager.getWeeklySurveyStopHour(mContext),DataManager.getWeeklySurveyStopMinute(mContext));
+
+                    long diff = endTime - startTime + 1;
+                    long randomTime = startTime + (long)(Math.random() * diff);
+                    Log.i(TAG, "Survey " + promptTime.key + " scheduled for " + DateTime.getTimestampString(randomTime), mContext);
+                    DataManager.setSurveyScheduleTimeForDateByKey(mContext, promptTime.key, DateTime.getDate(), randomTime);
                 }
             }
         }else{

@@ -96,6 +96,10 @@ public class SurveyManagerService extends IntentService {
             switch(survey.surveyName){
                 case TEMPLEConstants.KEY_WEEKLY_SURVEY:
                     String DayOfWeekToPrompt = TEMPLEDataManager.getWeeklySurveyDay(mContext);
+                    if(DayOfWeekToPrompt == ""){
+                        Log.i(TAG,"No day defined for weekly survey:" + survey.surveyName,mContext);
+                        break;
+                    }
                     Calendar calendar = Calendar.getInstance();
                     Date date = calendar.getTime();
                     String today = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime());
@@ -122,11 +126,29 @@ public class SurveyManagerService extends IntentService {
         // Prompt survey if time
         for(Survey survey : surveys){
             Log.i(TAG,"Survey name:"+survey.surveyName,mContext);
-            if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
-                Log.i(TAG,"Starting survey service to prompt:"+survey.surveyName,mContext);
-                DataManager.setSelectedSurveyName(mContext,survey.surveyName);
-                startService(new Intent(getApplicationContext(), SurveyService.class));
+            switch(survey.surveyName){
+                case TEMPLEConstants.KEY_WEEKLY_SURVEY:
+                    String DayOfWeekToPrompt = TEMPLEDataManager.getWeeklySurveyDay(mContext);
+                    if(DayOfWeekToPrompt == ""){
+                        Log.i(TAG,"No day defined for weekly survey:" + survey.surveyName,mContext);
+                        break;
+                    }
+                    if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
+                        Log.i(TAG,"Starting survey service to prompt:"+survey.surveyName,mContext);
+                        DataManager.setSelectedSurveyName(mContext,survey.surveyName);
+                        startService(new Intent(getApplicationContext(), SurveyService.class));
+                    }
+                    break;
+                case TEMPLEConstants.KEY_EMA_SURVEY:
+                    if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
+                        Log.i(TAG,"Starting survey service to prompt:"+survey.surveyName,mContext);
+                        DataManager.setSelectedSurveyName(mContext,survey.surveyName);
+                        startService(new Intent(getApplicationContext(), SurveyService.class));
+                    }
+                    break;
+
             }
+
         }
     }
 

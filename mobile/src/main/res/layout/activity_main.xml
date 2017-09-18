@@ -44,6 +44,13 @@
             android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/activity_survey_day_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weekly survey schedule:"
+            android:textSize="15sp" />
+
+        <TextView
             android:id="@+id/activity_main_watch_connected_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

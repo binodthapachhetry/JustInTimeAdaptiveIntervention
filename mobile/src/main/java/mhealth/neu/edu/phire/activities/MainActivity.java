@@ -58,6 +58,9 @@ public class MainActivity extends WocketsActivity {
     @BindView(R.id.activity_main_app_version)
     TextView appVersionTextView;
 
+    @BindView(R.id.activity_survey_day_time)
+    TextView weeklySurveyScheduleView;
+
     @BindView(R.id.activity_main_watch_connected_time)
     TextView watchConnectionView;
 
@@ -118,7 +121,12 @@ public class MainActivity extends WocketsActivity {
 
         String dateString = new SimpleDateFormat(watchTimeFormat).format(new Date(SharedPrefs.getLong("LAST_WATCH_IN_CONNECTION_TIME",0, mContext)));
 
-
+        if(TEMPLEDataManager.getWeeklySurveyDay(mContext) == null){
+            Log.i(TAG, "No weekly survey schedule set", mContext);
+        }else{
+           String tmp =  TEMPLEDataManager.getWeeklySurveyDay(mContext) +","+ Integer.toString(DataManager.getWeeklySurveyStartHour(mContext))+":" + Integer.toString(DataManager.getWeeklySurveyStartMinute(mContext)) +" to " + Integer.toString(DataManager.getWeeklySurveyStopHour(mContext))+":" + Integer.toString(DataManager.getWeeklySurveyStopMinute(mContext));
+            weeklySurveyScheduleView.setText("Weekly survey schedule:"+tmp);
+        }
         watchConnectionView.setText("WatchConnected: " + dateString);
         selectedSurvey.setText("Selected Survey: " + DataManager.getSelectedSurveyName(mContext));
         selectedLanguage.setText("Selected Language: " + DataManager.getSelectedLanguage(mContext));
@@ -136,7 +144,7 @@ public class MainActivity extends WocketsActivity {
             long startTime = DateTime.getTimeInMillis(TEMPLEConstants.START_HOUR, TEMPLEConstants.START_MINUTE);
             DataManager.setStartDate(mContext, startTime);
             String today = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(startTime);
-            TEMPLEDataManager.setWeeklySurveyDay(mContext,today);
+//            TEMPLEDataManager.setWeeklySurveyDay(mContext,today);
             ToastManager.showShortToast(mContext, "Start Time set as " + DateTime.getTimestampString(startTime));
             Log.i(TAG, "Start Time set as " + DateTime.getTimestampString(startTime), mContext);
         }

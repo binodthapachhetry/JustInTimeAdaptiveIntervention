@@ -8,6 +8,7 @@
     <string name="select_survey">Select Survey</string>
     <string name="select_language">Select Language</string>
     <string name="select_start_date">Select Start Date</string>
+    <string name="select_start_date_survey">Select Start Date For Weekly Survey</string>
     <string name="select_end_date">Select End Date</string>
     <string name="start_demo">Start Demo</string>
     <string name="select_wake_time">Select Wake Time</string>
@@ -70,5 +71,8 @@
 
     <string name="EnterPhaseTwo">Enter Phase Two</string>
 
+    <string name="weeklySurveyDay">Select Day For Weekly Survey</string>
+    <string name="weeklySurveyStartTime">Select Start Time For Weekly Survey</string>
+    <string name="weeklySurveyStopTime">Select Stop Time For Weekly Survey</string>
 
 </resources>

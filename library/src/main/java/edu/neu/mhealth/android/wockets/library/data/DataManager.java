@@ -669,4 +669,43 @@ public class DataManager {
     }
 
     //--------------------------------------------------------------------------------------------//
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String WEEKLY_SURVEY_START_HOUR = "WEEKLY_SURVEY_START_HOUR";
+
+    public static int getWeeklySurveyStartHour(Context mContext) {
+        return SharedPrefManager.getInt(WEEKLY_SURVEY_START_HOUR,19 , mContext);
+    }
+    public static void setWeeklySurveyStartHour(Context mContext, int startHour) {
+        SharedPrefManager.setInt(WEEKLY_SURVEY_START_HOUR, startHour, mContext);
+    }
+
+    private static final String WEEKLY_SURVEY_START_MINUTE = "WEEKLY_SURVEY_START_MINUTE";
+
+    public static int getWeeklySurveyStartMinute(Context mContext) {
+        return SharedPrefManager.getInt(WEEKLY_SURVEY_START_MINUTE,0 , mContext);
+    }
+    public static void setWeeklySurveyStartMinute(Context mContext, int startMinute) {
+        SharedPrefManager.setInt(WEEKLY_SURVEY_START_MINUTE, startMinute, mContext);
+    }
+
+
+    private static final String WEEKLY_SURVEY_STOP_HOUR = "WEEKLY_SURVEY_STOP_HOUR";
+
+    public static int getWeeklySurveyStopHour(Context mContext) {
+        return SharedPrefManager.getInt(WEEKLY_SURVEY_STOP_HOUR,20 , mContext);
+    }
+    public static void setWeeklySurveyStopHour(Context mContext, int stopHour) {
+        SharedPrefManager.setInt(WEEKLY_SURVEY_STOP_HOUR, stopHour, mContext);
+    }
+
+    private static final String WEEKLY_SURVEY_STOP_MINUTE = "WEEKLY_SURVEY_STOP_MINUTE";
+
+    public static int getWeeklySurveyStopMinute(Context mContext) {
+        return SharedPrefManager.getInt(WEEKLY_SURVEY_STOP_MINUTE,0 , mContext);
+    }
+    public static void setWeeklySurveyStopMinute(Context mContext, int stopMinute) {
+        SharedPrefManager.setInt(WEEKLY_SURVEY_STOP_MINUTE, stopMinute, mContext);
+    }
+    //--------------------------------------------------------------------------------------------//
 }

@@ -104,6 +104,17 @@
                 android:textAllCaps="false"/>
 
             <Button
+                android:id="@+id/activity_setup_select_day_time_for_survey"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_start_date_survey"
+                android:textAllCaps="false"/>
+
+
+            <Button
                 android:id="@+id/activity_setup_select_end_date"
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
                 android:layout_marginRight="@dimen/activity_vertical_margin"

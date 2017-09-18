@@ -149,9 +149,6 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
 
     }
 
-
-
-
     @OnClick(R.id.activity_setup_select_language)
     public void onClickSelectLanguage() {
         Study study = DataManager.getStudy(mContext);
@@ -227,7 +224,7 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
                         Log.i(TAG, "Start Date set as " + DateTime.getTimestampString(startTime), mContext);
 
                         String today = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(startTime);
-                        TEMPLEDataManager.setWeeklySurveyDay(mContext,today);
+//                        TEMPLEDataManager.setWeeklySurveyDay(mContext,today);
 
                         Date endDate = new Date(startTime);
                         Calendar myCal = Calendar.getInstance();
@@ -244,6 +241,18 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
                 DateTime.getDayOfMonth(millis)
         );
         datePickerDialog.show();
+    }
+
+    @OnClick(R.id.activity_setup_select_day_time_for_survey)
+    public void onClickSelectDayTimeForSurvey() {
+        Log.i(TAG,"onClickSelectDayTimeForSurvey screen",mContext);
+        Study study = DataManager.getStudy(mContext);
+        if (study == null) {
+            Log.e(TAG, "onClickSelectDayTimeForSurvey - No study found", mContext);
+            return;
+        }
+        Intent intent = new Intent(this, SelectDayTimeForWeeklySurvey.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.activity_setup_select_end_date)
