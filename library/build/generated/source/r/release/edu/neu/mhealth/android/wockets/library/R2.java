@@ -1981,16 +1981,19 @@ public final class R2 {
     public static final int activity_vertical_margin = 0x7f08005e;
 
     @DimenRes
+    public static final int activity_vertical_margin_phire = 0x7f08005f;
+
+    @DimenRes
     public static final int cast_expanded_controller_ad_in_progress_label_layout_height = 0x7f080005;
 
     @DimenRes
     public static final int cast_expanded_controller_ad_in_progress_label_layout_width = 0x7f080006;
 
     @DimenRes
-    public static final int cast_expanded_controller_control_button_margin = 0x7f08005f;
+    public static final int cast_expanded_controller_control_button_margin = 0x7f080060;
 
     @DimenRes
-    public static final int cast_expanded_controller_control_toolbar_min_height = 0x7f080060;
+    public static final int cast_expanded_controller_control_toolbar_min_height = 0x7f080061;
 
     @DimenRes
     public static final int cast_expanded_controller_margin_between_seek_bar_and_control_buttons = 0x7f080007;
@@ -1999,136 +2002,136 @@ public final class R2 {
     public static final int cast_expanded_controller_margin_between_status_text_and_seek_bar = 0x7f080008;
 
     @DimenRes
-    public static final int cast_intro_overlay_button_margin_bottom = 0x7f080061;
+    public static final int cast_intro_overlay_button_margin_bottom = 0x7f080062;
 
     @DimenRes
-    public static final int cast_intro_overlay_focus_radius = 0x7f080062;
+    public static final int cast_intro_overlay_focus_radius = 0x7f080063;
 
     @DimenRes
-    public static final int cast_intro_overlay_title_margin_top = 0x7f080063;
+    public static final int cast_intro_overlay_title_margin_top = 0x7f080064;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_center_horizontal_offset = 0x7f080064;
+    public static final int cast_libraries_material_featurehighlight_center_horizontal_offset = 0x7f080065;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_center_threshold = 0x7f080065;
+    public static final int cast_libraries_material_featurehighlight_center_threshold = 0x7f080066;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_inner_margin = 0x7f080066;
+    public static final int cast_libraries_material_featurehighlight_inner_margin = 0x7f080067;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_inner_radius = 0x7f080067;
+    public static final int cast_libraries_material_featurehighlight_inner_radius = 0x7f080068;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_outer_padding = 0x7f080068;
+    public static final int cast_libraries_material_featurehighlight_outer_padding = 0x7f080069;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_body_size = 0x7f080069;
+    public static final int cast_libraries_material_featurehighlight_text_body_size = 0x7f08006a;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_header_size = 0x7f08006a;
+    public static final int cast_libraries_material_featurehighlight_text_header_size = 0x7f08006b;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_horizontal_margin = 0x7f08006b;
+    public static final int cast_libraries_material_featurehighlight_text_horizontal_margin = 0x7f08006c;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_horizontal_offset = 0x7f08006c;
+    public static final int cast_libraries_material_featurehighlight_text_horizontal_offset = 0x7f08006d;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_max_width = 0x7f08006d;
+    public static final int cast_libraries_material_featurehighlight_text_max_width = 0x7f08006e;
 
     @DimenRes
-    public static final int cast_libraries_material_featurehighlight_text_vertical_space = 0x7f08006e;
+    public static final int cast_libraries_material_featurehighlight_text_vertical_space = 0x7f08006f;
 
     @DimenRes
-    public static final int cast_mini_controller_control_button_margin = 0x7f08006f;
+    public static final int cast_mini_controller_control_button_margin = 0x7f080070;
 
     @DimenRes
-    public static final int cast_mini_controller_font_size_line1 = 0x7f080070;
+    public static final int cast_mini_controller_font_size_line1 = 0x7f080071;
 
     @DimenRes
-    public static final int cast_mini_controller_font_size_line2 = 0x7f080071;
+    public static final int cast_mini_controller_font_size_line2 = 0x7f080072;
 
     @DimenRes
-    public static final int cast_mini_controller_icon_height = 0x7f080072;
+    public static final int cast_mini_controller_icon_height = 0x7f080073;
 
     @DimenRes
-    public static final int cast_mini_controller_icon_width = 0x7f080073;
+    public static final int cast_mini_controller_icon_width = 0x7f080074;
 
     @DimenRes
-    public static final int cast_notification_image_size = 0x7f080074;
+    public static final int cast_notification_image_size = 0x7f080075;
 
     @DimenRes
-    public static final int cast_tracks_chooser_dialog_no_message_text_size = 0x7f080075;
+    public static final int cast_tracks_chooser_dialog_no_message_text_size = 0x7f080076;
 
     @DimenRes
-    public static final int cast_tracks_chooser_dialog_row_text_size = 0x7f080076;
+    public static final int cast_tracks_chooser_dialog_row_text_size = 0x7f080077;
 
     @DimenRes
-    public static final int design_appbar_elevation = 0x7f080077;
+    public static final int design_appbar_elevation = 0x7f080078;
 
     @DimenRes
-    public static final int design_bottom_navigation_active_item_max_width = 0x7f080078;
+    public static final int design_bottom_navigation_active_item_max_width = 0x7f080079;
 
     @DimenRes
-    public static final int design_bottom_navigation_active_text_size = 0x7f080079;
+    public static final int design_bottom_navigation_active_text_size = 0x7f08007a;
 
     @DimenRes
-    public static final int design_bottom_navigation_height = 0x7f08007a;
+    public static final int design_bottom_navigation_height = 0x7f08007b;
 
     @DimenRes
-    public static final int design_bottom_navigation_item_max_width = 0x7f08007b;
+    public static final int design_bottom_navigation_item_max_width = 0x7f08007c;
 
     @DimenRes
-    public static final int design_bottom_navigation_item_min_width = 0x7f08007c;
+    public static final int design_bottom_navigation_item_min_width = 0x7f08007d;
 
     @DimenRes
-    public static final int design_bottom_navigation_margin = 0x7f08007d;
+    public static final int design_bottom_navigation_margin = 0x7f08007e;
 
     @DimenRes
-    public static final int design_bottom_navigation_text_size = 0x7f08007e;
+    public static final int design_bottom_navigation_text_size = 0x7f08007f;
 
     @DimenRes
-    public static final int design_bottom_sheet_modal_elevation = 0x7f08007f;
+    public static final int design_bottom_sheet_modal_elevation = 0x7f080080;
 
     @DimenRes
-    public static final int design_bottom_sheet_peek_height_min = 0x7f080080;
+    public static final int design_bottom_sheet_peek_height_min = 0x7f080081;
 
     @DimenRes
-    public static final int design_fab_border_width = 0x7f080081;
+    public static final int design_fab_border_width = 0x7f080082;
 
     @DimenRes
-    public static final int design_fab_elevation = 0x7f080082;
+    public static final int design_fab_elevation = 0x7f080083;
 
     @DimenRes
-    public static final int design_fab_image_size = 0x7f080083;
+    public static final int design_fab_image_size = 0x7f080084;
 
     @DimenRes
-    public static final int design_fab_size_mini = 0x7f080084;
+    public static final int design_fab_size_mini = 0x7f080085;
 
     @DimenRes
-    public static final int design_fab_size_normal = 0x7f080085;
+    public static final int design_fab_size_normal = 0x7f080086;
 
     @DimenRes
-    public static final int design_fab_translation_z_pressed = 0x7f080086;
+    public static final int design_fab_translation_z_pressed = 0x7f080087;
 
     @DimenRes
-    public static final int design_navigation_elevation = 0x7f080087;
+    public static final int design_navigation_elevation = 0x7f080088;
 
     @DimenRes
-    public static final int design_navigation_icon_padding = 0x7f080088;
+    public static final int design_navigation_icon_padding = 0x7f080089;
 
     @DimenRes
-    public static final int design_navigation_icon_size = 0x7f080089;
+    public static final int design_navigation_icon_size = 0x7f08008a;
 
     @DimenRes
     public static final int design_navigation_max_width = 0x7f080017;
 
     @DimenRes
-    public static final int design_navigation_padding_bottom = 0x7f08008a;
+    public static final int design_navigation_padding_bottom = 0x7f08008b;
 
     @DimenRes
-    public static final int design_navigation_separator_vertical_padding = 0x7f08008b;
+    public static final int design_navigation_separator_vertical_padding = 0x7f08008c;
 
     @DimenRes
     public static final int design_snackbar_action_inline_max_width = 0x7f080018;
@@ -2137,7 +2140,7 @@ public final class R2 {
     public static final int design_snackbar_background_corner_radius = 0x7f080019;
 
     @DimenRes
-    public static final int design_snackbar_elevation = 0x7f08008c;
+    public static final int design_snackbar_elevation = 0x7f08008d;
 
     @DimenRes
     public static final int design_snackbar_extra_spacing_horizontal = 0x7f08001a;
@@ -2149,67 +2152,67 @@ public final class R2 {
     public static final int design_snackbar_min_width = 0x7f08001c;
 
     @DimenRes
-    public static final int design_snackbar_padding_horizontal = 0x7f08008d;
+    public static final int design_snackbar_padding_horizontal = 0x7f08008e;
 
     @DimenRes
-    public static final int design_snackbar_padding_vertical = 0x7f08008e;
+    public static final int design_snackbar_padding_vertical = 0x7f08008f;
 
     @DimenRes
     public static final int design_snackbar_padding_vertical_2lines = 0x7f08001d;
 
     @DimenRes
-    public static final int design_snackbar_text_size = 0x7f08008f;
+    public static final int design_snackbar_text_size = 0x7f080090;
 
     @DimenRes
-    public static final int design_tab_max_width = 0x7f080090;
+    public static final int design_tab_max_width = 0x7f080091;
 
     @DimenRes
     public static final int design_tab_scrollable_min_width = 0x7f08001e;
 
     @DimenRes
-    public static final int design_tab_text_size = 0x7f080091;
+    public static final int design_tab_text_size = 0x7f080092;
 
     @DimenRes
-    public static final int design_tab_text_size_2line = 0x7f080092;
+    public static final int design_tab_text_size_2line = 0x7f080093;
 
     @DimenRes
-    public static final int disabled_alpha_material_dark = 0x7f080093;
+    public static final int disabled_alpha_material_dark = 0x7f080094;
 
     @DimenRes
-    public static final int disabled_alpha_material_light = 0x7f080094;
+    public static final int disabled_alpha_material_light = 0x7f080095;
 
     @DimenRes
-    public static final int fab_margin = 0x7f080095;
+    public static final int fab_margin = 0x7f080096;
 
     @DimenRes
-    public static final int highlight_alpha_material_colored = 0x7f080096;
+    public static final int highlight_alpha_material_colored = 0x7f080097;
 
     @DimenRes
-    public static final int highlight_alpha_material_dark = 0x7f080097;
+    public static final int highlight_alpha_material_dark = 0x7f080098;
 
     @DimenRes
-    public static final int highlight_alpha_material_light = 0x7f080098;
+    public static final int highlight_alpha_material_light = 0x7f080099;
 
     @DimenRes
-    public static final int hint_alpha_material_dark = 0x7f080099;
+    public static final int hint_alpha_material_dark = 0x7f08009a;
 
     @DimenRes
-    public static final int hint_alpha_material_light = 0x7f08009a;
+    public static final int hint_alpha_material_light = 0x7f08009b;
 
     @DimenRes
-    public static final int hint_pressed_alpha_material_dark = 0x7f08009b;
+    public static final int hint_pressed_alpha_material_dark = 0x7f08009c;
 
     @DimenRes
-    public static final int hint_pressed_alpha_material_light = 0x7f08009c;
+    public static final int hint_pressed_alpha_material_light = 0x7f08009d;
 
     @DimenRes
-    public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f08009d;
+    public static final int item_touch_helper_max_drag_scroll_per_frame = 0x7f08009e;
 
     @DimenRes
-    public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f08009e;
+    public static final int item_touch_helper_swipe_escape_max_velocity = 0x7f08009f;
 
     @DimenRes
-    public static final int item_touch_helper_swipe_escape_velocity = 0x7f08009f;
+    public static final int item_touch_helper_swipe_escape_velocity = 0x7f0800a0;
 
     @DimenRes
     public static final int mr_controller_volume_group_list_item_height = 0x7f080009;
@@ -2221,7 +2224,7 @@ public final class R2 {
     public static final int mr_controller_volume_group_list_max_height = 0x7f08000b;
 
     @DimenRes
-    public static final int mr_controller_volume_group_list_padding_top = 0x7f0800a0;
+    public static final int mr_controller_volume_group_list_padding_top = 0x7f0800a1;
 
     @DimenRes
     public static final int mr_dialog_fixed_width_major = 0x7f08001f;
@@ -2230,28 +2233,28 @@ public final class R2 {
     public static final int mr_dialog_fixed_width_minor = 0x7f080020;
 
     @DimenRes
-    public static final int nav_header_height = 0x7f0800a1;
+    public static final int nav_header_height = 0x7f0800a2;
 
     @DimenRes
-    public static final int nav_header_vertical_spacing = 0x7f0800a2;
+    public static final int nav_header_vertical_spacing = 0x7f0800a3;
 
     @DimenRes
-    public static final int notification_action_icon_size = 0x7f0800a3;
+    public static final int notification_action_icon_size = 0x7f0800a4;
 
     @DimenRes
-    public static final int notification_action_text_size = 0x7f0800a4;
+    public static final int notification_action_text_size = 0x7f0800a5;
 
     @DimenRes
-    public static final int notification_big_circle_margin = 0x7f0800a5;
+    public static final int notification_big_circle_margin = 0x7f0800a6;
 
     @DimenRes
     public static final int notification_content_margin_start = 0x7f080023;
 
     @DimenRes
-    public static final int notification_large_icon_height = 0x7f0800a6;
+    public static final int notification_large_icon_height = 0x7f0800a7;
 
     @DimenRes
-    public static final int notification_large_icon_width = 0x7f0800a7;
+    public static final int notification_large_icon_width = 0x7f0800a8;
 
     @DimenRes
     public static final int notification_main_column_padding_top = 0x7f080024;
@@ -2260,55 +2263,55 @@ public final class R2 {
     public static final int notification_media_narrow_margin = 0x7f080025;
 
     @DimenRes
-    public static final int notification_right_icon_size = 0x7f0800a8;
+    public static final int notification_right_icon_size = 0x7f0800a9;
 
     @DimenRes
     public static final int notification_right_side_padding_top = 0x7f080021;
 
     @DimenRes
-    public static final int notification_small_icon_background_padding = 0x7f0800a9;
+    public static final int notification_small_icon_background_padding = 0x7f0800aa;
 
     @DimenRes
-    public static final int notification_small_icon_size_as_large = 0x7f0800aa;
+    public static final int notification_small_icon_size_as_large = 0x7f0800ab;
 
     @DimenRes
-    public static final int notification_subtext_size = 0x7f0800ab;
+    public static final int notification_subtext_size = 0x7f0800ac;
 
     @DimenRes
-    public static final int notification_top_pad = 0x7f0800ac;
+    public static final int notification_top_pad = 0x7f0800ad;
 
     @DimenRes
-    public static final int notification_top_pad_large_text = 0x7f0800ad;
+    public static final int notification_top_pad_large_text = 0x7f0800ae;
 
     @DimenRes
-    public static final int place_autocomplete_button_padding = 0x7f0800ae;
+    public static final int place_autocomplete_button_padding = 0x7f0800af;
 
     @DimenRes
-    public static final int place_autocomplete_powered_by_google_height = 0x7f0800af;
+    public static final int place_autocomplete_powered_by_google_height = 0x7f0800b0;
 
     @DimenRes
-    public static final int place_autocomplete_powered_by_google_start = 0x7f0800b0;
+    public static final int place_autocomplete_powered_by_google_start = 0x7f0800b1;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_height = 0x7f0800b1;
+    public static final int place_autocomplete_prediction_height = 0x7f0800b2;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_horizontal_margin = 0x7f0800b2;
+    public static final int place_autocomplete_prediction_horizontal_margin = 0x7f0800b3;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_primary_text = 0x7f0800b3;
+    public static final int place_autocomplete_prediction_primary_text = 0x7f0800b4;
 
     @DimenRes
-    public static final int place_autocomplete_prediction_secondary_text = 0x7f0800b4;
+    public static final int place_autocomplete_prediction_secondary_text = 0x7f0800b5;
 
     @DimenRes
-    public static final int place_autocomplete_progress_horizontal_margin = 0x7f0800b5;
+    public static final int place_autocomplete_progress_horizontal_margin = 0x7f0800b6;
 
     @DimenRes
-    public static final int place_autocomplete_progress_size = 0x7f0800b6;
+    public static final int place_autocomplete_progress_size = 0x7f0800b7;
 
     @DimenRes
-    public static final int place_autocomplete_separator_start = 0x7f0800b7;
+    public static final int place_autocomplete_separator_start = 0x7f0800b8;
   }
 
   public static final class drawable {

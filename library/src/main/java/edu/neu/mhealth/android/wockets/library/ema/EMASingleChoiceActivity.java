@@ -114,7 +114,7 @@ public class EMASingleChoiceActivity extends AppCompatActivity {
 					ViewGroup.LayoutParams.WRAP_CONTENT,
 					ViewGroup.LayoutParams.WRAP_CONTENT
 			);
-			layoutParams.setMargins(0, 0, 0, 25);
+			layoutParams.setMargins(0, 0, 0, 0);
 			radioButton.setLayoutParams(layoutParams);
 			radioButton.setTextSize(20f);
 			radioButton.setTextColor(getResources().getColor(R.color.primary_text));

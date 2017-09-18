@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Looper;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.database.entities.study.PromptTime;
@@ -17,12 +20,8 @@ import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 import mhealth.neu.edu.phire.TEMPLEConstants;
+import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 
-//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_AFTERNOON_330TO4_MOTHER;
-//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_AFTERNOON_4TO430_CHILD;
-//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_BEDTIME;
-//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_WAKING;
-//import static edu.neu.mhealth.android.wockets.match.TEMPLEConstants.KEY_SALIVA_WAKING_PLUS_30;
 
 /**
  * @author Dharam Maniar
@@ -73,6 +72,7 @@ public class SurveyManagerService extends IntentService {
             Log.i(TAG,"Not in main thread",mContext);
         }
 
+
         List<Survey> surveys = SurveyManager.getSelectedSurveys(mContext);
         if (surveys.isEmpty()) {
             return;
@@ -92,7 +92,23 @@ public class SurveyManagerService extends IntentService {
 
         // Schedule prompts for today
         for(Survey survey : surveys){
-            SurveyScheduleManager.scheduleSurveysForToday(survey, mContext);
+            Log.i(TAG,"Survey name to schedule:" + survey.surveyName,mContext);
+            switch(survey.surveyName){
+                case TEMPLEConstants.KEY_WEEKLY_SURVEY:
+                    String DayOfWeekToPrompt = TEMPLEDataManager.getWeeklySurveyDay(mContext);
+                    Calendar calendar = Calendar.getInstance();
+                    Date date = calendar.getTime();
+                    String today = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime());
+                    if(DayOfWeekToPrompt.equals(today)){
+                        SurveyScheduleManager.scheduleSurveysForToday(survey,mContext);
+                    }else{
+                        Log.i(TAG,"Weekly survey is prompted only on: " + DayOfWeekToPrompt,mContext);
+                    }
+                    break;
+                case TEMPLEConstants.KEY_EMA_SURVEY:
+                    SurveyScheduleManager.scheduleSurveysForToday(survey, mContext);
+                    break;
+            }
         }
 
 //        // Schedule prompts for today
@@ -105,20 +121,13 @@ public class SurveyManagerService extends IntentService {
 
         // Prompt survey if time
         for(Survey survey : surveys){
+            Log.i(TAG,"Survey name:"+survey.surveyName,mContext);
             if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
+                Log.i(TAG,"Starting survey service to prompt:"+survey.surveyName,mContext);
+                DataManager.setSelectedSurveyName(mContext,survey.surveyName);
                 startService(new Intent(getApplicationContext(), SurveyService.class));
             }
         }
-
-//        if (SurveyScheduleManager.timeToPrompt(mContext, survey, sleepHour, sleepMinute, wakeHour, wakeMinute)) {
-//            startService(new Intent(getApplicationContext(), SurveyService.class));
-//        }
-
-//        // Schedule saliva for today
-//        scheduleSalivaSurveysForToday(survey);
-//
-//        // Prompt saliva if time
-//        promptSalivaIfTime(survey);
     }
 
 //    private void scheduleSalivaSurveysForToday(Survey survey) {

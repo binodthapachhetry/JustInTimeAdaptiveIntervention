@@ -42,7 +42,7 @@ import edu.neu.mhealth.android.wockets.library.support.WocketsUtil;
  */
 public class EMANumberPickerActivity extends Activity {
 
-	private static final String TAG = "EMATimePickerActivity";
+	private static final String TAG = "EMANumberPickerActivity";
 
 	private Context mContext;
 
@@ -143,9 +143,12 @@ public class EMANumberPickerActivity extends Activity {
 	public void onClickNextButton() {
 		Log.i(TAG, "Next button pressed", mContext);
 		String answerContent = displayedText[numberPicker.getValue()];
-		String answerKey = question.answers.get(0).key;
+//		Log.i(TAG,"Answer list size:"+Integer.toString(question.answers.size()),mContext);
+
+//		String answerKey = question.answers.get(0).key;
 		if(!answerContent.isEmpty()){
-			EventBus.getDefault().post(new EMANextPressedEvent(answerKey + ":" + answerContent));
+			EventBus.getDefault().post(new EMANextPressedEvent(answerContent));
+//			EventBus.getDefault().post(new EMANextPressedEvent(answerKey + ":" + answerContent));
 		} else {
 			Log.w(TAG, "Next selected without selecting any answer", mContext);
 			if (question.allowToSkip) {

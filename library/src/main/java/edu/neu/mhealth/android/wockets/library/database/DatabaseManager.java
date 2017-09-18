@@ -61,6 +61,7 @@ public class DatabaseManager {
 					@Override
 					public void onDataChange(DataSnapshot dataSnapshot) {
                         Log.i(TAG, "Start fetching new study data from firebase on data change", context);
+
 						Study study = dataSnapshot.getValue(Study.class);
 						DataManager.setStudy(context, study);
                         Log.i(TAG, "Finish Fetching new study data from firebase on data change", context);

@@ -14,9 +14,11 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -223,6 +225,9 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
                         DataManager.setStartDate(mContext, startTime);
                         ToastManager.showShortToast(mContext, "Start Date set as " + DateTime.getTimestampString(startTime));
                         Log.i(TAG, "Start Date set as " + DateTime.getTimestampString(startTime), mContext);
+
+                        String today = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(startTime);
+                        TEMPLEDataManager.setWeeklySurveyDay(mContext,today);
 
                         Date endDate = new Date(startTime);
                         Calendar myCal = Calendar.getInstance();

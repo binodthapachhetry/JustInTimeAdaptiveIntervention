@@ -37,10 +37,11 @@
 
 			<RadioGroup
 				android:id="@+id/wockets_activity_ema_single_choice_radio_group"
-				android:layout_marginTop="@dimen/activity_vertical_margin"
-				android:layout_marginBottom="@dimen/activity_vertical_margin"
+				android:layout_marginTop="@dimen/activity_vertical_margin_phire"
+				android:layout_marginBottom="@dimen/activity_vertical_margin_phire"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
+				android:layout_margin="1dp"
 				>
 			</RadioGroup>
 

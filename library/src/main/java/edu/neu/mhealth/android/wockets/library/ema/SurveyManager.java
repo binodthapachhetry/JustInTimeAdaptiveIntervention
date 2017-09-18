@@ -45,18 +45,22 @@ public class SurveyManager {
     }
 
 	public static Survey getSelectedSurvey(Context context) {
+		Log.d(TAG,"inside getSelectedSurvey");
 		Study study = DataManager.getStudy(context);
 		if (study == null) {
+			Log.d(TAG,"Study is null");
 			return null;
 		}
 		Survey survey = null;
 		for(Survey individualSurvey : study.surveys) {
+			Log.d(TAG,"Survey name:"+individualSurvey.surveyName);
 			if (DataManager.getSelectedSurveyName(context).contains(individualSurvey.surveyName)) {
 				survey = individualSurvey;
 			}
 		}
 		// If no selected survey, set the first survey as default
 		if (survey == null) {
+			Log.d(TAG,"Survey is null");
 			survey = study.surveys.get(0);
 			DataManager.setSelectedSurveyName(context, survey.surveyName);
 		}
@@ -64,21 +68,36 @@ public class SurveyManager {
 	}
 
 	public static List<Survey> getSelectedSurveys(Context context){
+		Log.d(TAG,"inside getSelectedSurveys");
 		Study study = DataManager.getStudy(context);
-
 		List<Survey> survey = new ArrayList<>();
 		if (study == null) {
+			Log.d(TAG,"Study is null");
 			return survey;
 		}
-		for(Survey individualSurvey : study.surveys) {
-			if (DataManager.getSelectedSurveyName(context).contains(individualSurvey.surveyName)) {
-				survey.add(individualSurvey);
-			}
-		}
+		Log.d(TAG,"Size of survey:" + Integer.toString(study.surveys.size()));
+//		for(Survey individualSurvey : study.surveys) {
+//			Log.d(TAG,"Survey name:" + individualSurvey.surveyName);
+//			if (DataManager.getSelectedSurveyName(context).contains(individualSurvey.surveyName)) {
+//				survey.add(individualSurvey);
+//			}
+//		}
 		// If no selected survey, set the first survey as default
 		if (survey.isEmpty()) {
-			survey.add(study.surveys.get(0));
-			DataManager.setSelectedSurveyName(context, survey.get(0).surveyName);
+			Log.d(TAG,"Survey is empty");
+			for(Survey individualSurvey : study.surveys) {
+				survey.add(individualSurvey);
+			}
+
+//			survey.add(study.surveys.get(0));
+//			DataManager.setSelectedSurveyName(context, survey.get(0).surveyName);
+//			survey.add(study.surveys.get(1));
+//			DataManager.setSelectedSurveyName(context, survey.get(1).surveyName);
+
+
+		}
+		for(Survey indSur: survey){
+			Log.d(TAG,"Passing survey to survey manager service: " +indSur.surveyName);
 		}
 		return survey;
 	}

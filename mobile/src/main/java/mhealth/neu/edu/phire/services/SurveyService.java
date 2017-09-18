@@ -91,7 +91,7 @@ public class SurveyService extends WocketsService {
             isDemoSurvey = true;
         }
 
-        Log.i(TAG, "Inside onCreate, got promptkey", mContext);
+        Log.i(TAG, "Inside onCreate, got promptkey:"+promptKey, mContext);
 
         survey = SurveyManager.getSelectedSurvey(mContext);
         if (survey == null) {
@@ -103,24 +103,9 @@ public class SurveyService extends WocketsService {
         Log.i(TAG, "Inside onCreate, got survey", mContext);
 
         isMother = true;
-        if ("Child".equals(survey.surveyName)) {
+        if (TEMPLEConstants.KEY_WEEKLY_SURVEY.equals(survey.surveyName)) {
             isMother = false;
         }
-
-//        boolean isPain = false;
-//        boolean isFatigue = false;
-//        boolean isShoulderPain = false;
-
-        if("Pain".equals(survey.surveyName)){
-            isMother = false;
-        }
-        if("Fatigue".equals(survey.surveyName)){
-            isMother = false;
-        }
-        if("ShoulderPain".equals(survey.surveyName)){
-            isMother= false;
-        }
-
 //        if (promptKey.contains("KEY_SALIVA")) {
 //            survey = SalivaSurveyManager.getSalivaSurvey(promptKey, isMother);
 //        }
@@ -146,8 +131,8 @@ public class SurveyService extends WocketsService {
         numReprompts = 0;
 
         if (!isDemoSurvey) {
-            if (survey.surveyName.equals("Saliva")) {
-                TEMPLEDataManager.incrementSalivaSurveyPromptedCount(mContext);
+            if (survey.surveyName.equals(TEMPLEConstants.KEY_WEEKLY_SURVEY)) {
+                TEMPLEDataManager.incrementWeeklySurveyPromptedCount(mContext);
             } else {
                 DataManager.incrementEMASurveyPromptedCount(mContext);
                 DataManager.incrementEMASurveyPromptedCountForDate(mContext, DateTime.getDate());
@@ -326,11 +311,13 @@ public class SurveyService extends WocketsService {
                 promptMessage(question);
                 break;
             case WocketsConstants.EMA_QUESTION_TYPE_SINGLE_CHOICE:
-                if(isMother) {
-                    promptSingleChoiceQuestion(question);
-                }else{
-                    promptSingleChoiceQuestionRadioHorz(question);
-                }
+                promptSingleChoiceQuestion(question);
+
+//                if(isMother) {
+//                    promptSingleChoiceQuestion(question);
+//                }else{
+//                    promptSingleChoiceQuestionRadioHorz(question);
+//                }
                 break;
             case WocketsConstants.EMA_QUESTION_TYPE_NUMBER_PICKER:
                 promptNumberPickerQuestion(question);

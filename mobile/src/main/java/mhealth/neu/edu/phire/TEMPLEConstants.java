@@ -32,15 +32,17 @@ public class TEMPLEConstants extends WocketsConstants {
     private static final String DIRECTORY_WATCH_LOGS = DIRECTORY_EXTERNAL_STORAGE_ROOT + "/." + STUDY_NAME + "/logs-watch";
 
 
-    public static final int START_HOUR = 07;
+    public static final int START_HOUR = 01;
     public static final int START_MINUTE = 0;
     public static final int END_HOUR = 23;
     public static final int END_MINUTE = 0;
 
 	public static final String DEFAULT_SLEEP_TIME = "23:59";
-	public static final String DEFAULT_WAKE_TIME = "06:30";
+	public static final String DEFAULT_WAKE_TIME = "01:01";
 
     public static final String KEY_EMA_DEMO = "KEY_EMA_DEMO";
+    public static final String KEY_WEEKLY_SURVEY = "Child";
+    public static final String KEY_EMA_SURVEY = "Mother";
 
     public static final List<String> SUPPORTED_WHEEL_DIAMETER_CM = Arrays.asList("20","21","22","23","24","25","26","27","28");
 

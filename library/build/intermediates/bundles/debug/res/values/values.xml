@@ -8,8 +8,9 @@
     <color name="primary_light">#B3E5FC</color>
     <color name="primary_text">#ffffff</color>
     <color name="secondary_text">#757575</color>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
+    <dimen name="activity_vertical_margin_phire">2dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="nav_header_vertical_spacing">16dp</dimen>

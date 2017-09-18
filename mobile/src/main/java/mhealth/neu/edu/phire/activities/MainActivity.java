@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -134,6 +135,8 @@ public class MainActivity extends WocketsActivity {
         if (DataManager.getStartDate(mContext) == 0) {
             long startTime = DateTime.getTimeInMillis(TEMPLEConstants.START_HOUR, TEMPLEConstants.START_MINUTE);
             DataManager.setStartDate(mContext, startTime);
+            String today = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(startTime);
+            TEMPLEDataManager.setWeeklySurveyDay(mContext,today);
             ToastManager.showShortToast(mContext, "Start Time set as " + DateTime.getTimestampString(startTime));
             Log.i(TAG, "Start Time set as " + DateTime.getTimestampString(startTime), mContext);
         }

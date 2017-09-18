@@ -12,16 +12,13 @@ import edu.neu.mhealth.android.wockets.library.support.DateTime;
 public class TEMPLEDataManager {
 
     //--------------------------------------------------------------------------------------------//
-
     private static final String SALIVA_SURVEY_PROMPTED_COUNT = "SALIVA_SURVEY_PROMPTED_COUNT";
-
     /**
      * Returns the number of times the participant was prompted saliva surveys
      */
     public static int getSalivaSurveyPromptedCount(Context context) {
         return SharedPrefManager.getInt(SALIVA_SURVEY_PROMPTED_COUNT, 0, context);
     }
-
     /**
      * Increments the number of times the participant was prompted saliva surveys
      */
@@ -30,18 +27,14 @@ public class TEMPLEDataManager {
         currentCount++;
         SharedPrefManager.setInt(SALIVA_SURVEY_PROMPTED_COUNT, currentCount, context);
     }
-
     //--------------------------------------------------------------------------------------------//
-
     private static final String SALIVA_SURVEY_COMPLETED_COUNT = "SALIVA_SURVEY_COMPLETED_COUNT";
-
     /**
      * Returns the number of times the participant completed saliva surveys
      */
     public static int getSalivaSurveyCompletedCount(Context mContext) {
         return SharedPrefManager.getInt(SALIVA_SURVEY_COMPLETED_COUNT, 0, mContext);
     }
-
     /**
      * Increments the number of times the participant completed saliva surveys
      */
@@ -51,6 +44,29 @@ public class TEMPLEDataManager {
         SharedPrefManager.setInt(SALIVA_SURVEY_COMPLETED_COUNT, currentCount, mContext);
     }
 
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String WEEKLY_SURVEY_PROMPTED_COUNT = "WEEKLY_SURVEY_PROMPTED_COUNT";
+
+    public static int getWeeklySurveyPromptedCount(Context context) {
+        return SharedPrefManager.getInt(WEEKLY_SURVEY_PROMPTED_COUNT, 0, context);
+    }
+    public static void incrementWeeklySurveyPromptedCount(Context context) {
+        int currentCount = getWeeklySurveyPromptedCount(context);
+        currentCount++;
+        SharedPrefManager.setInt(WEEKLY_SURVEY_PROMPTED_COUNT, currentCount, context);
+    }
+    //--------------------------------------------------------------------------------------------//
+    private static final String WEEKLY_SURVEY_COMPLETED_COUNT = "WEEKLY_SURVEY_COMPLETED_COUNT";
+
+    public static int getWeeklySurveyCompletedCount(Context mContext) {
+        return SharedPrefManager.getInt(WEEKLY_SURVEY_COMPLETED_COUNT, 0, mContext);
+    }
+    public static void incrementWeeklySurveyCompletedCount(Context mContext) {
+        int currentCount = getSalivaSurveyCompletedCount(mContext);
+        currentCount++;
+        SharedPrefManager.setInt(WEEKLY_SURVEY_COMPLETED_COUNT, currentCount, mContext);
+    }
     //--------------------------------------------------------------------------------------------//
 
     private static final String WHEEL_DIAMETER_CM = "WHEEL_DIAMETER_CM";
@@ -64,7 +80,17 @@ public class TEMPLEDataManager {
     }
 
     //--------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------//
 
+    private static final String WEEKLY_SURVEY_DAY = "WEEKLY_SURVEY_DAT";
+
+    public static String getWeeklySurveyDay(Context mContext) {
+        return SharedPrefManager.getString(WEEKLY_SURVEY_DAY, "Sunday", mContext);
+    }
+
+    public static void setWeeklySurveyDay(Context mContext, String weeklySurveyDay) {
+        SharedPrefManager.setString(WEEKLY_SURVEY_DAY, weeklySurveyDay, mContext);
+    }
 
     //--------------------------------------------------------------------------------------------//
 

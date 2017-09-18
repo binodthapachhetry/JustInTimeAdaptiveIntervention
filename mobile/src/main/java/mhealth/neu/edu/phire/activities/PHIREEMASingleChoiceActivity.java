@@ -58,7 +58,8 @@ public class PHIREEMASingleChoiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //		getWindow().setBackgroundDrawable(null);
         overridePendingTransition(edu.neu.mhealth.android.wockets.library.R.anim.trans_left_in, edu.neu.mhealth.android.wockets.library.R.anim.trans_left_out);
-        setContentView(edu.neu.mhealth.android.wockets.library.R.layout.wockets_activity_ema_single_choice);
+//        setContentView(edu.neu.mhealth.android.wockets.library.R.layout.wockets_activity_ema_single_choice);
+        setContentView(R.layout.phire_ema_single_choice_activity);
         mContext = getApplicationContext();
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);

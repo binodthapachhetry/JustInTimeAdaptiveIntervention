@@ -425,20 +425,20 @@ public final class R {
         public static int abc_text_size_subtitle_material_toolbar = 0x7f080003;
         public static int abc_text_size_title_material = 0x7f08005d;
         public static int abc_text_size_title_material_toolbar = 0x7f080004;
-        public static int disabled_alpha_material_dark = 0x7f080093;
-        public static int disabled_alpha_material_light = 0x7f080094;
-        public static int highlight_alpha_material_colored = 0x7f080096;
-        public static int highlight_alpha_material_dark = 0x7f080097;
-        public static int highlight_alpha_material_light = 0x7f080098;
+        public static int disabled_alpha_material_dark = 0x7f080094;
+        public static int disabled_alpha_material_light = 0x7f080095;
+        public static int highlight_alpha_material_colored = 0x7f080097;
+        public static int highlight_alpha_material_dark = 0x7f080098;
+        public static int highlight_alpha_material_light = 0x7f080099;
         public static int mr_controller_volume_group_list_item_height = 0x7f080009;
         public static int mr_controller_volume_group_list_item_icon_size = 0x7f08000a;
         public static int mr_controller_volume_group_list_max_height = 0x7f08000b;
-        public static int mr_controller_volume_group_list_padding_top = 0x7f0800a0;
+        public static int mr_controller_volume_group_list_padding_top = 0x7f0800a1;
         public static int mr_dialog_fixed_width_major = 0x7f08001f;
         public static int mr_dialog_fixed_width_minor = 0x7f080020;
-        public static int notification_large_icon_height = 0x7f0800a6;
-        public static int notification_large_icon_width = 0x7f0800a7;
-        public static int notification_subtext_size = 0x7f0800ab;
+        public static int notification_large_icon_height = 0x7f0800a7;
+        public static int notification_large_icon_width = 0x7f0800a8;
+        public static int notification_subtext_size = 0x7f0800ac;
     }
     public static final class drawable {
         public static int abc_ab_share_pack_mtrl_alpha = 0x7f020000;
