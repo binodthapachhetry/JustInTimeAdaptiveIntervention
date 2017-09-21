@@ -244,8 +244,9 @@ public class UploadManagerService extends IntentService {
             Log.e(TAG, " Deleting log date as it is in future for : " + logDate.getName(), mContext);
             if (logDate.listFiles() != null) {
                 for (File hourDirectory : logDate.listFiles()) {
-                    if (hourDirectory.listFiles() != null) {
-                        for (File indFile : hourDirectory.listFiles()) {
+//                    if (hourDirectory.listFiles() != null) {
+                    if (hourDirectory.list().length>0) {
+                            for (File indFile : hourDirectory.listFiles()) {
                             indFile.delete();
                         }
                     } else {

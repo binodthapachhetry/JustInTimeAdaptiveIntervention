@@ -69,6 +69,12 @@ public class MyTestService extends IntentService {
         mBluetoothAdapter = bluetoothManager.getAdapter();
         mBluetoothLEScanner = mBluetoothAdapter.getBluetoothLeScanner();
 
+        if(mBluetoothLEScanner == null){
+            Log.i(TAG,"Something went wrong with the bluetooth scanner. Exiting");
+            stopSelf();
+            return;
+        }
+
         mScanCallback = new ScanCallback() {
             @Override
             public void onScanResult(int callbackType, ScanResult result) {

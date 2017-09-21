@@ -98,6 +98,27 @@ public class SelectSensorActivity extends AppCompatActivity implements View.OnCl
                 sensorList.clear();
             }
 
+            // check for ble on
+            final BluetoothManager bluetoothManager =
+                    (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+
+            mBluetoothAdapter = bluetoothManager.getAdapter();
+
+
+            if (mBluetoothAdapter == null) {
+                // Device does not support Bluetooth
+                Log.i(TAG,"This device does not support bluetooth.");
+                return;
+
+            } else {
+                if (!mBluetoothAdapter.isEnabled()) {
+                    // Bluetooth is not enable :)
+                    Log.i(TAG,"Please enable bluetooth for the app to function properly.");
+                    return;
+
+                }
+            }
+
             scanLeDevice(true);
 //
         }

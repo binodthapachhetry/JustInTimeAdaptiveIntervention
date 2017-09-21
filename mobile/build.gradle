@@ -8,8 +8,8 @@ android {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 50
-        versionName "1.49"
+        versionCode 51
+        versionName "1.50"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
