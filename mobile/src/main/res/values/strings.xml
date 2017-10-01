@@ -69,7 +69,9 @@
 
     <string name="SelectDailyGoal">Select Daily Goal</string>
 
-    <string name="EnterPhaseTwo">Enter Phase Two</string>
+    <string name="EnterPhaseTwo">Enter Month Two</string>
+    <string name="EnterPhaseThree">Enter Month Three</string>
+
 
     <string name="weeklySurveyDay">Select Day For Weekly Survey</string>
     <string name="weeklySurveyStartTime">Select Start Time For Weekly Survey</string>

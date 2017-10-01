@@ -156,8 +156,6 @@ public class BikeSensor
             SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext, dfs.format(cs.getTime()));
 
-
-
             // We'll only ever be notified on the measurement characteristic
 
             byte[] value = parent.mMeasurementChar.getValue();

@@ -10,8 +10,10 @@ import android.util.Log;
 
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
@@ -99,9 +101,11 @@ public class BikeActivity {
             }
 
             @Override
-            public void onSpeedUpdate(BikeSensor sensor, double distance, double elapsedUs, long rot) {
+            public void onSpeedUpdate(BikeSensor sensor, double distance, double elapsedUs, long roti) {
                 BikeActivity parent = BikeActivity.this;
                 speedMessage = "";
+                int rot = (int) roti;
+
                 newSpeed = true;
                 if (elapsedUs == 0) {
                     parent.instSpeed = 0.0;
@@ -111,23 +115,18 @@ public class BikeActivity {
                     parent.instDistance = distance;
                 }
 
-                if(rot!=0L) {
-                    DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
-                    final String speed_dec = String.valueOf(oneDigit.format(parent.instSpeed));
-                    final String distance_dec = String.valueOf(oneDigit.format(parent.instDistance));
-                    //Log.i(TAG, "Speed: " + " = " + speed_dec + " m/s" + " CumRotation: " + rot,mContext);
-
+                if(rot!=0) {
+//                    DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
+//                    final String speed_dec = String.valueOf(oneDigit.format(parent.instSpeed));
+//                    final String distance_dec = String.valueOf(oneDigit.format(parent.instDistance));
 
                     Calendar cs = Calendar.getInstance();
-                    SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                speedMessage = df.format(c.getTime()) + ',' + sensorID + ',' + diameter+ ',' + rot;
+                    // check with last data collected time, need shared preference for this
+                    // if rot is > prev rot + 15(??), divide the rot diff equally between the time difference
 
-//                    String[] speedEntry = {
-//                            dfs.format(cs.getTime()),
-//                            String.valueOf(rot),
-//                            String.valueOf(distance_dec),
-//                            speed_dec
-//                    };
+
+                    SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 
                     String[] speedEntry = {
                             dfs.format(cs.getTime()),
@@ -142,14 +141,15 @@ public class BikeActivity {
                     CSV.write(speedEntry, speedFileHour, true);
                     CSV.write(speedEntry,speedFileDay,true);
 
-//                Log.i(TAG,"Closing the panobike service after speed reading");
-//                mContext.stopService(new Intent(mContext, PanobikeSensorService.class));
-//                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,dfs.format(cs.getTime()));
+                    Log.i(TAG, "speed rotation"+String.valueOf(rot));
+
+//                    TEMPLEDataManager.setLastSpeedRot(mContext,rot);
+//                    TEMPLEDataManager.setSpeedLastReceivedTime(mContext,dfs.format(cs.getTime()));
                 }
             }
 
             @Override
-            public void onCadenceUpdate(BikeSensor sensor, int rotations, double elapsedUs, int crankRot) {
+            public void onCadenceUpdate(BikeSensor sensor, int rotations, double elapsedUs, int crankRot){
                 BikeActivity parent = BikeActivity.this;
                 cadenceMessage ="";
                 newCadence = true;
@@ -160,19 +160,51 @@ public class BikeActivity {
                 }
 
                 if(crankRot!=0) {
-                    DecimalFormat oneDigit = new DecimalFormat("#,##0.0");
-                    final String cadence_dec = String.valueOf(oneDigit.format(parent.instCadence));
-                    //Log.i(TAG, "Cadence: " + " = " + cadence_dec + " rpm" + " CumCrankRotation: " + crankRot,mContext);
-
                     Calendar c = Calendar.getInstance();
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                cadenceMessage = df.format(c.getTime()) + ',' + sensorID +',' + diameter +','+ crankRot;
+                    Date currentTime = c.getTime();
+//                    long currentTimeLong = currentTime.getTime();
+//                    if(TEMPLEDataManager.getCadenceLastReceivedTime(mContext)!= null) {
+//                        String lastCadTime = TEMPLEDataManager.getCadenceLastReceivedTime(mContext);
+//                        Date lastCadTimeDate = null;
+//                        try {
+//                            lastCadTimeDate = df.parse(lastCadTime);
+//                        } catch (ParseException e) {
+//                            e.printStackTrace();
+//                        }
+//                        long lastCadTimeDateLong = lastCadTimeDate.getTime();
+//
+//                        int lastCadRot = TEMPLEDataManager.getLastCadenceRot(mContext);
+//
+//                        if (crankRot > lastCadRot + 10) {
+//                            long diff = currentTime.getTime() - lastCadTimeDate.getTime();
+//                            long diffSeconds = diff / 1000 % 60;
+//
+//                            double binsDouble = (double) diffSeconds / (double) 30;
+//                            int bins = (int) Math.round(binsDouble);
+//                            double rotAdd = (double) (crankRot - lastCadRot) / (double) bins;
+//
+//                            for (int i = 1; i < bins; i++) {
+//                                long j = (long) i;
+//                                double k = (double) i;
+//                                double dist = ((double) lastCadRot) + (rotAdd * k);
+//                                String[] cadenceEntry = {
+//                                        df.format(lastCadTimeDateLong + (30L * j)),
+//                                        String.valueOf(dist)
+//                                };
 
-//                    String[] cadenceEntry = {
-//                            df.format(c.getTime()),
-//                            String.valueOf(crankRot),
-//                            cadence_dec
-//                    };
+//                                String dataDirectory = DataManager.getDirectoryData(context);
+//                                String cadenceFileHour = dataDirectory + "/" + DateTime.getDate() + "/" + DateTime.getCurrentHourWithTimezone() + "/" + "Cadence.csv";
+//                                String featureDirectory = DataManager.getDirectoryFeature(context);
+//                                String cadenceFileDay = featureDirectory + "/" + DateTime.getDate() + "/" + "CadenceDay.csv";
+//
+//                                CSV.write(cadenceEntry, cadenceFileHour, true);
+//                                CSV.write(cadenceEntry, cadenceFileDay, true);
+//
+//
+//                            }
+//                        }
+//                    }
 
                     String[] cadenceEntry = {
                             df.format(c.getTime()),
@@ -188,10 +220,8 @@ public class BikeActivity {
                     CSV.write(cadenceEntry, cadenceFileHour, true);
                     CSV.write(cadenceEntry, cadenceFileDay, true);
 
-
-//                TEMPLEDataManager.setPanoBikeLastConnectionTime(mContext,df.format(c.getTime()));
-//                Log.i(TAG,"Closing the panobike service after cadence reading");
-//                mContext.stopService(new Intent(mContext, PanobikeSensorService.class));
+//                    TEMPLEDataManager.setLastCadenceRot(mContext,crankRot);
+//                    TEMPLEDataManager.setCadenceLastReceivedTime(mContext,df.format(c.getTime()));
                 }
 
 

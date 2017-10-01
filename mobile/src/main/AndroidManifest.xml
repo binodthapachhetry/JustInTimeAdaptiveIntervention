@@ -278,7 +278,11 @@
             android:name=".services.DistanceCalculationService"
             android:exported="false" />
 
-        <activity android:name=".activities.SelectDayTimeForWeeklySurvey"></activity>
+        <activity android:name=".activities.SelectDayTimeForWeeklySurvey" />
+
+        <service
+            android:name=".services.JustInTimeFeedbackService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

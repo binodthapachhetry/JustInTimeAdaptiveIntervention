@@ -116,7 +116,27 @@ public class DataManager {
         SharedPrefManager.setLong(LAST_AR_WINDOW_STOP_TIME, stopTime, context);
     }
 
+    private static final String LAST_PANOBIKE_READ_TIME = "LAST_PANOBIKE_READ_TIME";
+
+    public static long getLastPanoBikeReadingStopTime(Context context) {
+        return SharedPrefManager.getLong(LAST_PANOBIKE_READ_TIME, -1, context);
+    }
+
+    public static void setLastPanoBikeReadingStopTime(Context context, long stopTime) {
+        SharedPrefManager.setLong(LAST_PANOBIKE_READ_TIME, stopTime, context);
+    }
+
+    private static final String LAST_WATCHDATA_READ_TIME = "LAST_WATCHDATA_READ_TIME";
+
+    public static long getLastWatchDataReadingStopTime(Context context) {
+        return SharedPrefManager.getLong(LAST_WATCHDATA_READ_TIME, -1, context);
+    }
+
+    public static void setLastWatchDataReadingStopTime(Context context, long stopTime) {
+        SharedPrefManager.setLong(LAST_WATCHDATA_READ_TIME, stopTime, context);
+    }
     //--------------------------------------------------------------------------------------------//
+
     private static final String IS_PROMPT_COMPLETE = "IS_PROMPT_COMPLETE";
 
     public static boolean isPromptCompleteForDate(Context context, String key, String date) {

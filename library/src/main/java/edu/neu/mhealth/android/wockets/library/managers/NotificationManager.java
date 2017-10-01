@@ -30,6 +30,7 @@ public class NotificationManager {
 	public static final int NOTIFICATION_ID_MINUTE_SERVICE = 34001;
 	private static final int NOTIFICATION_ID_SURVEY = 34002;
 	private static final int NOTIFICATION_ID_UPLOAD_COUNT = 34003;
+	private static final int NOTIFICATION_ID_FEEDBACK = 34004;
 
     public static void logNotificationStatus(Context context) {
         Log.i(TAG,
@@ -99,6 +100,43 @@ public class NotificationManager {
 		android.app.NotificationManager mNotificationManager =
 				(android.app.NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 		mNotificationManager.notify(NOTIFICATION_ID_UPLOAD_COUNT, mBuilder.build());
+	}
+
+	public static void showFeedbackNotification(Context mContext, String title, String text, int notificationIcon, Uri soundUri, long[] vibrationPattern) {
+		NotificationCompat.Builder mBuilder =
+				new NotificationCompat.Builder(mContext)
+						.setContentTitle(title)
+						.setContentText(text)
+						.setSmallIcon(notificationIcon)
+						.setAutoCancel(true);
+
+		if (soundUri != null) {
+			mBuilder.setSound(soundUri);
+		}
+		if (vibrationPattern.length > 1) {
+			mBuilder.setVibrate(vibrationPattern);
+		}
+
+		android.app.NotificationManager mNotificationManager =
+				(android.app.NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+		mNotificationManager.notify(NOTIFICATION_ID_FEEDBACK, mBuilder.build());
+	}
+
+	public static void showFeedbackNotificationNoVib(Context mContext, String title, String text, int notificationIcon, Uri soundUri) {
+		NotificationCompat.Builder mBuilder =
+				new NotificationCompat.Builder(mContext)
+						.setContentTitle(title)
+						.setContentText(text)
+						.setSmallIcon(notificationIcon)
+						.setAutoCancel(true);
+
+		if (soundUri != null) {
+			mBuilder.setSound(soundUri);
+		}
+
+		android.app.NotificationManager mNotificationManager =
+				(android.app.NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+		mNotificationManager.notify(NOTIFICATION_ID_FEEDBACK, mBuilder.build());
 	}
 
 	public static void showPromptNotification(Context mContext, String title, String text, int notificationIcon, Uri soundUri, long[] vibrationPattern, PendingIntent pendingIntent) {

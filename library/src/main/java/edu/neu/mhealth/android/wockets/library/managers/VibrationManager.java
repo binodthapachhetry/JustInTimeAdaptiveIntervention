@@ -20,6 +20,9 @@ public class VibrationManager {
 
     public static final long[] VIBRATION_PATTERN_INTENSE = { 1000, 1000, 1000, 1000, 1000, 1000, 10, 600, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50};
     public static final long[] VIBRATION_PATTERN_BASIC = { 10, 600, 50, 300, 50};
+    public static final long[] VIBRATION_PATTERN_CONGRATULATORY = { 0, 50, 50,50,50};
+    public static final long[] VIBRATION_PATTERN_NONE = {0,10,1000,10,1000};
+
 
     private static Vibrator vibrator = null;
     private static Context context = null;

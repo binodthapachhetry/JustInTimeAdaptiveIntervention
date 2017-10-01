@@ -25,17 +25,22 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import mhealth.neu.edu.phire.R;
+import mhealth.neu.edu.phire.TEMPLEConstants;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 import edu.neu.mhealth.android.wockets.library.support.Log;
 
@@ -45,6 +50,7 @@ public class CurrentEEdistance extends AppCompatActivity {
 
     private static final String TAG = "CurrentEEdistance";
     private static final Float METER_TO_MILE = 0.000621371f;
+    private static final String dayFormat = "yyyy-MM-dd";
 
     private Context mContext;
     private CombinedChart combinedChartEE;
@@ -55,7 +61,11 @@ public class CurrentEEdistance extends AppCompatActivity {
     private NumberPicker numberPickerDist;
     private Button doneButton;
 
-    private String eeKcal;
+    private Float eeKcal;
+    private String eeKcalBoth;
+    private String eeKcalPanobike;
+    private String eeKcalWatch;
+
     private String actualGoalEEkCal;
     private Float goalEEkCal;
 
@@ -66,6 +76,10 @@ public class CurrentEEdistance extends AppCompatActivity {
 
     private CombinedData dataEE;
     private CombinedData dataDist;
+
+    private NavigableMap<Date,Double> EEboth;
+    private NavigableMap<Date,Double> EEpano;
+    private NavigableMap<Date,Double> EEwatch;
 
 
     @Override
@@ -78,10 +92,12 @@ public class CurrentEEdistance extends AppCompatActivity {
             addListenerOnButtonClick();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
-    private void addListenerOnButtonClick() throws IOException {
+    private void addListenerOnButtonClick() throws IOException, ClassNotFoundException {
         combinedChartEE = (CombinedChart) findViewById(R.id.current_ee_barchart);
         combinedChartDist = (CombinedChart) findViewById(R.id.current_dist_barchart);
         goalEE = (TextView) findViewById(R.id.selectedEEgoal);
@@ -91,7 +107,70 @@ public class CurrentEEdistance extends AppCompatActivity {
         doneButton = (Button) findViewById(R.id.DailyDone);
 
         // EE current and goal
-        eeKcal = TEMPLEDataManager.getEEKcal(mContext);
+
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        Date dateNow = new Date();
+//
+//        String featureDirectory = DataManager.getDirectoryFeature(mContext);
+//        String dayDirectory = new SimpleDateFormat(dayFormat).format(dateNow);
+//
+//            String eeBothFile = featureDirectory + "/" + dayDirectory + "/" + "eeBoth.csv";
+//            File eeBfile = new File(eeBothFile);
+//            if (eeBfile.exists()) {
+//                FileInputStream fileInputStream = new FileInputStream(eeBothFile);
+//                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+//                EEboth = (NavigableMap<Date, Double>) objectInputStream.readObject();
+//                objectInputStream.close();
+//                double sum = 0.0d;
+//                for (double f : EEboth.values()) {
+//                    sum += f;
+//                }
+//                eeKcalBoth = Double.toString(sum);
+//            }else{
+//                eeKcalBoth = "0";
+//            }
+//
+//
+//            String eePanoFile = featureDirectory + "/" + dayDirectory + "/" + "eePano.csv";
+//            File eePfile = new File(eePanoFile);
+//            if (eePfile.exists()) {
+//                FileInputStream fileInputStream = new FileInputStream(eePanoFile);
+//                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+//                EEpano = (NavigableMap<Date, Double>) objectInputStream.readObject();
+//                objectInputStream.close();
+//                double sum = 0.0d;
+//                for (double f : EEpano.values()) {
+//                    sum += f;
+//                }
+//                eeKcalPanobike = Double.toString(sum);
+//            }else{
+//                eeKcalPanobike = "0";
+//            }
+//
+//
+//            String eeWatchFile = featureDirectory + "/" + dayDirectory + "/" + "eeWatch.csv";
+//            File eeWfile = new File(eeWatchFile);
+//            if (eeWfile.exists()) {
+//                FileInputStream fileInputStream = new FileInputStream(eeWatchFile);
+//                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+//                EEwatch = (NavigableMap<Date, Double>) objectInputStream.readObject();
+//                objectInputStream.close();
+//                double sum = 0.0d;
+//                for (double f : EEwatch.values()) {
+//                    sum += f;
+//                }
+//                eeKcalWatch = Double.toString(sum);
+//            }else{
+//                eeKcalWatch = "0";
+//            }
+
+        eeKcalBoth = TEMPLEDataManager.getEEBoth(mContext);
+        eeKcalPanobike = TEMPLEDataManager.getEEpano(mContext);
+        eeKcalWatch = TEMPLEDataManager.getEEwatch(mContext);
+
+        eeKcal = Float.valueOf(eeKcalBoth)+ Float.valueOf(eeKcalPanobike) + Float.valueOf(eeKcalWatch);
+
+
         Log.i(TAG,"Energy expenditure in kCal:"+eeKcal,mContext);
         actualGoalEEkCal = TEMPLEDataManager.getGoalEEKcal(mContext);
         if (actualGoalEEkCal == null || actualGoalEEkCal == "") {
@@ -100,9 +179,9 @@ public class CurrentEEdistance extends AppCompatActivity {
         goalEEkCal = Float.valueOf(actualGoalEEkCal) * 1.0f;
         Log.i(TAG,"Goal Energy expenditure kCal:"+Float.toString(goalEEkCal),mContext);
 
-        if (eeKcal == null || eeKcal == "") {
-            eeKcal = "0";
-        }
+//        if (eeKcal == null || eeKcal == "") {
+//            eeKcal = "0";
+//        }
 
         // bar plot for EE
         int[] colors = {Color.rgb(100, 149, 237)};
@@ -111,7 +190,7 @@ public class CurrentEEdistance extends AppCompatActivity {
 
             barEntries.add(new BarEntry(Float.valueOf(eeKcal), 0));
 
-            if (Float.valueOf(eeKcal) > goalEEkCal) {
+            if (eeKcal > goalEEkCal) {
                 colors[0] = Color.rgb(34, 139, 54);
             }
 

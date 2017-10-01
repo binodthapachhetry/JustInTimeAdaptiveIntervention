@@ -41,9 +41,9 @@ public class DistanceCalculationService extends WocketsIntentService {
     private String distFile;
     private String distFileDay;
     private Long lastDistanceCalcTime;
-
-
-
+    private Long startRot;
+    private Long stopRot;
+    private Boolean useFirst;
 
     public DistanceCalculationService() {
         super("DistanceCalculationService");
@@ -62,24 +62,32 @@ public class DistanceCalculationService extends WocketsIntentService {
     }
 
     private void calculateDistance() throws ParseException {
+        SimpleDateFormat simpleDateFormatS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         lastDistanceCalcTime = TEMPLEDataManager.getLastDistanceCalcTime(mContext);
+        Log.i(TAG,"Last distance calcaulated at:"+simpleDateFormatS.format(lastDistanceCalcTime),mContext);
+        useFirst = false;
 
         if(lastDistanceCalcTime!=0){
-            Date dateDistanceCalcLastRun = new Date();
-            dateDistanceCalcLastRun.setTime(lastDistanceCalcTime);
-            Calendar calDistanceCalcLastRun = Calendar.getInstance();
-            calDistanceCalcLastRun.setTime(dateDistanceCalcLastRun);
-            int dayOfMonthDistanceCalcLastRun = calDistanceCalcLastRun.get(Calendar.DAY_OF_MONTH);
+            if(lastDistanceCalcTime==-1){
+                useFirst = true;
+            }else {
+                Date dateDistanceCalcLastRun = new Date();
+                dateDistanceCalcLastRun.setTime(lastDistanceCalcTime);
+                Calendar calDistanceCalcLastRun = Calendar.getInstance();
+                calDistanceCalcLastRun.setTime(dateDistanceCalcLastRun);
+                int dayOfMonthDistanceCalcLastRun = calDistanceCalcLastRun.get(Calendar.DAY_OF_MONTH);
 
-            Date dateCurrent = new Date();
-            dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
-            Calendar calCurrent = Calendar.getInstance();
-            calCurrent.setTime(dateCurrent);
-            int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
+                Date dateCurrent = new Date();
+                dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
+                Calendar calCurrent = Calendar.getInstance();
+                calCurrent.setTime(dateCurrent);
+                int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
 
-            if(dayOfMonthCurrent>dayOfMonthDistanceCalcLastRun){
-                TEMPLEDataManager.setDistanceTravelledMeter(mContext,"0");
+                if (dayOfMonthCurrent > dayOfMonthDistanceCalcLastRun) {
+                    TEMPLEDataManager.setDistanceTravelledMeter(mContext, "0");
+                    useFirst = true;
+                }
             }
         }
 
@@ -134,22 +142,48 @@ public class DistanceCalculationService extends WocketsIntentService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Log.i(TAG,"First time in speed file:" + simpleDateFormatS.format(map.firstKey()),mContext);
+            Log.i(TAG,"Last time in speed file:" + simpleDateFormatS.format(map.lastKey()),mContext);
 
-            Long startRot = map.ceilingKey(lastDistanceCalcTime);
-            Long stopRot = map.lastKey();
+//            Long startRot;
+            if(useFirst){
+                Log.i(TAG,"Inside useFirst",mContext);
+                startRot = map.firstKey();
+                useFirst = false;
 
-            if(startRot==null || stopRot==null) {
-                Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
-                return;
-            } else if(stopRot.compareTo(startRot) <0) {
-                Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
+            }else {
+                startRot = map.floorKey(lastDistanceCalcTime);
+            }
+
+//            startRot = map.floorKey(lastDistanceCalcTime);
+
+//            Long startRot = map.floorKey(lastDistanceCalcTime);
+            stopRot = map.lastKey();
+            Log.i(TAG,"Start rot:" + Long.toString(startRot),mContext);
+
+            Log.i(TAG,"Start rotation time:" + simpleDateFormatS.format(startRot),mContext);
+            Log.i(TAG,"Stop rotation time:" + simpleDateFormatS.format(stopRot),mContext);
+
+//            if(startRot==null){
+//                Log.i(TAG,"START KEY IS NULL",mContext);
+//            }
+//            if(stopRot == null){
+//                Log.i(TAG,"STOP ROT IS NULL",mContext);
+//            }
+
+//            if(startRot==null || stopRot==null) {
+//                Log.i(TAG, "Issue with reading start and stop time in panobike file.", mContext);
+//                return;
+//            } else
+            if(stopRot.compareTo(startRot) <0) {
+                Log.i(TAG, "Start and stop panobike read time is same.", mContext);
                 return;
 //            } else if(stopRot==stopRot) {
 //                Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
 //                return;
             }else{
                 float distance = (map.get(stopRot)-map.get(startRot))*wheelCircumference;
-                Log.i(TAG, "Distance travelled at this cycyle:"+Float.toString(distance), mContext);
+                Log.i(TAG, "Distance travelled at this cycle:"+Float.toString(distance), mContext);
                 if(distance==0L){
                     Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
                     return;

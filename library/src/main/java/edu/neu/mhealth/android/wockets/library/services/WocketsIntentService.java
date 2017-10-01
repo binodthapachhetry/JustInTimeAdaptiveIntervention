@@ -2,6 +2,7 @@ package edu.neu.mhealth.android.wockets.library.services;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.os.Bundle;
 
 /**
  * @author Dharam Maniar

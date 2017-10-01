@@ -11,9 +11,78 @@ import edu.neu.mhealth.android.wockets.library.support.DateTime;
 
 public class TEMPLEDataManager {
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String BOTH_PA_MINUTES = "BOTH_PA_MINUTES";
 
+    public static int getBothPAminutes(Context context) {
+        return SharedPrefManager.getInt(BOTH_PA_MINUTES, 0, context);
+    }
+    public static void setBothPAMinutes(Context context, int minutes) {
+        SharedPrefManager.setInt(BOTH_PA_MINUTES, minutes, context);
+    }
+    //--------------------------------------------------------------------------------------------//
+    private static final String PANO_PA_MINUTES = "PANO_PA_MINUTES";
 
+    public static int getPanoPAminutes(Context context) {
+        return SharedPrefManager.getInt(PANO_PA_MINUTES, 0, context);
+    }
+    public static void setPanoPAMinutes(Context context, int minutes) {
+        SharedPrefManager.setInt(PANO_PA_MINUTES, minutes, context);
+    }
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String WATCH_PA_MINUTES = "WATCH_PA_MINUTES";
+
+    public static int getWatchPAminutes(Context context) {
+        return SharedPrefManager.getInt(WATCH_PA_MINUTES, 0, context);
+    }
+    public static void setWatchPAMinutes(Context context, int minutes) {
+        SharedPrefManager.setInt(WATCH_PA_MINUTES, minutes, context);
+    }
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String EE_WATCH = "EE_TIME";
+
+    public static String getEEwatch(Context context) {
+        return SharedPrefManager.getString(EE_WATCH, "0", context);
+    }
+
+    public static void setEEwatch(Context context, String eeWatch) {
+        SharedPrefManager.setString(EE_WATCH, eeWatch, context);
+    }
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String EE_PANO = "EE_PANO";
+
+    public static String getEEpano(Context context) {
+        return SharedPrefManager.getString(EE_PANO, "0", context);
+    }
+
+    public static void setEEPano(Context context, String eePano) {
+        SharedPrefManager.setString(EE_PANO, eePano, context);
+    }
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String EE_BOTH = "EE_BOTH";
+
+    public static String getEEBoth(Context context) {
+        return SharedPrefManager.getString(EE_BOTH, "0", context);
+    }
+
+    public static void setEEboth(Context context, String eeBoth) {
+        SharedPrefManager.setString(EE_BOTH, eeBoth, context);
+    }
+    //--------------------------------------------------------------------------------------------//
+
+    private static final String LAST_PA_TIME = "LAST_PA_TIME";
+
+    public static long getLastPAtime(Context context) {
+        return SharedPrefManager.getLong(LAST_PA_TIME, -1, context);
+    }
+
+    public static void setLastPAtime(Context context, long stopTime) {
+        SharedPrefManager.setLong(LAST_PA_TIME, stopTime, context);
+    }
     //--------------------------------------------------------------------------------------------//
     private static final String SALIVA_SURVEY_PROMPTED_COUNT = "SALIVA_SURVEY_PROMPTED_COUNT";
     /**
@@ -30,7 +99,58 @@ public class TEMPLEDataManager {
         currentCount++;
         SharedPrefManager.setInt(SALIVA_SURVEY_PROMPTED_COUNT, currentCount, context);
     }
+
     //--------------------------------------------------------------------------------------------//
+    private static final String DAILY_PA_BOUT_LENGTH_GOAL = "DAILY_PA_BOUT_LENGTH_GOAL";
+
+    public static int getDailyPAboutLengthGoal(Context context) {
+        return SharedPrefManager.getInt(DAILY_PA_BOUT_LENGTH_GOAL, 2, context);
+    }
+    public static void setDailyPaBoutLengthGoal(Context context, int minutes) {
+        SharedPrefManager.setInt(DAILY_PA_BOUT_LENGTH_GOAL, minutes, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String DAILY_PA_BOUT_LENGTH = "DAILY_PA_BOUT_LENGTH";
+
+    public static int getDailyPAboutLength(Context context) {
+        return SharedPrefManager.getInt(DAILY_PA_BOUT_LENGTH, 0, context);
+    }
+    public static void setDailyPaBoutLength(Context context, int minutes) {
+        SharedPrefManager.setInt(DAILY_PA_BOUT_LENGTH, minutes, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String DAILY_PA_MINUTES_GOAL = "DAILY_PA_MINUTES_GOAL";
+
+    public static int getDailyPAminuteGoal(Context context) {
+        return SharedPrefManager.getInt(DAILY_PA_MINUTES_GOAL, 30, context);
+    }
+    public static void setDailyPAminuteGoal(Context context, int minutes) {
+        SharedPrefManager.setInt(DAILY_PA_MINUTES_GOAL, minutes, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PA_MINUTES = "PA_MINUTES";
+
+    public static int getPAminutes(Context context) {
+        return SharedPrefManager.getInt(PA_MINUTES, 0, context);
+    }
+    public static void setPAMinutes(Context context, int minutes) {
+        SharedPrefManager.setInt(PA_MINUTES, minutes, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String PA_MINUTES_GOAL = "PA_MINUTES_GOAL";
+
+    public static int getPAminutesGoal(Context context) {
+        return SharedPrefManager.getInt(PA_MINUTES_GOAL, 35, context);
+    }
+    public static void setPAMinutesGoal(Context context, int minutes) {
+        SharedPrefManager.setInt(PA_MINUTES_GOAL, minutes, context);
+    }
+    //--------------------------------------------------------------------------------------------//
+
     private static final String SALIVA_SURVEY_COMPLETED_COUNT = "SALIVA_SURVEY_COMPLETED_COUNT";
     /**
      * Returns the number of times the participant completed saliva surveys
@@ -169,6 +289,38 @@ public class TEMPLEDataManager {
         SharedPrefManager.setBoolean(PHASE_TWO_ACTIVE, phasetwoactive, mContext);
     }
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String PHASE_THREE_ACTIVE = "PHASE_THREE_ACTIVE";
+
+    public static boolean getThirdPhaseActive(Context mContext){
+        return SharedPrefManager.getBoolean(PHASE_THREE_ACTIVE , false, mContext);
+    }
+
+    public static void setThirdPhaseActive(Context mContext, boolean phasethreeactive) {
+        SharedPrefManager.setBoolean(PHASE_THREE_ACTIVE, phasethreeactive, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String SPEED_LAST_READ_TIME = "SPEED_LAST_READ_TIME";
+
+    public static long getSpeedLastReadTime(Context context) {
+        return SharedPrefManager.getLong(SPEED_LAST_READ_TIME, -1, context);
+    }
+
+    public static void setSpeedLastReadTime(Context context, long stopTime) {
+        SharedPrefManager.setLong(SPEED_LAST_READ_TIME, stopTime, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String WATCH_LAST_READ_TIME = "WATCH_LAST_READ_TIME";
+
+    public static long getWatchLastReadTime(Context context) {
+        return SharedPrefManager.getLong(WATCH_LAST_READ_TIME, -1, context);
+    }
+
+    public static void setWatchLastReadTime(Context context, long stopTime) {
+        SharedPrefManager.setLong(WATCH_LAST_READ_TIME, stopTime, context);
+    }
 
     //--------------------------------------------------------------------------------------------//
     private static final String PANOBIKE_LAST_CONNECTED_TIME = "PANOBIKE_LAST_CONNECTED_TIME";
@@ -181,6 +333,47 @@ public class TEMPLEDataManager {
         SharedPrefManager.setString(PANOBIKE_LAST_CONNECTED_TIME, panobikeLastConnectionTime, mContext);
     }
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String SPEED_LAST_RECEIVED_TIME = "SPEED_LAST_REDEIVED_TIME";
+
+    public static String getSpeedLastReceivedTime(Context mContext){
+        return SharedPrefManager.getString(SPEED_LAST_RECEIVED_TIME , "", mContext);
+    }
+
+    public static void setSpeedLastReceivedTime(Context mContext, String SpeedLastReceivedTime) {
+        SharedPrefManager.setString(SPEED_LAST_RECEIVED_TIME, SpeedLastReceivedTime, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String LAST_SPEED_ROT = "LAST_SPEED_ROT";
+
+    public static int getLastSpeedRot(Context context) {
+        return SharedPrefManager.getInt(LAST_SPEED_ROT, -1, context);
+    }
+    public static void setLastSpeedRot(Context context, int lastSpeedRot) {
+        SharedPrefManager.setInt(LAST_SPEED_ROT, lastSpeedRot, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String CADENCE_LAST_RECEIVED_TIME = "CADENCE_LAST_REDEIVED_TIME";
+
+    public static String getCadenceLastReceivedTime(Context mContext){
+        return SharedPrefManager.getString(CADENCE_LAST_RECEIVED_TIME , "", mContext);
+    }
+
+    public static void setCadenceLastReceivedTime(Context mContext, String CadenceLastReceivedTime) {
+        SharedPrefManager.setString(CADENCE_LAST_RECEIVED_TIME, CadenceLastReceivedTime, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String LAST_CADENCE_ROT = "LAST_CADENCE_ROT";
+
+    public static int getLastCadenceRot(Context context) {
+        return SharedPrefManager.getInt(LAST_CADENCE_ROT, 0, context);
+    }
+    public static void setLastCadenceRot(Context context, int lastCadenceRot) {
+        SharedPrefManager.setInt(LAST_CADENCE_ROT, lastCadenceRot, context);
+    }
     //--------------------------------------------------------------------------------------------//
 
     private static final String LAST_DISTANCE_CALC_TIME = "LAST_DISTANCE_CALC_TIME";
@@ -328,6 +521,38 @@ public class TEMPLEDataManager {
         SharedPrefManager.setString(ENERGY_EXPENDITURE_KCAL, energyExpenditureKCal, mContext);
     }
 
+    //--------------------------------------------------------------------------------------------//
+    private static final String ENERGY_EXPENDITURE_KCAL_BOTH= "ENERGY_EXPENDITURE_KCAL_BOTH";
+
+    public static String getEEKcalBoth(Context mContext){
+        return SharedPrefManager.getString(ENERGY_EXPENDITURE_KCAL_BOTH , "0", mContext);
+    }
+
+    public static void setEEKcalBoth(Context mContext, String energyExpenditureKCalBoth) {
+        SharedPrefManager.setString(ENERGY_EXPENDITURE_KCAL_BOTH, energyExpenditureKCalBoth, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String ENERGY_EXPENDITURE_KCAL_PANOBIKE = "ENERGY_EXPENDITURE_KCAL_PANOBIKE";
+
+    public static String getEEKcalPanobike(Context mContext){
+        return SharedPrefManager.getString(ENERGY_EXPENDITURE_KCAL_PANOBIKE , "0", mContext);
+    }
+
+    public static void setEEKcalPanobike(Context mContext, String energyExpenditureKCalPanobike) {
+        SharedPrefManager.setString(ENERGY_EXPENDITURE_KCAL_PANOBIKE, energyExpenditureKCalPanobike, mContext);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+    private static final String ENERGY_EXPENDITURE_KCAL_WATCH = "ENERGY_EXPENDITURE_KCAL_WATCH";
+
+    public static String getEEKcalWatch(Context mContext){
+        return SharedPrefManager.getString(ENERGY_EXPENDITURE_KCAL_WATCH , "0", mContext);
+    }
+
+    public static void setEEKcalWatch(Context mContext, String energyExpenditureKCalWatch) {
+        SharedPrefManager.setString(ENERGY_EXPENDITURE_KCAL_WATCH, energyExpenditureKCalWatch, mContext);
+    }
     //--------------------------------------------------------------------------------------------//
     private static final String GOAL_ENERGY_EXPENDITURE_KCAL = "GOAL_ENERGY_EXPENDITURE_KCAL";
 

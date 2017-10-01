@@ -55,6 +55,9 @@ public class MainActivity extends WocketsActivity {
     @BindView(R.id.activate_phase_second)
     Button activateStageTwo;
 
+    @BindView(R.id.activate_phase_three)
+    Button activateStageThree;
+
     @BindView(R.id.activity_main_app_version)
     TextView appVersionTextView;
 
@@ -91,6 +94,7 @@ public class MainActivity extends WocketsActivity {
     private int backgroundImageClick = 1;
 
     private String secondPhase_Text = "";
+    private String thirdPhase_Text = "";
 
 
     @Override
@@ -117,6 +121,10 @@ public class MainActivity extends WocketsActivity {
 
         if(TEMPLEDataManager.getSecondPhaseActive(mContext)){
             activateStageTwo.setEnabled(false);
+        }
+
+        if(TEMPLEDataManager.getThirdPhaseActive(mContext)){
+            activateStageThree.setEnabled(false);
         }
 
         String dateString = new SimpleDateFormat(watchTimeFormat).format(new Date(SharedPrefs.getLong("LAST_WATCH_IN_CONNECTION_TIME",0, mContext)));
@@ -231,6 +239,44 @@ public class MainActivity extends WocketsActivity {
 
         builder.show();
     }
+
+    @OnClick(R.id.activate_phase_three)
+    public void onClickActivatePhaseThree(View view) {
+        Log.i(TAG,"Clicked to activate phase three",mContext);
+        Study study = DataManager.getStudy(mContext);
+        if (study == null) {
+            Log.e(TAG, "onClickActivatePhaseThree - No study found", mContext);
+            return;
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter password to unlock phase III:");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                thirdPhase_Text = input.getText().toString();
+                if(thirdPhase_Text.equals(PASSWORD_PHASETHREE)){
+                    TEMPLEDataManager.setThirdPhaseActive(mContext,true);
+                }else{
+                    ToastManager.showShortToast(mContext, "Wrong password. Try again.");
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
 
 }
 
