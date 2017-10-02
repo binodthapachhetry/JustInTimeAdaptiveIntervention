@@ -116,233 +116,284 @@ public class EnergyPlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, -6);
         String firstDate = sdf.format(calCurrent.getTime());
-        String firstFile = featureDirectory + "/" + firstDate + "/" + "ActivityRecognitionResult.log.csv";
-        File first = new File(firstFile);
-        if (!first.exists()) {
-            // set total for the day to be zero
-            barEntries.add(new BarEntry(0f, 0));
-        } else {
-            // read the last line of the file to get total ee kcal
-            FileReader logReader = new FileReader(firstFile);
-            BufferedReader br = new BufferedReader(logReader);
-            String lastLine = "";
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null)
-            {
-                lastLine = sCurrentLine;
-            }
-            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,"Energy expenditure day 1:"+ eekCal,mContext);
-            barEntries.add(new BarEntry(Float.valueOf(eekCal),0));
-
-            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
-//            if(retval < 0) {
-//                colors[0] = Color.rgb(250,128,114);
-//            }
-
-            if(Float.valueOf(eekCal)>goalEEkCal) {
-                colors[0] = Color.rgb(34,139,54);
-            }
-
-
+        Float firstEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,firstDate);
+        barEntries.add(new BarEntry(firstEEkcal,0));
+        if(firstEEkcal>goalEEkCal) {
+            colors[0] = Color.rgb(34,139,54);
         }
+
+//        String firstFile = featureDirectory + "/" + firstDate + "/" + "ActivityRecognitionResult.log.csv";
+//        File first = new File(firstFile);
+//        if (!first.exists()) {
+//            // set total for the day to be zero
+//            barEntries.add(new BarEntry(0f, 0));
+//        } else {
+//            // read the last line of the file to get total ee kcal
+//            FileReader logReader = new FileReader(firstFile);
+//            BufferedReader br = new BufferedReader(logReader);
+//            String lastLine = "";
+//            String sCurrentLine;
+//            while ((sCurrentLine = br.readLine()) != null)
+//            {
+//                lastLine = sCurrentLine;
+//            }
+//            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
+//            Log.i(TAG,"Energy expenditure day 1:"+ eekCal,mContext);
+//            barEntries.add(new BarEntry(Float.valueOf(eekCal),0));
+//
+//            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
+////            if(retval < 0) {
+////                colors[0] = Color.rgb(250,128,114);
+////            }
+//
+//            if(Float.valueOf(eekCal)>goalEEkCal) {
+//                colors[0] = Color.rgb(34,139,54);
+//            }
+//
+//
+//        }
+
         String firstDateDay = sdfDay.format(calCurrent.getTime());
         theDates.add(firstDateDay);
 
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String secondDate = sdf.format(calCurrent.getTime());
-        String secondFile = featureDirectory + "/" + secondDate + "/" + "ActivityRecognitionResult.log.csv";
-        File second = new File(secondFile);
-        if (!second.exists()) {
-            // set total for the day to be zero
-            barEntries.add(new BarEntry(0f, 1));
-        } else {
-            // read the last line of the file to get total ee kcal
-            FileReader logReader = new FileReader(secondFile);
-            BufferedReader br = new BufferedReader(logReader);
-            String lastLine = "";
-            String sCurrentLine;
-
-            while ((sCurrentLine = br.readLine()) != null)
-            {
-                lastLine = sCurrentLine;
-            }
-            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,"Energy expenditure day 2:"+ eekCal,mContext);
-            barEntries.add(new BarEntry(Float.valueOf(eekCal),1));
-
-            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
-//            if(retval < 0) {
-//                colors[1] = Color.rgb(250,128,114);
-//            }
-            if(Float.valueOf(eekCal)>goalEEkCal) {
-                colors[0] = Color.rgb(34,139,54);
-            }
-
+        Float secondEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,secondDate);
+        barEntries.add(new BarEntry(secondEEkcal,1));
+        if(secondEEkcal>goalEEkCal) {
+            colors[0] = Color.rgb(34,139,54);
         }
+
+//        String secondFile = featureDirectory + "/" + secondDate + "/" + "ActivityRecognitionResult.log.csv";
+//        File second = new File(secondFile);
+//        if (!second.exists()) {
+//            // set total for the day to be zero
+//            barEntries.add(new BarEntry(0f, 1));
+//        } else {
+//            // read the last line of the file to get total ee kcal
+//            FileReader logReader = new FileReader(secondFile);
+//            BufferedReader br = new BufferedReader(logReader);
+//            String lastLine = "";
+//            String sCurrentLine;
+//
+//            while ((sCurrentLine = br.readLine()) != null)
+//            {
+//                lastLine = sCurrentLine;
+//            }
+//            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
+//            Log.i(TAG,"Energy expenditure day 2:"+ eekCal,mContext);
+//            barEntries.add(new BarEntry(Float.valueOf(eekCal),1));
+//
+//            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
+////            if(retval < 0) {
+////                colors[1] = Color.rgb(250,128,114);
+////            }
+//            if(Float.valueOf(eekCal)>goalEEkCal) {
+//                colors[0] = Color.rgb(34,139,54);
+//            }
+//
+//        }
         String secondDateDay = sdfDay.format(calCurrent.getTime());
         theDates.add(secondDateDay);
 
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String thirdDate = sdf.format(calCurrent.getTime());
-        String thirdFile = featureDirectory + "/" + thirdDate + "/" + "ActivityRecognitionResult.log.csv";
-        File third = new File(thirdFile);
-        if (!third.exists()) {
-            // set total for the day to be zero
-            barEntries.add(new BarEntry(0f, 2));
-        } else {
-            // read the last line of the file to get total ee kcal
-            FileReader logReader = new FileReader(thirdFile);
-            BufferedReader br = new BufferedReader(logReader);
-            String lastLine = "";
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null)
-            {
-                lastLine = sCurrentLine;
-            }
-            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,"Energy expenditure day 3:"+ eekCal,mContext);
-            barEntries.add(new BarEntry(Float.valueOf(eekCal),2));
-            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
-//            if(retval < 0) {
-//                colors[2] = Color.rgb(250,128,114);
-//            }
-            if(Float.valueOf(eekCal)>goalEEkCal){
-                colors[2] = Color.rgb(34,139,54);
-            }
-
+        Float thirdEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,thirdDate);
+        barEntries.add(new BarEntry(thirdEEkcal,2));
+        if(thirdEEkcal>goalEEkCal) {
+            colors[0] = Color.rgb(34,139,54);
         }
+
+
+//        String thirdFile = featureDirectory + "/" + thirdDate + "/" + "ActivityRecognitionResult.log.csv";
+//        File third = new File(thirdFile);
+//        if (!third.exists()) {
+//            // set total for the day to be zero
+//            barEntries.add(new BarEntry(0f, 2));
+//        } else {
+//            // read the last line of the file to get total ee kcal
+//            FileReader logReader = new FileReader(thirdFile);
+//            BufferedReader br = new BufferedReader(logReader);
+//            String lastLine = "";
+//            String sCurrentLine;
+//            while ((sCurrentLine = br.readLine()) != null)
+//            {
+//                lastLine = sCurrentLine;
+//            }
+//            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
+//            Log.i(TAG,"Energy expenditure day 3:"+ eekCal,mContext);
+//            barEntries.add(new BarEntry(Float.valueOf(eekCal),2));
+//            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
+////            if(retval < 0) {
+////                colors[2] = Color.rgb(250,128,114);
+////            }
+//            if(Float.valueOf(eekCal)>goalEEkCal){
+//                colors[2] = Color.rgb(34,139,54);
+//            }
+//
+//        }
+
         String thirdDateDay = sdfDay.format(calCurrent.getTime());
         theDates.add(thirdDateDay);
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String fourthDate = sdf.format(calCurrent.getTime());
-        String fourthFile = featureDirectory + "/" + fourthDate + "/" + "ActivityRecognitionResult.log.csv";
-        File fourth = new File(fourthFile);
-        if (!fourth.exists()) {
-            // set total for the day to be zero
-            barEntries.add(new BarEntry(0f, 3));
-        } else {
-            // read the last line of the file to get total ee kcal
-            FileReader logReader = new FileReader(fourthFile);
-            BufferedReader br = new BufferedReader(logReader);
-            String lastLine = "";
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null)
-            {
-                lastLine = sCurrentLine;
-            }
-            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,"Energy expenditure day 4:"+ eekCal,mContext);
-            barEntries.add(new BarEntry(Float.valueOf(eekCal),3));
-            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
-//            if(retval < 0) {
-//                colors[3] = Color.rgb(250,128,114);
-//            }
-            if(Float.valueOf(eekCal)>goalEEkCal){
-                colors[3] = Color.rgb(34,139,54);
-            }
-
+        Float fourthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,fourthDate);
+        barEntries.add(new BarEntry(fourthEEkcal,3));
+        if(fourthEEkcal>goalEEkCal) {
+            colors[0] = Color.rgb(34,139,54);
         }
+
+
+//        String fourthFile = featureDirectory + "/" + fourthDate + "/" + "ActivityRecognitionResult.log.csv";
+//        File fourth = new File(fourthFile);
+//        if (!fourth.exists()) {
+//            // set total for the day to be zero
+//            barEntries.add(new BarEntry(0f, 3));
+//        } else {
+//            // read the last line of the file to get total ee kcal
+//            FileReader logReader = new FileReader(fourthFile);
+//            BufferedReader br = new BufferedReader(logReader);
+//            String lastLine = "";
+//            String sCurrentLine;
+//            while ((sCurrentLine = br.readLine()) != null)
+//            {
+//                lastLine = sCurrentLine;
+//            }
+//            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
+//            Log.i(TAG,"Energy expenditure day 4:"+ eekCal,mContext);
+//            barEntries.add(new BarEntry(Float.valueOf(eekCal),3));
+//            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
+////            if(retval < 0) {
+////                colors[3] = Color.rgb(250,128,114);
+////            }
+//            if(Float.valueOf(eekCal)>goalEEkCal){
+//                colors[3] = Color.rgb(34,139,54);
+//            }
+//
+//        }
         String fourthDateDay = sdfDay.format(calCurrent.getTime());
         theDates.add(fourthDateDay);
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String fifthDate = sdf.format(calCurrent.getTime());
-        String fifthFile = featureDirectory + "/" + fifthDate + "/" + "ActivityRecognitionResult.log.csv";
-        File fifth = new File(fifthFile);
-        if (!fifth.exists()) {
-            // set total for the day to be zero
-            barEntries.add(new BarEntry(0f, 4));
-        } else {
-            // read the last line of the file to get total ee kcal
-            FileReader logReader = new FileReader(fifthFile);
-            BufferedReader br = new BufferedReader(logReader);
-            String lastLine = "";
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null)
-            {
-                lastLine = sCurrentLine;
-            }
-            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,"Energy expenditure day 5:"+ eekCal,mContext);
-            barEntries.add(new BarEntry(Float.valueOf(eekCal),4));
-            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
-//            if(retval < 0) {
-//                colors[4] = Color.rgb(250,128,114);
-//            }
-            if(Float.valueOf(eekCal)>goalEEkCal){
-                colors[4] = Color.rgb(34,139,54);
-            }
-
+        Float fifthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,fifthDate);
+        barEntries.add(new BarEntry(fifthEEkcal,4));
+        if(fifthEEkcal>goalEEkCal) {
+            colors[0] = Color.rgb(34,139,54);
         }
+
+//        String fifthFile = featureDirectory + "/" + fifthDate + "/" + "ActivityRecognitionResult.log.csv";
+//        File fifth = new File(fifthFile);
+//        if (!fifth.exists()) {
+//            // set total for the day to be zero
+//            barEntries.add(new BarEntry(0f, 4));
+//        } else {
+//            // read the last line of the file to get total ee kcal
+//            FileReader logReader = new FileReader(fifthFile);
+//            BufferedReader br = new BufferedReader(logReader);
+//            String lastLine = "";
+//            String sCurrentLine;
+//            while ((sCurrentLine = br.readLine()) != null)
+//            {
+//                lastLine = sCurrentLine;
+//            }
+//            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
+//            Log.i(TAG,"Energy expenditure day 5:"+ eekCal,mContext);
+//            barEntries.add(new BarEntry(Float.valueOf(eekCal),4));
+//            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
+////            if(retval < 0) {
+////                colors[4] = Color.rgb(250,128,114);
+////            }
+//            if(Float.valueOf(eekCal)>goalEEkCal){
+//                colors[4] = Color.rgb(34,139,54);
+//            }
+//
+//        }
+
+
         String fifthDateDay = sdfDay.format(calCurrent.getTime());
         theDates.add(fifthDateDay);
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String sixthDate = sdf.format(calCurrent.getTime());
-        String sixthFile = featureDirectory + "/" + sixthDate + "/" + "ActivityRecognitionResult.log.csv";
-        File sixth = new File(sixthFile);
-        if (!sixth.exists()) {
-            // set total for the day to be zero
-            barEntries.add(new BarEntry(0f, 5));
-        } else {
-            // read the last line of the file to get total ee kcal
-            FileReader logReader = new FileReader(sixthFile);
-            BufferedReader br = new BufferedReader(logReader);
-            String lastLine = "";
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null)
-            {
-                lastLine = sCurrentLine;
-            }
-            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,"Energy expenditure day 6:"+ eekCal,mContext);
-            barEntries.add(new BarEntry(Float.valueOf(eekCal),5));
-            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
-//            if(retval < 0) {
-//                colors[5] = Color.rgb(250,128,114);
-//            }
-            if(Float.valueOf(eekCal)>goalEEkCal){
-                colors[5] = Color.rgb(34,139,54);
-            }
-
+        Float sixthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,sixthDate);
+        barEntries.add(new BarEntry(sixthEEkcal,5));
+        if(fourthEEkcal>goalEEkCal) {
+            colors[0] = Color.rgb(34,139,54);
         }
+
+//        String sixthFile = featureDirectory + "/" + sixthDate + "/" + "ActivityRecognitionResult.log.csv";
+//        File sixth = new File(sixthFile);
+//        if (!sixth.exists()) {
+//            // set total for the day to be zero
+//            barEntries.add(new BarEntry(0f, 5));
+//        } else {
+//            // read the last line of the file to get total ee kcal
+//            FileReader logReader = new FileReader(sixthFile);
+//            BufferedReader br = new BufferedReader(logReader);
+//            String lastLine = "";
+//            String sCurrentLine;
+//            while ((sCurrentLine = br.readLine()) != null)
+//            {
+//                lastLine = sCurrentLine;
+//            }
+//            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
+//            Log.i(TAG,"Energy expenditure day 6:"+ eekCal,mContext);
+//            barEntries.add(new BarEntry(Float.valueOf(eekCal),5));
+//            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
+////            if(retval < 0) {
+////                colors[5] = Color.rgb(250,128,114);
+////            }
+//            if(Float.valueOf(eekCal)>goalEEkCal){
+//                colors[5] = Color.rgb(34,139,54);
+//            }
+//
+//        }
         String sixthDateDay = sdfDay.format(calCurrent.getTime());
         theDates.add(sixthDateDay);
 
-        calCurrent.add(Calendar.DAY_OF_MONTH, 1);
-        String currentDate = sdf.format(calCurrent.getTime());
-        String currentFile = featureDirectory + "/" + currentDate + "/" + "ActivityRecognitionResult.log.csv";
-        File current = new File(currentFile);
-        if (!current.exists()) {
-            // set total for the day to be zero
-            barEntries.add(new BarEntry(0f, 6));
-        } else {
-            // read the last line of the file to get total ee kcal
-            FileReader logReader = new FileReader(currentFile);
-            BufferedReader br = new BufferedReader(logReader);
-            String lastLine = "";
-            String sCurrentLine;
-
-            while ((sCurrentLine = br.readLine()) != null)
-            {
-                lastLine = sCurrentLine;
-            }
-            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
-            Log.i(TAG,"Energy expenditure day 7:"+ eekCal,mContext);
-            barEntries.add(new BarEntry(Float.valueOf(eekCal),6));
-            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
-//            if(retval < 0) {
-//                colors[6] = Color.rgb(250,128,114);
-//            }
-            if(Float.valueOf(eekCal)>goalEEkCal){
-                colors[6] = Color.rgb(34,139,54);
-            }
-
+        Float seventhEEkcal = Float.valueOf(TEMPLEDataManager.getEEBoth(mContext))+ Float.valueOf(TEMPLEDataManager.getEEpano(mContext))+Float.valueOf(TEMPLEDataManager.getEEwatch(mContext));
+        barEntries.add(new BarEntry(seventhEEkcal,6));
+        if(seventhEEkcal>goalEEkCal) {
+            colors[0] = Color.rgb(34,139,54);
         }
+
+
+//        calCurrent.add(Calendar.DAY_OF_MONTH, 1);
+//        String currentDate = sdf.format(calCurrent.getTime());
+//        String currentFile = featureDirectory + "/" + currentDate + "/" + "ActivityRecognitionResult.log.csv";
+//        File current = new File(currentFile);
+//        if (!current.exists()) {
+//            // set total for the day to be zero
+//            barEntries.add(new BarEntry(0f, 6));
+//        } else {
+//            // read the last line of the file to get total ee kcal
+//            FileReader logReader = new FileReader(currentFile);
+//            BufferedReader br = new BufferedReader(logReader);
+//            String lastLine = "";
+//            String sCurrentLine;
+//
+//            while ((sCurrentLine = br.readLine()) != null)
+//            {
+//                lastLine = sCurrentLine;
+//            }
+//            String eekCal = lastLine.split(",")[5].split("\\.")[0].substring(1);
+//            Log.i(TAG,"Energy expenditure day 7:"+ eekCal,mContext);
+//            barEntries.add(new BarEntry(Float.valueOf(eekCal),6));
+//            int retval = Float.compare(Float.valueOf(eekCal),halfEEgoal);
+////            if(retval < 0) {
+////                colors[6] = Color.rgb(250,128,114);
+////            }
+//            if(Float.valueOf(eekCal)>goalEEkCal){
+//                colors[6] = Color.rgb(34,139,54);
+//            }
+//
+//        }
+
+
         theDates.add("Today");
 
         BarDataSet barDataSet = new BarDataSet(barEntries,"Actual");

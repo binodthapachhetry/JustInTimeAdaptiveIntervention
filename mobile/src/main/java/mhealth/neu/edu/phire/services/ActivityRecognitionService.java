@@ -395,6 +395,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 TEMPLEDataManager.setEEKcalWatch(mContext,"0");
                 Integer today_goal = TEMPLEDataManager.getPanoPAminutes(mContext)+TEMPLEDataManager.getWatchPAminutes(mContext)+TEMPLEDataManager.getBothPAminutes(mContext);
                 TEMPLEDataManager.setPAMinutesGoal(mContext,today_goal);
+
+                Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEpano(mContext))+Double.valueOf(TEMPLEDataManager.getEEwatch(mContext))+Double.valueOf(TEMPLEDataManager.getEEBoth(mContext));
+                Integer totalEEkcalInt = (int) Math.round(totalEEkcal);
+                SimpleDateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
+                String lastDateEEcalc = yearMonthDay.format(calEEcalcLastRun.getTime());
+                Log.i(TAG,"Last EE calculation date:"+lastDateEEcalc+",total EE kcal set to:"+ Integer.toString(totalEEkcalInt),mContext);
+                TEMPLEDataManager.setTotalEEkcal(mContext,lastDateEEcalc,totalEEkcalInt);
+
                 TEMPLEDataManager.setEEPano(mContext,"0");
                 TEMPLEDataManager.setEEboth(mContext,"0");
                 TEMPLEDataManager.setEEwatch(mContext,"0");

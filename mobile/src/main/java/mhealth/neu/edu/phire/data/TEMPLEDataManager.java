@@ -12,6 +12,15 @@ import edu.neu.mhealth.android.wockets.library.support.DateTime;
 public class TEMPLEDataManager {
 
     //--------------------------------------------------------------------------------------------//
+
+    public static int getTotalEEkcal(Context context, String date) {
+        return SharedPrefManager.getInt(date, 0, context);
+    }
+    public static void setTotalEEkcal(Context context, String date, int totalEEkcal) {
+        SharedPrefManager.setInt(date, totalEEkcal, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
     private static final String BOTH_PA_MINUTES = "BOTH_PA_MINUTES";
 
     public static int getBothPAminutes(Context context) {
