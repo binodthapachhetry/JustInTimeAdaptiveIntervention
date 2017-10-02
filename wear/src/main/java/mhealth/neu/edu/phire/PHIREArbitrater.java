@@ -47,7 +47,7 @@ public class PHIREArbitrater extends WakefulServiceArbitrator {
 			logger.i("Phone has been disconnected more than 36 seconds", mContext);
 
 			if(!LostConnectionWearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
-				LostConnectionWearableNotification notification = new LostConnectionWearableNotification("PHIRE: Connection lost", "Please check phone/watch connection", R.drawable.ic_launcher, true, WearableNotification.LOST_CONNECTION_NOTIFICATION, mContext);
+				LostConnectionWearableNotification notification = new LostConnectionWearableNotification("PHIRE:", "Connect phone", R.drawable.ic_launcher, true, WearableNotification.LOST_CONNECTION_NOTIFICATION, mContext);
 				notification.show();
 				logger.i("Showing lost connection notification", mContext);
 			}else{

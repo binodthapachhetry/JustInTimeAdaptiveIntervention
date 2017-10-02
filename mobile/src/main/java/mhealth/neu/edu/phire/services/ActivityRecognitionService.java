@@ -382,19 +382,28 @@ public class ActivityRecognitionService extends WocketsIntentService {
             Calendar calEEcalcLastRun = Calendar.getInstance();
             calEEcalcLastRun.setTime(dateEEcalcLastRun);
             int dayOfMonthEEcalcLastRun = calEEcalcLastRun.get(Calendar.DAY_OF_MONTH);
+            int monthEEcalcLastRun = calEEcalcLastRun.get(Calendar.MONTH);
 
             Date dateCurrent = new Date();
             dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
             Calendar calCurrent = Calendar.getInstance();
             calCurrent.setTime(dateCurrent);
             int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
+            int monthCurrent = calCurrent.get(Calendar.MONTH);
 
-            if(dayOfMonthCurrent>dayOfMonthEEcalcLastRun){
+
+            Log.i(TAG,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last EE calculation:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
+
+            if((dayOfMonthCurrent>dayOfMonthEEcalcLastRun)||(monthCurrent>monthEEcalcLastRun)){
                 TEMPLEDataManager.setEEKcalBoth(mContext,"0");
                 TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
                 TEMPLEDataManager.setEEKcalWatch(mContext,"0");
                 Integer today_goal = TEMPLEDataManager.getPanoPAminutes(mContext)+TEMPLEDataManager.getWatchPAminutes(mContext)+TEMPLEDataManager.getBothPAminutes(mContext);
-                TEMPLEDataManager.setPAMinutesGoal(mContext,today_goal);
+                if(today_goal>35) {
+                    TEMPLEDataManager.setPAMinutesGoal(mContext, today_goal);
+                }else{
+                    Log.i(TAG,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
+                }
 
                 Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEpano(mContext))+Double.valueOf(TEMPLEDataManager.getEEwatch(mContext))+Double.valueOf(TEMPLEDataManager.getEEBoth(mContext));
                 Integer totalEEkcalInt = (int) Math.round(totalEEkcal);

@@ -40,7 +40,8 @@ public class LostConnectionWearableNotification extends WearableNotification {
                         .setOngoing(onGoing)
                         .setAutoCancel(true)
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000, 1000, 10, 600, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50}).extend(new NotificationCompat.WearableExtender().addPages(extras));
+                        .setVibrate(new long[] {0,5,1000,5}).extend(new NotificationCompat.WearableExtender().addPages(extras));
+//                        .setVibrate(new long[]{1000, 1000, 1000, 1000, 1000, 1000, 10, 600, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50, 300, 50}).extend(new NotificationCompat.WearableExtender().addPages(extras));
 
         notification =  notificationBuilder.build();
         notificationMap.put(id, this);

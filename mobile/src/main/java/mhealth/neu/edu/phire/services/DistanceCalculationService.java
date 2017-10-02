@@ -182,7 +182,7 @@ public class DistanceCalculationService extends WocketsIntentService {
 //                Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
 //                return;
             }else{
-                float distance = (map.get(stopRot)-map.get(startRot))*wheelCircumference;
+                float distance = Math.abs((map.get(stopRot)-map.get(startRot))*wheelCircumference);
                 Log.i(TAG, "Distance travelled at this cycle:"+Float.toString(distance), mContext);
                 if(distance==0L){
                     Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
