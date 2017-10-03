@@ -561,6 +561,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     if (first) {
                         prevDate = thisDate;
                         prevRot = thisRot;
+                        map.put(thisDate.getTime(), thisRot);
                         first = false;
                     } else {
                         if(thisRot==prevRot){
