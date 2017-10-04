@@ -240,6 +240,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
         // find the code down where for a new day it calculates the total PA minutes
         // find the code down where for a new day it calculates the average bout length
 
+        File path = new File(featureDirectory + "/" + dayDirectory);
+        if(!path.exists()){
+            path.mkdirs();
+        }
+
         if(EEboth==null) {
             eeBothFile = featureDirectory + "/" + dayDirectory + "/" + "eeBoth.csv";
             File eeBfile = new File(eeBothFile);
@@ -1012,7 +1017,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         NavigableMap<Date, Integer> EEpanoFilt = new TreeMap<Date, Integer>();
 
         if(EEwatch!=null) {
-            Log.i(TAG,"Size of ee watch:"+Integer.toString(EEwatch.size()),mContext);
+            Log.i(TAG,"Size of EE watch:"+Integer.toString(EEwatch.size()),mContext);
             double sumWatch = 0;
             for (double f : EEwatch.values()) {
                 sumWatch += f;
