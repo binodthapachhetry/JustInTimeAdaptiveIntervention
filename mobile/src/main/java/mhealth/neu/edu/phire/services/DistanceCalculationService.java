@@ -152,7 +152,7 @@ public class DistanceCalculationService extends WocketsIntentService {
                 useFirst = false;
 
             }else {
-                startRot = map.floorKey(lastDistanceCalcTime);
+                startRot = map.ceilingKey(lastDistanceCalcTime);
             }
 
 //            startRot = map.floorKey(lastDistanceCalcTime);
@@ -175,6 +175,8 @@ public class DistanceCalculationService extends WocketsIntentService {
 //                Log.i(TAG, "Issue with reading start and stop time in panobike file.", mContext);
 //                return;
 //            } else
+
+
             if(stopRot.compareTo(startRot) <0) {
                 Log.i(TAG, "Start and stop panobike read time is same.", mContext);
                 return;

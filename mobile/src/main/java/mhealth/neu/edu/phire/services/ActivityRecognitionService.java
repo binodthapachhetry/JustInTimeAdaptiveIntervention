@@ -231,6 +231,10 @@ public class ActivityRecognitionService extends WocketsIntentService {
     }
 
     private void doAR() throws Exception {
+
+        int pamin = TEMPLEDataManager.getPAminutesGoal(mContext);
+        Log.i(TAG,"goal PA mis="+Integer.toString(pamin),mContext);
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateNow = new Date();
         String featureDirectory = DataManager.getDirectoryFeature(mContext);
@@ -608,6 +612,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
         }
 
         long lastSpeedReadTime = TEMPLEDataManager.getSpeedLastReadTime(mContext);
+        Log.i(TAG, "Last speed read time:"+simpleDateFormat.format(lastSpeedReadTime), mContext);
+
         if (sFile.exists()&& !wfFile.exists()) {
 
             Log.i(TAG, "Only speed file exists for today", mContext);
@@ -615,6 +621,12 @@ public class ActivityRecognitionService extends WocketsIntentService {
             // based on that divide into intervals of 60 seconds
 //            Long startRot = map.ceilingKey(lastARwindowStopTime);
             Long startRot = map.ceilingKey(lastSpeedReadTime);
+
+//            if(Long.signum(lastSpeedReadTime)==-1){
+//                startRot = map.firstKey();
+//            }else {
+//                startRot = map.floorKey(lastSpeedReadTime);
+//            }
             Long stopRot = map.lastKey();
 
             if(startRot==null || stopRot==null) {
@@ -628,27 +640,33 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 stopSelf();
             } else{
                 long diff = stopRot - startRot;
-                long diffSeconds = diff / 1000 % 60;
+                long diffSeconds = diff / 1000l;
                 double binsDouble = (double) diffSeconds / (double) 60;
                 int bins = (int) Math.round(binsDouble);
                 if (bins == 0) {
                     bins = 1;
                 }
+                Log.i(TAG,"number of bins="+Integer.toString(bins),mContext);
                 for (int i = 1; i < bins; i++) {
                     eeKcalPanobike = TEMPLEDataManager.getEEKcalPanobike(mContext);
                     long j = (long) i;
                     long jSubOne = j - 1L;
-                    long start = startRot + (60L * jSubOne);
-                    long stop = startRot + (60L * j);
+                    long start = startRot + (60000L * jSubOne);
+                    long stop = startRot + (60000L * j);
 
                     String predictClass;
                     String predictSubClass;
                     SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String startTime = simpleDateFormatPano.format(start);
                     String stopTime = simpleDateFormatPano.format(stop);
+                    Log.i(TAG, "Total distance from panobike between:" + startTime + "," + stopTime , mContext);
 
-//                double totalDistance = (map.get(stopRot)-map.get(startRot))*wheelCircumference;
-                    double totalDistance = (map.get(stop) - map.get(start)) * wheelCircumference;
+                    double totalDistance;
+                    if(map.get(stop)==null || map.get(start)==null){
+                        totalDistance = 0d;
+                    }else {
+                        totalDistance = (map.get(stop) - map.get(start)) * wheelCircumference;
+                    }
 
                     Log.i(TAG, "Total distance from panobike between:" + startTime + "," + stopTime + " is " + Double.toString(totalDistance), mContext);
                     if (totalDistance < nearStationary) {
