@@ -65,7 +65,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
     private static final String TAG = "ActivityRecognitionService";
     private static final String TAGF = "ActivityRecognitionResult";
-    private static final Double MULT = 3d;
+    private static final Double MULT = 3.5d;
     private static final String dayFormat = "yyyy-MM-dd";
     public static final String hourFormat = "HH-z";
     private Context mContext;
@@ -90,6 +90,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private Long lastTimeSpeed;
     private long thisMilliseconds;
     private long currentMilliseconds;
+    private long lastARserviceRun;
     private File sFile;
     private File wfFile;
     private String arFile;
@@ -206,7 +207,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         }
     };
 
-    String[] arr = new String[] {"4", "6", "12"};
+    String[] arr = new String[] {"4", "6"};
     String eeWatchFile;
     String eePanoFile;
     String eeBothFile;
@@ -233,7 +234,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private void doAR() throws Exception {
 
         int pamin = TEMPLEDataManager.getPAminutesGoal(mContext);
-        Log.i(TAG,"goal PA mis="+Integer.toString(pamin),mContext);
+        Log.i(TAG,"goal PA mins="+Integer.toString(pamin),mContext);
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateNow = new Date();
@@ -385,9 +386,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
         Log.i(TAG,"Last recorded distance travelled in meter = " + distanceMeter,mContext);
 
-        if(eeCalcLastRun!=0){
+        lastARserviceRun = TEMPLEDataManager.getLastRunOfARService(mContext);
+
+        if(lastARserviceRun!=0){
             Date dateEEcalcLastRun = new Date();
-            dateEEcalcLastRun.setTime(eeCalcLastRun);
+            dateEEcalcLastRun.setTime(lastARserviceRun);
             Calendar calEEcalcLastRun = Calendar.getInstance();
             calEEcalcLastRun.setTime(dateEEcalcLastRun);
             int dayOfMonthEEcalcLastRun = calEEcalcLastRun.get(Calendar.DAY_OF_MONTH);
@@ -401,12 +404,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
             int monthCurrent = calCurrent.get(Calendar.MONTH);
 
 
-            Log.i(TAG,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last EE calculation:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
+            Log.i(TAG,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last AR service run:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
 
             if((dayOfMonthCurrent>dayOfMonthEEcalcLastRun)||(monthCurrent>monthEEcalcLastRun)){
                 TEMPLEDataManager.setEEKcalBoth(mContext,"0");
                 TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
                 TEMPLEDataManager.setEEKcalWatch(mContext,"0");
+
                 Integer today_goal = TEMPLEDataManager.getPanoPAminutes(mContext)+TEMPLEDataManager.getWatchPAminutes(mContext)+TEMPLEDataManager.getBothPAminutes(mContext);
                 if(today_goal>35) {
                     TEMPLEDataManager.setPAMinutesGoal(mContext, today_goal);
@@ -427,6 +431,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 Integer lastPAboutLength = TEMPLEDataManager.getDailyPAboutLength(mContext);
                 if (lastPAboutLength>2) {
                     TEMPLEDataManager.setDailyPaBoutLengthGoal(mContext,lastPAboutLength);
+                    Log.i(TAG,"Set minimum bout length to:"+Integer.toString(lastPAboutLength),mContext);
                 }
             }
         }
@@ -461,6 +466,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
             partMETmultiply = 0d;
         }
         METthresh = MULT*partMETmultiply;
+        Log.i(TAG, "MET threshold set to include PA minutes when greeat than "+ Double.toString(METthresh), mContext);
+
 
         // this is end for participant related info for computing energy expenditure
 
@@ -1133,6 +1140,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
             TEMPLEDataManager.setEEPano(mContext,Double.toString(sumPano));
             Integer size = 0;
             for (Map.Entry<Date, Double> entry : EEpano.entrySet()) {
+                Log.i(TAG,"EE pano value:"+Double.toString(entry.getValue()),mContext);
                 if (entry.getValue()> METthresh) {
                     EEpanoFilt.put(entry.getKey(), 1);
                     size +=1;
@@ -1169,6 +1177,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 e.printStackTrace();
             }
         }
+
         NavigableMap<Date, Integer> EEFiltMerged = new TreeMap<Date, Integer>();
         EEFiltMerged.putAll(EEbothFilt);
         EEFiltMerged.putAll(EEpanoFilt);
@@ -1176,8 +1185,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
         Boolean firstEntry = true;
         Integer sum =0;
-        List<Integer> bouts = new ArrayList<Integer>();
-        Integer avgBout;
+        ArrayList<Integer> bouts = new ArrayList<Integer>();
+        Integer medianBout;
         if(EEFiltMerged.size()>1) {
             Log.i(TAG,"EE filt merge size:"+Integer.toString(EEFiltMerged.size()),mContext);
             for (Map.Entry<Date, Integer> entry : EEFiltMerged.entrySet()) {
@@ -1199,17 +1208,26 @@ public class ActivityRecognitionService extends WocketsIntentService {
             }
             if(bouts.size()>0) {
                 Log.i(TAG,"bout lis size:"+Integer.toString(bouts.size()),mContext);
-                Integer sumAll = 0;
-                for (Integer bout : bouts) {
-                    sumAll += bout;
+//                Integer sumAll = 0;
+//                for (Integer bout : bouts) {
+//                    sumAll += bout;
+//                }
+                int n = bouts.size();
+                if (n%2 == 0){
+                    medianBout = ( bouts.get(n/2) + bouts.get((n/2)-1)) / 2;
+                }else{
+                    medianBout = bouts.get((n-1)/2);
                 }
-                avgBout = sumAll/bouts.size();
-                if(avgBout>0){
-                    Log.i(TAG,"avg bout set:"+Integer.toString(avgBout),mContext);
-                    TEMPLEDataManager.setDailyPaBoutLength(mContext,avgBout);
+//                avgBout = sumAll/bouts.size();
+
+
+                if(medianBout>0){
+                    Log.i(TAG,"avg bout set:"+Integer.toString(medianBout),mContext);
+                    TEMPLEDataManager.setDailyPaBoutLength(mContext,medianBout);
                 }
             }
         }
+        TEMPLEDataManager.setLastRunOfARService(mContext);
     }
 
     public void doNonMovingInstance(String[] line, long stop, double dist, String eeKCalIn, String sensor){

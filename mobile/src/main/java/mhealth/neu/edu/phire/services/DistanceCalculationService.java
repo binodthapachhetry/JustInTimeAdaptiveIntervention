@@ -152,24 +152,25 @@ public class DistanceCalculationService extends WocketsIntentService {
                 useFirst = false;
 
             }else {
-                startRot = map.ceilingKey(lastDistanceCalcTime);
+                startRot = map.floorKey(lastDistanceCalcTime);
             }
 
 //            startRot = map.floorKey(lastDistanceCalcTime);
 
 //            Long startRot = map.floorKey(lastDistanceCalcTime);
             stopRot = map.lastKey();
-            Log.i(TAG,"Start rot:" + Long.toString(startRot),mContext);
 
-            Log.i(TAG,"Start rotation time:" + simpleDateFormatS.format(startRot),mContext);
-            Log.i(TAG,"Stop rotation time:" + simpleDateFormatS.format(stopRot),mContext);
+//            Log.i(TAG,"Start rot:" + Long.toString(startRot),mContext);
+//
+//            Log.i(TAG,"Start rotation time:" + simpleDateFormatS.format(startRot),mContext);
+//            Log.i(TAG,"Stop rotation time:" + simpleDateFormatS.format(stopRot),mContext);
 
-//            if(startRot==null){
-//                Log.i(TAG,"START KEY IS NULL",mContext);
-//            }
-//            if(stopRot == null){
-//                Log.i(TAG,"STOP ROT IS NULL",mContext);
-//            }
+            if(startRot==null){
+                Log.i(TAG,"START KEY IS NULL",mContext);
+            }
+            if(stopRot == null){
+                Log.i(TAG,"STOP ROT IS NULL",mContext);
+            }
 
 //            if(startRot==null || stopRot==null) {
 //                Log.i(TAG, "Issue with reading start and stop time in panobike file.", mContext);

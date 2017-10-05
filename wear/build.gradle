@@ -7,8 +7,8 @@ android {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 54
-        versionName "1.53"
+        versionCode 55
+        versionName "1.54"
         multiDexEnabled  true
     }
     buildTypes {

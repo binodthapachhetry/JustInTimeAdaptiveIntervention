@@ -13,6 +13,18 @@ public class TEMPLEDataManager {
 
     //--------------------------------------------------------------------------------------------//
 
+    private static final String LAST_RUN_OF_AR_SERVICE = "LAST_RUN_OF_AR_SERVICE";
+
+    public static long getLastRunOfARService(Context mContext) {
+        return SharedPrefManager.getLong(LAST_RUN_OF_AR_SERVICE, 0, mContext);
+    }
+
+    public static void setLastRunOfARService(Context mConText) {
+        SharedPrefManager.setLong(LAST_RUN_OF_AR_SERVICE, DateTime.getCurrentTimeInMillis(), mConText);
+    }
+
+    //--------------------------------------------------------------------------------------------//
+
     public static int getTotalEEkcal(Context context, String date) {
         return SharedPrefManager.getInt(date, 0, context);
     }
