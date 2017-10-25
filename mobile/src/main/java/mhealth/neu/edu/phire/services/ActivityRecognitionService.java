@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -233,6 +234,38 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
     private void doAR() throws Exception {
 
+        // get participant related info for computing energy expenditure
+        mapMET = new HashMap<String,Double>();
+        mapMET.put("1",1d);
+        mapMET.put("2",3d);
+        mapMET.put("3",1.6d);
+        mapMET.put("4",3.5d);
+        mapMET.put("5",1d);
+        mapMET.put("6",4.8d);
+        mapMET.put("7",3.2d);
+        mapMET.put("11",1d);
+        mapMET.put("12",3.5d);
+        mapMET.put("13",3.2d);
+
+        mapSciLevel = new HashMap<String,Double>();
+        mapSciLevel.put("paraplagia",2.77d);
+        mapSciLevel.put("tetraplagia",2.52d);
+
+        if(TEMPLEDataManager.getParticipantWeight(mContext)!="" && TEMPLEDataManager.getParticipantSciLevel(mContext)!=""){
+            partWeightKg = (Double.parseDouble(TEMPLEDataManager.getParticipantWeight(mContext))* TEMPLEConstants.LB_KG_CONVERT)/TEMPLEConstants.MET_DIVIDE;
+            Log.i(TAG,"Participant weight in lbs is :"+ TEMPLEDataManager.getParticipantWeight(mContext),mContext);
+
+            partSciLevel = mapSciLevel.get(TEMPLEDataManager.getParticipantSciLevel(mContext));
+            Log.i(TAG,"Participant sci level is :"+ TEMPLEDataManager.getParticipantSciLevel(mContext),mContext);
+
+            partMETmultiply = partWeightKg*partSciLevel;
+        }else{
+            Log.i(TAG,"Patient information to calculate energy expenditure not found",mContext);
+            partMETmultiply = 0d;
+        }
+        METthresh = MULT*partMETmultiply;
+        Log.i(TAG, "MET threshold set to include PA minutes when greeat than "+ Double.toString(METthresh), mContext);
+
         int pamin = TEMPLEDataManager.getPAminutesGoal(mContext);
         Log.i(TAG,"goal PA mins="+Integer.toString(pamin),mContext);
 
@@ -256,7 +289,12 @@ public class ActivityRecognitionService extends WocketsIntentService {
             if (eeBfile.exists()) {
                 FileInputStream fileInputStream = new FileInputStream(eeBothFile);
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-                EEboth = (NavigableMap<Date, Double>) objectInputStream.readObject();
+                try {
+                    EEboth = (NavigableMap<Date, Double>) objectInputStream.readObject();
+                }catch (EOFException e){
+                    e.printStackTrace();
+                    EEboth = new TreeMap<Date, Double>();
+                }
                 objectInputStream.close();
             } else {
                 EEboth = new TreeMap<Date, Double>();
@@ -270,7 +308,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
             if (eePfile.exists()) {
                 FileInputStream fileInputStream = new FileInputStream(eePanoFile);
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-                EEpano = (NavigableMap<Date, Double>) objectInputStream.readObject();
+                try {
+                    EEpano = (NavigableMap<Date, Double>) objectInputStream.readObject();
+                }catch (EOFException e){
+                    e.printStackTrace();
+                    EEpano = new TreeMap<Date, Double>();
+                }
+//                EEpano = (NavigableMap<Date, Double>) objectInputStream.readObject();
                 objectInputStream.close();
             } else {
                 EEpano = new TreeMap<Date, Double>();
@@ -284,7 +328,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
             if (eeWfile.exists()) {
                 FileInputStream fileInputStream = new FileInputStream(eeWatchFile);
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-                EEwatch = (NavigableMap<Date, Double>) objectInputStream.readObject();
+                try {
+                    EEwatch = (NavigableMap<Date, Double>) objectInputStream.readObject();
+                }catch (EOFException e){
+                    e.printStackTrace();
+                    EEwatch = new TreeMap<Date, Double>();
+                }
+//                EEwatch = (NavigableMap<Date, Double>) objectInputStream.readObject();
                 objectInputStream.close();
             } else {
                 EEwatch = new TreeMap<Date, Double>();
@@ -436,37 +486,37 @@ public class ActivityRecognitionService extends WocketsIntentService {
             }
         }
 
-        // get participant related info for computing energy expenditure
-        mapMET = new HashMap<String,Double>();
-        mapMET.put("1",1d);
-        mapMET.put("2",3d);
-        mapMET.put("3",1.6d);
-        mapMET.put("4",3.5d);
-        mapMET.put("5",1d);
-        mapMET.put("6",4.8d);
-        mapMET.put("7",3.2d);
-        mapMET.put("11",1d);
-        mapMET.put("12",3.5d);
-        mapMET.put("13",3.2d);
-
-        mapSciLevel = new HashMap<String,Double>();
-        mapSciLevel.put("paraplagia",2.77d);
-        mapSciLevel.put("tetraplagia",2.52d);
-
-        if(TEMPLEDataManager.getParticipantWeight(mContext)!="" && TEMPLEDataManager.getParticipantSciLevel(mContext)!=""){
-            partWeightKg = (Double.parseDouble(TEMPLEDataManager.getParticipantWeight(mContext))* TEMPLEConstants.LB_KG_CONVERT)/TEMPLEConstants.MET_DIVIDE;
-            Log.i(TAG,"Participant weight in lbs is :"+ TEMPLEDataManager.getParticipantWeight(mContext),mContext);
-
-            partSciLevel = mapSciLevel.get(TEMPLEDataManager.getParticipantSciLevel(mContext));
-            Log.i(TAG,"Participant sci level is :"+ TEMPLEDataManager.getParticipantSciLevel(mContext),mContext);
-
-            partMETmultiply = partWeightKg*partSciLevel;
-        }else{
-            Log.i(TAG,"Patient information to calculate energy expenditure not found",mContext);
-            partMETmultiply = 0d;
-        }
-        METthresh = MULT*partMETmultiply;
-        Log.i(TAG, "MET threshold set to include PA minutes when greeat than "+ Double.toString(METthresh), mContext);
+//        // get participant related info for computing energy expenditure
+//        mapMET = new HashMap<String,Double>();
+//        mapMET.put("1",1d);
+//        mapMET.put("2",3d);
+//        mapMET.put("3",1.6d);
+//        mapMET.put("4",3.5d);
+//        mapMET.put("5",1d);
+//        mapMET.put("6",4.8d);
+//        mapMET.put("7",3.2d);
+//        mapMET.put("11",1d);
+//        mapMET.put("12",3.5d);
+//        mapMET.put("13",3.2d);
+//
+//        mapSciLevel = new HashMap<String,Double>();
+//        mapSciLevel.put("paraplagia",2.77d);
+//        mapSciLevel.put("tetraplagia",2.52d);
+//
+//        if(TEMPLEDataManager.getParticipantWeight(mContext)!="" && TEMPLEDataManager.getParticipantSciLevel(mContext)!=""){
+//            partWeightKg = (Double.parseDouble(TEMPLEDataManager.getParticipantWeight(mContext))* TEMPLEConstants.LB_KG_CONVERT)/TEMPLEConstants.MET_DIVIDE;
+//            Log.i(TAG,"Participant weight in lbs is :"+ TEMPLEDataManager.getParticipantWeight(mContext),mContext);
+//
+//            partSciLevel = mapSciLevel.get(TEMPLEDataManager.getParticipantSciLevel(mContext));
+//            Log.i(TAG,"Participant sci level is :"+ TEMPLEDataManager.getParticipantSciLevel(mContext),mContext);
+//
+//            partMETmultiply = partWeightKg*partSciLevel;
+//        }else{
+//            Log.i(TAG,"Patient information to calculate energy expenditure not found",mContext);
+//            partMETmultiply = 0d;
+//        }
+//        METthresh = MULT*partMETmultiply;
+//        Log.i(TAG, "MET threshold set to include PA minutes when greeat than "+ Double.toString(METthresh), mContext);
 
 
         // this is end for participant related info for computing energy expenditure
@@ -1050,12 +1100,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
             TEMPLEDataManager.setEEwatch(mContext,Double.toString(sumWatch));
 
             Integer size = 0;
-            for (Map.Entry<Date, Double> entry : EEwatch.entrySet()) {
-                if (entry.getValue()> METthresh) {
-                    EEwatchFilt.put(entry.getKey(), 1);
-                    size +=1;
-                }else{
-                    EEwatchFilt.put(entry.getKey(), 0);
+            if(EEwatch.size()>0) {
+                for (Map.Entry<Date, Double> entry : EEwatch.entrySet()) {
+                    if (entry.getValue() >= METthresh) {
+                        EEwatchFilt.put(entry.getKey(), 1);
+                        size += 1;
+                    } else {
+                        EEwatchFilt.put(entry.getKey(), 0);
+                    }
                 }
             }
             if(EEwatchFilt!=null){
@@ -1094,12 +1146,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
             }
             TEMPLEDataManager.setEEboth(mContext,Double.toString(sumBoth));
             Integer size = 0;
-            for (Map.Entry<Date, Double> entry : EEboth.entrySet()) {
-                if (entry.getValue()> METthresh) {
-                    EEbothFilt.put(entry.getKey(), 1);
-                    size +=1;
-                }else{
-                    EEbothFilt.put(entry.getKey(), 0);
+            if(EEboth.size()>0) {
+                for (Map.Entry<Date, Double> entry : EEboth.entrySet()) {
+                    if (entry.getValue() >= METthresh) {
+                        EEbothFilt.put(entry.getKey(), 1);
+                        size += 1;
+                    } else {
+                        EEbothFilt.put(entry.getKey(), 0);
+                    }
                 }
             }
             if(EEbothFilt!=null){
@@ -1139,14 +1193,16 @@ public class ActivityRecognitionService extends WocketsIntentService {
             }
             TEMPLEDataManager.setEEPano(mContext,Double.toString(sumPano));
             Integer size = 0;
-            for (Map.Entry<Date, Double> entry : EEpano.entrySet()) {
-                Log.i(TAG,"EE pano value:"+Double.toString(entry.getValue()),mContext);
-                if (entry.getValue()> METthresh) {
-                    EEpanoFilt.put(entry.getKey(), 1);
-                    size +=1;
-                }else{
-                    EEpanoFilt.put(entry.getKey(), 0);
+            if(EEpano.size()>0) {
+                for (Map.Entry<Date, Double> entry : EEpano.entrySet()) {
+                    Log.i(TAG, "EE pano value:" + Double.toString(entry.getValue()), mContext);
+                    if (entry.getValue() >= METthresh) {
+                        EEpanoFilt.put(entry.getKey(), 1);
+                        size += 1;
+                    } else {
+                        EEpanoFilt.put(entry.getKey(), 0);
 
+                    }
                 }
             }
 
@@ -1276,7 +1332,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     CSV.write(row, arFileWatchDay, true);
                     TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal));
                     EEwatch.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
-                    Log.i(TAG, "Activity detected using only watch:"+className, mContext);
+                    Log.i(TAG, "Non-moving activity detected using only watch:"+className, mContext);
 
                 }
                 DataManager.setLastARwindowStopTime(mContext, stop);
@@ -1339,7 +1395,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     CSV.write(row, arFileWatchDay, true);
                     TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal));
                     EEwatch.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
-                    Log.i(TAG, "Activity detected using only watch:"+className, mContext);
+                    Log.i(TAG, "Moving activity detected using only watch:"+className, mContext);
 
                 }
                 DataManager.setLastARwindowStopTime(mContext, stop);

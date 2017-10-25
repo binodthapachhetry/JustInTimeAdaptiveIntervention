@@ -112,9 +112,16 @@ public class PanobikeSensorService extends WocketsIntentService {
         } else {
             if (!mBluetoothAdapter.isEnabled()) {
                 // Bluetooth is not enable :)
-                ToastManager.showShortToast(mContext, "Please enable bluetooth for the app to function properly.");
-                stopSelf();
+                Log.i(TAG,"Bluetooth is disabled. So enabling it silently.",mContext);
+                if(mBluetoothAdapter.enable()){
+                    Log.i(TAG,"Bluetooth is enabled.",mContext);
+                }else{
+                    Log.i(TAG,"Not able to enable bluetooth programatically. Stopping PanobikeSensorService.",mContext);
+                    stopSelf();
 
+                }
+//                ToastManager.showShortToast(mContext, "Please enable bluetooth for the app to function properly.");
+//                stopSelf();
             }
         }
 

@@ -42,7 +42,7 @@ import edu.neu.android.wocketslib.utils.SharedPrefs;
 /**
  * Created by Dharam on 5/4/2015.
  */
-public class DataTransfer extends Service implements GoogleApiClient.ConnectionCallbacks,
+public class  DataTransfer extends Service implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         NodeApi.NodeListener {
 
