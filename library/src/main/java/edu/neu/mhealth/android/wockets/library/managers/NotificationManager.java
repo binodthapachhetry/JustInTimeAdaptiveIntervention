@@ -169,6 +169,12 @@ public class NotificationManager {
 		mNotificationManager.cancel(NOTIFICATION_ID_SURVEY);
 	}
 
+	public static void clearFeedbackNotification(Context mContext) {
+		android.app.NotificationManager mNotificationManager =
+				(android.app.NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+		mNotificationManager.cancel(NOTIFICATION_ID_FEEDBACK);
+	}
+
 	public static Notification getAlwaysOnServiceNotification(Context context, int notificationIcon, String text) {
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                 notificationIcon);

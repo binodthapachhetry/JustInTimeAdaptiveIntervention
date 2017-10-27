@@ -1,6 +1,7 @@
 package mhealth.neu.edu.phire.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.icu.lang.UCharacter;
 import android.os.Bundle;
@@ -44,6 +45,8 @@ public class ParticipantInfoActivity extends AppCompatActivity {
     private EditText data;
     private EditText distance;
 
+    private Button doneButton;
+
     private String partAge;
     private String partWeight;
     private String partGender;
@@ -68,6 +71,7 @@ public class ParticipantInfoActivity extends AppCompatActivity {
 
     private void addListenerOnButtonClick(){
 
+        doneButton = (Button) findViewById(R.id.done);
         // text boxes
         ageCurrent = (EditText) findViewById(R.id.ageCurrent);
         ageCurrent.setEnabled(false);
@@ -159,6 +163,8 @@ public class ParticipantInfoActivity extends AppCompatActivity {
         dataTranfer = (CheckBox) findViewById(R.id.transferdata);
         if(onlyWifi){
             dataTranfer.setChecked(true);
+        }else{
+            dataTranfer.setChecked(false);
         }
         dataTranfer.setOnClickListener(new View.OnClickListener(){
 
@@ -319,6 +325,15 @@ public class ParticipantInfoActivity extends AppCompatActivity {
                 TEMPLEDataManager.setParticipantHeightIn(mContext,String.valueOf(newval));
                 Log.i(TAG, "Height(inch) set to:"+String.valueOf(newval), mContext);
 
+            }
+        });
+
+
+        // done button
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, SetupActivity.class);
+                startActivity(intent);
             }
         });
 

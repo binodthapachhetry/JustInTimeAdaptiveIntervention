@@ -10,7 +10,8 @@
     <string name="select_start_date">Select Start Date</string>
     <string name="select_start_date_survey">Select Start Date For Weekly Survey</string>
     <string name="select_end_date">Select End Date</string>
-    <string name="start_demo">Start Demo</string>
+    <string name="start_demo">Start Survey Demo</string>
+    <string name="start_demo_intervene">Start Intervention Demo</string>
     <string name="select_wake_time">Select Wake Time</string>
     <string name="select_sleep_time">Select Sleep Time</string>
     <string name="start_saliva_demo">Start Saliva Demo</string>

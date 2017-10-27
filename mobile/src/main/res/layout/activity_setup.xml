@@ -26,7 +26,9 @@
 
             <Button
                 android:id="@+id/activity_participant_info"
-                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/participant"
@@ -34,7 +36,9 @@
 
             <Button
                 android:id="@+id/activity_select_dailygoal"
-                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/SelectDailyGoal"
@@ -42,7 +46,9 @@
 
             <Button
                 android:id="@+id/activity_visual_feedback"
-                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/feedback"
@@ -50,7 +56,9 @@
 
             <Button
                 android:id="@+id/activity_setup_wheel_diameter_cm"
-                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/select_wheel_diameter_cm"
@@ -58,7 +66,9 @@
 
             <Button
                 android:id="@+id/activity_select_panobike_sensor"
-                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/select_panobike_sensor"
@@ -67,7 +77,9 @@
 
             <Button
                 android:id="@+id/activity_setup_select_language"
-                android:layout_margin="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/select_language"
@@ -91,6 +103,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/start_demo"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/activity_setup_start_demo_intervene"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_demo_intervene"
                 android:textAllCaps="false"/>
 
             <Button

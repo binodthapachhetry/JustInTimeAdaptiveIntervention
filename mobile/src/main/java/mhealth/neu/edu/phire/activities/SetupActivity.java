@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,7 +33,9 @@ import edu.neu.mhealth.android.wockets.library.database.entities.study.Survey;
 import edu.neu.mhealth.android.wockets.library.database.entities.study.Text;
 import edu.neu.mhealth.android.wockets.library.ema.EMATimePickerActivity;
 import edu.neu.mhealth.android.wockets.library.managers.ConnectivityManager;
+import edu.neu.mhealth.android.wockets.library.managers.NotificationManager;
 import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
+import edu.neu.mhealth.android.wockets.library.managers.VibrationManager;
 import edu.neu.mhealth.android.wockets.library.services.UploadManagerService;
 import edu.neu.mhealth.android.wockets.library.support.DateTime;
 import edu.neu.mhealth.android.wockets.library.support.Log;
@@ -42,6 +45,7 @@ import mhealth.neu.edu.phire.R;
 import mhealth.neu.edu.phire.TEMPLEConstants;
 
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
+import mhealth.neu.edu.phire.services.JustInTimeFeedbackService;
 import mhealth.neu.edu.phire.services.SurveyService;
 import mhealth.neu.edu.phire.panobike.SelectSensorActivity;
 
@@ -209,6 +213,19 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
             }
         }, DateTime.SECONDS_10_IN_MILLIS);
     }
+
+    @OnClick(R.id.activity_setup_start_demo_intervene)
+    public void onClickStartInterveneDemo() {
+        NotificationManager.showFeedbackNotification(
+                mContext,
+                "Good job!",
+                "5 mins completed,\n 30 mins remaining to complete daily goal.",
+                R.mipmap.temple,
+                Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.audio2),
+                VibrationManager.VIBRATION_PATTERN_CONGRATULATORY
+        );
+    }
+
 
     @OnClick(R.id.activity_setup_select_start_date)
     public void onClickSelectStartDate() {

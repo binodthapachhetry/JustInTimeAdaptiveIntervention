@@ -182,7 +182,7 @@ public class MainActivity extends WocketsActivity {
     @OnClick(R.id.activity_main_background_home)
     public void onClickBackgroundHome(View view) {
         Log.d(TAG, "Clicked Background Home - " + backgroundImageClick);
-        if (backgroundImageClick < 10) {
+        if (backgroundImageClick < 4) {
             backgroundImageClick++;
             return;
         }

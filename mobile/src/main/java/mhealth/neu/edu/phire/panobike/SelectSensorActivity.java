@@ -31,6 +31,7 @@ import java.util.List;
 
 import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
 import mhealth.neu.edu.phire.R;
+import mhealth.neu.edu.phire.activities.SetupActivity;
 import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 
 
@@ -39,12 +40,13 @@ public class SelectSensorActivity extends AppCompatActivity implements View.OnCl
 
     private static final String TAG = SelectSensorActivity.class.getSimpleName();
     public static final String SENSOR_ID = "sensor_id";
-    private static final long SCAN_PERIOD = 3000;
+    private static final long SCAN_PERIOD = 30000;
     private BluetoothAdapter mBluetoothAdapter;
     private BluetoothLeScanner mBluetoothLEScanner;
     private ScanCallback mScanCallback;
     private TextView currentSensorView;
     private Button scanButton;
+    private Button doneButton;
     private boolean mScanning;
     private Handler mHandler;
     private ScanFilter cscFilter;
@@ -75,6 +77,7 @@ public class SelectSensorActivity extends AppCompatActivity implements View.OnCl
 
         currentSensorView = (TextView) findViewById(R.id.current_sensor);
         scanButton = (Button) findViewById(R.id.button_scan_sensor);
+        doneButton = (Button) findViewById(R.id.done);
 
 //        prefs = getSharedPreferences(MainActivity.PREF_NAME, MODE_PRIVATE);
 //        diameterCm = prefs.getInt(SelectDiameterActivity.DIAMETER_CM,0);
@@ -88,6 +91,11 @@ public class SelectSensorActivity extends AppCompatActivity implements View.OnCl
     }
     @Override
     public void onClick(final View view) {
+        if(view == findViewById(R.id.done)){
+            Log.i(TAG,"pressed done button");
+            Intent intent = new Intent(mContext, SetupActivity.class);
+            startActivity(intent);
+        }
         if (view == findViewById(R.id.button_scan_sensor)) {
             Log.i(TAG,"pressed button to scan for devices");
 //

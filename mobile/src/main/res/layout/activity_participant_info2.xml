@@ -214,6 +214,39 @@
                     android:layout_weight="2"/>
 
             </LinearLayout>
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+                <CheckBox
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/gender"
+                    android:layout_weight="1"/>
+
+                <CheckBox
+                    android:id="@+id/sciLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/sciLevel"
+                    android:layout_weight="1"/>
+
+                <CheckBox
+                    android:id="@+id/completeness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/completeness"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
         </LinearLayout>
 
 
@@ -275,71 +308,114 @@
                     android:layout_weight="2"/>
 
             </LinearLayout>
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+                <CheckBox
+                    android:id="@+id/needspeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/speed"
+                    android:layout_weight="1"/>
+
+                <CheckBox
+                    android:id="@+id/transferdata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/wifi"
+                    android:layout_weight="1"/>
+
+
+            </LinearLayout>
+
 
 
         </LinearLayout>
 
+
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--&gt;-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/gender"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:text="@string/gender"-->
+                <!--android:layout_weight="1"/>-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/sciLevel"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:text="@string/sciLevel"-->
+                <!--android:layout_weight="1"/>-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/completeness"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:text="@string/completeness"-->
+                <!--android:layout_weight="1"/>-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--&gt;-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/needspeed"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:text="@string/speed"-->
+                <!--android:layout_weight="1"/>-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/transferdata"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:text="@string/wifi"-->
+                <!--android:layout_weight="1"/>-->
+
+
+        <!--</LinearLayout>-->
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
-
-            <CheckBox
-                android:id="@+id/gender"
-                android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+            <Button
+                android:id="@+id/done"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/gender"
-                android:layout_weight="1"/>
-
-            <CheckBox
-                android:id="@+id/sciLevel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text="@string/sciLevel"
-                android:layout_weight="1"/>
-
-            <CheckBox
-                android:id="@+id/completeness"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text="@string/completeness"
-                android:layout_weight="1"/>
+                android:textSize="@dimen/view_text_size_diameter"
+                android:text="@string/Done"
+                android:onClick="onClick"/>
 
         </LinearLayout>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
-
-            <CheckBox
-                android:id="@+id/needspeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/speed"
-                android:layout_weight="1"/>
-
-            <CheckBox
-                android:id="@+id/transferdata"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text="@string/wifi"
-                android:layout_weight="1"/>
-
-
-        </LinearLayout>
 
 
     </LinearLayout>

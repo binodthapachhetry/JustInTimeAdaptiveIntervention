@@ -36,6 +36,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
+import edu.neu.mhealth.android.wockets.library.managers.NotificationManager;
 import edu.neu.mhealth.android.wockets.library.managers.ToastManager;
 import edu.neu.mhealth.android.wockets.library.services.WocketsIntentService;
 import edu.neu.mhealth.android.wockets.library.support.CSV;
@@ -233,6 +234,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
     }
 
     private void doAR() throws Exception {
+
+        NotificationManager.clearFeedbackNotification(mContext);
 
         // get participant related info for computing energy expenditure
         mapMET = new HashMap<String,Double>();
