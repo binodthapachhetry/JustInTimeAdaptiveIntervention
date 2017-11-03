@@ -184,25 +184,34 @@ public class DistanceCalculationService extends WocketsIntentService {
 //            } else if(stopRot==stopRot) {
 //                Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
 //                return;
-            }else{
-                float distance = Math.abs((map.get(stopRot)-map.get(startRot))*wheelCircumference);
-                Log.i(TAG, "Distance travelled at this cycle:"+Float.toString(distance), mContext);
-                if(distance==0L){
+            }else {
+                Integer startVal = map.get(startRot);
+                Integer stopVal = map.get(stopRot);
+                int checkem = stopVal.compareTo(startVal);
+                if (checkem == 0) {
                     Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
-                    return;
+                } else if (checkem < 0) {
+                    Log.i(TAG, "Sensor reading initialized. Later reading smaller than earlier reading.", mContext);
+                } else {
+                    float distance = Math.abs((stopVal - startVal) * wheelCircumference);
+                    Log.i(TAG, "Distance travelled at this cycle:" + Float.toString(distance), mContext);
+                    if (distance == 0L) {
+                        Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
+                        return;
+                    }
+                    float totalDistance = Float.valueOf(distanceMeter) + distance;
+                    TEMPLEDataManager.setDistanceTravelledMeter(mContext, String.valueOf(totalDistance));
+//                    TEMPLEDataManager.setLastDistanceCalcTime(mContext, stopRot);
+                    SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String stopTime = simpleDateFormatPano.format(stopRot);
+                    String[] row = {
+                            stopTime,
+                            String.valueOf(totalDistance),
+                    };
+                    CSV.write(row, distFile, true);
+                    CSV.write(row, distFileDay, true);
                 }
-                float totalDistance = Float.valueOf(distanceMeter)+distance;
-
-                TEMPLEDataManager.setDistanceTravelledMeter(mContext,String.valueOf(totalDistance));
-                TEMPLEDataManager.setLastDistanceCalcTime(mContext,stopRot);
-                SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                String stopTime = simpleDateFormatPano.format(stopRot);
-                String[] row = {
-                        stopTime,
-                        String.valueOf(totalDistance),
-                };
-                CSV.write(row, distFile, true);
-                CSV.write(row,distFileDay,true);
+                TEMPLEDataManager.setLastDistanceCalcTime(mContext, stopRot);
             }
         }else{
             Log.i(TAG, "No speed file for the day", mContext);

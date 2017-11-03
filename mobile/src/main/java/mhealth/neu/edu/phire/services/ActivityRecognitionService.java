@@ -120,6 +120,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
 
     private static final long ONE_MINUTE_IN_MILLIS = 60000;//millisecs
+    private static final long PANOBIKE_GAP_MINUTE = 35;
     private double wheelCircumference;
     private static final float nearStationary = 3f;
     private static final float someWheelMovement = 12f;
@@ -633,28 +634,47 @@ public class ActivityRecognitionService extends WocketsIntentService {
                         map.put(thisDate.getTime(), thisRot);
                         first = false;
                     } else {
-                        if(thisRot==prevRot){
-                            continue;
-                        }
-                        if (thisRot > prevRot + 10) {
+                        int rotGap = Double.compare(thisRot,prevRot);
+                        if(rotGap==0){
+                            Log.i(TAG, "Rotation diff is 0. So not distributing.", mContext);
+                        }else if (rotGap<0){
+                            Log.i(TAG, "Rotation diff is negative. Panobike reading must have reinitialized. So not distributing.", mContext);
+                        }else{
                             long diff = thisDate.getTime() - prevDate.getTime();
-                            long diffSeconds = diff / 1000;
+                            int timeGapUpper = Long.compare(diff,PANOBIKE_GAP_MINUTE*ONE_MINUTE_IN_MILLIS);
+                            int timeGapLower = Long.compare(diff,ONE_MINUTE_IN_MILLIS);
 
-                            double binsDouble = (double) diffSeconds / (double) 30;
-                            int bins = (int) Math.round(binsDouble);
-                            double rotAdd = (thisRot - prevRot) / (double) bins;
-                            if (bins == 0) {
-                                bins = 1;
-                            }
-                            Log.i(TAG, "Bins needed:"+Integer.toString(bins), mContext);
+                            if(timeGapUpper>0||timeGapLower<0){
+                                Log.i(TAG, "Time gap is great than allowed threshold of 35 minutes, or smaller than 1 minute. So not distributing.", mContext);
+                            }else {
+                                Log.i(TAG, "Time gap is smaller or equal to allowed threshold of 35 minutes.", mContext);
+                                double distanceTravelled = (thisRot - prevRot)*wheelCircumference;
 
-                            for (int i = 1; i < bins; i++) {
-                                long j = (long) i;
-                                long time = prevDate.getTime() + (30000L * j);
-                                double k = (double) i;
-                                double dist = prevRot + (rotAdd*k);
-                                map.put(time, dist);
-                                Log.i(TAG, "Adding:"+simpleDateFormatPano.format(time)+","+Double.toString(dist), mContext);
+                                double avgSpeed = distanceTravelled/(double) (diff/1000l);
+                                int avgSpeedUpper = Double.compare(avgSpeed,107d);
+                                int avgSpeedLower = Double.compare(avgSpeed,12d);
+                                if(avgSpeedLower<=0||avgSpeedUpper>0){
+                                    Log.i(TAG, "Avg. speed in greater than 3749 meters/minute or less than 12 meters/minute. So not distributing.", mContext);
+                                }else{
+                                    Log.i(TAG, "Re-distributing panobike reading now.", mContext);
+                                    long diffSeconds = diff / 1000;
+                                    double binsDouble = (double) diffSeconds / (double) 30;
+                                    int bins = (int) Math.round(binsDouble);
+                                    double rotAdd = (thisRot - prevRot) / (double) bins;
+                                    if (bins == 0) {
+                                        bins = 1;
+                                    }
+                                    Log.i(TAG, "Bins needed:"+Integer.toString(bins), mContext);
+
+                                    for (int i = 1; i < bins; i++) {
+                                        long j = (long) i;
+                                        long time = prevDate.getTime() + (30000L * j);
+                                        double k = (double) i;
+                                        double dist = prevRot + (rotAdd*k);
+                                        map.put(time, dist);
+                                        Log.i(TAG, "Adding:"+simpleDateFormatPano.format(time)+","+Double.toString(dist), mContext);
+                                    }
+                                }
                             }
                         }
 
@@ -693,10 +713,10 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
                 stopSelf();
             } else if(stopRot.compareTo(startRot) <0){
-                    Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
+                    Log.i(TAG, "Rotation number decreased.", mContext);
                     stopSelf();
             }else if (stopRot.compareTo(startRot) ==0){
-                Log.i(TAG, "No new speed recorded after last AR instance.", mContext);
+                Log.i(TAG, "No new rotatoin recorded after last AR instance.", mContext);
                 stopSelf();
             } else{
                 long diff = stopRot - startRot;

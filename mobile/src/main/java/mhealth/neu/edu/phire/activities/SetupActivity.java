@@ -127,18 +127,18 @@ public class SetupActivity extends WocketsActivity implements GoogleApiClient.Co
 
     }
 
-    @OnClick(R.id.activity_visual_feedback)
-    public void onClickVisualFeedback(){
-        Log.i(TAG,"Patient visual feecback screen",mContext);
-        Study study = DataManager.getStudy(mContext);
-        if (study == null) {
-            Log.e(TAG, "onClickVisualFeedback - No study found", mContext);
-            return;
-        }
-        android.util.Log.i(TAG,"inside patient visual feecback");
-        Intent intent = new Intent(this, FeedbackChoices.class);
-        startActivity(intent);
-    }
+//    @OnClick(R.id.activity_visual_feedback)
+//    public void onClickVisualFeedback(){
+//        Log.i(TAG,"Patient visual feecback screen",mContext);
+//        Study study = DataManager.getStudy(mContext);
+//        if (study == null) {
+//            Log.e(TAG, "onClickVisualFeedback - No study found", mContext);
+//            return;
+//        }
+//        android.util.Log.i(TAG,"inside patient visual feecback");
+//        Intent intent = new Intent(this, FeedbackChoices.class);
+//        startActivity(intent);
+//    }
 
     @OnClick(R.id.activity_select_panobike_sensor)
     public void onClickSelectPanoBikeSensor(){
