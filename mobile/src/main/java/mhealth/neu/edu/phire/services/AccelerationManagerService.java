@@ -125,7 +125,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 //        SensorEventLoggerTask task = new SensorEventLoggerTask(mContext);
 //        executor = Executors.newSingleThreadExecutor();
 
-        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_UI, maxDelay,handler);
+        mSensorManager.registerListener(this, mAccel, SensorManager.SENSOR_DELAY_NORMAL, maxDelay,handler);
     }
 
 //    class InsertHandler implements Runnable {
