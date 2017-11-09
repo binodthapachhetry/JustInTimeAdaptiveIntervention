@@ -1,15 +1,15 @@
 [
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png"
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_media_route_on_16_dark.png",
@@ -76,12 +76,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xhdpi-v4\\ic_play_dark.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_audiotrack.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xhdpi-v4\\ic_audiotrack.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_media_route_on_07_dark.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xhdpi-v4\\ic_media_route_on_07_dark.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_audiotrack.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xhdpi-v4\\ic_audiotrack.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xhdpi-v4\\quantum_ic_volume_up_grey600_36.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a9ee9305f9961557bad17bcf828a77a9f3af0fdf\\output\\res\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\common_ic_googleplayservices.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-xhdpi-v4\\common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\a9ee9305f9961557bad17bcf828a77a9f3af0fdf\\output\\res\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_media_route_on_14_dark.png",
@@ -128,12 +128,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_17_dark.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\quantum_ic_pause_circle_filled_white_36.png",
@@ -240,12 +240,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\cast_ic_stop_circle_filled_white.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xhdpi-v4\\cast_ic_stop_circle_filled_white.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\cast_ic_stop_circle_filled_white.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xhdpi-v4\\cast_ic_stop_circle_filled_white.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_media_route_on_20_dark.png",
@@ -256,12 +256,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_media_route_connecting_03_light.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_03_light.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_media_route_connecting_03_light.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xhdpi-v4\\ic_media_route_connecting_03_light.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_media_route_on_00_light.png",

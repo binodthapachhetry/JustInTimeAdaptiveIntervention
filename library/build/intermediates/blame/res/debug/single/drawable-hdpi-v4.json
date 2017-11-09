@@ -20,12 +20,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-hdpi-v4\\quantum_ic_play_circle_filled_white_36.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_pause_light.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-hdpi-v4\\ic_pause_light.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\quantum_ic_skip_next_white_24.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-hdpi-v4\\quantum_ic_skip_next_white_24.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_pause_light.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-hdpi-v4\\ic_pause_light.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_cast_dark.png",

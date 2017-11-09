@@ -128,12 +128,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\51ae075f51b9be8534f259689f1b6f84d8ac4e2b\\output\\res\\drawable-xxxhdpi-v4\\places_ic_search.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\quantum_ic_skip_previous_white_36.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xxxhdpi-v4\\quantum_ic_skip_previous_white_36.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_expand_00003.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xxxhdpi-v4\\ic_expand_00003.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\quantum_ic_skip_previous_white_36.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xxxhdpi-v4\\quantum_ic_skip_previous_white_36.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\quantum_ic_skip_next_white_36.png",
@@ -152,12 +152,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xxxhdpi-v4\\quantum_ic_replay_white_24.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\quantum_ic_replay_30_white_24.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xxxhdpi-v4\\quantum_ic_replay_30_white_24.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_expand_00007.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-xxxhdpi-v4\\ic_expand_00007.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\quantum_ic_replay_30_white_24.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-xxxhdpi-v4\\quantum_ic_replay_30_white_24.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\quantum_ic_art_track_grey600_48.png",

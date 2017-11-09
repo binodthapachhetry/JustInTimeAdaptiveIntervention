@@ -115,6 +115,7 @@ public class PanobikeSensorService extends WocketsIntentService {
                 Log.i(TAG,"Bluetooth is disabled. So enabling it silently.",mContext);
                 if(mBluetoothAdapter.enable()){
                     Log.i(TAG,"Bluetooth is enabled.",mContext);
+
                 }else{
                     Log.i(TAG,"Not able to enable bluetooth programatically. Stopping PanobikeSensorService.",mContext);
                     stopSelf();

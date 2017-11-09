@@ -2,6 +2,7 @@ package mhealth.neu.edu.phire.panobike;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.InputMismatchException;
 import java.util.UUID;
 
 import android.bluetooth.BluetoothDevice;
@@ -59,7 +60,7 @@ public class BikeSensor
     private boolean mWheelStopped, mCrankStopped;
     private long mLastWheelReading;
     private int mLastCrankReading;
-    private int mLastWheelTime, mLastCrankTime;
+    private long mLastWheelTime, mLastCrankTime;
 
 
 
@@ -149,7 +150,8 @@ public class BikeSensor
             boolean hasWheel, hasCrank;
             long wheelRotations;
             int crankRotations;
-            int time;
+            long time;
+            long timeS;
 
 
             Calendar cs = Calendar.getInstance();
@@ -192,9 +194,14 @@ public class BikeSensor
             // instantaneous and average calculations.
 
             if (hasWheel) {
+                mLastWheelTime = TEMPLEDataManager.getSpeedLastReceivedTime(mContext);
                 wheelRotations = readU32(value, i);
-                time = readU16(value, i + 4);
-//                Log.d(TAG,"Wheel Rotations: " + wheelRotations + ",Time: " + time);
+//                time = readU16(value, i + 4);
+                timeS = System.currentTimeMillis();
+
+//                Log.i(TAG,"Wheel rotation raw="+Long.toString(wheelRotations));
+//                Log.i(TAG,"Current wheel time raw="+Long.toString(timeS));
+//                Log.i(TAG,"Last wheel time raw="+Long.toString(mLastWheelTime));
 
                 if (wheelRotations == 0) {
                     // We've stopped moving
@@ -204,32 +211,48 @@ public class BikeSensor
                     // Wheel's started again
                     mWheelStopped = false;
                     mLastWheelReading = wheelRotations;
-                    mLastWheelTime = time;
+                    mLastWheelTime = timeS;
 
                     parent.mCallback.onSpeedUpdate(parent, 0, 0.0,0);
 
-                } else {
-                    if (wheelRotations != mLastWheelReading) {
+                } else if(Long.compare(mLastWheelTime,0l)==0){
+                    mLastWheelTime = timeS;
+                    TEMPLEDataManager.setSpeedLastReceivedTime(mContext,mLastWheelTime);
+                }
+                else {
+//                    if (wheelRotations != mLastWheelReading) {
                         // Delta over last update
-                        int timeDiff;
-                        timeDiff = do16BitDiff(time, mLastWheelTime);
-                        if(wheelRotations > mLastWheelReading) {
-                            parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
-                                    (timeDiff / 1024.0), wheelRotations);
-                        }else{
-                            parent.mCallback.onSpeedUpdate(parent, (mLastWheelReading - wheelRotations) * mCircumference,
-                                    (timeDiff / 1024.0), wheelRotations);
-                        }
+                        int timeDiffS;
+                        double timeDiffSecS;
+//                        timeDiffS = do16BitDiff(time, mLastWheelTime);
+//                        timeDiffSecS = timeDiffS/1024.0;
+                        int compareElapsedTimeS = Long.compare(timeS-mLastWheelTime,30000l);
+                        if(compareElapsedTimeS>=0) {
+//                            if (Long.compare(wheelRotations,mLastWheelReading)>0) {
 
-                        mLastWheelReading = wheelRotations;
-                        mLastWheelTime = time;
+                                Log.i(TAG, "Wheel rotation=" + Long.toString(wheelRotations));
+                                Log.i(TAG, "Time diff in sec?:" + Long.toString((timeS - mLastWheelTime) / 1000l));
+
+                                if (wheelRotations > mLastWheelReading) {
+                                    parent.mCallback.onSpeedUpdate(parent, (wheelRotations - mLastWheelReading) * mCircumference,
+                                            (1024.0), wheelRotations);
+                                } else {
+                                    parent.mCallback.onSpeedUpdate(parent, (mLastWheelReading - wheelRotations) * mCircumference,
+                                            (1024.0), wheelRotations);
+                                }
+
+                                mLastWheelReading = wheelRotations;
+                                TEMPLEDataManager.setSpeedLastReceivedTime(mContext, timeS);
+//                            }
+
+                        }
 //                        parent.mCallback.onSpeedUpdate(parent, 0, wheelRotations);
                         // Can happen if bicycle reverses
 //                        wheelRotations = 0;
                         // do nothing
 //                        return;
 
-                    }
+//                    }
 
                 }
 
@@ -237,9 +260,14 @@ public class BikeSensor
             }
 
             if (hasCrank) {
+                mLastCrankTime = TEMPLEDataManager.getCadenceLastReceivedTime(mContext);
                 crankRotations = readU16(value, i);
-                time = readU16(value, i + 2);
-//                Log.d(TAG,"Crank Rotations: " + crankRotations + ",Time: " + time);
+//                time = readU16(value, i + 2);
+                time = System.currentTimeMillis();
+
+//                Log.i(TAG,"Crank rotation raw="+Long.toString(crankRotations));
+//                Log.i(TAG,"Current crank time raw="+Long.toString(time));
+//                Log.i(TAG,"Last crank time raw="+Long.toString(mLastCrankTime));
 
                 if (crankRotations == 0) {
                     // Coasting or stopped
@@ -254,21 +282,43 @@ public class BikeSensor
 
                     parent.mCallback.onCadenceUpdate(parent, 0, 0.0,0);
 
-                } else {
+                } else if(Long.compare(mLastCrankTime,0l)==0){
+                    mLastCrankTime = time;
+                    TEMPLEDataManager.setCadenceLastReceivedTime(mContext,mLastCrankTime);
+
+                }
+                else {
                     // Delta over last update
                     int rotDiff;
                     rotDiff = do16BitDiff(crankRotations, mLastCrankReading);
-                    if (rotDiff != 0) {
+//                    if (rotDiff != 0) {
                         int timeDiff;
-                        timeDiff = do16BitDiff(time, mLastCrankTime);
+                        double timeDiffSec;
+//                        timeDiff = do16BitDiff(time, mLastCrankTime);
+//                        timeDiffSec = timeDiff/1024.0;
+                        int compareElapsedTime = Long.compare(time-mLastCrankTime,30000l);
+//                        int compareElapsedTime = Double.compare(timeDiffSec,30d);
+                        if(compareElapsedTime>=0) {
+//                            if (rotDiff != 0) {
 
-                        parent.mCallback.onCadenceUpdate(parent, Math.abs(rotDiff), (timeDiff / 1024.0), crankRotations);
+//                            Log.i(TAG,"Rot diff="+ Integer.toString(crankRotations));
+                                Log.i(TAG, "Crank rotation=" + Integer.toString(crankRotations));
+                                Log.i(TAG, "Time diff in sec?:" + Long.toString((time - mLastCrankTime) / 1000l));
 
-                        mLastCrankReading = crankRotations;
-                        mLastCrankTime = time;
+//                            Log.i(TAG,"Time diff in sec?:"+ Double.toString(timeDiffSec));
+
+                                parent.mCallback.onCadenceUpdate(parent, Math.abs(crankRotations), (1024.0), crankRotations);
+
+                                mLastCrankReading = crankRotations;
+//                            mLastCrankTime = time;
+                                TEMPLEDataManager.setCadenceLastReceivedTime(mContext, time);
+
+//                            }
+//                            }
+                        }
                         // do nothing
 //                        return;
-                    }
+//                    }
                 }
             }
         }

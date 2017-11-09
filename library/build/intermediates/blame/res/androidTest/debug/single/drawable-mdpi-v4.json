@@ -28,12 +28,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable-mdpi-v4\\quantum_ic_play_arrow_grey600_48.png"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_focused.9.png",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_focused.9.png"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_cast_light.png",
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable-mdpi-v4\\ic_cast_light.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_focused.9.png",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_focused.9.png"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",

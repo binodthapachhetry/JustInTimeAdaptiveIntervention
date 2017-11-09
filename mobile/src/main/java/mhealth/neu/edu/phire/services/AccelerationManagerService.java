@@ -19,7 +19,11 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Executors;
@@ -36,7 +40,8 @@ import edu.neu.mhealth.android.wockets.library.support.Log;
 
 public class AccelerationManagerService extends WocketsIntentService implements SensorEventListener {
 
-    private static final String TAG = "AccelerationManager";
+    private static final String TAG = "AccelerationManagerService";
+    private static final char CSV_DELIM = ',';
     public static final String mHealthTimestampFormat = "yyyy-MM-dd HH:mm:ss.SSS";
     public static final String dayFormat = "yyyy-MM-dd";
     public static final String hourFormat = "HH-z";
@@ -55,6 +60,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     private ExecutorService executor;
     private HandlerThread mHandlerThread;
     private Handler handler;
+    private PrintWriter printWriter;
 
 
 //    private AndroidWearAccelerometerRaw accelRaw;
@@ -109,6 +115,34 @@ public class AccelerationManagerService extends WocketsIntentService implements 
         Log.i(TAG,"Is wakeup sensor? " + String.valueOf(mAccel.isWakeUpSensor()),mContext);
         Log.i(TAG, "FIFO Count - " + mAccel.getFifoMaxEventCount(),mContext);
         Log.i(TAG, "FIFO Res Count - " + mAccel.getFifoReservedEventCount(),mContext);
+
+        dateNow = new Date();
+        String dataDirectory = DataManager.getDirectoryData(mContext);
+        String dayDirectory = new SimpleDateFormat(dayFormat).format(dateNow);
+        String hourDirectory = new SimpleDateFormat(hourFormat).format(dateNow);
+        String accFilePath = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Acceleration.txt";
+        File accFile = new File(accFilePath);
+        try{
+            if (accFile.createNewFile()){
+                Log.i(TAG,"File is created!",mContext);
+            }else {
+                Log.i(TAG,"File already exists!",mContext);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try
+        {
+            printWriter =
+                    new PrintWriter(new BufferedWriter(new FileWriter(accFilePath,true)));
+
+//            printWriter.println(CSV_HEADER);
+        }
+        catch (IOException e)
+        {
+            Log.i(TAG, "Could not open CSV file(s)", mContext);
+        }
+
 
         registerSensorListeners();
     }
@@ -176,6 +210,15 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 //        }
         mSensorManager.flush(this);
         mSensorManager.unregisterListener(this);
+        if (printWriter != null)
+        {
+            printWriter.close();
+        }
+
+        if (printWriter.checkError())
+        {
+            Log.e(TAG, "Error closing writer",mContext);
+        }
         notifyServiceStop();
         Log.i(TAG,"INSIDE ON DESTROY",mContext);
     }
@@ -192,7 +235,46 @@ public class AccelerationManagerService extends WocketsIntentService implements 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i(TAG,"on start command",mContext);
+        if (printWriter != null)
+        {
+            printWriter.close();
+        }
+
+        if (printWriter.checkError())
+        {
+            Log.e(TAG, "Error closing writer",mContext);
+        }
+        dateNow = new Date();
+        String dataDirectory = DataManager.getDirectoryData(mContext);
+        String dayDirectory = new SimpleDateFormat(dayFormat).format(dateNow);
+        String hourDirectory = new SimpleDateFormat(hourFormat).format(dateNow);
+        String accFilePath = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Acceleration.txt";
+        File accFile = new File(accFilePath);
+            try{
+                if (accFile.createNewFile()){
+                    Log.i(TAG,"File is created!",mContext);
+
+                }else {
+                    Log.i(TAG,"File already exists!",mContext);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        try
+        {
+            printWriter =
+                    new PrintWriter(new BufferedWriter(new FileWriter(accFilePath,true)));
+
+        }
+        catch (IOException e)
+        {
+            Log.i(TAG, "Could not open CSV file(s)", mContext);
+        }
+
+
         mSensorManager.flush(this);
+
         return Service.START_STICKY;
     }
 
@@ -246,21 +328,41 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 //                    Float.toString(event.values[2] - gravity[2])
 //            };
 
-            String[] accEntry = {
-                    timestampStringNow,
-                    timestampString,
-                    Float.toString(event.values[0]),
-                    Float.toString(event.values[1]),
-                    Float.toString(event.values[2])
-            };
+//            String[] accEntry = {
+//                    timestampStringNow,
+//                    timestampString,
+//                    Float.toString(event.values[0]),
+//                    Float.toString(event.values[1]),
+//                    Float.toString(event.values[2])
+//            };
+//            String dataDirectory = DataManager.getDirectoryData(mContext);
+//            String dayDirectory = new SimpleDateFormat(dayFormat).format(dateNow);
+//            String hourDirectory = new SimpleDateFormat(hourFormat).format(dateNow);
+//            String accFile = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Acceleration.csv";
+//            CSV.write(accEntry, accFile, true);
 
-            String dataDirectory = DataManager.getDirectoryData(mContext);
-            String dayDirectory = new SimpleDateFormat(dayFormat).format(dateNow);
-            String hourDirectory = new SimpleDateFormat(hourFormat).format(dateNow);
-            String accFile = dataDirectory + "/" + dayDirectory + "/" + hourDirectory + "/" + "Acceleration.csv";
-            CSV.write(accEntry, accFile, true);
+            String accRow = timestampStringNow +","+timestampString+","+Float.toString(event.values[0])+","+Float.toString(event.values[1])+","+Float.toString(event.values[2]);
+            if (printWriter != null) {
+//                StringBuffer sb = new StringBuffer()
+//                        .append(timestampStringNow).append(CSV_DELIM)
+//                        .append(timestampString).append(CSV_DELIM)
+//                        .append(event.values[0]).append(CSV_DELIM)
+//                        .append(event.values[1]).append(CSV_DELIM)
+//                        .append(event.values[1]).append(CSV_DELIM);
 
+                printWriter.println(accRow);
+                if (printWriter.checkError()) {
+                    Log.i(TAG, "Error writing sensor event data", mContext);
+                }else{
+//                    Log.i(TAG, "Wrote sensor event data", mContext);
+                }
+            }
         }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
 
@@ -306,10 +408,7 @@ public class AccelerationManagerService extends WocketsIntentService implements 
 //
 //    }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
 
-    }
 
     private void notifyFlushComplete(){
         Intent broadcastIntent = new Intent("FLUSH_RESULT");

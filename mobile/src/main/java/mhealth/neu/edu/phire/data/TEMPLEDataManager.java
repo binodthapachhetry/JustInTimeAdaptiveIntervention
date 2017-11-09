@@ -357,12 +357,12 @@ public class TEMPLEDataManager {
     //--------------------------------------------------------------------------------------------//
     private static final String SPEED_LAST_RECEIVED_TIME = "SPEED_LAST_REDEIVED_TIME";
 
-    public static String getSpeedLastReceivedTime(Context mContext){
-        return SharedPrefManager.getString(SPEED_LAST_RECEIVED_TIME , "", mContext);
+    public static Long getSpeedLastReceivedTime(Context mContext){
+        return SharedPrefManager.getLong(SPEED_LAST_RECEIVED_TIME , 0l, mContext);
     }
 
-    public static void setSpeedLastReceivedTime(Context mContext, String SpeedLastReceivedTime) {
-        SharedPrefManager.setString(SPEED_LAST_RECEIVED_TIME, SpeedLastReceivedTime, mContext);
+    public static void setSpeedLastReceivedTime(Context mContext, Long SpeedLastReceivedTime) {
+        SharedPrefManager.setLong(SPEED_LAST_RECEIVED_TIME, SpeedLastReceivedTime, mContext);
     }
 
     //--------------------------------------------------------------------------------------------//
@@ -378,12 +378,12 @@ public class TEMPLEDataManager {
     //--------------------------------------------------------------------------------------------//
     private static final String CADENCE_LAST_RECEIVED_TIME = "CADENCE_LAST_REDEIVED_TIME";
 
-    public static String getCadenceLastReceivedTime(Context mContext){
-        return SharedPrefManager.getString(CADENCE_LAST_RECEIVED_TIME , "", mContext);
+    public static Long getCadenceLastReceivedTime(Context mContext){
+        return SharedPrefManager.getLong(CADENCE_LAST_RECEIVED_TIME , 0l, mContext);
     }
 
-    public static void setCadenceLastReceivedTime(Context mContext, String CadenceLastReceivedTime) {
-        SharedPrefManager.setString(CADENCE_LAST_RECEIVED_TIME, CadenceLastReceivedTime, mContext);
+    public static void setCadenceLastReceivedTime(Context mContext, Long CadenceLastReceivedTime) {
+        SharedPrefManager.setLong(CADENCE_LAST_RECEIVED_TIME, CadenceLastReceivedTime, mContext);
     }
 
     //--------------------------------------------------------------------------------------------//
