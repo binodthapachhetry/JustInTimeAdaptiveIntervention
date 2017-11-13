@@ -240,10 +240,11 @@ public class AccelerationManagerService extends WocketsIntentService implements 
             printWriter.close();
         }
 
-        if (printWriter.checkError())
-        {
-            Log.e(TAG, "Error closing writer",mContext);
-        }
+//        if (printWriter.checkError())
+//        {
+//            Log.e(TAG, "Error closing writer",mContext);
+//        }
+
         dateNow = new Date();
         String dataDirectory = DataManager.getDirectoryData(mContext);
         String dayDirectory = new SimpleDateFormat(dayFormat).format(dateNow);

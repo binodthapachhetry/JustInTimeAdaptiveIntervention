@@ -162,7 +162,7 @@ public class EnergyPlot extends AppCompatActivity {
         Float secondEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,secondDate);
         barEntries.add(new BarEntry(secondEEkcal,1));
         if(secondEEkcal>goalEEkCal) {
-            colors[0] = Color.rgb(34,139,54);
+            colors[1] = Color.rgb(34,139,54);
         }
 
 //        String secondFile = featureDirectory + "/" + secondDate + "/" + "ActivityRecognitionResult.log.csv";
@@ -203,7 +203,7 @@ public class EnergyPlot extends AppCompatActivity {
         Float thirdEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,thirdDate);
         barEntries.add(new BarEntry(thirdEEkcal,2));
         if(thirdEEkcal>goalEEkCal) {
-            colors[0] = Color.rgb(34,139,54);
+            colors[2] = Color.rgb(34,139,54);
         }
 
 
@@ -243,7 +243,7 @@ public class EnergyPlot extends AppCompatActivity {
         Float fourthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,fourthDate);
         barEntries.add(new BarEntry(fourthEEkcal,3));
         if(fourthEEkcal>goalEEkCal) {
-            colors[0] = Color.rgb(34,139,54);
+            colors[3] = Color.rgb(34,139,54);
         }
 
 
@@ -282,7 +282,7 @@ public class EnergyPlot extends AppCompatActivity {
         Float fifthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,fifthDate);
         barEntries.add(new BarEntry(fifthEEkcal,4));
         if(fifthEEkcal>goalEEkCal) {
-            colors[0] = Color.rgb(34,139,54);
+            colors[4] = Color.rgb(34,139,54);
         }
 
 //        String fifthFile = featureDirectory + "/" + fifthDate + "/" + "ActivityRecognitionResult.log.csv";
@@ -322,7 +322,7 @@ public class EnergyPlot extends AppCompatActivity {
         Float sixthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,sixthDate);
         barEntries.add(new BarEntry(sixthEEkcal,5));
         if(fourthEEkcal>goalEEkCal) {
-            colors[0] = Color.rgb(34,139,54);
+            colors[5] = Color.rgb(34,139,54);
         }
 
 //        String sixthFile = featureDirectory + "/" + sixthDate + "/" + "ActivityRecognitionResult.log.csv";
@@ -358,7 +358,7 @@ public class EnergyPlot extends AppCompatActivity {
         Float seventhEEkcal = Float.valueOf(TEMPLEDataManager.getEEBoth(mContext))+ Float.valueOf(TEMPLEDataManager.getEEpano(mContext))+Float.valueOf(TEMPLEDataManager.getEEwatch(mContext));
         barEntries.add(new BarEntry(seventhEEkcal,6));
         if(seventhEEkcal>goalEEkCal) {
-            colors[0] = Color.rgb(34,139,54);
+            colors[6] = Color.rgb(34,139,54);
         }
 
 
