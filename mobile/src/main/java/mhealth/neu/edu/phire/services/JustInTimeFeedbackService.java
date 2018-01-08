@@ -32,6 +32,7 @@ import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 public class JustInTimeFeedbackService extends WocketsIntentService {
 
     private static final String TAG = "JITFeedbackService";
+    private static final String TAG_NOTES = "JITFeedbackServiceNotes";
     private static final String dayFormat = "yyyy-MM-dd";
     private Context mContext;
     private long currentMilliseconds;
@@ -62,6 +63,8 @@ public class JustInTimeFeedbackService extends WocketsIntentService {
 
         if(!TEMPLEDataManager.getThirdPhaseActive(mContext)){
             Log.i(TAG, "Phase three is locked and not active", mContext);
+            Log.i(TAG_NOTES, "Phase three is locked and not active", mContext);
+
             return;
         }
         try {
@@ -78,6 +81,8 @@ public class JustInTimeFeedbackService extends WocketsIntentService {
         lastARwindowStopTime = DataManager.getLastARwindowStopTime(mContext);
         if(currentMilliseconds> lastARwindowStopTime +1800000l){
             Log.i(TAG, "Last PA>= 3 METs detected 3 minutes ago. This should not be from real time data", mContext);
+//            Log.i(TAG_NOTES, "Last PA>= 3 METs detected 3 minutes ago.", mContext);
+
             return;
         }
 
@@ -110,8 +115,12 @@ public class JustInTimeFeedbackService extends WocketsIntentService {
                 String lastARtime = simpleDateFormatPano.format(lastARwindowStopTime);
                 String lastPAtime = simpleDateFormatPano.format(TEMPLEDataManager.getLastPAtime(mContext));
                 Log.i(TAG, "Last AR time:" + lastARtime + ", last PA recorded time:" + lastPAtime, mContext);
+//                Log.i(TAG_NOTES, "Last AR time:" + lastARtime + ",last PA recorded time:" + lastPAtime, mContext);
+
                 if (lastARwindowStopTime > TEMPLEDataManager.getLastPAtime(mContext) + 180000l) {
                     Log.i(TAG, "Last PA>= 3 METs happened more than 1 minute ago, so starting counter again", mContext);
+//                    Log.i(TAG_NOTES, "Last PA>= 3 METs happened more than 1 minute ago, so starting counter again", mContext);
+
                     TEMPLEDataManager.setPAMinutes(mContext, 1);
                 } else {
                     TotalPAminutes = TEMPLEDataManager.getWatchPAminutes(mContext)+TEMPLEDataManager.getPanoPAminutes(mContext)+TEMPLEDataManager.getBothPAminutes(mContext)+1;
@@ -123,6 +132,10 @@ public class JustInTimeFeedbackService extends WocketsIntentService {
                     Log.i(TAG, "Total PA minutes so far:"+Integer.toString(TotalPAminutes), mContext);
                     Log.i(TAG, "Goal PA minutes:"+Integer.toString(goalPAminutes), mContext);
 
+                    Log.i(TAG_NOTES, "Daily goal bout len(min):"+Integer.toString(dailyPAboutLengthGoal), mContext);
+                    Log.i(TAG_NOTES, "PA min:Goal=" + Integer.toString(goalPAminutes) +",Current="+Integer.toString(TotalPAminutes), mContext);
+//                    Log.i(TAG_NOTES, "Goal PA minutes:"+Integer.toString(goalPAminutes), mContext);
+
                     if (paMinutes >= dailyPAboutLengthGoal) {
 
                         int randomNum = ThreadLocalRandom.current().nextInt(0, 9 + 1);
@@ -130,12 +143,16 @@ public class JustInTimeFeedbackService extends WocketsIntentService {
                         if (TotalPAminutes < goalPAminutes) {
                             Integer remain = goalPAminutes - TotalPAminutes;
                             String msg = Integer.toString(TotalPAminutes) + " mins completed,\n" + Integer.toString(remain) + " mins remaining to complete daily goal.";
+                            Log.i(TAG_NOTES, msg, mContext);
+
 //                            String ttl = "Physical Activity summary:";
                             String ttl = note[randomNum];
                             congratulate(ttl,msg);
                             Log.i(TAG,msg, mContext);
                         } else if(TotalPAminutes == goalPAminutes){
                             String msg = "You completed today's recommended daily goal.";
+                            Log.i(TAG_NOTES, msg, mContext);
+
 //                            String ttl = "Congratulations!";
                             String ttl = note[randomNum];
                             congratulateGoal(ttl,msg);
@@ -144,6 +161,8 @@ public class JustInTimeFeedbackService extends WocketsIntentService {
                         else {
                             Integer remain = TotalPAminutes - goalPAminutes;
                             String msg = Integer.toString(remain) + " mins beyond recommended daily goal.";
+                            Log.i(TAG_NOTES, msg, mContext);
+
 //                            String ttl = "Congratulations!";
                             String ttl = note[randomNum];
                             congratulate(ttl,msg);
@@ -151,6 +170,8 @@ public class JustInTimeFeedbackService extends WocketsIntentService {
                         }
                     } else if (paMinutes < dailyPAboutLengthGoal) {
                         Log.i(TAG, "PA minutes less than target bout length", mContext);
+                        Log.i(TAG_NOTES, "PA min < target bout len", mContext);
+
                     }
                     TEMPLEDataManager.setPAMinutes(mContext, paMinutes + 1);
                 }

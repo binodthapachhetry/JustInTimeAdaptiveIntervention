@@ -66,7 +66,8 @@ import org.apache.commons.lang3.time.DateUtils;
 public class ActivityRecognitionService extends WocketsIntentService {
 
     private static final String TAG = "ActivityRecognitionService";
-    private static final String TAGF = "ActivityRecognitionResult";
+    private static final String TAG_NOTES = "ActivityRecognitionServiceNotes";
+
     private static final Double MULT = 3.5d;
     private static final String dayFormat = "yyyy-MM-dd";
     public static final String hourFormat = "HH-z";
@@ -268,10 +269,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
             partMETmultiply = 0d;
         }
         METthresh = MULT*partMETmultiply;
-        Log.i(TAG, "MET threshold set to include PA minutes when greeat than "+ Double.toString(METthresh), mContext);
+        Log.i(TAG, "MET threshold set to include PA minutes when great than "+ Double.toString(METthresh), mContext);
 
         int pamin = TEMPLEDataManager.getPAminutesGoal(mContext);
         Log.i(TAG,"goal PA mins="+Integer.toString(pamin),mContext);
+//        Log.i(TAG_NOTES,"Goal PA mins="+Integer.toString(pamin),mContext);
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateNow = new Date();
@@ -421,8 +423,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
         lastWatchDataReadingStopTime = DataManager.getLastWatchDataReadingStopTime(mContext);
         Log.i(TAG, "Getting last time when panobike data was used", mContext);
         lastPanobikeReadingStopTime = DataManager.getLastPanoBikeReadingStopTime(mContext);
+//        Log.i(TAG_NOTES,"Last Panobike data used time:" + simpleDateFormat.format(lastPanobikeReadingStopTime),mContext);
+
 
         Log.i(TAG,"Last AR stop time:" + simpleDateFormat.format(lastARwindowStopTime),mContext);
+//        Log.i(TAG_NOTES,"Last AR stop time:" + simpleDateFormat.format(lastARwindowStopTime),mContext);
+
+
 
         eeCalcLastRun = DataManager.getLastARwindowStopTime(mContext);
         eeKcal = TEMPLEDataManager.getEEKcalBoth(mContext);
@@ -432,6 +439,10 @@ public class ActivityRecognitionService extends WocketsIntentService {
         Log.i(TAG,"Last recorded Energy Expenditure based only on panobike data in kCal = " + eeKcalPanobike,mContext);
         Log.i(TAG,"Last recorded Energy Expenditure basedn only on watch data in kCal = " + eeKcalWatch,mContext);
 
+//        Log.i(TAG_NOTES,"Last recorded EE based on both sensors = " + eeKcal,mContext);
+//        Log.i(TAG_NOTES,"Last recorded EE Expenditure based only on panobike = " + eeKcalPanobike,mContext);
+//        Log.i(TAG_NOTES,"Last recorded EE basedn only on watch = " + eeKcalWatch,mContext);
+
 
         distanceMeter = TEMPLEDataManager.getDistanceTravelledMeter(mContext);
         if(distanceMeter.startsWith("-")){
@@ -439,6 +450,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
         }
 
         Log.i(TAG,"Last recorded distance travelled in meter = " + distanceMeter,mContext);
+//        Log.i(TAG_NOTES,"Last recorded distance(m) = " + distanceMeter,mContext);
+
 
         lastARserviceRun = TEMPLEDataManager.getLastRunOfARService(mContext);
 
@@ -459,6 +472,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
 
             Log.i(TAG,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last AR service run:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
+//            Log.i(TAG_NOTES,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last AR service run:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
+
 
             if((dayOfMonthCurrent>dayOfMonthEEcalcLastRun)||(monthCurrent>monthEEcalcLastRun)){
                 TEMPLEDataManager.setEEKcalBoth(mContext,"0");
@@ -470,6 +485,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setPAMinutesGoal(mContext, today_goal);
                 }else{
                     Log.i(TAG,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
+                    Log.i(TAG_NOTES,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
+
                 }
 
                 Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEpano(mContext))+Double.valueOf(TEMPLEDataManager.getEEwatch(mContext))+Double.valueOf(TEMPLEDataManager.getEEBoth(mContext));
@@ -477,6 +494,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 SimpleDateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
                 String lastDateEEcalc = yearMonthDay.format(calEEcalcLastRun.getTime());
                 Log.i(TAG,"Last EE calculation date:"+lastDateEEcalc+",total EE kcal set to:"+ Integer.toString(totalEEkcalInt),mContext);
+                Log.i(TAG_NOTES,"Last EE calc date:"+lastDateEEcalc+",total EE(kCal) set to:"+ Integer.toString(totalEEkcalInt),mContext);
+
                 TEMPLEDataManager.setTotalEEkcal(mContext,lastDateEEcalc,totalEEkcalInt);
 
                 TEMPLEDataManager.setEEPano(mContext,"0");
@@ -486,6 +505,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 if (lastPAboutLength>2) {
                     TEMPLEDataManager.setDailyPaBoutLengthGoal(mContext,lastPAboutLength);
                     Log.i(TAG,"Set minimum bout length to:"+Integer.toString(lastPAboutLength),mContext);
+                    Log.i(TAG_NOTES,"Set min bout length to:"+Integer.toString(lastPAboutLength),mContext);
+
                 }
             }
         }
@@ -689,10 +710,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
             Long lk = map.lastKey();
             simpleDateFormatS.format(lk);
             Log.i(TAG, "Last time for speed detected at:"+simpleDateFormatS.format(lk), mContext);
+//            Log.i(TAG_NOTES, "Last time for speed detected at:"+simpleDateFormatS.format(lk), mContext);
+
         }
 
         long lastSpeedReadTime = TEMPLEDataManager.getSpeedLastReadTime(mContext);
         Log.i(TAG, "Last speed read time:"+simpleDateFormat.format(lastSpeedReadTime), mContext);
+//        Log.i(TAG_NOTES, "Last speed read time:"+simpleDateFormat.format(lastSpeedReadTime), mContext);
+
 
         if (sFile.exists()&& !wfFile.exists()) {
 
@@ -716,7 +741,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     Log.i(TAG, "Rotation number decreased.", mContext);
                     stopSelf();
             }else if (stopRot.compareTo(startRot) ==0){
-                Log.i(TAG, "No new rotatoin recorded after last AR instance.", mContext);
+                Log.i(TAG, "No new rotation recorded after last AR instance.", mContext);
                 stopSelf();
             } else{
                 long diff = stopRot - startRot;
@@ -766,6 +791,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     Log.i(TAG, "Activity detected only using panobike data:" + predictClass, mContext);
                     Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
 
+//                    Log.i(TAG_NOTES, "Activity detected (panobike):" + predictClass, mContext);
+
                     TEMPLEDataManager.setEEKcalPanobike(mContext, String.valueOf(Double.valueOf(eeKcalPanobike) + participantMETkcal));
                     String[] row = {
                             startTime,
@@ -783,6 +810,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
                     if(Arrays.asList(arr).contains(predictSubClass)){
                         Log.i(TAG,"Trigerring intervention service",mContext);
+//                        Log.i(TAG_NOTES,"Trigerring intervention service",mContext);
+
                         startService(new Intent(this, JustInTimeFeedbackService.class));
                     }
 
@@ -802,6 +831,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
             String watchLastTime = simpleDateFormatP.format(watchLastReadTime);
 
             Log.i(TAG, "Speed last read time:"+ speedLastTime+ ",watch last read time:"+ watchLastTime, mContext);
+//            Log.i(TAG_NOTES, "Speed last read time:"+ speedLastTime+ ",watch last read time:"+ watchLastTime, mContext);
+
 
 //            long refTime = speedLastReadTime;
 //            if(speedLastReadTime > watchLastReadTime) {
@@ -918,6 +949,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                         participantMETkcal = partMETmultiply * mapMET.get("13");
                                     }
                                     Log.i(TAG, "Activity detected only using panobike data:" + predictClass, mContext);
+//                                    Log.i(TAG_NOTES, "Activity detected (panobike):" + predictClass, mContext);
+
                                     Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                     EEpano.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stopKey),Calendar.MINUTE),participantMETkcal);
 
@@ -936,6 +969,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                     TEMPLEDataManager.setSpeedLastReadTime(mContext, stopKey);
                                     if (Arrays.asList(arr).contains(predictSubClass)) {
                                         Log.i(TAG,"trigerring intervention service",mContext);
+//                                        Log.i(TAG_NOTES,"trigerring intervention service",mContext);
+
                                         startService(new Intent(this, JustInTimeFeedbackService.class));
                                     }
                                 }
@@ -946,6 +981,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                     doMovingInstance(gotline, stop, totalDistance, eeKcal, "pano");
                                 } else {
                                     Log.i(TAG, "Activity detected using panobike data and watch:13", mContext);
+//                                    Log.i(TAG_NOTES, "Activity detected (panobike+watch):13", mContext);
+
                                     participantMETkcal = partMETmultiply * mapMET.get("13");
                                     Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                     TEMPLEDataManager.setEEKcalBoth(mContext, String.valueOf(Double.valueOf(eeKcal) + participantMETkcal));
@@ -986,6 +1023,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
             String watchLastTimeS = simpleDateFormatP.format(watchLastReadTimeS);
 
             Log.i(TAG, "Speed last read time switch:"+ speedLastTimeS + ",watch last read time switch :"+ watchLastTimeS, mContext);
+//            Log.i(TAG_NOTES, "Speed last read time switch:"+ speedLastTimeS + ",watch last read time switch :"+ watchLastTimeS, mContext);
+
 
 
 //            long refTimeS = watchLastReadTimeS;
@@ -1042,6 +1081,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                         doMovingInstance(lineS, stopMilliseconds, totalDistance, eeKcal,"pano");
                                     } else {
                                         Log.i(TAG, "Activity detected using panobike and watch:13", mContext);
+                                        Log.i(TAG, "Activity detected (panobike+watch):13", mContext);
+
                                         participantMETkcal = partMETmultiply * mapMET.get("13");
                                         Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                         TEMPLEDataManager.setEEKcalBoth(mContext, String.valueOf(Double.valueOf(eeKcal) + participantMETkcal));
@@ -1135,6 +1176,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
             }
             if(EEwatchFilt!=null){
                 Log.i(TAG,"Size of ee watch PA minutes:"+Integer.toString(size),mContext);
+//                Log.i(TAG_NOTES,"Size of EE(watch) PA minutes:"+Integer.toString(size),mContext);
+
                 TEMPLEDataManager.setWatchPAMinutes(mContext,size);
             }
 
@@ -1181,6 +1224,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
             }
             if(EEbothFilt!=null){
                 Log.i(TAG,"Size of ee both PA minutes:"+Integer.toString(size),mContext);
+//                Log.i(TAG_NOTES,"Size of EE(both) PA minutes:"+Integer.toString(size),mContext);
+
                 TEMPLEDataManager.setBothPAMinutes(mContext,size);
             }
 
@@ -1231,6 +1276,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
             if(EEpanoFilt!=null){
                 Log.i(TAG,"Size of ee pano PA minutes:"+Integer.toString(size),mContext);
+//                Log.i(TAG_NOTES,"Size of EE(pano) PA minutes:"+Integer.toString(size),mContext);
+
                 TEMPLEDataManager.setPanoPAMinutes(mContext,size);
             }
             FileOutputStream fileOutputStream = null;
@@ -1268,6 +1315,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
         Integer medianBout;
         if(EEFiltMerged.size()>1) {
             Log.i(TAG,"EE filt merge size:"+Integer.toString(EEFiltMerged.size()),mContext);
+//            Log.i(TAG_NOTES,"EE filt merge size:"+Integer.toString(EEFiltMerged.size()),mContext);
+
             for (Map.Entry<Date, Integer> entry : EEFiltMerged.entrySet()) {
                 if (firstEntry == true) {
                     if (entry.getValue() == 1) {
@@ -1301,7 +1350,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
 
                 if(medianBout>0){
-                    Log.i(TAG,"avg bout set:"+Integer.toString(medianBout),mContext);
+                    Log.i(TAG,"Median bout set:"+Integer.toString(medianBout),mContext);
+//                    Log.i(TAG_NOTES,"Median bout set:"+Integer.toString(medianBout),mContext);
+
                     TEMPLEDataManager.setDailyPaBoutLength(mContext,medianBout);
                 }
             }
@@ -1349,6 +1400,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalBoth(mContext, String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal));
                     EEboth.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Activity detected using panobike and watch:"+className, mContext);
+//                    Log.i(TAG_NOTES, "Activity detected(panobike+watch):"+className, mContext);
+
 
                 } else {
                     CSV.write(row, arFileWatch, true);
@@ -1356,11 +1409,15 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal));
                     EEwatch.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Non-moving activity detected using only watch:"+className, mContext);
+//                    Log.i(TAG_NOTES, "Non-moving activity detected(watch):"+className, mContext);
+
 
                 }
                 DataManager.setLastARwindowStopTime(mContext, stop);
                 if (Arrays.asList(arr).contains(className)) {
                     Log.i(TAG, "Trigerring intervention service", mContext);
+//                    Log.i(TAG_NOTES, "Trigerring intervention service", mContext);
+
                     startService(new Intent(this, JustInTimeFeedbackService.class));
                 }
 //            }
@@ -1412,6 +1469,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalBoth(mContext, String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal));
                     EEboth.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Activity detected using both panobike and watch:"+className, mContext);
+//                    Log.i(TAG_NOTES, "Activity detected(panobike+watch):"+className, mContext);
+
 
                 } else {
                     CSV.write(row, arFileWatch, true);
@@ -1419,11 +1478,15 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal));
                     EEwatch.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Moving activity detected using only watch:"+className, mContext);
+//                    Log.i(TAG_NOTES, "Moving activity detected(watch):"+className, mContext);
+
 
                 }
                 DataManager.setLastARwindowStopTime(mContext, stop);
                 if (Arrays.asList(arr).contains(className)) {
                     Log.i(TAG, "Trigerring intervention service", mContext);
+//                    Log.i(TAG_NOTES, "Trigerring intervention service", mContext);
+
                     startService(new Intent(this, JustInTimeFeedbackService.class));
                 }
 
@@ -1471,6 +1534,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 EEwatch.put(new Date(stop),participantMETkcal);
                 DataManager.setLastARwindowStopTime(mContext,stop);
                 Log.i(TAG, "Activity detected only using watch:"+className, mContext);
+//                Log.i(TAG_NOTES, "Activity detected(watch):"+className, mContext);
+
 //                Log.i(TAG,"Trigerring intervention service",mContext);
 //                startService(new Intent(this, JustInTimeFeedbackService.class));
             }
@@ -1535,6 +1600,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                 doMovingInstance(lineS, stopMilliseconds, 0d, eeKcalT,"watch");
                             } else if (className.equals("13")) {
                                 participantMETkcal = partMETmultiply * mapMET.get(className);
+//                                Log.i(TAG_NOTES, "Activity detected(watch):13", mContext);
+
                                 Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                 TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKcalT) + participantMETkcal));
                                 String[] row = {

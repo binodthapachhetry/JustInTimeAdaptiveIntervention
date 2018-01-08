@@ -49,6 +49,8 @@ import edu.neu.mhealth.android.wockets.library.support.Log;
 public class CurrentEEdistance extends AppCompatActivity {
 
     private static final String TAG = "CurrentEEdistance";
+    private static final String TAG_NOTES = "CurrentEEdistanceNotes";
+
     private static final Float METER_TO_MILE = 0.000621371f;
     private static final String dayFormat = "yyyy-MM-dd";
 
@@ -87,7 +89,7 @@ public class CurrentEEdistance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_eedistance);
         mContext = getApplicationContext();
-        Log.i(TAG,"Inside",mContext);
+//        Log.i(TAG,"Inside",mContext);
         try {
             addListenerOnButtonClick();
         } catch (IOException e) {
@@ -171,13 +173,15 @@ public class CurrentEEdistance extends AppCompatActivity {
         eeKcal = Float.valueOf(eeKcalBoth)+ Float.valueOf(eeKcalPanobike) + Float.valueOf(eeKcalWatch);
 
 
-        Log.i(TAG,"Energy expenditure in kCal:"+eeKcal,mContext);
+        Log.i(TAG,"Energy expenditure(kCal):"+eeKcal,mContext);
         actualGoalEEkCal = TEMPLEDataManager.getGoalEEKcal(mContext);
         if (actualGoalEEkCal == null || actualGoalEEkCal == "") {
             actualGoalEEkCal = "0";
         }
         goalEEkCal = Float.valueOf(actualGoalEEkCal) * 1.0f;
-        Log.i(TAG,"Goal Energy expenditure kCal:"+Float.toString(goalEEkCal),mContext);
+        Log.i(TAG,"Goal Energy expenditure(kCal):"+Float.toString(goalEEkCal),mContext);
+
+        Log.i(TAG_NOTES,"EE(kCal):Goal="+Float.toString(goalEEkCal)+",Current="+ Float.toString(eeKcal),mContext);
 
 //        if (eeKcal == null || eeKcal == "") {
 //            eeKcal = "0";
@@ -239,7 +243,7 @@ public class CurrentEEdistance extends AppCompatActivity {
             actualGoalDistMile = "0";
         }
         goalDistMile = Float.valueOf(actualGoalDistMile) * 1.0f;
-        Log.i(TAG,"Goal distance miles:"+Float.toString(goalDistMile),mContext);
+        Log.i(TAG,"Goal distance(miles):"+Float.toString(goalDistMile),mContext);
 
         if (distMeter == null || distMeter == "") {
             distMeter = "0";
@@ -253,8 +257,10 @@ public class CurrentEEdistance extends AppCompatActivity {
 
 
         distMile = Float.valueOf(distMeter)*METER_TO_MILE;
-        Log.i(TAG,"Distance travelled in miles:"+Float.toString(distMile),mContext);
-            barEntriesDist.add(new BarEntry(distMile,0));
+        Log.i(TAG,"Distance travelled(miles):"+Float.toString(distMile),mContext);
+        Log.i(TAG_NOTES,"Distance(mi):Goal="+Float.toString(goalDistMile)+",Current="+ Float.toString(distMile),mContext);
+
+        barEntriesDist.add(new BarEntry(distMile,0));
 
 //            if(distMile>Float.valueOf(actualGoalDistMile)) {
             if(distMile>goalDistMile) {
