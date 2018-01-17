@@ -9,6 +9,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
@@ -91,6 +92,17 @@ public class MinuteService extends WocketsIntentService {
         }
 
         startService(new Intent(this, AlwaysOnService.class));
+
+        // if audioManager is in silent mode, change it to vibrate mode
+        android.media.AudioManager audioManager = (android.media.AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        int ringerMode = audioManager.getRingerMode();
+        switch (ringerMode) {
+            case android.media.AudioManager.RINGER_MODE_SILENT:
+                Log.i(TAG,"Phone's ringer profile is in silent mode, switching it to vibrate mode.",mContext);
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                break;
+        }
+        //
 
         String minuteServiceAlarmSetter = DataManager.getMinuteServiceAlarmSetter(mContext);
         Log.i(TAG, "Minute Service Alarm was set by - " + minuteServiceAlarmSetter, mContext);
