@@ -186,7 +186,7 @@ public class WearListenerService extends WearableListenerService implements Goog
     public void onDataChanged(DataEventBuffer dataEventBuffer) {
         logger.i("Inside onDataChanged", getApplicationContext());
 //        logger.i("Phone is in connection(from onDataChanged)!",getApplicationContext());
-//        SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+        SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
         final List<DataEvent> events = FreezableUtils.freezeIterable(dataEventBuffer);
         dataEventBuffer.close();
         for (DataEvent event : events) {

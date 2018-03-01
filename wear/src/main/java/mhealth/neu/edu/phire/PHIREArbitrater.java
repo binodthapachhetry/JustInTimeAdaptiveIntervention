@@ -41,10 +41,10 @@ public class PHIREArbitrater extends WakefulServiceArbitrator {
 		logger.i("Last phone connected time was: " + dateText, mContext);
 		logger.i("Current time is: " + df2.format(new Date(System.currentTimeMillis())), mContext);
 		logger.i("Time difference: " + String.valueOf(System.currentTimeMillis() - lastConnection), mContext);
-		logger.i("Compared to:" + String.valueOf(edu.neu.android.wearwocketslib.Globals.PHONE_CONNECTION_NOTIFICATION_THRESHOLD * 1000 * 120),mContext);
+		logger.i("Compared to:" + String.valueOf(edu.neu.android.wearwocketslib.Globals.PHONE_CONNECTION_NOTIFICATION_THRESHOLD),mContext);
 
-		if(System.currentTimeMillis() - lastConnection >= edu.neu.android.wearwocketslib.Globals.PHONE_CONNECTION_NOTIFICATION_THRESHOLD * 1000 * 120){
-			logger.i("Phone has been disconnected more than 36 seconds", mContext);
+		if(System.currentTimeMillis() - lastConnection >= edu.neu.android.wearwocketslib.Globals.PHONE_CONNECTION_NOTIFICATION_THRESHOLD){
+			logger.i("Phone has been disconnected more than 120 seconds", mContext);
 
 			if(!LostConnectionWearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
 				LostConnectionWearableNotification notification = new LostConnectionWearableNotification("PHIRE:", "Connect phone", R.drawable.ic_launcher, true, WearableNotification.LOST_CONNECTION_NOTIFICATION, mContext);

@@ -367,6 +367,8 @@ public class SensorManagerService extends Service implements SensorEventListener
                 }
             }
 
+
+
             sr++;
 
             if(accelRaw.verifyCurrentDate(new Date(timeInMillis))) {

@@ -23,7 +23,8 @@ public class Globals {
     public static final String LAST_PHONE_IN_CONNECTION_TIME = "LAST_PHONE_IN_CONNECTION_TIME";
     public static final String LAST_BOOT_UP_TIME = "LAST_BOOT_UP_TIME";
     public static long BOOT_UP_TIME_HOLDER = 0;
-    public static final int PHONE_CONNECTION_NOTIFICATION_THRESHOLD = 1; //hours
+    public static final int PHONE_CONNECTION_NOTIFICATION_THRESHOLD = 2*60*1000; //2 minutes
+    public static final int SENSOR_DATA_COLLECTION_STOP_THRESHOLD = 2*60*60*1000; //2 hours
 
     public static boolean IS_ACCELEROMETER_LOGGING_ENABLED = false;
     public static boolean IS_MAGNETIC_FIELD_LOGGING_ENABLED = false;

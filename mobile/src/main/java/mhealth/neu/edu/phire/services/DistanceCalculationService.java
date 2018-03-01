@@ -27,6 +27,8 @@ import mhealth.neu.edu.phire.data.TEMPLEDataManager;
 public class DistanceCalculationService extends WocketsIntentService {
 
     private static final String TAG = "DistanceCalculationService";
+    private static final String TAG_NOTES = "DistanceNotes";
+
     public static final String dayFormat = "yyyy-MM-dd";
 
     private Context mContext;
@@ -84,10 +86,15 @@ public class DistanceCalculationService extends WocketsIntentService {
                 calCurrent.setTime(dateCurrent);
                 int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
 
-                if (dayOfMonthCurrent > dayOfMonthDistanceCalcLastRun) {
+                if(dateCurrent.compareTo(dateDistanceCalcLastRun)>0){
                     TEMPLEDataManager.setDistanceTravelledMeter(mContext, "0");
                     useFirst = true;
                 }
+
+//                if (dayOfMonthCurrent > dayOfMonthDistanceCalcLastRun) {
+//                    TEMPLEDataManager.setDistanceTravelledMeter(mContext, "0");
+//                    useFirst = true;
+//                }
             }
         }
 
@@ -152,7 +159,7 @@ public class DistanceCalculationService extends WocketsIntentService {
                 useFirst = false;
 
             }else {
-                startRot = map.floorKey(lastDistanceCalcTime);
+                startRot = map.ceilingKey(lastDistanceCalcTime);
             }
 
 //            startRot = map.floorKey(lastDistanceCalcTime);
@@ -200,7 +207,9 @@ public class DistanceCalculationService extends WocketsIntentService {
                         return;
                     }
                     float totalDistance = Float.valueOf(distanceMeter) + distance;
+                    Log.i(TAG_NOTES,String.valueOf(totalDistance),mContext);
                     TEMPLEDataManager.setDistanceTravelledMeter(mContext, String.valueOf(totalDistance));
+
 //                    TEMPLEDataManager.setLastDistanceCalcTime(mContext, stopRot);
                     SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String stopTime = simpleDateFormatPano.format(stopRot);

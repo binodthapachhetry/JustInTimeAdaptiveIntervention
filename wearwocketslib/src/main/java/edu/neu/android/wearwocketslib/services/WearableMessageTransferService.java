@@ -126,38 +126,38 @@ public class WearableMessageTransferService extends Service implements GoogleApi
         logger.i("Google Api Connected", getApplicationContext());
 //        Log.i(TAG,"Google Api Connected", getApplicationContext());
         // after google api is in connection, check phone connection
-//        checkPhoneConnection(Globals.CAPABILITY_NAME);
-        checkPhoneConnectionTask = new CheckPhoneConnectionTask(mGoogleApiClient);
-        checkPhoneConnectionTask.check(Globals.CAPABILITY_NAME, new CheckPhoneConnectionTask.OnPhoneConnectionCallBack() {
-            @Override
-            public void onPhoneInConnection(Set<Node> nodes) {
-                logger.i("Phone is in connection!", getApplicationContext());
-//                Log.i(TAG,"Phone is in connection!", getApplicationContext());
-                String phoneNode = pickBestNodeId(nodes);
-                sendMessage(phoneNode);
-//                SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+        checkPhoneConnection(Globals.CAPABILITY_NAME);
+//        checkPhoneConnectionTask = new CheckPhoneConnectionTask(mGoogleApiClient);
+//        checkPhoneConnectionTask.check(Globals.CAPABILITY_NAME, new CheckPhoneConnectionTask.OnPhoneConnectionCallBack() {
+//            @Override
+//            public void onPhoneInConnection(Set<Node> nodes) {
+//                logger.i("Phone is in connection!", getApplicationContext());
+////                Log.i(TAG,"Phone is in connection!", getApplicationContext());
+//                String phoneNode = pickBestNodeId(nodes);
+//                sendMessage(phoneNode);
+////                SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+////
+////                long lastConnection = SharedPrefs.getLong(edu.neu.android.wearwocketslib.Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+////
+////                Date date = new Date(lastConnection);
+////                SimpleDateFormat df2 = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
+////                String dateText = df2.format(date);
+////                logger.i("Last phone connected time was: " + dateText, getApplicationContext());
 //
-//                long lastConnection = SharedPrefs.getLong(edu.neu.android.wearwocketslib.Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+////                if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
+////                    WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
+////                    logger.i("Cancel lost connection notification", getApplicationContext());
+//////                    Log.i(TAG,"Cancel lost connection notification", getApplicationContext());
+////                }
+//            }
 //
-//                Date date = new Date(lastConnection);
-//                SimpleDateFormat df2 = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
-//                String dateText = df2.format(date);
-//                logger.i("Last phone connected time was: " + dateText, getApplicationContext());
-
-//                if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
-//                    WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
-//                    logger.i("Cancel lost connection notification", getApplicationContext());
-////                    Log.i(TAG,"Cancel lost connection notification", getApplicationContext());
-//                }
-            }
-
-            @Override
-            public void onPhoneNotInConnection() {
-                logger.i("Phone is not in connection!", getApplicationContext());
-                WearableMessageTransferService.this.stopSelf();
-//                Log.i(TAG,"Phone is not in connection", getApplicationContext());
-            }
-        });
+//            @Override
+//            public void onPhoneNotInConnection() {
+//                logger.i("Phone is not in connection!", getApplicationContext());
+//                WearableMessageTransferService.this.stopSelf();
+////                Log.i(TAG,"Phone is not in connection", getApplicationContext());
+//            }
+//        });
     }
 
     @Override
@@ -236,45 +236,45 @@ public class WearableMessageTransferService extends Service implements GoogleApi
     }
 
 
-//    private void checkPhoneConnection(final String capabilityName) {
-//        Wearable.CapabilityApi.getAllCapabilities(mGoogleApiClient,
-//                CapabilityApi.FILTER_REACHABLE).setResultCallback(
-//
-//                new ResultCallback<CapabilityApi.GetAllCapabilitiesResult>() {
-//                    @Override
-//                    public void onResult(CapabilityApi.GetAllCapabilitiesResult getAllCapabilitiesResult) {
-//                        if (!getAllCapabilitiesResult.getStatus().isSuccess()) {
-//                            Log.e(TAG, "Failed to get capabilities", getApplicationContext());
-//                            logger.i("Phone is not in connection!", WearableMessageTransferService.this.getApplicationContext());
-//                            WearableMessageTransferService.this.stopSelf();
-//                            return;
-//                        }
-//                        Map<String, CapabilityInfo>
-//                                capabilitiesMap = getAllCapabilitiesResult.getAllCapabilities();
-//                        Set<Node> nodes = new HashSet<>();
-//
-//                        CapabilityInfo capabilityInfo = capabilitiesMap.get(capabilityName);
-//                        if (capabilityInfo != null) {
-//                            nodes.addAll(capabilityInfo.getNodes());
-//                        }
-//                        if (nodes.size() > 0) {
-//                            onPhoneInConnection(nodes);
-//                        } else {
-//                            logger.i("Phone is not in connection!", WearableMessageTransferService.this.getApplicationContext());
-//                            onPhoneNotInConnection();
-//                        }
-//                    }
-//                });
-//    }
+    private void checkPhoneConnection(final String capabilityName) {
+        Wearable.CapabilityApi.getAllCapabilities(mGoogleApiClient,
+                CapabilityApi.FILTER_REACHABLE).setResultCallback(
 
-//    private void onPhoneInConnection(Set<Node> nodes){
-//
-//    }
+                new ResultCallback<CapabilityApi.GetAllCapabilitiesResult>() {
+                    @Override
+                    public void onResult(CapabilityApi.GetAllCapabilitiesResult getAllCapabilitiesResult) {
+                        if (!getAllCapabilitiesResult.getStatus().isSuccess()) {
+                            Log.e(TAG, "Failed to get capabilities", getApplicationContext());
+                            logger.i("Phone is not in connection!", WearableMessageTransferService.this.getApplicationContext());
+                            WearableMessageTransferService.this.stopSelf();
+                            return;
+                        }
+                        Map<String, CapabilityInfo>
+                                capabilitiesMap = getAllCapabilitiesResult.getAllCapabilities();
+                        Set<Node> nodes = new HashSet<>();
 
-//    private void onPhoneNotInConnection(){
+                        CapabilityInfo capabilityInfo = capabilitiesMap.get(capabilityName);
+                        if (capabilityInfo != null) {
+                            nodes.addAll(capabilityInfo.getNodes());
+                        }
+                        if (nodes.size() > 0) {
+                            onPhoneInConnection(nodes);
+                        } else {
+                            logger.i("Phone is not in connection!", WearableMessageTransferService.this.getApplicationContext());
+                            onPhoneNotInConnection();
+                        }
+                    }
+                });
+    }
+
+    private void onPhoneInConnection(Set<Node> nodes){
+
+    }
+
+    private void onPhoneNotInConnection(){
 //        logger.i("Phone is not in connection!", getApplicationContext());
-//        stopSelf();
-//    }
+        stopSelf();
+    }
 
     private void sendMessage(String phoneNode) {
         if(message == null){

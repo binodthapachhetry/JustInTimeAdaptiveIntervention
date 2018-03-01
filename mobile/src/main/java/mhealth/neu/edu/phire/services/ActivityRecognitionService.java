@@ -68,6 +68,8 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private static final String TAG = "ActivityRecognitionService";
     private static final String TAG_NOTES = "ActivityRecognitionServiceNotes";
 
+    private static final String TAG_NOTES_SECOND = "EENotes";
+
     private static final Double MULT = 3.5d;
     private static final String dayFormat = "yyyy-MM-dd";
     public static final String hourFormat = "HH-z";
@@ -130,6 +132,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private String eeKcal;
     private String eeKcalPanobike;
     private String eeKcalWatch;
+
+    private String eeKcalBothTot;
+    private String eeKcalPanobikeTot;
+    private String eeKcalWatchTot;
+    private String eeKcalTot;
+
+
     private String distanceMeter;
     private String useForDistance;
 
@@ -438,6 +447,13 @@ public class ActivityRecognitionService extends WocketsIntentService {
         Log.i(TAG,"Last recorded Energy Expenditure based on both sensors in kCal = " + eeKcal,mContext);
         Log.i(TAG,"Last recorded Energy Expenditure based only on panobike data in kCal = " + eeKcalPanobike,mContext);
         Log.i(TAG,"Last recorded Energy Expenditure basedn only on watch data in kCal = " + eeKcalWatch,mContext);
+
+        eeKcalBothTot = TEMPLEDataManager.getEEBoth(mContext);
+        eeKcalPanobikeTot = TEMPLEDataManager.getEEpano(mContext);
+        eeKcalWatchTot = TEMPLEDataManager.getEEwatch(mContext);
+
+        eeKcalTot = Float.toString(Float.valueOf(eeKcalBothTot)+ Float.valueOf(eeKcalPanobikeTot) + Float.valueOf(eeKcalWatchTot));
+        Log.i(TAG_NOTES_SECOND,eeKcalTot,mContext);
 
 //        Log.i(TAG_NOTES,"Last recorded EE based on both sensors = " + eeKcal,mContext);
 //        Log.i(TAG_NOTES,"Last recorded EE Expenditure based only on panobike = " + eeKcalPanobike,mContext);

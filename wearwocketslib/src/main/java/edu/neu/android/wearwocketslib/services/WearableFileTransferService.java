@@ -141,21 +141,21 @@ public class WearableFileTransferService extends Service implements GoogleApiCli
     public void onConnected(Bundle bundle) {
         logger.i("Google Api Connected", getApplicationContext());
         // after google api is in connection, check phone connection
-//        checkPhoneConnection(Globals.CAPABILITY_NAME);
-        checkPhoneConnectionTask = new CheckPhoneConnectionTask(mGoogleApiClient);
-        checkPhoneConnectionTask.check(Globals.CAPABILITY_NAME, new CheckPhoneConnectionTask.OnPhoneConnectionCallBack() {
-            @Override
-            public void onPhoneInConnection(Set<Node> nodes) {
-                logger.i("Phone is in connection!", getApplicationContext());
-                runTransfer();
-            }
-
-            @Override
-            public void onPhoneNotInConnection() {
-                notifyTransferFailure(toBeTransferedFilepath, "Phone is not in connection");
-                stopSelf();
-            }
-        });
+        checkPhoneConnection(Globals.CAPABILITY_NAME);
+//        checkPhoneConnectionTask = new CheckPhoneConnectionTask(mGoogleApiClient);
+//        checkPhoneConnectionTask.check(Globals.CAPABILITY_NAME, new CheckPhoneConnectionTask.OnPhoneConnectionCallBack() {
+//            @Override
+//            public void onPhoneInConnection(Set<Node> nodes) {
+//                logger.i("Phone is in connection!", getApplicationContext());
+//                runTransfer();
+//            }
+//
+//            @Override
+//            public void onPhoneNotInConnection() {
+//                notifyTransferFailure(toBeTransferedFilepath, "Phone is not in connection");
+//                stopSelf();
+//            }
+//        });
     }
 
     @Override
@@ -206,48 +206,49 @@ public class WearableFileTransferService extends Service implements GoogleApiCli
         logger.close();
     }
 
-//    private void checkPhoneConnection(final String capabilityName) {
-//        Wearable.CapabilityApi.getAllCapabilities(mGoogleApiClient,
-//                CapabilityApi.FILTER_REACHABLE).setResultCallback(
-//
-//                new ResultCallback<CapabilityApi.GetAllCapabilitiesResult>() {
-//                    @Override
-//                    public void onResult(CapabilityApi.GetAllCapabilitiesResult getAllCapabilitiesResult) {
-//                        if (!getAllCapabilitiesResult.getStatus().isSuccess()) {
-//                            onPhoneNotInConnection();
-//                            return;
-//                        }
-//                        Map<String, CapabilityInfo>
-//                                capabilitiesMap = getAllCapabilitiesResult.getAllCapabilities();
-//                        Set<Node> nodes = new HashSet<>();
-//
-//                        CapabilityInfo capabilityInfo = capabilitiesMap.get(capabilityName);
-//                        if (capabilityInfo != null) {
-//                            nodes.addAll(capabilityInfo.getNodes());
-//                        }
-//                        if (nodes.size() > 0) {
-//                            onPhoneInConnection();
-//                        } else {
-//                            onPhoneNotInConnection();
-//                        }
-//                    }
-//                });
-//    }
+    private void checkPhoneConnection(final String capabilityName) {
+        Wearable.CapabilityApi.getAllCapabilities(mGoogleApiClient,
+                CapabilityApi.FILTER_REACHABLE).setResultCallback(
 
-//    private void onPhoneInConnection() {
-//        logger.i("Phone is in connection!", getApplicationContext());
-//        SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
-//        if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
-//            WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
-//            logger.i("Cancel lost connection notification", getApplicationContext());
-//        }
-//        runTransfer();
-//    }
+                new ResultCallback<CapabilityApi.GetAllCapabilitiesResult>() {
+                    @Override
+                    public void onResult(CapabilityApi.GetAllCapabilitiesResult getAllCapabilitiesResult) {
+                        if (!getAllCapabilitiesResult.getStatus().isSuccess()) {
+                            onPhoneNotInConnection();
+                            return;
+                        }
+                        Map<String, CapabilityInfo>
+                                capabilitiesMap = getAllCapabilitiesResult.getAllCapabilities();
+                        Set<Node> nodes = new HashSet<>();
 
-//    private void onPhoneNotInConnection() {
-//        notifyTransferFailure(toBeTransferedFilepath, "Phone is not in connection");
-//        stopSelf();
-//    }
+                        CapabilityInfo capabilityInfo = capabilitiesMap.get(capabilityName);
+                        if (capabilityInfo != null) {
+                            nodes.addAll(capabilityInfo.getNodes());
+                        }
+                        if (nodes.size() > 0) {
+                            onPhoneInConnection();
+                        } else {
+                            onPhoneNotInConnection();
+                        }
+                    }
+                });
+    }
+
+    private void onPhoneInConnection() {
+        logger.i("Phone is in connection!", getApplicationContext());
+        SharedPrefs.setLong(Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), getApplicationContext());
+        if (WearableNotification.isShowing(WearableNotification.LOST_CONNECTION_NOTIFICATION)) {
+            WearableNotification.cancel(WearableNotification.LOST_CONNECTION_NOTIFICATION);
+            logger.i("Cancel lost connection notification", getApplicationContext());
+        }
+        runTransfer();
+    }
+
+    private void onPhoneNotInConnection() {
+        logger.i("Phone is not in connection!", getApplicationContext());
+        notifyTransferFailure(toBeTransferedFilepath, "Phone is not in connection");
+        stopSelf();
+    }
 
 
     private void setStopTimer() {

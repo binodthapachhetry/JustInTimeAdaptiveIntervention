@@ -369,6 +369,30 @@ public class WearableWakefulService extends IntentService {
         }
     }
 
+    private void connectionLossCheck() {
+        logger.i("checking phone connection lost time", getApplicationContext());
+        long lastConnection = SharedPrefs.getLong(edu.neu.android.wearwocketslib.Globals.LAST_PHONE_IN_CONNECTION_TIME, System.currentTimeMillis(), mContext);
+
+        Date date = new Date(lastConnection);
+        SimpleDateFormat df2 = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss.SSS");
+        String dateText = df2.format(date);
+
+        logger.i("Last phone connected time was: " + dateText, mContext);
+        logger.i("Current time is: " + df2.format(new Date(System.currentTimeMillis())), mContext);
+        logger.i("Time difference: " + String.valueOf(System.currentTimeMillis() - lastConnection), mContext);
+        logger.i("Compared to:" + String.valueOf(Globals.SENSOR_DATA_COLLECTION_STOP_THRESHOLD),mContext);
+
+        if(System.currentTimeMillis() - lastConnection >= Globals.SENSOR_DATA_COLLECTION_STOP_THRESHOLD) {
+            logger.i("Phone has been disconnected more than 2 hours, stop sensor manager service", mContext);
+            Intent stopIntent = new Intent(getApplicationContext(), SensorManagerService.class);
+            stopIntent.setAction("STOP");
+            stopService(stopIntent);
+        }else{
+            logger.i("Phone has not been disconnected more than 2 hours, OK to start/flush sensor manager service", getApplicationContext());
+            flushSensorManagerService();
+        }
+    }
+
     private void runArbitratorOperation(){
         if(arbitrator != null){
             logger.e("Doing the arbitrating", getApplicationContext());
