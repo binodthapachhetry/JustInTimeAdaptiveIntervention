@@ -453,7 +453,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
         eeKcalWatchTot = TEMPLEDataManager.getEEwatch(mContext);
 
         eeKcalTot = Float.toString(Float.valueOf(eeKcalBothTot)+ Float.valueOf(eeKcalPanobikeTot) + Float.valueOf(eeKcalWatchTot));
-        Log.i(TAG_NOTES_SECOND,eeKcalTot,mContext);
+//        Log.i(TAG_NOTES_SECOND,eeKcalTot,mContext);
 
 //        Log.i(TAG_NOTES,"Last recorded EE based on both sensors = " + eeKcal,mContext);
 //        Log.i(TAG_NOTES,"Last recorded EE Expenditure based only on panobike = " + eeKcalPanobike,mContext);
@@ -501,7 +501,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setPAMinutesGoal(mContext, today_goal);
                 }else{
                     Log.i(TAG,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
-                    Log.i(TAG_NOTES,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
+//                    Log.i(TAG_NOTES,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
 
                 }
 
@@ -510,7 +510,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 SimpleDateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
                 String lastDateEEcalc = yearMonthDay.format(calEEcalcLastRun.getTime());
                 Log.i(TAG,"Last EE calculation date:"+lastDateEEcalc+",total EE kcal set to:"+ Integer.toString(totalEEkcalInt),mContext);
-                Log.i(TAG_NOTES,"Last EE calc date:"+lastDateEEcalc+",total EE(kCal) set to:"+ Integer.toString(totalEEkcalInt),mContext);
+//                Log.i(TAG_NOTES,"Last EE calc date:"+lastDateEEcalc+",total EE(kCal) set to:"+ Integer.toString(totalEEkcalInt),mContext);
 
                 TEMPLEDataManager.setTotalEEkcal(mContext,lastDateEEcalc,totalEEkcalInt);
 
@@ -521,7 +521,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 if (lastPAboutLength>2) {
                     TEMPLEDataManager.setDailyPaBoutLengthGoal(mContext,lastPAboutLength);
                     Log.i(TAG,"Set minimum bout length to:"+Integer.toString(lastPAboutLength),mContext);
-                    Log.i(TAG_NOTES,"Set min bout length to:"+Integer.toString(lastPAboutLength),mContext);
+//                    Log.i(TAG_NOTES,"Set min bout length to:"+Integer.toString(lastPAboutLength),mContext);
 
                 }
             }
@@ -965,7 +965,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                         participantMETkcal = partMETmultiply * mapMET.get("13");
                                     }
                                     Log.i(TAG, "Activity detected only using panobike data:" + predictClass, mContext);
-//                                    Log.i(TAG_NOTES, "Activity detected (panobike):" + predictClass, mContext);
+                                    Log.i(TAG_NOTES, predictClass, mContext);
 
                                     Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                     EEpano.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stopKey),Calendar.MINUTE),participantMETkcal);
@@ -997,7 +997,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                     doMovingInstance(gotline, stop, totalDistance, eeKcal, "pano");
                                 } else {
                                     Log.i(TAG, "Activity detected using panobike data and watch:13", mContext);
-//                                    Log.i(TAG_NOTES, "Activity detected (panobike+watch):13", mContext);
+                                    Log.i(TAG_NOTES, "13", mContext);
 
                                     participantMETkcal = partMETmultiply * mapMET.get("13");
                                     Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
@@ -1416,7 +1416,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalBoth(mContext, String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal));
                     EEboth.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Activity detected using panobike and watch:"+className, mContext);
-//                    Log.i(TAG_NOTES, "Activity detected(panobike+watch):"+className, mContext);
+                    Log.i(TAG_NOTES, className, mContext);
 
 
                 } else {
@@ -1425,7 +1425,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKCalIn) + participantMETkcal));
                     EEwatch.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Non-moving activity detected using only watch:"+className, mContext);
-//                    Log.i(TAG_NOTES, "Non-moving activity detected(watch):"+className, mContext);
+                    Log.i(TAG_NOTES, className, mContext);
 
 
                 }
@@ -1485,7 +1485,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalBoth(mContext, String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal));
                     EEboth.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Activity detected using both panobike and watch:"+className, mContext);
-//                    Log.i(TAG_NOTES, "Activity detected(panobike+watch):"+className, mContext);
+                    Log.i(TAG_NOTES, className, mContext);
 
 
                 } else {
@@ -1494,7 +1494,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKcalIn) + participantMETkcal));
                     EEwatch.put(org.apache.commons.lang3.time.DateUtils.round(new Date(stop),Calendar.MINUTE),participantMETkcal);
                     Log.i(TAG, "Moving activity detected using only watch:"+className, mContext);
-//                    Log.i(TAG_NOTES, "Moving activity detected(watch):"+className, mContext);
+                    Log.i(TAG_NOTES,className, mContext);
 
 
                 }
@@ -1550,7 +1550,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                 EEwatch.put(new Date(stop),participantMETkcal);
                 DataManager.setLastARwindowStopTime(mContext,stop);
                 Log.i(TAG, "Activity detected only using watch:"+className, mContext);
-//                Log.i(TAG_NOTES, "Activity detected(watch):"+className, mContext);
+                Log.i(TAG_NOTES, className, mContext);
 
 //                Log.i(TAG,"Trigerring intervention service",mContext);
 //                startService(new Intent(this, JustInTimeFeedbackService.class));
@@ -1616,7 +1616,7 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                 doMovingInstance(lineS, stopMilliseconds, 0d, eeKcalT,"watch");
                             } else if (className.equals("13")) {
                                 participantMETkcal = partMETmultiply * mapMET.get(className);
-//                                Log.i(TAG_NOTES, "Activity detected(watch):13", mContext);
+                                Log.i(TAG_NOTES, "13", mContext);
 
                                 Log.i(TAG, "Energy expenditure in kCal=" + String.valueOf(participantMETkcal), mContext);
                                 TEMPLEDataManager.setEEKcalWatch(mContext, String.valueOf(Double.valueOf(eeKcalT) + participantMETkcal));

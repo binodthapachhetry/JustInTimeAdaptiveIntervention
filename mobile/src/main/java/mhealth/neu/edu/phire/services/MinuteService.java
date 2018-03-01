@@ -84,6 +84,11 @@ public class MinuteService extends WocketsIntentService {
             Log.i(TAG, "Not in main thread", mContext);
         }
 
+        if(BatteryManager.getBatteryPercentage(mContext) < 5){
+            Log.i(TAG, "Battery less than 5%. Return", mContext);
+            return;
+        }
+
         boolean isStudyFinished = DataManager.isStudyFinished(mContext);
 
         if (isStudyFinished) {

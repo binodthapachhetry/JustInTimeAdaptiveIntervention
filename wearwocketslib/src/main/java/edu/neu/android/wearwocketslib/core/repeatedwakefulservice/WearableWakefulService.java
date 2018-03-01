@@ -67,17 +67,17 @@ public class WearableWakefulService extends IntentService {
     public static final long SAVE_CHECK_INTERVAL = 600 * 1000; // 600 should check more frequently so that we won't miss data when condition meets
     public static final long ZIP_ATTEMPT_INTERVAL = 3600 * 1000; // 3600
     public static final long TRANSFER_ATTEMPT_INTERVAL = 1800 * 1000; //1800
-    public static final int DATA_OUT_OF_DATE_DAYS = 7;
-    public static final int LOG_OUT_OF_DATE_DAYS = 7;
-    public static final long DATA_ZIP_FILE_SIZE_LIMIT = 1024 * 1024 * 7; // 7 MB
-    public static final int LOG_SAVING_STORAGE_THRESHOLD = 50;
+    public static final int DATA_OUT_OF_DATE_DAYS = 4;
+    public static final int LOG_OUT_OF_DATE_DAYS = 4;
+    public static final long DATA_ZIP_FILE_SIZE_LIMIT = 1024 * 1024 * 3; // 3 MB
+    public static final int LOG_SAVING_STORAGE_THRESHOLD = 410; // 5% of 4*1024
     public static final int LOG_SAVING_RAM_THRESHOLD = 100;
-    public static final int DATA_SAVING_STORAGE_THRESHOLD = 80;
+    public static final int DATA_SAVING_STORAGE_THRESHOLD = 615; // 15% of 4*1024
     public static final int DATA_SAVING_RAM_THRESHOLD = 100;
     public static final int ZIP_STORAGE_THRESHOLD = 50;
     public static final int ZIP_RAM_THRESHOLD = 100;
     public static final int ZIP_BATTERY_THRESHOLD = 20;
-    public static final int TRANSFER_STORAGE_THRESHOLD = 50;
+    public static final int TRANSFER_STORAGE_THRESHOLD = 205; // 5% of 4*1024
     public static final int TRANSFER_RAM_THRESHOLD = 100;
     public static final int TRANSFER_BATTERY_THRESHOLD = 20;
     public static final int RESTART_RAM_THRESHOLD = 90;
@@ -385,6 +385,7 @@ public class WearableWakefulService extends IntentService {
         if(System.currentTimeMillis() - lastConnection >= Globals.SENSOR_DATA_COLLECTION_STOP_THRESHOLD) {
             logger.i("Phone has been disconnected more than 2 hours, stop sensor manager service", mContext);
             Intent stopIntent = new Intent(getApplicationContext(), SensorManagerService.class);
+
             stopIntent.setAction("STOP");
             stopService(stopIntent);
         }else{
