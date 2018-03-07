@@ -14,7 +14,8 @@ import edu.neu.android.wearwocketslib.utils.log.Log;
 /**
  * Created by qutang on 5/20/15.
  */
-public class DeviceInfo {
+public class
+DeviceInfo {
 
     public static final String TAG = "WearDeviceInfo";
     public static String getBluetoothMacAddress() {

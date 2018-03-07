@@ -160,6 +160,9 @@ public class DistanceCalculationService extends WocketsIntentService {
 
             }else {
                 startRot = map.ceilingKey(lastDistanceCalcTime);
+                if(startRot == null){
+                    startRot = map.floorKey(lastDistanceCalcTime);
+                }
             }
 
 //            startRot = map.floorKey(lastDistanceCalcTime);
