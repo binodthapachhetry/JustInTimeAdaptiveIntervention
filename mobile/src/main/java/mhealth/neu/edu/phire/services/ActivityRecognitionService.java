@@ -448,11 +448,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
         Log.i(TAG,"Last recorded Energy Expenditure based only on panobike data in kCal = " + eeKcalPanobike,mContext);
         Log.i(TAG,"Last recorded Energy Expenditure basedn only on watch data in kCal = " + eeKcalWatch,mContext);
 
-        eeKcalBothTot = TEMPLEDataManager.getEEBoth(mContext);
-        eeKcalPanobikeTot = TEMPLEDataManager.getEEpano(mContext);
-        eeKcalWatchTot = TEMPLEDataManager.getEEwatch(mContext);
-
-        eeKcalTot = Float.toString(Float.valueOf(eeKcalBothTot)+ Float.valueOf(eeKcalPanobikeTot) + Float.valueOf(eeKcalWatchTot));
+//        eeKcalBothTot = TEMPLEDataManager.getEEBoth(mContext);
+//        eeKcalPanobikeTot = TEMPLEDataManager.getEEpano(mContext);
+//        eeKcalWatchTot = TEMPLEDataManager.getEEwatch(mContext);
+//
+//        eeKcalTot = Float.toString(Float.valueOf(eeKcalBothTot)+ Float.valueOf(eeKcalPanobikeTot) + Float.valueOf(eeKcalWatchTot));
 //        Log.i(TAG_NOTES_SECOND,eeKcalTot,mContext);
 
 //        Log.i(TAG_NOTES,"Last recorded EE based on both sensors = " + eeKcal,mContext);
@@ -492,9 +492,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
 
             if((dayOfMonthCurrent>dayOfMonthEEcalcLastRun)||(monthCurrent>monthEEcalcLastRun)){
-                TEMPLEDataManager.setEEKcalBoth(mContext,"0");
-                TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
-                TEMPLEDataManager.setEEKcalWatch(mContext,"0");
+//                TEMPLEDataManager.setEEKcalBoth(mContext,"0");
+//                TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
+//                TEMPLEDataManager.setEEKcalWatch(mContext,"0");
 
                 Integer today_goal = TEMPLEDataManager.getPanoPAminutes(mContext)+TEMPLEDataManager.getWatchPAminutes(mContext)+TEMPLEDataManager.getBothPAminutes(mContext);
                 if(today_goal>35) {
@@ -503,8 +503,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
                     Log.i(TAG,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
 //                    Log.i(TAG_NOTES,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
                 }
+                TEMPLEDataManager.setPanoPAMinutes(mContext,0);
+                TEMPLEDataManager.setWatchPAMinutes(mContext,0);
+                TEMPLEDataManager.setBothPAMinutes(mContext,0);
 
-                Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEpano(mContext))+Double.valueOf(TEMPLEDataManager.getEEwatch(mContext))+Double.valueOf(TEMPLEDataManager.getEEBoth(mContext));
+                Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEKcalPanobike(mContext))+Double.valueOf(TEMPLEDataManager.getEEKcalWatch(mContext))+Double.valueOf(TEMPLEDataManager.getEEKcalBoth(mContext));
                 Integer totalEEkcalInt = (int) Math.round(totalEEkcal);
                 SimpleDateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
                 String lastDateEEcalc = yearMonthDay.format(calEEcalcLastRun.getTime());
@@ -513,9 +516,14 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
                 TEMPLEDataManager.setTotalEEkcal(mContext,lastDateEEcalc,totalEEkcalInt);
 
-                TEMPLEDataManager.setEEPano(mContext,"0");
-                TEMPLEDataManager.setEEboth(mContext,"0");
-                TEMPLEDataManager.setEEwatch(mContext,"0");
+                TEMPLEDataManager.setEEKcalBoth(mContext,"0");
+                TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
+                TEMPLEDataManager.setEEKcalWatch(mContext,"0");
+
+//                TEMPLEDataManager.setEEPano(mContext,"0");
+//                TEMPLEDataManager.setEEboth(mContext,"0");
+//                TEMPLEDataManager.setEEwatch(mContext,"0");
+
                 Integer lastPAboutLength = TEMPLEDataManager.getDailyPAboutLength(mContext);
                 if (lastPAboutLength>2) {
                     TEMPLEDataManager.setDailyPaBoutLengthGoal(mContext,lastPAboutLength);

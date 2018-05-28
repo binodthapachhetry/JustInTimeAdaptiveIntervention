@@ -166,9 +166,9 @@ public class CurrentEEdistance extends AppCompatActivity {
 //                eeKcalWatch = "0";
 //            }
 
-        eeKcalBoth = TEMPLEDataManager.getEEBoth(mContext);
-        eeKcalPanobike = TEMPLEDataManager.getEEpano(mContext);
-        eeKcalWatch = TEMPLEDataManager.getEEwatch(mContext);
+        eeKcalBoth = TEMPLEDataManager.getEEKcalBoth(mContext);
+        eeKcalPanobike = TEMPLEDataManager.getEEKcalPanobike(mContext);
+        eeKcalWatch = TEMPLEDataManager.getEEKcalWatch(mContext);
 
         eeKcal = Float.valueOf(eeKcalBoth)+ Float.valueOf(eeKcalPanobike) + Float.valueOf(eeKcalWatch);
 

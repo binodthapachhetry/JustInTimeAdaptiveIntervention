@@ -355,7 +355,7 @@ public class EnergyPlot extends AppCompatActivity {
         String sixthDateDay = sdfDay.format(calCurrent.getTime());
         theDates.add(sixthDateDay);
 
-        Float seventhEEkcal = Float.valueOf(TEMPLEDataManager.getEEBoth(mContext))+ Float.valueOf(TEMPLEDataManager.getEEpano(mContext))+Float.valueOf(TEMPLEDataManager.getEEwatch(mContext));
+        Float seventhEEkcal = Float.valueOf(TEMPLEDataManager.getEEKcalBoth(mContext))+ Float.valueOf(TEMPLEDataManager.getEEKcalPanobike(mContext))+Float.valueOf(TEMPLEDataManager.getEEKcalWatch(mContext));
         barEntries.add(new BarEntry(seventhEEkcal,6));
         if(seventhEEkcal>goalEEkCal) {
             colors[6] = Color.rgb(34,139,54);

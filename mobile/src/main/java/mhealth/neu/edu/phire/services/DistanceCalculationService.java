@@ -212,7 +212,7 @@ public class DistanceCalculationService extends WocketsIntentService {
                     float totalDistance = Float.valueOf(distanceMeter) + distance;
                     Log.i(TAG_NOTES,String.valueOf(totalDistance),mContext);
                     TEMPLEDataManager.setDistanceTravelledMeter(mContext, String.valueOf(totalDistance));
-
+                    Log.i(TAG, "Set total distance travelled in meter as " + Float.toString(totalDistance), mContext);
 //                    TEMPLEDataManager.setLastDistanceCalcTime(mContext, stopRot);
                     SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String stopTime = simpleDateFormatPano.format(stopRot);
