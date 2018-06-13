@@ -9,6 +9,7 @@ import com.opencsv.CSVReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -74,19 +75,27 @@ public class DistanceCalculationService extends WocketsIntentService {
             if(lastDistanceCalcTime==-1){
                 useFirst = true;
             }else {
-                Date dateDistanceCalcLastRun = new Date();
-                dateDistanceCalcLastRun.setTime(lastDistanceCalcTime);
-                Calendar calDistanceCalcLastRun = Calendar.getInstance();
-                calDistanceCalcLastRun.setTime(dateDistanceCalcLastRun);
-                int dayOfMonthDistanceCalcLastRun = calDistanceCalcLastRun.get(Calendar.DAY_OF_MONTH);
+                DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                Date lastDate = formatter.parse(formatter.format(lastDistanceCalcTime));
+                Date todayDate = formatter.parse(formatter.format(new Date()));
 
-                Date dateCurrent = new Date();
-                dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
-                Calendar calCurrent = Calendar.getInstance();
-                calCurrent.setTime(dateCurrent);
-                int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
+                Log.i(TAG, "Last distance calc date:" + formatter.format(lastDate), mContext);
+                Log.i(TAG, "Current date:" + formatter.format(todayDate), mContext);
 
-                if(dateCurrent.compareTo(dateDistanceCalcLastRun)>0){
+
+//                Date dateDistanceCalcLastRun = new Date();
+//                dateDistanceCalcLastRun.setTime(lastDistanceCalcTime);
+//                Calendar calDistanceCalcLastRun = Calendar.getInstance();
+//                calDistanceCalcLastRun.setTime(dateDistanceCalcLastRun);
+//                int dayOfMonthDistanceCalcLastRun = calDistanceCalcLastRun.get(Calendar.DAY_OF_MONTH);
+//
+//                Date dateCurrent = new Date();
+//                dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
+//                Calendar calCurrent = Calendar.getInstance();
+//                calCurrent.setTime(dateCurrent);
+//                int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
+
+                if(todayDate.compareTo(lastDate)>0){
                     TEMPLEDataManager.setDistanceTravelledMeter(mContext, "0");
                     useFirst = true;
                 }
@@ -213,7 +222,7 @@ public class DistanceCalculationService extends WocketsIntentService {
                     Log.i(TAG_NOTES,String.valueOf(totalDistance),mContext);
                     TEMPLEDataManager.setDistanceTravelledMeter(mContext, String.valueOf(totalDistance));
                     Log.i(TAG, "Set total distance travelled in meter as " + Float.toString(totalDistance), mContext);
-//                    TEMPLEDataManager.setLastDistanceCalcTime(mContext, stopRot);
+                    TEMPLEDataManager.setLastDistanceCalcTime(mContext, stopRot);
                     SimpleDateFormat simpleDateFormatPano = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     String stopTime = simpleDateFormatPano.format(stopRot);
                     String[] row = {
