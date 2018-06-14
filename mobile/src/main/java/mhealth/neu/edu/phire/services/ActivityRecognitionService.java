@@ -19,6 +19,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -472,29 +473,37 @@ public class ActivityRecognitionService extends WocketsIntentService {
         lastARserviceRun = TEMPLEDataManager.getLastRunOfARService(mContext);
 
         if(lastARserviceRun!=0){
-            Date dateEEcalcLastRun = new Date();
-            dateEEcalcLastRun.setTime(lastARserviceRun);
-            Calendar calEEcalcLastRun = Calendar.getInstance();
-            calEEcalcLastRun.setTime(dateEEcalcLastRun);
-            int dayOfMonthEEcalcLastRun = calEEcalcLastRun.get(Calendar.DAY_OF_MONTH);
-            int monthEEcalcLastRun = calEEcalcLastRun.get(Calendar.MONTH);
+//            Date dateEEcalcLastRun = new Date();
+//            dateEEcalcLastRun.setTime(lastARserviceRun);
+//            Calendar calEEcalcLastRun = Calendar.getInstance();
+//            calEEcalcLastRun.setTime(dateEEcalcLastRun);
+//            int dayOfMonthEEcalcLastRun = calEEcalcLastRun.get(Calendar.DAY_OF_MONTH);
+//            int monthEEcalcLastRun = calEEcalcLastRun.get(Calendar.MONTH);
+//
+//            Date dateCurrent = new Date();
+//            dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
+//            Calendar calCurrent = Calendar.getInstance();
+//            calCurrent.setTime(dateCurrent);
+//            int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
+//            int monthCurrent = calCurrent.get(Calendar.MONTH);
 
-            Date dateCurrent = new Date();
-            dateCurrent.setTime(DateTime.getCurrentTimeInMillis());
-            Calendar calCurrent = Calendar.getInstance();
-            calCurrent.setTime(dateCurrent);
-            int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
-            int monthCurrent = calCurrent.get(Calendar.MONTH);
+            DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+            Date lastDate = formatter.parse(formatter.format(lastARserviceRun));
+            Date todayDate = formatter.parse(formatter.format(new Date()));
+
+            Log.i(TAG, "Last distance calc date:" + formatter.format(lastDate), mContext);
+            Log.i(TAG, "Current date:" + formatter.format(todayDate), mContext);
 
 
-            Log.i(TAG,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last AR service run:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
+//            Log.i(TAG,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last AR service run:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
 //            Log.i(TAG_NOTES,"Day of month current:"+ Integer.toString(dayOfMonthCurrent)+",day of month last AR service run:"+ Integer.toString(dayOfMonthEEcalcLastRun),mContext);
 
 
-            if((dayOfMonthCurrent>dayOfMonthEEcalcLastRun)||(monthCurrent>monthEEcalcLastRun)){
+            if(todayDate.compareTo(lastDate)>0){
 //                TEMPLEDataManager.setEEKcalBoth(mContext,"0");
 //                TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
 //                TEMPLEDataManager.setEEKcalWatch(mContext,"0");
+                Log.i(TAG,"Day changed!!!!!",mContext);
 
                 Integer today_goal = TEMPLEDataManager.getPanoPAminutes(mContext)+TEMPLEDataManager.getWatchPAminutes(mContext)+TEMPLEDataManager.getBothPAminutes(mContext);
                 if(today_goal>35) {
@@ -509,8 +518,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
 
                 Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEKcalPanobike(mContext))+Double.valueOf(TEMPLEDataManager.getEEKcalWatch(mContext))+Double.valueOf(TEMPLEDataManager.getEEKcalBoth(mContext));
                 Integer totalEEkcalInt = (int) Math.round(totalEEkcal);
-                SimpleDateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
-                String lastDateEEcalc = yearMonthDay.format(calEEcalcLastRun.getTime());
+                DateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
+                String lastDateEEcalc = yearMonthDay.format(lastDate);
+
                 Log.i(TAG,"Last EE calculation date:"+lastDateEEcalc+",total EE kcal set to:"+ Integer.toString(totalEEkcalInt),mContext);
 //                Log.i(TAG_NOTES,"Last EE calc date:"+lastDateEEcalc+",total EE(kCal) set to:"+ Integer.toString(totalEEkcalInt),mContext);
 
@@ -937,12 +947,33 @@ public class ActivityRecognitionService extends WocketsIntentService {
                                     long startMilliseconds = startDate.getTime();
                                     Date stopDate = simpleDateFormatMicro.parse(lineCp[3]);
                                     long stopMilliseconds = stopDate.getTime();
+
+                                    if (startMilliseconds > stopMilliseconds) {
+                                        Log.i(TAG, "Caught an erroneous feature vector: start time greater than end time. Skipping...", mContext);
+                                        Log.i(TAG, lineCp[2] + "," + lineCp[3], mContext);
+
+                                        continue;
+                                    } else if (stopMilliseconds > currentMilliseconds) {
+                                        Log.i(TAG, "Caught an erroneous feature vector: stop time greater than current time. Skipping...", mContext);
+                                        Log.i(TAG, lineCp[2] + "," + lineCp[3], mContext);
+
+                                        continue;
+                                    } else if (startMilliseconds > currentMilliseconds) {
+                                        Log.i(TAG, "Caught an erroneous feature vector: st time greater than current time. Skipping...", mContext);
+                                        Log.i(TAG, lineCp[2] + "," + lineCp[3], mContext);
+                                        continue;
+                                    } else {
+
+
 //                                Log.i(TAG, "Start time:"+ lineCp[2]+ ",stop time:"+ lineCp[3] +" start long="+Long.toString(startMilliseconds)+" stop long="+Long.toString(stopMilliseconds), mContext);
-                                    if ((startMilliseconds <= startKey && stopMilliseconds > stopKey) || (startMilliseconds > startKey && stopMilliseconds <= stopKey)) {
-                                        Log.i(TAG, "Found our line", mContext);
-                                        gotline = lineCp;
-                                        stop = stopMilliseconds;
-                                        break;
+                                        if ((startMilliseconds <= startKey && stopMilliseconds > stopKey) || (startMilliseconds > startKey && stopMilliseconds <= stopKey)) {
+                                            Log.i(TAG, "Found our line", mContext);
+                                            Log.i(TAG, "Start time:"+ lineCp[2]+ ",stop time:"+ lineCp[3], mContext);
+
+                                            gotline = lineCp;
+                                            stop = stopMilliseconds;
+                                            break;
+                                        }
                                     }
                                 }
                             } catch (IOException e) {
@@ -1072,7 +1103,10 @@ public class ActivityRecognitionService extends WocketsIntentService {
                             Log.i(TAG, "Caught an erroneous feature vector: start time greater than end time. Skipping...", mContext);
                             continue;
                         } else if (stopMilliseconds > currentMilliseconds) {
-                            Log.i(TAG, "Caught an erroneous feature vector: start time greater than end time. Skipping...", mContext);
+                            Log.i(TAG, "Caught an erroneous feature vector: stop time greater than current time. Skipping...", mContext);
+                            continue;
+                        } else if (startMilliseconds > currentMilliseconds) {
+                            Log.i(TAG, "Caught an erroneous feature vector: st time greater than current time. Skipping...", mContext);
                             continue;
                         } else {
 //                            Log.i(TAG, "Current line start:"+simpleDateFormatMicro.format(startMilliseconds)+",AR start from:"+ simpleDateFormatMicro.format(watchLastReadTimeS), mContext);

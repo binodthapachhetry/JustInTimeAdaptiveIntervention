@@ -96,6 +96,7 @@ public class DistanceCalculationService extends WocketsIntentService {
 //                int dayOfMonthCurrent = calCurrent.get(Calendar.DAY_OF_MONTH);
 
                 if(todayDate.compareTo(lastDate)>0){
+                    Log.i(TAG,"Day changed!!!!!",mContext);
                     TEMPLEDataManager.setDistanceTravelledMeter(mContext, "0");
                     useFirst = true;
                 }
