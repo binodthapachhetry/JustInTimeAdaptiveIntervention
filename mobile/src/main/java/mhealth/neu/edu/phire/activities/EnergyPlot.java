@@ -321,7 +321,7 @@ public class EnergyPlot extends AppCompatActivity {
         String sixthDate = sdf.format(calCurrent.getTime());
         Float sixthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,sixthDate);
         barEntries.add(new BarEntry(sixthEEkcal,5));
-        if(fourthEEkcal>goalEEkCal) {
+        if(sixthEEkcal>goalEEkCal) {
             colors[5] = Color.rgb(34,139,54);
         }
 
