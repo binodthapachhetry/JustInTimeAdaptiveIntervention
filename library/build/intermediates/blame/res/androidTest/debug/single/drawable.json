@@ -288,12 +288,12 @@
         "source": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\drawable\\mr_dialog_material_background_dark.xml"
     },
     {
-        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\cast_ic_notification_skip_next.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable\\cast_ic_notification_skip_next.xml"
-    },
-    {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\logo.png",
         "source": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\cast_ic_notification_skip_next.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\drawable\\cast_ic_notification_skip_next.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\mr_ic_pause_light.xml",

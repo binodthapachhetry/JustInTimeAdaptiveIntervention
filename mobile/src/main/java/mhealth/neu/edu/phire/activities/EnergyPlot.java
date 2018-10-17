@@ -279,7 +279,9 @@ public class EnergyPlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String fifthDate = sdf.format(calCurrent.getTime());
+        Log.i(TAG,"Fifth date:"+fifthDate,mContext);
         Float fifthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,fifthDate);
+        Log.i(TAG,"Fifth date EE kcal:"+ Float.toString(fifthEEkcal),mContext);
         barEntries.add(new BarEntry(fifthEEkcal,4));
         if(fifthEEkcal>goalEEkCal) {
             colors[4] = Color.rgb(34,139,54);
@@ -319,7 +321,9 @@ public class EnergyPlot extends AppCompatActivity {
 
         calCurrent.add(Calendar.DAY_OF_MONTH, 1);
         String sixthDate = sdf.format(calCurrent.getTime());
+        Log.i(TAG,"Sixth date:"+sixthDate,mContext);
         Float sixthEEkcal = (float) TEMPLEDataManager.getTotalEEkcal(mContext,sixthDate);
+        Log.i(TAG,"Sixth date EE kcal:"+ Float.toString(sixthEEkcal),mContext);
         barEntries.add(new BarEntry(sixthEEkcal,5));
         if(sixthEEkcal>goalEEkCal) {
             colors[5] = Color.rgb(34,139,54);

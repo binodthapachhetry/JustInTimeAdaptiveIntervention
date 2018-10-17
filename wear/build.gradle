@@ -6,9 +6,9 @@ android {
     defaultConfig {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
-        targetSdkVersion 25
-        versionCode 69
-        versionName "1.68"
+        targetSdkVersion 26
+        versionCode 72
+        versionName "1.71"
         multiDexEnabled  true
     }
     buildTypes {

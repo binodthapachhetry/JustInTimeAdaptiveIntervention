@@ -134,6 +134,9 @@ public class ActivityRecognitionService extends WocketsIntentService {
     private String eeKcalPanobike;
     private String eeKcalWatch;
 
+    private boolean isEEkcalset;
+    private int lastDayKcal;
+
     private String eeKcalBothTot;
     private String eeKcalPanobikeTot;
     private String eeKcalWatchTot;
@@ -488,10 +491,11 @@ public class ActivityRecognitionService extends WocketsIntentService {
 //            int monthCurrent = calCurrent.get(Calendar.MONTH);
 
             DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-            Date lastDate = formatter.parse(formatter.format(lastARserviceRun));
+//            Date lastDate = formatter.parse(formatter.format(lastARserviceRun));
+            Date lastDate = formatter.parse(formatter.format(lastARwindowStopTime));
             Date todayDate = formatter.parse(formatter.format(new Date()));
 
-            Log.i(TAG, "Last distance calc date:" + formatter.format(lastDate), mContext);
+            Log.i(TAG, "Last AR window stop date:" + formatter.format(lastDate), mContext);
             Log.i(TAG, "Current date:" + formatter.format(todayDate), mContext);
 
 
@@ -503,43 +507,56 @@ public class ActivityRecognitionService extends WocketsIntentService {
 //                TEMPLEDataManager.setEEKcalBoth(mContext,"0");
 //                TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
 //                TEMPLEDataManager.setEEKcalWatch(mContext,"0");
-                Log.i(TAG,"Day changed!!!!!",mContext);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String lastDateString = sdf.format(lastDate.getTime());
+                String keySuff = "-EEset";
+                String lastDateKey = lastDateString + keySuff;
 
-                Integer today_goal = TEMPLEDataManager.getPanoPAminutes(mContext)+TEMPLEDataManager.getWatchPAminutes(mContext)+TEMPLEDataManager.getBothPAminutes(mContext);
-                if(today_goal>35) {
-                    TEMPLEDataManager.setPAMinutesGoal(mContext, today_goal);
-                }else{
-                    Log.i(TAG,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
-//                    Log.i(TAG_NOTES,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
-                }
-                TEMPLEDataManager.setPanoPAMinutes(mContext,0);
-                TEMPLEDataManager.setWatchPAMinutes(mContext,0);
-                TEMPLEDataManager.setBothPAMinutes(mContext,0);
+//                lastDayKcal = TEMPLEDataManager.getTotalEEkcal(mContext,lastDateString);
 
-                Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEKcalPanobike(mContext))+Double.valueOf(TEMPLEDataManager.getEEKcalWatch(mContext))+Double.valueOf(TEMPLEDataManager.getEEKcalBoth(mContext));
-                Integer totalEEkcalInt = (int) Math.round(totalEEkcal);
-                DateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
-                String lastDateEEcalc = yearMonthDay.format(lastDate);
+                isEEkcalset = TEMPLEDataManager.getEEkcalset(mContext,lastDateKey);
+                if(!isEEkcalset) {
 
-                Log.i(TAG,"Last EE calculation date:"+lastDateEEcalc+",total EE kcal set to:"+ Integer.toString(totalEEkcalInt),mContext);
-//                Log.i(TAG_NOTES,"Last EE calc date:"+lastDateEEcalc+",total EE(kCal) set to:"+ Integer.toString(totalEEkcalInt),mContext);
+                    Log.i(TAG, "Day changed!!!!!", mContext);
 
-                TEMPLEDataManager.setTotalEEkcal(mContext,lastDateEEcalc,totalEEkcalInt);
+                    Integer today_goal = TEMPLEDataManager.getPanoPAminutes(mContext) + TEMPLEDataManager.getWatchPAminutes(mContext) + TEMPLEDataManager.getBothPAminutes(mContext);
+                    if (today_goal > 35) {
+                        TEMPLEDataManager.setPAMinutesGoal(mContext, today_goal);
+                    } else {
+                        Log.i(TAG, "Not setting goal PA minutes from yesterday's total PA minutes since it equals to " + Integer.toString(today_goal), mContext);
+                        //                    Log.i(TAG_NOTES,"Not setting goal PA minutes from yesterday's total PA minutes since it equals to "+Integer.toString(today_goal),mContext);
+                    }
+                    TEMPLEDataManager.setPanoPAMinutes(mContext, 0);
+                    TEMPLEDataManager.setWatchPAMinutes(mContext, 0);
+                    TEMPLEDataManager.setBothPAMinutes(mContext, 0);
 
-                TEMPLEDataManager.setEEKcalBoth(mContext,"0");
-                TEMPLEDataManager.setEEKcalPanobike(mContext,"0");
-                TEMPLEDataManager.setEEKcalWatch(mContext,"0");
+                    Double totalEEkcal = Double.valueOf(TEMPLEDataManager.getEEKcalPanobike(mContext)) + Double.valueOf(TEMPLEDataManager.getEEKcalWatch(mContext)) + Double.valueOf(TEMPLEDataManager.getEEKcalBoth(mContext));
+                    Integer totalEEkcalInt = (int) Math.round(totalEEkcal);
+                    DateFormat yearMonthDay = new SimpleDateFormat("yyyy-MM-dd");
+                    String lastDateEEcalc = yearMonthDay.format(lastDate);
 
-//                TEMPLEDataManager.setEEPano(mContext,"0");
-//                TEMPLEDataManager.setEEboth(mContext,"0");
-//                TEMPLEDataManager.setEEwatch(mContext,"0");
+                    Log.i(TAG, "Last EE calculation date:" + lastDateEEcalc + ",total EE kcal set to:" + Integer.toString(totalEEkcalInt), mContext);
+                    //                Log.i(TAG_NOTES,"Last EE calc date:"+lastDateEEcalc+",total EE(kCal) set to:"+ Integer.toString(totalEEkcalInt),mContext);
 
-                Integer lastPAboutLength = TEMPLEDataManager.getDailyPAboutLength(mContext);
-                if (lastPAboutLength>2) {
-                    TEMPLEDataManager.setDailyPaBoutLengthGoal(mContext,lastPAboutLength);
-                    Log.i(TAG,"Set minimum bout length to:"+Integer.toString(lastPAboutLength),mContext);
-//                    Log.i(TAG_NOTES,"Set min bout length to:"+Integer.toString(lastPAboutLength),mContext);
+                    TEMPLEDataManager.setTotalEEkcal(mContext, lastDateEEcalc, totalEEkcalInt);
 
+                    TEMPLEDataManager.setEEKcalBoth(mContext, "0");
+                    TEMPLEDataManager.setEEKcalPanobike(mContext, "0");
+                    TEMPLEDataManager.setEEKcalWatch(mContext, "0");
+
+                    //                TEMPLEDataManager.setEEPano(mContext,"0");
+                    //                TEMPLEDataManager.setEEboth(mContext,"0");
+                    //                TEMPLEDataManager.setEEwatch(mContext,"0");
+
+                    Integer lastPAboutLength = TEMPLEDataManager.getDailyPAboutLength(mContext);
+                    if (lastPAboutLength > 2) {
+                        TEMPLEDataManager.setDailyPaBoutLengthGoal(mContext, lastPAboutLength);
+                        Log.i(TAG, "Set minimum bout length to:" + Integer.toString(lastPAboutLength), mContext);
+                        //                    Log.i(TAG_NOTES,"Set min bout length to:"+Integer.toString(lastPAboutLength),mContext);
+
+                    }
+
+                    TEMPLEDataManager.setEEkcalset(mContext,lastDateKey,true);
                 }
             }
         }

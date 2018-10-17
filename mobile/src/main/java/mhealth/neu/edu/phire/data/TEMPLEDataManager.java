@@ -33,6 +33,15 @@ public class TEMPLEDataManager {
     }
 
     //--------------------------------------------------------------------------------------------//
+
+    public static boolean getEEkcalset(Context context, String date) {
+        return SharedPrefManager.getBoolean(date, false, context);
+    }
+    public static void setEEkcalset(Context context, String date, boolean isEEkcalset) {
+        SharedPrefManager.setBoolean(date, isEEkcalset, context);
+    }
+
+    //--------------------------------------------------------------------------------------------//
     private static final String BOTH_PA_MINUTES = "BOTH_PA_MINUTES";
 
     public static int getBothPAminutes(Context context) {
