@@ -7,369 +7,8 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endColumn": 102,
-                    "endOffset": 153
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 102,
-                        "endOffset": 153
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 158,
-                    "endColumn": 107,
-                    "endOffset": 261
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 158,
-                        "endColumn": 107,
-                        "endOffset": 261
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 4,
-                    "startColumn": 4,
-                    "startOffset": 266,
-                    "endColumn": 122,
-                    "endOffset": 384
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 266,
-                        "endColumn": 122,
-                        "endOffset": 384
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 5,
-                    "startColumn": 4,
-                    "startOffset": 389,
-                    "endColumn": 96,
-                    "endOffset": 481
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 389,
-                        "endColumn": 96,
-                        "endOffset": 481
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 6,
-                    "startColumn": 4,
-                    "startOffset": 486,
-                    "endColumn": 106,
-                    "endOffset": 588
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 486,
-                        "endColumn": 106,
-                        "endOffset": 588
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 7,
-                    "startColumn": 4,
-                    "startOffset": 593,
-                    "endColumn": 84,
-                    "endOffset": 673
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 593,
-                        "endColumn": 84,
-                        "endOffset": 673
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 8,
-                    "startColumn": 4,
-                    "startOffset": 678,
-                    "endColumn": 104,
-                    "endOffset": 778
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 678,
-                        "endColumn": 104,
-                        "endOffset": 778
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 9,
-                    "startColumn": 4,
-                    "startOffset": 783,
-                    "endColumn": 111,
-                    "endOffset": 890
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 783,
-                        "endColumn": 111,
-                        "endOffset": 890
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 10,
-                    "startColumn": 4,
-                    "startOffset": 895,
-                    "endColumn": 76,
-                    "endOffset": 967
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 895,
-                        "endColumn": 76,
-                        "endOffset": 967
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 11,
-                    "startColumn": 4,
-                    "startOffset": 972,
-                    "endColumn": 77,
-                    "endOffset": 1045
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 972,
-                        "endColumn": 77,
-                        "endOffset": 1045
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 12,
-                    "startColumn": 4,
-                    "startOffset": 1050,
-                    "endColumn": 79,
-                    "endOffset": 1125
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 1050,
-                        "endColumn": 79,
-                        "endOffset": 1125
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 13,
-                    "startColumn": 4,
-                    "startOffset": 1130,
-                    "endColumn": 106,
-                    "endOffset": 1232
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 1130,
-                        "endColumn": 106,
-                        "endOffset": 1232
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 14,
-                    "startColumn": 4,
-                    "startOffset": 1237,
-                    "endColumn": 96,
-                    "endOffset": 1329
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 1237,
-                        "endColumn": 96,
-                        "endOffset": 1329
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 15,
-                    "startColumn": 4,
-                    "startOffset": 1334,
-                    "endColumn": 97,
-                    "endOffset": 1427
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 1334,
-                        "endColumn": 97,
-                        "endOffset": 1427
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 16,
-                    "startColumn": 4,
-                    "startOffset": 1432,
-                    "endColumn": 104,
-                    "endOffset": 1532
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1432,
-                        "endColumn": 104,
-                        "endOffset": 1532
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 17,
-                    "startColumn": 4,
-                    "startOffset": 1537,
-                    "endColumn": 102,
-                    "endOffset": 1635
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 1537,
-                        "endColumn": 102,
-                        "endOffset": 1635
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 18,
-                    "startColumn": 4,
-                    "startOffset": 1640,
-                    "endColumn": 103,
-                    "endOffset": 1739
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 1640,
-                        "endColumn": 103,
-                        "endOffset": 1739
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 19,
-                    "startColumn": 4,
-                    "startOffset": 1744,
-                    "endColumn": 121,
-                    "endOffset": 1861
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 1744,
-                        "endColumn": 121,
-                        "endOffset": 1861
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 1866,
-                    "endColumn": 95,
-                    "endOffset": 1957
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 1866,
-                        "endColumn": 95,
-                        "endOffset": 1957
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 21,
-                    "startColumn": 4,
-                    "startOffset": 1962,
                     "endColumn": 100,
-                    "endOffset": 2058
+                    "endOffset": 151
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -384,11 +23,11 @@
             },
             {
                 "to": {
-                    "startLine": 22,
+                    "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 2063,
+                    "startOffset": 156,
                     "endColumn": 101,
-                    "endOffset": 2160
+                    "endOffset": 253
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -403,11 +42,11 @@
             },
             {
                 "to": {
-                    "startLine": 23,
+                    "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 2165,
+                    "startOffset": 258,
                     "endColumn": 84,
-                    "endOffset": 2245
+                    "endOffset": 338
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -422,11 +61,11 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 2250,
+                    "startOffset": 343,
                     "endColumn": 96,
-                    "endOffset": 2342
+                    "endOffset": 435
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -441,11 +80,11 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 2347,
+                    "startOffset": 440,
                     "endColumn": 102,
-                    "endOffset": 2445
+                    "endOffset": 538
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -460,11 +99,11 @@
             },
             {
                 "to": {
-                    "startLine": 26,
+                    "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 2450,
+                    "startOffset": 543,
                     "endColumn": 93,
-                    "endOffset": 2539
+                    "endOffset": 632
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -479,11 +118,11 @@
             },
             {
                 "to": {
-                    "startLine": 27,
+                    "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 2544,
+                    "startOffset": 637,
                     "endColumn": 94,
-                    "endOffset": 2634
+                    "endOffset": 727
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -498,11 +137,11 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 2639,
+                    "startOffset": 732,
                     "endColumn": 98,
-                    "endOffset": 2733
+                    "endOffset": 826
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -517,11 +156,11 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 2738,
+                    "startOffset": 831,
                     "endColumn": 91,
-                    "endOffset": 2825
+                    "endOffset": 918
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -536,11 +175,11 @@
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 2830,
+                    "startOffset": 923,
                     "endColumn": 104,
-                    "endOffset": 2930
+                    "endOffset": 1023
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -555,11 +194,11 @@
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 2935,
+                    "startOffset": 1028,
                     "endColumn": 117,
-                    "endOffset": 3048
+                    "endOffset": 1141
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -574,11 +213,11 @@
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 3053,
+                    "startOffset": 1146,
                     "endColumn": 88,
-                    "endOffset": 3137
+                    "endOffset": 1230
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -593,11 +232,11 @@
             },
             {
                 "to": {
-                    "startLine": 33,
+                    "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 3142,
+                    "startOffset": 1235,
                     "endColumn": 81,
-                    "endOffset": 3219
+                    "endOffset": 1312
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -612,11 +251,11 @@
             },
             {
                 "to": {
-                    "startLine": 34,
+                    "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 3224,
+                    "startOffset": 1317,
                     "endColumn": 90,
-                    "endOffset": 3310
+                    "endOffset": 1403
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -631,11 +270,11 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 3315,
+                    "startOffset": 1408,
                     "endColumn": 84,
-                    "endOffset": 3395
+                    "endOffset": 1488
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -650,11 +289,11 @@
             },
             {
                 "to": {
-                    "startLine": 36,
+                    "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 3400,
+                    "startOffset": 1493,
                     "endColumn": 93,
-                    "endOffset": 3489
+                    "endOffset": 1582
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
@@ -664,44 +303,6 @@
                         "startOffset": 1493,
                         "endColumn": 93,
                         "endOffset": 1582
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 37,
-                    "startColumn": 4,
-                    "startOffset": 3494,
-                    "endColumn": 80,
-                    "endOffset": 3570
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 1962,
-                        "endColumn": 80,
-                        "endOffset": 2038
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 38,
-                    "startColumn": 4,
-                    "startOffset": 3575,
-                    "endColumn": 100,
-                    "endOffset": 3671
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-lo-rLA\\values-lo-rLA.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 4,
-                        "startOffset": 2043,
-                        "endColumn": 100,
-                        "endOffset": 2139
                     }
                 }
             }

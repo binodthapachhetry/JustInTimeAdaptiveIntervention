@@ -7,8 +7,331 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 105,
+                    "endColumn": 107,
+                    "endOffset": 208
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 107,
+                        "endOffset": 158
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 213,
+                    "endColumn": 122,
+                    "endOffset": 331
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 163,
+                        "endColumn": 122,
+                        "endOffset": 281
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 336,
+                    "endColumn": 103,
+                    "endOffset": 435
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 286,
+                        "endColumn": 103,
+                        "endOffset": 385
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 440,
+                    "endColumn": 107,
+                    "endOffset": 543
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 390,
+                        "endColumn": 107,
+                        "endOffset": 493
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 548,
+                    "endColumn": 85,
+                    "endOffset": 629
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 498,
+                        "endColumn": 85,
+                        "endOffset": 579
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 634,
+                    "endColumn": 104,
+                    "endOffset": 734
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 584,
+                        "endColumn": 104,
+                        "endOffset": 684
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 739,
+                    "endColumn": 118,
+                    "endOffset": 853
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 689,
+                        "endColumn": 118,
+                        "endOffset": 803
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 858,
+                    "endColumn": 82,
+                    "endOffset": 936
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 808,
+                        "endColumn": 82,
+                        "endOffset": 886
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 941,
+                    "endColumn": 81,
+                    "endOffset": 1018
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 891,
+                        "endColumn": 81,
+                        "endOffset": 968
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1023,
+                    "endColumn": 86,
+                    "endOffset": 1105
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 973,
+                        "endColumn": 86,
+                        "endOffset": 1055
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1110,
+                    "endColumn": 105,
+                    "endOffset": 1211
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1060,
+                        "endColumn": 105,
+                        "endOffset": 1161
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1216,
+                    "endColumn": 106,
+                    "endOffset": 1318
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1166,
+                        "endColumn": 106,
+                        "endOffset": 1268
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1323,
+                    "endColumn": 100,
+                    "endOffset": 1419
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1273,
+                        "endColumn": 100,
+                        "endOffset": 1369
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1424,
+                    "endColumn": 106,
+                    "endOffset": 1526
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1374,
+                        "endColumn": 106,
+                        "endOffset": 1476
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1531,
+                    "endColumn": 110,
+                    "endOffset": 1637
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1481,
+                        "endColumn": 110,
+                        "endOffset": 1587
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1642,
+                    "endColumn": 103,
+                    "endOffset": 1741
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1592,
+                        "endColumn": 103,
+                        "endOffset": 1691
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1746,
+                    "endColumn": 97,
+                    "endOffset": 1839
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1696,
+                        "endColumn": 97,
+                        "endOffset": 1789
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1844,
                     "endColumn": 79,
-                    "endOffset": 180
+                    "endOffset": 1919
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -23,11 +346,11 @@
             },
             {
                 "to": {
-                    "startLine": 3,
+                    "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 185,
+                    "startOffset": 1924,
                     "endColumn": 98,
-                    "endOffset": 279
+                    "endOffset": 2018
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -42,11 +365,11 @@
             },
             {
                 "to": {
-                    "startLine": 4,
+                    "startLine": 21,
                     "startColumn": 4,
-                    "startOffset": 284,
+                    "startOffset": 2023,
                     "endColumn": 96,
-                    "endOffset": 376
+                    "endOffset": 2115
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -61,11 +384,11 @@
             },
             {
                 "to": {
-                    "startLine": 5,
+                    "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 381,
+                    "startOffset": 2120,
                     "endColumn": 123,
-                    "endOffset": 500
+                    "endOffset": 2239
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -80,11 +403,11 @@
             },
             {
                 "to": {
-                    "startLine": 6,
+                    "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 505,
+                    "startOffset": 2244,
                     "endColumn": 81,
-                    "endOffset": 582
+                    "endOffset": 2321
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -99,11 +422,11 @@
             },
             {
                 "to": {
-                    "startLine": 7,
+                    "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 587,
+                    "startOffset": 2326,
                     "endColumn": 113,
-                    "endOffset": 696
+                    "endOffset": 2435
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -118,11 +441,11 @@
             },
             {
                 "to": {
-                    "startLine": 8,
+                    "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 701,
+                    "startOffset": 2440,
                     "endColumn": 115,
-                    "endOffset": 812
+                    "endOffset": 2551
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -137,11 +460,11 @@
             },
             {
                 "to": {
-                    "startLine": 9,
+                    "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 817,
+                    "startOffset": 2556,
                     "endColumn": 119,
-                    "endOffset": 932
+                    "endOffset": 2671
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -156,11 +479,11 @@
             },
             {
                 "to": {
-                    "startLine": 10,
+                    "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 937,
+                    "startOffset": 2676,
                     "endColumn": 104,
-                    "endOffset": 1037
+                    "endOffset": 2776
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -175,11 +498,11 @@
             },
             {
                 "to": {
-                    "startLine": 11,
+                    "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 1042,
+                    "startOffset": 2781,
                     "endColumn": 106,
-                    "endOffset": 1144
+                    "endOffset": 2883
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -194,11 +517,11 @@
             },
             {
                 "to": {
-                    "startLine": 12,
+                    "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 1149,
+                    "startOffset": 2888,
                     "endColumn": 88,
-                    "endOffset": 1233
+                    "endOffset": 2972
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -213,11 +536,11 @@
             },
             {
                 "to": {
-                    "startLine": 13,
+                    "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 1238,
+                    "startOffset": 2977,
                     "endColumn": 105,
-                    "endOffset": 1339
+                    "endOffset": 3078
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -232,11 +555,11 @@
             },
             {
                 "to": {
-                    "startLine": 14,
+                    "startLine": 31,
                     "startColumn": 4,
-                    "startOffset": 1344,
+                    "startOffset": 3083,
                     "endColumn": 107,
-                    "endOffset": 1447
+                    "endOffset": 3186
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -251,11 +574,11 @@
             },
             {
                 "to": {
-                    "startLine": 15,
+                    "startLine": 32,
                     "startColumn": 4,
-                    "startOffset": 1452,
+                    "startOffset": 3191,
                     "endColumn": 107,
-                    "endOffset": 1555
+                    "endOffset": 3294
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -270,11 +593,11 @@
             },
             {
                 "to": {
-                    "startLine": 16,
+                    "startLine": 33,
                     "startColumn": 4,
-                    "startOffset": 1560,
+                    "startOffset": 3299,
                     "endColumn": 80,
-                    "endOffset": 1636
+                    "endOffset": 3375
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -289,11 +612,11 @@
             },
             {
                 "to": {
-                    "startLine": 17,
+                    "startLine": 34,
                     "startColumn": 4,
-                    "startOffset": 1641,
+                    "startOffset": 3380,
                     "endColumn": 134,
-                    "endOffset": 1771
+                    "endOffset": 3510
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\28f444a442d26e5f3cfba067b2cafa9b482b9fcc\\output\\res\\values-mk\\values.xml",
@@ -308,11 +631,11 @@
             },
             {
                 "to": {
-                    "startLine": 18,
+                    "startLine": 35,
                     "startColumn": 4,
-                    "startOffset": 1776,
+                    "startOffset": 3515,
                     "endColumn": 139,
-                    "endOffset": 1911
+                    "endOffset": 3650
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\28f444a442d26e5f3cfba067b2cafa9b482b9fcc\\output\\res\\values-mk\\values.xml",
@@ -327,11 +650,11 @@
             },
             {
                 "to": {
-                    "startLine": 19,
+                    "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 1916,
+                    "startOffset": 3655,
                     "endColumn": 94,
-                    "endOffset": 2006
+                    "endOffset": 3745
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\28f444a442d26e5f3cfba067b2cafa9b482b9fcc\\output\\res\\values-mk\\values.xml",
@@ -346,11 +669,11 @@
             },
             {
                 "to": {
-                    "startLine": 20,
+                    "startLine": 37,
                     "startColumn": 4,
-                    "startOffset": 2011,
+                    "startOffset": 3750,
                     "endColumn": 74,
-                    "endOffset": 2081
+                    "endOffset": 3820
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -365,11 +688,11 @@
             },
             {
                 "to": {
-                    "startLine": 21,
+                    "startLine": 38,
                     "startColumn": 4,
-                    "startOffset": 2086,
+                    "startOffset": 3825,
                     "endColumn": 73,
-                    "endOffset": 2155
+                    "endOffset": 3894
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -384,11 +707,11 @@
             },
             {
                 "to": {
-                    "startLine": 22,
+                    "startLine": 39,
                     "startColumn": 4,
-                    "startOffset": 2160,
+                    "startOffset": 3899,
                     "endColumn": 86,
-                    "endOffset": 2242
+                    "endOffset": 3981
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -403,11 +726,11 @@
             },
             {
                 "to": {
-                    "startLine": 23,
+                    "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 2247,
+                    "startOffset": 3986,
                     "endColumn": 103,
-                    "endOffset": 2346
+                    "endOffset": 4085
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -422,11 +745,11 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 2351,
+                    "startOffset": 4090,
                     "endColumn": 105,
-                    "endOffset": 2452
+                    "endOffset": 4191
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -441,11 +764,11 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 42,
                     "startColumn": 4,
-                    "startOffset": 2457,
+                    "startOffset": 4196,
                     "endColumn": 100,
-                    "endOffset": 2553
+                    "endOffset": 4292
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -460,11 +783,11 @@
             },
             {
                 "to": {
-                    "startLine": 26,
+                    "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 2558,
+                    "startOffset": 4297,
                     "endColumn": 98,
-                    "endOffset": 2652
+                    "endOffset": 4391
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -479,11 +802,11 @@
             },
             {
                 "to": {
-                    "startLine": 27,
+                    "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 2657,
+                    "startOffset": 4396,
                     "endColumn": 101,
-                    "endOffset": 2754
+                    "endOffset": 4493
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -498,11 +821,11 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 2759,
+                    "startOffset": 4498,
                     "endColumn": 73,
-                    "endOffset": 2828
+                    "endOffset": 4567
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -517,11 +840,11 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 2833,
+                    "startOffset": 4572,
                     "endColumn": 105,
-                    "endOffset": 2934
+                    "endOffset": 4673
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -536,11 +859,11 @@
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 47,
                     "startColumn": 4,
-                    "startOffset": 2939,
+                    "startOffset": 4678,
                     "endColumn": 96,
-                    "endOffset": 3031
+                    "endOffset": 4770
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -555,11 +878,11 @@
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 48,
                     "startColumn": 4,
-                    "startOffset": 3036,
+                    "startOffset": 4775,
                     "endColumn": 98,
-                    "endOffset": 3130
+                    "endOffset": 4869
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -574,11 +897,11 @@
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 49,
                     "startColumn": 4,
-                    "startOffset": 3135,
+                    "startOffset": 4874,
                     "endColumn": 143,
-                    "endOffset": 3274
+                    "endOffset": 5013
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -593,11 +916,11 @@
             },
             {
                 "to": {
-                    "startLine": 33,
+                    "startLine": 50,
                     "startColumn": 4,
-                    "startOffset": 3279,
+                    "startOffset": 5018,
                     "endColumn": 126,
-                    "endOffset": 3401
+                    "endOffset": 5140
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -612,11 +935,11 @@
             },
             {
                 "to": {
-                    "startLine": 34,
+                    "startLine": 51,
                     "startColumn": 4,
-                    "startOffset": 3406,
+                    "startOffset": 5145,
                     "endColumn": 131,
-                    "endOffset": 3533
+                    "endOffset": 5272
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -631,11 +954,11 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 52,
                     "startColumn": 4,
-                    "startOffset": 3538,
+                    "startOffset": 5277,
                     "endColumn": 95,
-                    "endOffset": 3629
+                    "endOffset": 5368
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -650,11 +973,11 @@
             },
             {
                 "to": {
-                    "startLine": 36,
+                    "startLine": 53,
                     "startColumn": 4,
-                    "startOffset": 3634,
+                    "startOffset": 5373,
                     "endColumn": 94,
-                    "endOffset": 3724
+                    "endOffset": 5463
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -669,11 +992,11 @@
             },
             {
                 "to": {
-                    "startLine": 37,
+                    "startLine": 54,
                     "startColumn": 4,
-                    "startOffset": 3729,
+                    "startOffset": 5468,
                     "endColumn": 102,
-                    "endOffset": 3827
+                    "endOffset": 5566
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -688,11 +1011,11 @@
             },
             {
                 "to": {
-                    "startLine": 38,
+                    "startLine": 55,
                     "startColumn": 4,
-                    "startOffset": 3832,
+                    "startOffset": 5571,
                     "endColumn": 81,
-                    "endOffset": 3909
+                    "endOffset": 5648
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\194a9dc81ae91fd7bcbf493f825ef1eb2601c3ad\\output\\res\\values-mk\\values.xml",
@@ -707,11 +1030,11 @@
             },
             {
                 "to": {
-                    "startLine": 39,
+                    "startLine": 56,
                     "startColumn": 4,
-                    "startOffset": 3914,
+                    "startOffset": 5653,
                     "endColumn": 108,
-                    "endOffset": 4018
+                    "endOffset": 5757
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -726,11 +1049,11 @@
             },
             {
                 "to": {
-                    "startLine": 40,
+                    "startLine": 57,
                     "startColumn": 4,
-                    "startOffset": 4023,
+                    "startOffset": 5762,
                     "endColumn": 192,
-                    "endOffset": 4211
+                    "endOffset": 5950
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -745,11 +1068,11 @@
             },
             {
                 "to": {
-                    "startLine": 41,
+                    "startLine": 58,
                     "startColumn": 4,
-                    "startOffset": 4216,
+                    "startOffset": 5955,
                     "endColumn": 134,
-                    "endOffset": 4346
+                    "endOffset": 6085
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -764,11 +1087,11 @@
             },
             {
                 "to": {
-                    "startLine": 42,
+                    "startLine": 59,
                     "startColumn": 4,
-                    "startOffset": 4351,
+                    "startOffset": 6090,
                     "endColumn": 111,
-                    "endOffset": 4458
+                    "endOffset": 6197
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -783,11 +1106,11 @@
             },
             {
                 "to": {
-                    "startLine": 43,
+                    "startLine": 60,
                     "startColumn": 4,
-                    "startOffset": 4463,
+                    "startOffset": 6202,
                     "endColumn": 212,
-                    "endOffset": 4671
+                    "endOffset": 6410
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -802,11 +1125,11 @@
             },
             {
                 "to": {
-                    "startLine": 44,
+                    "startLine": 61,
                     "startColumn": 4,
-                    "startOffset": 4676,
+                    "startOffset": 6415,
                     "endColumn": 212,
-                    "endOffset": 4884
+                    "endOffset": 6623
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -821,11 +1144,11 @@
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 62,
                     "startColumn": 4,
-                    "startOffset": 4889,
+                    "startOffset": 6628,
                     "endColumn": 134,
-                    "endOffset": 5019
+                    "endOffset": 6758
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -840,11 +1163,11 @@
             },
             {
                 "to": {
-                    "startLine": 46,
+                    "startLine": 63,
                     "startColumn": 4,
-                    "startOffset": 5024,
+                    "startOffset": 6763,
                     "endColumn": 138,
-                    "endOffset": 5158
+                    "endOffset": 6897
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -859,11 +1182,11 @@
             },
             {
                 "to": {
-                    "startLine": 47,
+                    "startLine": 64,
                     "startColumn": 4,
-                    "startOffset": 5163,
+                    "startOffset": 6902,
                     "endColumn": 237,
-                    "endOffset": 5396
+                    "endOffset": 7135
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\8e2770d43b98eacfa920423f937a2cc281601842\\output\\res\\values-mk\\values.xml",
@@ -878,11 +1201,11 @@
             },
             {
                 "to": {
-                    "startLine": 48,
+                    "startLine": 65,
                     "startColumn": 4,
-                    "startOffset": 5401,
+                    "startOffset": 7140,
                     "endColumn": 247,
-                    "endOffset": 5644
+                    "endOffset": 7383
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -897,11 +1220,11 @@
             },
             {
                 "to": {
-                    "startLine": 49,
+                    "startLine": 66,
                     "startColumn": 4,
-                    "startOffset": 5649,
+                    "startOffset": 7388,
                     "endColumn": 124,
-                    "endOffset": 5769
+                    "endOffset": 7508
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -916,11 +1239,11 @@
             },
             {
                 "to": {
-                    "startLine": 50,
+                    "startLine": 67,
                     "startColumn": 4,
-                    "startOffset": 5774,
+                    "startOffset": 7513,
                     "endColumn": 108,
-                    "endOffset": 5878
+                    "endOffset": 7617
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -935,11 +1258,11 @@
             },
             {
                 "to": {
-                    "startLine": 51,
+                    "startLine": 68,
                     "startColumn": 4,
-                    "startOffset": 5883,
+                    "startOffset": 7622,
                     "endColumn": 196,
-                    "endOffset": 6075
+                    "endOffset": 7814
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -954,11 +1277,11 @@
             },
             {
                 "to": {
-                    "startLine": 52,
+                    "startLine": 69,
                     "startColumn": 4,
-                    "startOffset": 6080,
+                    "startOffset": 7819,
                     "endColumn": 134,
-                    "endOffset": 6210
+                    "endOffset": 7949
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -973,11 +1296,11 @@
             },
             {
                 "to": {
-                    "startLine": 53,
+                    "startLine": 70,
                     "startColumn": 4,
-                    "startOffset": 6215,
+                    "startOffset": 7954,
                     "endColumn": 211,
-                    "endOffset": 6422
+                    "endOffset": 8161
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -992,11 +1315,11 @@
             },
             {
                 "to": {
-                    "startLine": 54,
+                    "startLine": 71,
                     "startColumn": 4,
-                    "startOffset": 6427,
+                    "startOffset": 8166,
                     "endColumn": 137,
-                    "endOffset": 6560
+                    "endOffset": 8299
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -1011,11 +1334,11 @@
             },
             {
                 "to": {
-                    "startLine": 55,
+                    "startLine": 72,
                     "startColumn": 4,
-                    "startOffset": 6565,
+                    "startOffset": 8304,
                     "endColumn": 188,
-                    "endOffset": 6749
+                    "endOffset": 8488
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -1030,11 +1353,11 @@
             },
             {
                 "to": {
-                    "startLine": 56,
+                    "startLine": 73,
                     "startColumn": 4,
-                    "startOffset": 6754,
+                    "startOffset": 8493,
                     "endColumn": 98,
-                    "endOffset": 6848
+                    "endOffset": 8587
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -1049,11 +1372,11 @@
             },
             {
                 "to": {
-                    "startLine": 57,
+                    "startLine": 74,
                     "startColumn": 4,
-                    "startOffset": 6853,
+                    "startOffset": 8592,
                     "endColumn": 93,
-                    "endOffset": 6942
+                    "endOffset": 8681
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -1068,11 +1391,11 @@
             },
             {
                 "to": {
-                    "startLine": 58,
+                    "startLine": 75,
                     "startColumn": 4,
-                    "startOffset": 6947,
+                    "startOffset": 8686,
                     "endColumn": 107,
-                    "endOffset": 7050
+                    "endOffset": 8789
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\33dd5ab8d3b7ee651d61172dc4be11e3206ead07\\output\\res\\values-mk\\values.xml",
@@ -1087,11 +1410,11 @@
             },
             {
                 "to": {
-                    "startLine": 59,
+                    "startLine": 76,
                     "startColumn": 4,
-                    "startOffset": 7055,
+                    "startOffset": 8794,
                     "endColumn": 114,
-                    "endOffset": 7165
+                    "endOffset": 8904
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\51ae075f51b9be8534f259689f1b6f84d8ac4e2b\\output\\res\\values-mk\\values.xml",
@@ -1106,11 +1429,11 @@
             },
             {
                 "to": {
-                    "startLine": 60,
+                    "startLine": 77,
                     "startColumn": 4,
-                    "startOffset": 7170,
+                    "startOffset": 8909,
                     "endColumn": 97,
-                    "endOffset": 7263
+                    "endOffset": 9002
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\51ae075f51b9be8534f259689f1b6f84d8ac4e2b\\output\\res\\values-mk\\values.xml",
@@ -1125,11 +1448,49 @@
             },
             {
                 "to": {
-                    "startLine": 61,
+                    "startLine": 78,
                     "startColumn": 4,
-                    "startOffset": 7268,
+                    "startOffset": 9007,
+                    "endColumn": 83,
+                    "endOffset": 9086
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1794,
+                        "endColumn": 83,
+                        "endOffset": 1873
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 79,
+                    "startColumn": 4,
+                    "startOffset": 9091,
+                    "endColumn": 100,
+                    "endOffset": 9187
+                },
+                "from": {
+                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\values-mk\\values-mk.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1878,
+                        "endColumn": 100,
+                        "endOffset": 1974
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 80,
+                    "startColumn": 4,
+                    "startOffset": 9192,
                     "endColumn": 105,
-                    "endOffset": 7369
+                    "endOffset": 9293
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\8371053da66dfdb9c0f6d552ad715fc2e84c0fbc\\output\\res\\values-mk\\values.xml",

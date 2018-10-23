@@ -7,369 +7,8 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endColumn": 113,
-                    "endOffset": 164
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 113,
-                        "endOffset": 164
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 169,
-                    "endColumn": 107,
-                    "endOffset": 272
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 169,
-                        "endColumn": 107,
-                        "endOffset": 272
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 4,
-                    "startColumn": 4,
-                    "startOffset": 277,
-                    "endColumn": 122,
-                    "endOffset": 395
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 277,
-                        "endColumn": 122,
-                        "endOffset": 395
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 5,
-                    "startColumn": 4,
-                    "startOffset": 400,
-                    "endColumn": 99,
-                    "endOffset": 495
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 400,
-                        "endColumn": 99,
-                        "endOffset": 495
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 6,
-                    "startColumn": 4,
-                    "startOffset": 500,
-                    "endColumn": 111,
-                    "endOffset": 607
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 500,
-                        "endColumn": 111,
-                        "endOffset": 607
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 7,
-                    "startColumn": 4,
-                    "startOffset": 612,
-                    "endColumn": 86,
-                    "endOffset": 694
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 612,
-                        "endColumn": 86,
-                        "endOffset": 694
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 8,
-                    "startColumn": 4,
-                    "startOffset": 699,
                     "endColumn": 109,
-                    "endOffset": 804
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 699,
-                        "endColumn": 109,
-                        "endOffset": 804
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 9,
-                    "startColumn": 4,
-                    "startOffset": 809,
-                    "endColumn": 122,
-                    "endOffset": 927
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 809,
-                        "endColumn": 122,
-                        "endOffset": 927
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 10,
-                    "startColumn": 4,
-                    "startOffset": 932,
-                    "endColumn": 80,
-                    "endOffset": 1008
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 932,
-                        "endColumn": 80,
-                        "endOffset": 1008
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 11,
-                    "startColumn": 4,
-                    "startOffset": 1013,
-                    "endColumn": 78,
-                    "endOffset": 1087
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 1013,
-                        "endColumn": 78,
-                        "endOffset": 1087
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 12,
-                    "startColumn": 4,
-                    "startOffset": 1092,
-                    "endColumn": 82,
-                    "endOffset": 1170
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 1092,
-                        "endColumn": 82,
-                        "endOffset": 1170
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 13,
-                    "startColumn": 4,
-                    "startOffset": 1175,
-                    "endColumn": 105,
-                    "endOffset": 1276
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 1175,
-                        "endColumn": 105,
-                        "endOffset": 1276
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 14,
-                    "startColumn": 4,
-                    "startOffset": 1281,
-                    "endColumn": 104,
-                    "endOffset": 1381
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 1281,
-                        "endColumn": 104,
-                        "endOffset": 1381
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 15,
-                    "startColumn": 4,
-                    "startOffset": 1386,
-                    "endColumn": 97,
-                    "endOffset": 1479
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 1386,
-                        "endColumn": 97,
-                        "endOffset": 1479
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 16,
-                    "startColumn": 4,
-                    "startOffset": 1484,
-                    "endColumn": 105,
-                    "endOffset": 1585
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1484,
-                        "endColumn": 105,
-                        "endOffset": 1585
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 17,
-                    "startColumn": 4,
-                    "startOffset": 1590,
-                    "endColumn": 102,
-                    "endOffset": 1688
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 1590,
-                        "endColumn": 102,
-                        "endOffset": 1688
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 18,
-                    "startColumn": 4,
-                    "startOffset": 1693,
-                    "endColumn": 115,
-                    "endOffset": 1804
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 1693,
-                        "endColumn": 115,
-                        "endOffset": 1804
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 19,
-                    "startColumn": 4,
-                    "startOffset": 1809,
-                    "endColumn": 130,
-                    "endOffset": 1935
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 1809,
-                        "endColumn": 130,
-                        "endOffset": 1935
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 1940,
-                    "endColumn": 98,
-                    "endOffset": 2034
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 1940,
-                        "endColumn": 98,
-                        "endOffset": 2034
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 21,
-                    "startColumn": 4,
-                    "startOffset": 2039,
-                    "endColumn": 109,
-                    "endOffset": 2144
+                    "endOffset": 160
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -384,11 +23,11 @@
             },
             {
                 "to": {
-                    "startLine": 22,
+                    "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 2149,
+                    "startOffset": 165,
                     "endColumn": 97,
-                    "endOffset": 2242
+                    "endOffset": 258
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -403,11 +42,11 @@
             },
             {
                 "to": {
-                    "startLine": 23,
+                    "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 2247,
+                    "startOffset": 263,
                     "endColumn": 86,
-                    "endOffset": 2329
+                    "endOffset": 345
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -422,11 +61,11 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 2334,
+                    "startOffset": 350,
                     "endColumn": 101,
-                    "endOffset": 2431
+                    "endOffset": 447
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -441,11 +80,11 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 2436,
+                    "startOffset": 452,
                     "endColumn": 108,
-                    "endOffset": 2540
+                    "endOffset": 556
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -460,11 +99,11 @@
             },
             {
                 "to": {
-                    "startLine": 26,
+                    "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 2545,
+                    "startOffset": 561,
                     "endColumn": 95,
-                    "endOffset": 2636
+                    "endOffset": 652
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -479,11 +118,11 @@
             },
             {
                 "to": {
-                    "startLine": 27,
+                    "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 2641,
+                    "startOffset": 657,
                     "endColumn": 93,
-                    "endOffset": 2730
+                    "endOffset": 746
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -498,11 +137,11 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 2735,
+                    "startOffset": 751,
                     "endColumn": 91,
-                    "endOffset": 2822
+                    "endOffset": 838
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -517,11 +156,11 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 2827,
+                    "startOffset": 843,
                     "endColumn": 93,
-                    "endOffset": 2916
+                    "endOffset": 932
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -536,11 +175,11 @@
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 2921,
+                    "startOffset": 937,
                     "endColumn": 117,
-                    "endOffset": 3034
+                    "endOffset": 1050
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -555,11 +194,11 @@
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 3039,
+                    "startOffset": 1055,
                     "endColumn": 114,
-                    "endOffset": 3149
+                    "endOffset": 1165
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -574,11 +213,11 @@
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 3154,
+                    "startOffset": 1170,
                     "endColumn": 83,
-                    "endOffset": 3233
+                    "endOffset": 1249
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -593,11 +232,11 @@
             },
             {
                 "to": {
-                    "startLine": 33,
+                    "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 3238,
+                    "startOffset": 1254,
                     "endColumn": 80,
-                    "endOffset": 3314
+                    "endOffset": 1330
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -612,11 +251,11 @@
             },
             {
                 "to": {
-                    "startLine": 34,
+                    "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 3319,
+                    "startOffset": 1335,
                     "endColumn": 95,
-                    "endOffset": 3410
+                    "endOffset": 1426
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -631,11 +270,11 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 3415,
+                    "startOffset": 1431,
                     "endColumn": 86,
-                    "endOffset": 3497
+                    "endOffset": 1513
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -650,11 +289,11 @@
             },
             {
                 "to": {
-                    "startLine": 36,
+                    "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 3502,
+                    "startOffset": 1518,
                     "endColumn": 94,
-                    "endOffset": 3592
+                    "endOffset": 1608
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
@@ -664,44 +303,6 @@
                         "startOffset": 1518,
                         "endColumn": 94,
                         "endOffset": 1608
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 37,
-                    "startColumn": 4,
-                    "startOffset": 3597,
-                    "endColumn": 80,
-                    "endOffset": 3673
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 2039,
-                        "endColumn": 80,
-                        "endOffset": 2115
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 38,
-                    "startColumn": 4,
-                    "startOffset": 3678,
-                    "endColumn": 100,
-                    "endOffset": 3774
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-sq-rAL\\values-sq-rAL.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 4,
-                        "startOffset": 2120,
-                        "endColumn": 100,
-                        "endOffset": 2216
                     }
                 }
             }

@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.1'
+    compileSdkVersion 26
+    buildToolsVersion '26.0.1'
     defaultConfig {
         applicationId "mhealth.neu.edu.phire"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 72
-        versionName "1.71"
+        versionCode 73
+        versionName "1.72"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -36,7 +36,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.google.android.gms:play-services-wearable:9.6.1'
 //    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:appcompat-v7:25.0.0'
+//    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:appcompat-v7:26.0.+'
 
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile files('libs/weka.jar')

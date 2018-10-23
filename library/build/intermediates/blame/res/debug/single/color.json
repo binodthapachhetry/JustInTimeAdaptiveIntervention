@@ -1,11 +1,15 @@
 [
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\switch_thumb_material_light.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_text_material.xml",
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_btn_colored_text_material.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\design_tint_password_toggle.xml",
@@ -13,11 +17,11 @@
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\switch_thumb_material_dark.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_tint_switch_track.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_tint_switch_track.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_dark.xml",
@@ -25,15 +29,15 @@
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_secondary_text_material_light.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_tint_default.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_tint_default.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\wallet_primary_text_holo_light.xml",
@@ -41,27 +45,27 @@
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_hint_foreground_material_light.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_hint_foreground_material_light.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_tint_spinner.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_primary_text_material_dark.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_primary_text_material_light.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",
@@ -69,15 +73,15 @@
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_tint_btn_checkable.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_tint_seek_thumb.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_search_url_text.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_search_url_text.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\design_error.xml",
@@ -85,15 +89,15 @@
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_tint_edittext.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
-        "source": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\color\\abc_tint_switch_thumb.xml"
+        "source": "C:\\Users\\BINOD\\.android\\build-cache\\4f680a310a8f338e7676d562f05da5f43e46b5cf\\output\\res\\color\\abc_tint_switch_thumb.xml"
     },
     {
         "merged": "C:\\Users\\BINOD\\AndroidStudioProjects\\phire\\library\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_light.xml",

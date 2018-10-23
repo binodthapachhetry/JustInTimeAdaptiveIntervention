@@ -7,369 +7,8 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endColumn": 104,
-                    "endOffset": 155
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 104,
-                        "endOffset": 155
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 160,
-                    "endColumn": 107,
-                    "endOffset": 263
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 160,
-                        "endColumn": 107,
-                        "endOffset": 263
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 4,
-                    "startColumn": 4,
-                    "startOffset": 268,
-                    "endColumn": 122,
-                    "endOffset": 386
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 268,
-                        "endColumn": 122,
-                        "endOffset": 386
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 5,
-                    "startColumn": 4,
-                    "startOffset": 391,
-                    "endColumn": 103,
-                    "endOffset": 490
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 391,
-                        "endColumn": 103,
-                        "endOffset": 490
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 6,
-                    "startColumn": 4,
-                    "startOffset": 495,
-                    "endColumn": 113,
-                    "endOffset": 604
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 495,
-                        "endColumn": 113,
-                        "endOffset": 604
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 7,
-                    "startColumn": 4,
-                    "startOffset": 609,
-                    "endColumn": 85,
-                    "endOffset": 690
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 609,
-                        "endColumn": 85,
-                        "endOffset": 690
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 8,
-                    "startColumn": 4,
-                    "startOffset": 695,
-                    "endColumn": 110,
-                    "endOffset": 801
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 695,
-                        "endColumn": 110,
-                        "endOffset": 801
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 9,
-                    "startColumn": 4,
-                    "startOffset": 806,
-                    "endColumn": 115,
-                    "endOffset": 917
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 806,
-                        "endColumn": 115,
-                        "endOffset": 917
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 10,
-                    "startColumn": 4,
-                    "startOffset": 922,
-                    "endColumn": 79,
-                    "endOffset": 997
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 922,
-                        "endColumn": 79,
-                        "endOffset": 997
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 11,
-                    "startColumn": 4,
-                    "startOffset": 1002,
-                    "endColumn": 78,
-                    "endOffset": 1076
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 1002,
-                        "endColumn": 78,
-                        "endOffset": 1076
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 12,
-                    "startColumn": 4,
-                    "startOffset": 1081,
-                    "endColumn": 83,
-                    "endOffset": 1160
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 1081,
-                        "endColumn": 83,
-                        "endOffset": 1160
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 13,
-                    "startColumn": 4,
-                    "startOffset": 1165,
                     "endColumn": 108,
-                    "endOffset": 1269
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 1165,
-                        "endColumn": 108,
-                        "endOffset": 1269
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 14,
-                    "startColumn": 4,
-                    "startOffset": 1274,
-                    "endColumn": 106,
-                    "endOffset": 1376
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 1274,
-                        "endColumn": 106,
-                        "endOffset": 1376
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 15,
-                    "startColumn": 4,
-                    "startOffset": 1381,
-                    "endColumn": 100,
-                    "endOffset": 1477
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 1381,
-                        "endColumn": 100,
-                        "endOffset": 1477
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 16,
-                    "startColumn": 4,
-                    "startOffset": 1482,
-                    "endColumn": 107,
-                    "endOffset": 1585
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1482,
-                        "endColumn": 107,
-                        "endOffset": 1585
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 17,
-                    "startColumn": 4,
-                    "startOffset": 1590,
-                    "endColumn": 104,
-                    "endOffset": 1690
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 1590,
-                        "endColumn": 104,
-                        "endOffset": 1690
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 18,
-                    "startColumn": 4,
-                    "startOffset": 1695,
-                    "endColumn": 106,
-                    "endOffset": 1797
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 1695,
-                        "endColumn": 106,
-                        "endOffset": 1797
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 19,
-                    "startColumn": 4,
-                    "startOffset": 1802,
-                    "endColumn": 123,
-                    "endOffset": 1921
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 1802,
-                        "endColumn": 123,
-                        "endOffset": 1921
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 1926,
-                    "endColumn": 98,
-                    "endOffset": 2020
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 1926,
-                        "endColumn": 98,
-                        "endOffset": 2020
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 21,
-                    "startColumn": 4,
-                    "startOffset": 2025,
-                    "endColumn": 108,
-                    "endOffset": 2129
+                    "endOffset": 159
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -384,11 +23,11 @@
             },
             {
                 "to": {
-                    "startLine": 22,
+                    "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 2134,
+                    "startOffset": 164,
                     "endColumn": 98,
-                    "endOffset": 2228
+                    "endOffset": 258
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -403,11 +42,11 @@
             },
             {
                 "to": {
-                    "startLine": 23,
+                    "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 2233,
+                    "startOffset": 263,
                     "endColumn": 105,
-                    "endOffset": 2334
+                    "endOffset": 364
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -422,11 +61,11 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 2339,
+                    "startOffset": 369,
                     "endColumn": 96,
-                    "endOffset": 2431
+                    "endOffset": 461
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -441,11 +80,11 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 2436,
+                    "startOffset": 466,
                     "endColumn": 114,
-                    "endOffset": 2546
+                    "endOffset": 576
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -460,11 +99,11 @@
             },
             {
                 "to": {
-                    "startLine": 26,
+                    "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 2551,
+                    "startOffset": 581,
                     "endColumn": 96,
-                    "endOffset": 2643
+                    "endOffset": 673
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -479,11 +118,11 @@
             },
             {
                 "to": {
-                    "startLine": 27,
+                    "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 2648,
+                    "startOffset": 678,
                     "endColumn": 94,
-                    "endOffset": 2738
+                    "endOffset": 768
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -498,11 +137,11 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 2743,
+                    "startOffset": 773,
                     "endColumn": 98,
-                    "endOffset": 2837
+                    "endOffset": 867
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -517,11 +156,11 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 2842,
+                    "startOffset": 872,
                     "endColumn": 91,
-                    "endOffset": 2929
+                    "endOffset": 959
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -536,11 +175,11 @@
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 2934,
+                    "startOffset": 964,
                     "endColumn": 115,
-                    "endOffset": 3045
+                    "endOffset": 1075
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -555,11 +194,11 @@
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 3050,
+                    "startOffset": 1080,
                     "endColumn": 111,
-                    "endOffset": 3157
+                    "endOffset": 1187
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -574,11 +213,11 @@
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 3162,
+                    "startOffset": 1192,
                     "endColumn": 94,
-                    "endOffset": 3252
+                    "endOffset": 1282
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -593,11 +232,11 @@
             },
             {
                 "to": {
-                    "startLine": 33,
+                    "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 3257,
+                    "startOffset": 1287,
                     "endColumn": 84,
-                    "endOffset": 3337
+                    "endOffset": 1367
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -612,11 +251,11 @@
             },
             {
                 "to": {
-                    "startLine": 34,
+                    "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 3342,
+                    "startOffset": 1372,
                     "endColumn": 102,
-                    "endOffset": 3440
+                    "endOffset": 1470
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -631,11 +270,11 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 3445,
+                    "startOffset": 1475,
                     "endColumn": 84,
-                    "endOffset": 3525
+                    "endOffset": 1555
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -650,11 +289,11 @@
             },
             {
                 "to": {
-                    "startLine": 36,
+                    "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 3530,
+                    "startOffset": 1560,
                     "endColumn": 96,
-                    "endOffset": 3622
+                    "endOffset": 1652
                 },
                 "from": {
                     "file": "C:\\Users\\BINOD\\.android\\build-cache\\7574e7103785b77539d01692d28aae57fc80a57e\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -664,44 +303,6 @@
                         "startOffset": 1560,
                         "endColumn": 96,
                         "endOffset": 1652
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 37,
-                    "startColumn": 4,
-                    "startOffset": 3627,
-                    "endColumn": 83,
-                    "endOffset": 3706
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 2025,
-                        "endColumn": 83,
-                        "endOffset": 2104
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 38,
-                    "startColumn": 4,
-                    "startOffset": 3711,
-                    "endColumn": 100,
-                    "endOffset": 3807
-                },
-                "from": {
-                    "file": "C:\\Users\\BINOD\\.android\\build-cache\\d136970b25b315e1b2e9e5aca86f6b7e6d8e0e37\\output\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 4,
-                        "startOffset": 2109,
-                        "endColumn": 100,
-                        "endOffset": 2205
                     }
                 }
             }

@@ -1,14 +1,18 @@
 package mhealth.neu.edu.phire.services;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.PowerManager;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
 import edu.neu.mhealth.android.wockets.library.data.DataManager;
@@ -148,12 +152,66 @@ public class AlwaysOnService extends WocketsService {
     private static Notification getAlwaysOnServiceNotification(Context context, int notificationIcon, PendingIntent pIntent,String text) {
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                 notificationIcon);
-        return new Notification.Builder(context)
-                .setContentTitle(DataManager.getStudyName(context))
-                .setContentText(text)
-                .setContentIntent(pIntent)
-                .setSmallIcon(notificationIcon)
-                .setLargeIcon(icon)
-                .build();
+
+//        android.app.NotificationManager mNotificationManager =
+//                (android.app.NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "ALWAYS_ON_SERVICE";
+            String description = "ALWAYS_ON_SERVICE_DESC";
+            String channel_id = "ALWAYS_ON_SERVICE_ID";
+            int importance = android.app.NotificationManager.IMPORTANCE_LOW;
+            NotificationChannel channel = new NotificationChannel(channel_id, name, importance);
+            channel.setDescription(description);
+            channel.setBypassDnd(true);
+            channel.setLightColor(Color.GREEN);
+            return
+                    new Notification.Builder(context)
+                            .setContentTitle(DataManager.getStudyName(context))
+                            .setContentText(text)
+                            .setContentIntent(pIntent)
+                            .setSmallIcon(notificationIcon)
+                            .setLargeIcon(icon)
+                            .setChannelId(channel_id)
+                            .build();
+
+//            mNotificationManager.createNotificationChannel(channel);
+
+        }else{
+            return
+                    new Notification.Builder(context)
+                        .setContentTitle(DataManager.getStudyName(context))
+                        .setContentText(text)
+                        .setContentIntent(pIntent)
+                        .setSmallIcon(notificationIcon)
+                        .setLargeIcon(icon)
+                        .build();
+
+        }
+
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            CharSequence name = "ALWAYS_ON_SERVICE";
+//            String description = "ALWAYS_ON_SERVICE_DESC";
+//            String channel_id = "ALWAYS_ON_SERVICE_ID";
+//            int importance = android.app.NotificationManager.IMPORTANCE_HIGH;
+//            NotificationChannel channel = new NotificationChannel(channel_id, name, importance);
+//            channel.setDescription(description);
+//            return new Notification.Builder(context,channel_id)
+//                    .setContentTitle(DataManager.getStudyName(context))
+//                    .setContentText(text)
+//                    .setContentIntent(pIntent)
+//                    .setSmallIcon(notificationIcon)
+//                    .setLargeIcon(icon)
+//                    .build();
+//
+//        }else {
+//            return new Notification.Builder(context)
+//                    .setContentTitle(DataManager.getStudyName(context))
+//                    .setContentText(text)
+//                    .setContentIntent(pIntent)
+//                    .setSmallIcon(notificationIcon)
+//                    .setLargeIcon(icon)
+//                    .build();
+//        }
     }
 }

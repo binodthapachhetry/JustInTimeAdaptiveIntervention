@@ -2,6 +2,7 @@ package mhealth.neu.edu.phire.services;
 
 import android.app.IntentService;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +10,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
@@ -318,6 +321,8 @@ public class MinuteService extends WocketsIntentService {
                     0,
                     myIntent,
                     Intent.FLAG_ACTIVITY_NEW_TASK);
+            Log.i(TAG, "Showing notification", mContext);
+
             showMinuteServiceNotification(
                     mContext,
                     TEMPLEConstants.STUDY_NAME,
@@ -376,28 +381,93 @@ public class MinuteService extends WocketsIntentService {
     private static Notification getAlwaysOnServiceNotification(Context context, int notificationIcon, PendingIntent pIntent, String text) {
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
                 notificationIcon);
-        return new Notification.Builder(context)
-                .setContentTitle(DataManager.getStudyName(context))
-                .setContentText(text)
-                .setSmallIcon(notificationIcon)
-                .setLargeIcon(icon)
-                .build();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return new Notification.Builder(context)
+                    .setContentTitle(DataManager.getStudyName(context))
+                    .setContentText(text)
+                    .setSmallIcon(notificationIcon)
+                    .setLargeIcon(icon)
+                    .build();
+        } else {
+
+            return new Notification.Builder(context)
+                    .setContentTitle(DataManager.getStudyName(context))
+                    .setContentText(text)
+                    .setSmallIcon(notificationIcon)
+                    .setLargeIcon(icon)
+                    .build();
+        }
     }
+
 
     public static void showMinuteServiceNotification(Context mContext, String title, PendingIntent pendingIntent, String text, int notificationIcon) {
         Bitmap icon = BitmapFactory.decodeResource(mContext.getResources(),
                 notificationIcon);
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(mContext)
-                        .setSmallIcon(notificationIcon)
-                        .setLargeIcon(icon)
-                        .setContentIntent(pendingIntent)
-                        .setContentTitle(title)
-                        .setContentText(text)
-                        .setAutoCancel(true);
 
         android.app.NotificationManager mNotificationManager =
                 (android.app.NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(NOTIFICATION_ID_MINUTE_SERVICE, mBuilder.build());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "MINUTE_SERVICE";
+            String description = "MINUTE_SERVICE_DESC";
+            String channel_id = "MINUTE_SERVICE_ID";
+            int importance = android.app.NotificationManager.IMPORTANCE_LOW;
+            NotificationChannel channel = new NotificationChannel(channel_id, name, importance);
+            channel.setDescription(description);
+            channel.setBypassDnd(true);
+            channel.setLightColor(Color.GREEN);
+            Notification notification =
+                    new Notification.Builder(mContext)
+                            .setSmallIcon(notificationIcon)
+                            .setLargeIcon(icon)
+                            .setContentTitle(title)
+                            .setContentText(text)
+                            .setAutoCancel(false)
+                            .setContentIntent(pendingIntent)
+                            .setChannelId(channel_id)
+                            .build();
+
+            mNotificationManager.createNotificationChannel(channel);
+            mNotificationManager.notify(NOTIFICATION_ID_MINUTE_SERVICE, notification);
+
+        } else {
+            Notification notification =
+                    new Notification.Builder(mContext)
+                            .setSmallIcon(notificationIcon)
+                            .setLargeIcon(icon)
+                            .setContentTitle(title)
+                            .setContentText(text)
+                            .setContentIntent(pendingIntent)
+                            .setAutoCancel(false)
+                            .build();
+            mNotificationManager.notify(NOTIFICATION_ID_MINUTE_SERVICE, notification);
+
+
+        }
     }
+//        NotificationCompat.Builder mBuilder =
+//                new NotificationCompat.Builder(mContext)
+//                        .setSmallIcon(notificationIcon)
+//                        .setLargeIcon(icon)
+//                        .setContentIntent(pendingIntent)
+//                        .setContentTitle(title)
+//                        .setContentText(text)
+//                        .setAutoCancel(true);
+//
+//        android.app.NotificationManager mNotificationManager =
+//                (android.app.NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            CharSequence name = "MINUTE_SERVICE";
+//            String description = "MINUTE_SERVICE_DESC";
+//            String channel_id = "MINUTE_SERVICE_ID";
+//            int importance = android.app.NotificationManager.IMPORTANCE_HIGH;
+//            NotificationChannel channel = new NotificationChannel(channel_id, name, importance);
+//            channel.setDescription(description);
+//            mNotificationManager.createNotificationChannel(channel);
+//
+//        }
+//        mNotificationManager.notify(NOTIFICATION_ID_MINUTE_SERVICE, mBuilder.build());
+//    }
 }

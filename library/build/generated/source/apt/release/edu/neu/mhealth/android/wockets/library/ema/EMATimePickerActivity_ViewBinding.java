@@ -16,9 +16,9 @@ import java.lang.Override;
 public class EMATimePickerActivity_ViewBinding<T extends EMATimePickerActivity> implements Unbinder {
   protected T target;
 
-  private View view2131624243;
+  private View view2131624245;
 
-  private View view2131624244;
+  private View view2131624246;
 
   public EMATimePickerActivity_ViewBinding(final T target, Finder finder, Object source) {
     this.target = target;
@@ -28,7 +28,7 @@ public class EMATimePickerActivity_ViewBinding<T extends EMATimePickerActivity> 
     target.timePicker = finder.findRequiredViewAsType(source, R.id.wockets_activity_ema_time_picker_time_picker, "field 'timePicker'", TimePicker.class);
     view = finder.findRequiredView(source, R.id.wockets_activity_ema_time_picker_button_back, "field 'backButton' and method 'onClickBackButton'");
     target.backButton = finder.castView(view, R.id.wockets_activity_ema_time_picker_button_back, "field 'backButton'", Button.class);
-    view2131624243 = view;
+    view2131624245 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -37,7 +37,7 @@ public class EMATimePickerActivity_ViewBinding<T extends EMATimePickerActivity> 
     });
     view = finder.findRequiredView(source, R.id.wockets_activity_ema_time_picker_button_next, "field 'nextButton' and method 'onClickNextButton'");
     target.nextButton = finder.castView(view, R.id.wockets_activity_ema_time_picker_button_next, "field 'nextButton'", Button.class);
-    view2131624244 = view;
+    view2131624246 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -56,10 +56,10 @@ public class EMATimePickerActivity_ViewBinding<T extends EMATimePickerActivity> 
     target.backButton = null;
     target.nextButton = null;
 
-    view2131624243.setOnClickListener(null);
-    view2131624243 = null;
-    view2131624244.setOnClickListener(null);
-    view2131624244 = null;
+    view2131624245.setOnClickListener(null);
+    view2131624245 = null;
+    view2131624246.setOnClickListener(null);
+    view2131624246 = null;
 
     this.target = null;
   }
